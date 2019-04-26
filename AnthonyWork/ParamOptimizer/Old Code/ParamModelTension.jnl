@@ -1,0 +1,687 @@
+# -*- coding: mbcs -*-
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+cellW=110.0;
+frameW=10.0;
+#rivet pattern n by n
+n=4.0;
+r=4.0;
+F=500.0;
+t_FS=1.0;
+E_FS=69000.0;
+nu_FS=.3;
+t_rod=2.0;
+mesh_FS=2.0;
+t_bat=3.0;
+E_bat=10.0;
+nu_bat=.3;
+mesh_bat=2.0;
+E_poly=500.0;
+nu_poly=.3;
+mesh_poly=r/2;
+mdb.models['Model-1'].ConstrainedSketch(name='__profile__', sheetSize=200.0)
+mdb.models['Model-1'].sketches['__profile__'].rectangle(point1=(0.0, 0.0), 
+    point2=(cellW, cellW))
+mdb.models['Model-1'].Part(dimensionality=THREE_D, name='CF', type=
+    DEFORMABLE_BODY)
+mdb.models['Model-1'].parts['CF'].BaseSolidExtrude(depth=t_FS, sketch=
+    mdb.models['Model-1'].sketches['__profile__'])
+del mdb.models['Model-1'].sketches['__profile__']
+mdb.models['Model-1'].Material(name='CF')
+mdb.models['Model-1'].materials['CF'].Elastic(table=((E_FS, nu_FS), ))
+mdb.models['Model-1'].parts['CF'].Set(cells=
+    mdb.models['Model-1'].parts['CF'].cells.getSequenceFromMask(('[#1 ]', ), ), 
+    name='CFset')
+mdb.models['Model-1'].HomogeneousSolidSection(material='CF', name='CFsec', 
+    thickness=None)
+mdb.models['Model-1'].parts['CF'].SectionAssignment(offset=0.0, offsetField='', 
+    offsetType=MIDDLE_SURFACE, region=
+    mdb.models['Model-1'].parts['CF'].sets['CFset'], sectionName='CFsec', 
+    thicknessAssignment=FROM_SECTION)
+mdb.models['Model-1'].ConstrainedSketch(gridSpacing=7.77, name='__profile__', 
+    sheetSize=311.13, transform=
+    mdb.models['Model-1'].parts['CF'].MakeSketchTransform(
+    sketchPlane=mdb.models['Model-1'].parts['CF'].faces[4], 
+    sketchPlaneSide=SIDE1, 
+    sketchUpEdge=mdb.models['Model-1'].parts['CF'].edges[7], 
+    sketchOrientation=RIGHT, origin=(cellW/2, cellW/2, t_FS)))
+mdb.models['Model-1'].parts['CF'].projectReferencesOntoSketch(filter=
+    COPLANAR_EDGES, sketch=mdb.models['Model-1'].sketches['__profile__'])
+mdb.models['Model-1'].sketches['__profile__'].rectangle(point1=(-cellW/2, -t_rod/2), 
+    point2=(cellW/2, t_rod/2))
+mdb.models['Model-1'].parts['CF'].PartitionFaceBySketch(faces=
+    mdb.models['Model-1'].parts['CF'].faces.getSequenceFromMask(('[#10 ]', ), )
+    , sketch=mdb.models['Model-1'].sketches['__profile__'], sketchUpEdge=
+    mdb.models['Model-1'].parts['CF'].edges[7])
+del mdb.models['Model-1'].sketches['__profile__']
+mdb.models['Model-1'].parts['CF'].Surface(name='CFtop', side1Faces=
+    mdb.models['Model-1'].parts['CF'].faces.getSequenceFromMask(('[#43 ]', ), 
+    ))
+mdb.models['Model-1'].parts['CF'].Surface(name='CFbot', side1Faces=
+    mdb.models['Model-1'].parts['CF'].faces.getSequenceFromMask(('[#80 ]', ), 
+    ))
+mdb.models['Model-1'].parts['CF'].seedPart(deviationFactor=0.1, minSizeFactor=
+    0.1, size=mesh_FS)
+mdb.models['Model-1'].parts['CF'].generateMesh()
+#Make Battery Part
+mdb.models['Model-1'].ConstrainedSketch(name='__profile__', sheetSize=200.0)
+mdb.models['Model-1'].sketches['__profile__'].rectangle(point1=(0.0, 0.0), 
+    point2=(cellW-2*frameW, cellW-2*frameW))
+mdb.models['Model-1'].Part(dimensionality=THREE_D, name='Battery', type=
+    DEFORMABLE_BODY)
+mdb.models['Model-1'].parts['Battery'].BaseSolidExtrude(depth=t_bat, sketch=
+    mdb.models['Model-1'].sketches['__profile__'])
+mdb.models['Model-1'].parts['Battery'].Surface(name='BatTop', side1Faces=
+    mdb.models['Model-1'].parts['Battery'].faces.getSequenceFromMask(('[#10 ]', 
+    ), ))
+mdb.models['Model-1'].parts['Battery'].Surface(name='BatBot', side1Faces=
+    mdb.models['Model-1'].parts['Battery'].faces.getSequenceFromMask(('[#20 ]', 
+    ), ))
+mdb.models['Model-1'].ConstrainedSketch(gridSpacing=6.36, name='__profile__', 
+    sheetSize=254.62, transform=
+    mdb.models['Model-1'].parts['Battery'].MakeSketchTransform(
+    sketchPlane=mdb.models['Model-1'].parts['Battery'].faces[4], 
+    sketchPlaneSide=SIDE1, 
+    sketchUpEdge=mdb.models['Model-1'].parts['Battery'].edges[7], 
+    sketchOrientation=RIGHT, origin=((cellW-2*frameW)/2.0, (cellW-2*frameW)/2.0, t_bat)))
+mdb.models['Model-1'].parts['Battery'].projectReferencesOntoSketch(filter=
+    COPLANAR_EDGES, sketch=mdb.models['Model-1'].sketches['__profile__'])
+mdb.models['Model-1'].sketches['__profile__'].CircleByCenterPerimeter(center=(
+    -(cellW-2*frameW)/2.0+(cellW-2*frameW)/(n+1), -(cellW-2*frameW)/2.0+(cellW-2*frameW)/
+	(n+1)), point1=(-(cellW-2*frameW)/2.0+(cellW-2*frameW)/(n+1)+r, -(cellW-2*frameW)/2.0
+	+(cellW-2*frameW)/(n+1)))
+mdb.models['Model-1'].sketches['__profile__'].linearPattern(angle1=0.0, angle2=
+    90.0, geomList=(mdb.models['Model-1'].sketches['__profile__'].geometry[6], 
+    ), number1=int(n), number2=int(n), spacing1=(cellW-2*frameW)/(n+1), spacing2=(cellW-
+	2*frameW)/(n+1), vertexList=())
+mdb.models['Model-1'].parts['Battery'].CutExtrude(flipExtrudeDirection=OFF, 
+    sketch=mdb.models['Model-1'].sketches['__profile__'], sketchOrientation=
+    RIGHT, sketchPlane=mdb.models['Model-1'].parts['Battery'].faces[4], 
+    sketchPlaneSide=SIDE1, sketchUpEdge=
+    mdb.models['Model-1'].parts['Battery'].edges[7])
+mdb.models['Model-1'].Material(name='BatteryHomo')
+mdb.models['Model-1'].materials['BatteryHomo'].Elastic(table=((E_bat, nu_bat), ))
+mdb.models['Model-1'].parts['Battery'].Set(cells=
+    mdb.models['Model-1'].parts['Battery'].cells.getSequenceFromMask(('[#1 ]', 
+    ), ), name='Batset')
+mdb.models['Model-1'].HomogeneousSolidSection(material='BatteryHomo', name=
+    'BatHomoSec', thickness=None)
+mdb.models['Model-1'].parts['Battery'].SectionAssignment(offset=0.0, 
+    offsetField='', offsetType=MIDDLE_SURFACE, region=
+    mdb.models['Model-1'].parts['Battery'].sets['Batset'], sectionName=
+    'BatHomoSec', thicknessAssignment=FROM_SECTION)
+mdb.models['Model-1'].parts['Battery'].seedPart(deviationFactor=0.1, 
+    minSizeFactor=0.1, size=mesh_bat)
+mdb.models['Model-1'].parts['Battery'].generateMesh()
+#Make Polymer Surface
+mdb.models['Model-1'].ConstrainedSketch(name='__profile__', sheetSize=200.0)
+mdb.models['Model-1'].sketches['__profile__'].rectangle(point1=(0.0, 0.0), 
+    point2=(cellW, cellW))
+mdb.models['Model-1'].Part(dimensionality=THREE_D, name='Polymer', type=
+    DEFORMABLE_BODY)
+mdb.models['Model-1'].parts['Polymer'].BaseSolidExtrude(depth=t_bat, sketch=
+    mdb.models['Model-1'].sketches['__profile__'])
+del mdb.models['Model-1'].sketches['__profile__']
+mdb.models['Model-1'].Material(name='Polymer')
+mdb.models['Model-1'].materials['Polymer'].Elastic(table=((E_poly, nu_poly), ))
+mdb.models['Model-1'].HomogeneousSolidSection(material='Polymer', name=
+    'PolySec', thickness=None)
+mdb.models['Model-1'].parts['Polymer'].Set(cells=
+    mdb.models['Model-1'].parts['Polymer'].cells.getSequenceFromMask(('[#1 ]', 
+    ), ), name='PolySet')
+mdb.models['Model-1'].parts['Polymer'].SectionAssignment(offset=0.0, 
+    offsetField='', offsetType=MIDDLE_SURFACE, region=
+    mdb.models['Model-1'].parts['Polymer'].sets['PolySet'], sectionName=
+    'PolySec', thicknessAssignment=FROM_SECTION)
+mdb.models['Model-1'].parts['Polymer'].Surface(name='PolyTop', side1Faces=
+    mdb.models['Model-1'].parts['Polymer'].faces.getSequenceFromMask(('[#10 ]', 
+    ), ))
+mdb.models['Model-1'].parts['Polymer'].Surface(name='PolyBot', side1Faces=
+    mdb.models['Model-1'].parts['Polymer'].faces.getSequenceFromMask(('[#20 ]', 
+    ), ))
+mdb.models['Model-1'].ConstrainedSketch(gridSpacing=7.77, name='__profile__', 
+    sheetSize=311.18, transform=
+    mdb.models['Model-1'].parts['Polymer'].MakeSketchTransform(
+    sketchPlane=mdb.models['Model-1'].parts['Polymer'].faces[4], 
+    sketchPlaneSide=SIDE1, 
+    sketchUpEdge=mdb.models['Model-1'].parts['Polymer'].edges[7], 
+    sketchOrientation=RIGHT, origin=(cellW/2, cellW/2, t_bat)))
+mdb.models['Model-1'].parts['Polymer'].projectReferencesOntoSketch(filter=
+    COPLANAR_EDGES, sketch=mdb.models['Model-1'].sketches['__profile__'])
+mdb.models['Model-1'].sketches['__profile__'].rectangle(point1=(-cellW/2+frameW,
+	-cellW/2+frameW), point2=(cellW/2-frameW, cellW/2-frameW))
+mdb.models['Model-1'].sketches['__profile__'].CircleByCenterPerimeter(center=(
+    -cellW/2+frameW+(cellW-2*frameW)/(n+1), -cellW/2+frameW+(cellW-2*frameW)/
+	(n+1)), point1=(-cellW/2+frameW+(cellW-2*frameW)/(n+1)+r, -cellW/2+frameW+
+	(cellW-2*frameW)/(n+1)))
+mdb.models['Model-1'].sketches['__profile__'].linearPattern(angle1=0.0, angle2=
+    90.0, geomList=(mdb.models['Model-1'].sketches['__profile__'].geometry[10], 
+    ), number1=int(n), number2=int(n), spacing1=(cellW-2*frameW)/(n+1), spacing2=(cellW-2
+	*frameW)/(n+1), vertexList=())
+mdb.models['Model-1'].parts['Polymer'].CutExtrude(flipExtrudeDirection=OFF, 
+    sketch=mdb.models['Model-1'].sketches['__profile__'], sketchOrientation=
+    RIGHT, sketchPlane=mdb.models['Model-1'].parts['Polymer'].faces[4], 
+    sketchPlaneSide=SIDE1, sketchUpEdge=
+    mdb.models['Model-1'].parts['Polymer'].edges[7])
+del mdb.models['Model-1'].sketches['__profile__']
+mdb.models['Model-1'].parts['Polymer'].seedPart(deviationFactor=0.1, 
+    minSizeFactor=0.1, size=mesh_poly)
+mdb.models['Model-1'].parts['Polymer'].generateMesh()
+mdb.models['Model-1'].rootAssembly.Instance(dependent=ON, name='CF-1', part=
+    mdb.models['Model-1'].parts['CF'])
+mdb.models['Model-1'].rootAssembly.Instance(dependent=ON, name='Battery-1', 
+    part=mdb.models['Model-1'].parts['Battery'])
+mdb.models['Model-1'].rootAssembly.instances['Battery-1'].translate(vector=(
+    frameW, frameW, -t_bat))
+mdb.models['Model-1'].rootAssembly.Instance(dependent=ON, name='Polymer-1', 
+    part=mdb.models['Model-1'].parts['Polymer'])
+mdb.models['Model-1'].rootAssembly.instances['Polymer-1'].translate(vector=(
+    0.0, 0.0, -t_bat))
+mdb.models['Model-1'].rootAssembly.Instance(dependent=ON, name='CF-2', part=
+    mdb.models['Model-1'].parts['CF'])
+mdb.models['Model-1'].rootAssembly.instances['CF-2'].translate(vector=(0.0, 
+    0.0, -(t_FS+t_bat)))
+mdb.models['Model-1'].parts['Polymer'].Surface(name='PolyInside', side1Faces=
+    mdb.models['Model-1'].parts['Polymer'].faces.getSequenceFromMask(('[#1 ]', 
+    ), ))
+mdb.models['Model-1'].Tie(adjust=ON, master=
+    mdb.models['Model-1'].rootAssembly.instances['CF-1'].surfaces['CFbot'], 
+    name='CF1Poly', positionToleranceMethod=COMPUTED, slave=
+    mdb.models['Model-1'].rootAssembly.instances['Polymer-1'].surfaces['PolyTop']
+    , thickness=ON, tieRotations=ON)
+#mdb.models['Model-1'].Tie(adjust=ON, master=
+mdb.models['Model-1'].Tie(adjust=ON, master=
+    mdb.models['Model-1'].rootAssembly.instances['Polymer-1'].surfaces['PolyBot']
+    , name='PolyCF2', positionToleranceMethod=COMPUTED, slave=
+    mdb.models['Model-1'].rootAssembly.instances['CF-2'].surfaces['CFtop'], 
+    thickness=ON, tieRotations=ON)
+#mdb.models['Model-1'].Tie(adjust=ON, master=
+mdb.models['Model-1'].ContactProperty('NormalCont')
+mdb.models['Model-1'].interactionProperties['NormalCont'].NormalBehavior(
+    allowSeparation=ON, constraintEnforcementMethod=DEFAULT, 
+    pressureOverclosure=HARD)
+mdb.models['Model-1'].ContactProperty('TangCont')
+mdb.models['Model-1'].interactionProperties['TangCont'].TangentialBehavior(
+    elasticSlipStiffness=None, exponentialDecayDefinition=COEFFICIENTS, 
+    formulation=EXPONENTIAL_DECAY, fraction=0.005, maximumElasticSlip=FRACTION, 
+    table=((0.4, 0.3, 1.0), ))
+mdb.models['Model-1'].SurfaceToSurfaceContactStd(adjustMethod=NONE, 
+    clearanceRegion=None, createStepName='Initial', datumAxis=None, 
+    initialClearance=OMIT, interactionProperty='NormalCont', master=
+    mdb.models['Model-1'].rootAssembly.instances['CF-1'].surfaces['CFbot'], 
+    name='CF1Bat', slave=
+    mdb.models['Model-1'].rootAssembly.instances['Battery-1'].surfaces['BatTop']
+    , sliding=FINITE, thickness=ON)
+mdb.models['Model-1'].SurfaceToSurfaceContactStd(adjustMethod=NONE, 
+    clearanceRegion=None, createStepName='Initial', datumAxis=None, 
+    initialClearance=OMIT, interactionProperty='TangCont', master=
+    mdb.models['Model-1'].rootAssembly.instances['CF-1'].surfaces['CFbot'], 
+    name='CF1BatTan', slave=
+    mdb.models['Model-1'].rootAssembly.instances['Battery-1'].surfaces['BatTop']
+    , sliding=FINITE, thickness=ON)
+mdb.models['Model-1'].SurfaceToSurfaceContactStd(adjustMethod=NONE, 
+    clearanceRegion=None, createStepName='Initial', datumAxis=None, 
+    initialClearance=OMIT, interactionProperty='NormalCont', master=
+    mdb.models['Model-1'].rootAssembly.instances['Battery-1'].surfaces['BatBot']
+    , name='BatCF2', slave=
+    mdb.models['Model-1'].rootAssembly.instances['CF-2'].surfaces['CFtop'], 
+    sliding=FINITE, thickness=ON)
+mdb.models['Model-1'].SurfaceToSurfaceContactStd(adjustMethod=NONE, 
+    clearanceRegion=None, createStepName='Initial', datumAxis=None, 
+    initialClearance=OMIT, interactionProperty='TangCont', master=
+    mdb.models['Model-1'].rootAssembly.instances['Battery-1'].surfaces['BatBot']
+    , name='BatCF2Tan', slave=
+    mdb.models['Model-1'].rootAssembly.instances['CF-2'].surfaces['CFtop'], 
+    sliding=FINITE, thickness=ON)
+mdb.models['Model-1'].rootAssembly.Set(edges=
+    mdb.models['Model-1'].rootAssembly.instances['CF-2'].edges.getSequenceFromMask(
+    ('[#22000 ]', ), ), name='BCedges')
+mdb.models['Model-1'].DisplacementBC(amplitude=UNSET, createStepName='Initial', 
+    distributionType=UNIFORM, fieldName='', localCsys=None, name='Pin', region=
+    mdb.models['Model-1'].rootAssembly.sets['BCedges'], u1=SET, u2=SET, u3=SET, 
+    ur1=UNSET, ur2=UNSET, ur3=UNSET)
+mdb.models['Model-1'].StaticStep(name='Loading', previous='Initial')
+mdb.models['Model-1'].rootAssembly.Surface(name='LoadSurf', side1Faces=
+    mdb.models['Model-1'].rootAssembly.instances['CF-1'].faces.getSequenceFromMask(
+    ('[#2 ]', ), ))
+mdb.models['Model-1'].Pressure(amplitude=UNSET, createStepName='Loading', 
+    distributionType=TOTAL_FORCE, field='', magnitude=F, name='Pressure', 
+    region=mdb.models['Model-1'].rootAssembly.surfaces['LoadSurf'])
+mdb.models['Model-1'].rootAssembly.ReferencePoint(point=
+    mdb.models['Model-1'].rootAssembly.instances['CF-1'].InterestingPoint(
+    mdb.models['Model-1'].rootAssembly.instances['CF-1'].edges[6], MIDDLE))
+mdb.models['Model-1'].rootAssembly.Set(faces=
+    mdb.models['Model-1'].rootAssembly.instances['CF-1'].faces.getSequenceFromMask(
+    ('[#2 ]', ), ), name='LoadSet')
+mdb.models['Model-1'].RigidBody(name='RigidDeform', refPointRegion=Region(
+    referencePoints=(mdb.models['Model-1'].rootAssembly.referencePoints[11], ))
+    , tieRegion=mdb.models['Model-1'].rootAssembly.sets['LoadSet'])
+mdb.Job(atTime=None, contactPrint=OFF, description='', echoPrint=OFF, 
+    explicitPrecision=SINGLE, getMemoryFromAnalysis=True, historyPrint=OFF, 
+    memory=90, memoryUnits=PERCENTAGE, model='Model-1', modelPrint=OFF, 
+    multiprocessingMode=DEFAULT, name='3PointBend', nodalOutputPrecision=SINGLE
+    , numCpus=1, numGPUs=0, queue=None, scratch='', type=ANALYSIS, 
+    userSubroutine='', waitHours=0, waitMinutes=0)
+mdb.models['Model-1'].rootAssembly.regenerate()
+mdb.models['Model-1'].fieldOutputRequests['F-Output-1'].setValues(variables=(
+    'U', 'UT', 'UR'))	
+mdb.jobs['3PointBend'].submit(consistencyChecking=OFF)
+import odbAccess
+odb = session.openOdb('3PointBend.odb')
+timeFrame = odb.steps['Loading'].frames[1]
+displacement = timeFrame.fieldOutputs['U']
+loadnode = odb.rootAssembly.nodeSets[' ALL NODES']
+loadnodeDisp = displacement.getSubset(region=loadnode)
+myoutfile = open('C:/Users/Bombik/Documents/School/GradSchool/AeroAstroMasters/SACL/ParamOptimizer/result.txt','w+')
+for v in loadnodeDisp.values:
+	myoutfile.write(str(v.data[0]))
+	myoutfile.write(' ')
+	myoutfile.write(str(v.data[1]))
+	myoutfile.write(' ')
+	myoutfile.write(str(v.data[2]))
+	myoutfile.write("\n")
+myoutfile.close()
+odb.close()from part import *from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+del mdb.models['Model-1'].interactionProperties['NormalCont']
+del mdb.models['Model-1'].interactionProperties['TangCont']
+mdb.models['Model-1'].interactions.delete(('BatCF2', 'BatCF2Tan', 'CF1Bat', 
+    'CF1BatTan'))
+mdb.models['Model-1'].ContactProperty('NormCont')
+mdb.models['Model-1'].interactionProperties['NormCont'].NormalBehavior(
+    allowSeparation=ON, constraintEnforcementMethod=DEFAULT, 
+    pressureOverclosure=HARD)
+mdb.models['Model-1'].interactionProperties['NormCont'].TangentialBehavior(
+    dependencies=0, directionality=ISOTROPIC, elasticSlipStiffness=None, 
+    formulation=PENALTY, fraction=0.005, maximumElasticSlip=FRACTION, 
+    pressureDependency=OFF, shearStressLimit=None, slipRateDependency=OFF, 
+    table=((0.3, ), ), temperatureDependency=OFF)
+mdb.models['Model-1'].SurfaceToSurfaceContactStd(adjustMethod=NONE, 
+    clearanceRegion=None, createStepName='Initial', datumAxis=None, 
+    initialClearance=OMIT, interactionProperty='NormCont', master=
+    mdb.models['Model-1'].rootAssembly.instances['CF-1'].surfaces['CFbot'], 
+    name='CF1Bat', slave=
+    mdb.models['Model-1'].rootAssembly.instances['Battery-1'].surfaces['BatTop']
+    , sliding=FINITE, thickness=ON)
+mdb.models['Model-1'].SurfaceToSurfaceContactStd(adjustMethod=NONE, 
+    clearanceRegion=None, createStepName='Initial', datumAxis=None, 
+    initialClearance=OMIT, interactionProperty='NormCont', master=
+    mdb.models['Model-1'].rootAssembly.instances['Battery-1'].surfaces['BatBot']
+    , name='CF2Bat', slave=
+    mdb.models['Model-1'].rootAssembly.instances['CF-2'].surfaces['CFtop'], 
+    sliding=FINITE, thickness=ON)
+del mdb.models['Model-1'].materials['BatteryHomo']
+del mdb.models['Model-1'].materials['CF']
+mdb.models['Model-1'].Material(name='CF')
+mdb.models['Model-1'].materials['CF'].Elastic(table=((30420.0, 4023.0, 4023.0, 
+    0.29, 0.29, 0.3928, 2081.0, 2081.0, 1440.0), ), type=ENGINEERING_CONSTANTS)
+mdb.models['Model-1'].Material(name='BatOrtho')
+mdb.models['Model-1'].materials['BatOrtho'].Elastic(table=((1090.0, 109.0, 
+    500.0, 0.15, 0.15, 0.15, 474.0, 474.0, 474.0), ), type=
+    ENGINEERING_CONSTANTS)
+del mdb.models['Model-1'].parts['CF'].sectionAssignments[0]
+mdb.models['Model-1'].parts['CF'].MaterialOrientation(additionalRotationType=
+    ROTATION_NONE, axis=AXIS_3, fieldName='', localCsys=None, orientationType=
+    GLOBAL, region=mdb.models['Model-1'].parts['CF'].sets['CFset'], 
+    stackDirection=STACK_3)
+mdb.models['Model-1'].parts['CF'].DatumCsysByThreePoints(coordSysType=CARTESIAN
+    , name='Datum csys-1', origin=(0.0, 0.0, 0.0), point1=(0.0, 1.0, 0.0), 
+    point2=(1.0, 0.0, 0.0))
+mdb.models['Model-1'].parts['CF'].CompositeLayup(description='', elementType=
+    SOLID, name='CompositeLayup', symmetric=False, thicknessAssignment=
+    FROM_SECTION)
+mdb.models['Model-1'].parts['CF'].compositeLayups['CompositeLayup'].ReferenceOrientation(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, fieldName='', localCsys=
+    mdb.models['Model-1'].parts['CF'].datums[7], orientationType=SYSTEM, 
+    stackDirection=STACK_3)
+mdb.models['Model-1'].parts['CF'].compositeLayups['CompositeLayup'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='CF', numIntPoints=1, orientationType=
+    SPECIFY_ORIENT, orientationValue=0.0, plyName='Ply-1', region=
+    mdb.models['Model-1'].parts['CF'].sets['CFset'], suppressed=False, 
+    thickness=0.5, thicknessType=SPECIFY_THICKNESS)
+mdb.models['Model-1'].parts['CF'].compositeLayups['CompositeLayup'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='CF', numIntPoints=1, orientationType=
+    SPECIFY_ORIENT, orientationValue=90.0, plyName='Ply-2', region=
+    mdb.models['Model-1'].parts['CF'].sets['CFset'], suppressed=False, 
+    thickness=0.5, thicknessType=SPECIFY_THICKNESS)
+mdb.models['Model-1'].parts['CF'].compositeLayups['CompositeLayup'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='CF', numIntPoints=1, orientationType=
+    SPECIFY_ORIENT, orientationValue=90.0, plyName='Ply-3', region=
+    mdb.models['Model-1'].parts['CF'].sets['CFset'], suppressed=False, 
+    thickness=0.5, thicknessType=SPECIFY_THICKNESS)
+mdb.models['Model-1'].parts['CF'].compositeLayups['CompositeLayup'].CompositePly(
+    additionalRotationField='', additionalRotationType=ROTATION_NONE, angle=0.0
+    , axis=AXIS_3, material='CF', numIntPoints=1, orientationType=
+    SPECIFY_ORIENT, orientationValue=0.0, plyName='Ply-4', region=
+    mdb.models['Model-1'].parts['CF'].sets['CFset'], suppressed=False, 
+    thickness=0.5, thicknessType=SPECIFY_THICKNESS)
+mdb.models['Model-1'].parts['Battery'].MaterialOrientation(
+    additionalRotationType=ROTATION_NONE, axis=AXIS_3, fieldName='', localCsys=
+    None, orientationType=GLOBAL, region=
+    mdb.models['Model-1'].parts['Battery'].sets['Batset'], stackDirection=
+    STACK_3)
+del mdb.models['Model-1'].sections['BatHomoSec']
+mdb.models['Model-1'].HomogeneousSolidSection(material='BatOrtho', name=
+    'BatOrtho', thickness=None)
+del mdb.models['Model-1'].parts['Battery'].sectionAssignments[0]
+mdb.models['Model-1'].parts['Battery'].SectionAssignment(offset=0.0, 
+    offsetField='', offsetType=MIDDLE_SURFACE, region=
+    mdb.models['Model-1'].parts['Battery'].sets['Batset'], sectionName=
+    'BatOrtho', thicknessAssignment=FROM_SECTION)
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.models['Model-1'].rootAssembly.regenerate()
+mdb.models['Model-1'].steps['Loading'].setValues(adaptiveDampingRatio=0.05, 
+    continueDampingFactors=False, stabilizationMagnitude=0.0002, 
+    stabilizationMethod=DISSIPATED_ENERGY_FRACTION)
+# Save by Bombik on 2016_12_06-08.32.15; build 6.12-1 2012_03_13-20.23.18 119612
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.models['Model-1'].parts['CF'].Surface(name='TensionLoad', side1Faces=
+    mdb.models['Model-1'].parts['CF'].faces.getSequenceFromMask(('[#28 ]', ), 
+    ))
+mdb.models['Model-1'].parts['Polymer'].Surface(name='TensionLoad', side1Faces=
+    mdb.models['Model-1'].parts['Polymer'].faces.getSequenceFromMask(('[#a0 ]', 
+    ), ))
+mdb.models['Model-1'].rootAssembly.regenerate()
+del mdb.models['Model-1'].boundaryConditions['Pin']
+mdb.models['Model-1'].rootAssembly.Surface(name='TensionZone', side1Faces=
+    mdb.models['Model-1'].rootAssembly.instances['Polymer-1'].faces.getSequenceFromMask(
+    mask=('[#a0 ]', ), )+\
+    mdb.models['Model-1'].rootAssembly.instances['CF-2'].faces.getSequenceFromMask(
+    mask=('[#28 ]', ), )+\
+    mdb.models['Model-1'].rootAssembly.instances['CF-1'].faces.getSequenceFromMask(
+    mask=('[#28 ]', ), ))
+mdb.models['Model-1'].Pressure(amplitude=UNSET, createStepName='Loading', 
+    distributionType=TOTAL_FORCE, field='', magnitude=150.0, name='Tension', 
+    region=mdb.models['Model-1'].rootAssembly.surfaces['TensionZone'])
+mdb.models['Model-1'].loads['Tension'].setValues(magnitude=-150.0)
+del mdb.models['Model-1'].loads['Pressure']
+del mdb.models['Model-1'].parts['CF'].surfaces['TensionLoad']
+del mdb.models['Model-1'].parts['Polymer'].surfaces['TensionLoad']
+mdb.models['Model-1'].rootAssembly.regenerate()
+mdb.Job(atTime=None, contactPrint=OFF, description='', echoPrint=OFF, 
+    explicitPrecision=SINGLE, getMemoryFromAnalysis=True, historyPrint=OFF, 
+    memory=90, memoryUnits=PERCENTAGE, model='Model-1', modelPrint=OFF, 
+    multiprocessingMode=DEFAULT, name='Tension', nodalOutputPrecision=SINGLE, 
+    numCpus=1, numGPUs=0, queue=None, scratch='', type=ANALYSIS, 
+    userSubroutine='', waitHours=0, waitMinutes=0)
+del mdb.jobs['3PointBend']
+mdb.jobs['Tension'].submit(consistencyChecking=OFF)
+mdb.jobs['Tension']._Message(STARTED, {'phase': BATCHPRE_PHASE, 
+    'clientHost': 'Bombik-HPENVY', 'handle': 0, 'jobName': 'Tension'})
+mdb.jobs['Tension']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'FOR *TIE PAIR (ASSEMBLY_POLYMER-1_POLYTOP-ASSEMBLY_CF-1_CFBOT), ADJUSTED NODES WITH VERY SMALL ADJUSTMENTS WERE NOT PRINTED. SPECIFY *PREPRINT,MODEL=YES FOR COMPLETE PRINTOUT.', 
+    'jobName': 'Tension'})
+mdb.jobs['Tension']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'FOR *TIE PAIR (ASSEMBLY_CF-2_CFTOP-ASSEMBLY_POLYMER-1_POLYBOT), ADJUSTED NODES WITH VERY SMALL ADJUSTMENTS WERE NOT PRINTED. SPECIFY *PREPRINT,MODEL=YES FOR COMPLETE PRINTOUT.', 
+    'jobName': 'Tension'})
+mdb.jobs['Tension']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'SLAVE NODE 679 INSTANCE CF-2 WILL NOT BE TIED TO THE MASTER SURFACE ASSEMBLY_POLYMER-1_POLYBOT. THE DISTANCE FROM THE MASTER SURFACE IS GREATER THAN THE POSITION TOLERANCE VALUE.', 
+    'jobName': 'Tension'})
+mdb.jobs['Tension']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'SLAVE NODE 680 INSTANCE CF-2 WILL NOT BE TIED TO THE MASTER SURFACE ASSEMBLY_POLYMER-1_POLYBOT. THE DISTANCE FROM THE MASTER SURFACE IS GREATER THAN THE POSITION TOLERANCE VALUE.', 
+    'jobName': 'Tension'})
+mdb.jobs['Tension']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'SLAVE NODE 681 INSTANCE CF-2 WILL NOT BE TIED TO THE MASTER SURFACE ASSEMBLY_POLYMER-1_POLYBOT. THE DISTANCE FROM THE MASTER SURFACE IS GREATER THAN THE POSITION TOLERANCE VALUE.', 
+    'jobName': 'Tension'})
+mdb.jobs['Tension']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'SLAVE NODE 682 INSTANCE CF-2 WILL NOT BE TIED TO THE MASTER SURFACE ASSEMBLY_POLYMER-1_POLYBOT. THE DISTANCE FROM THE MASTER SURFACE IS GREATER THAN THE POSITION TOLERANCE VALUE.', 
+    'jobName': 'Tension'})
+mdb.jobs['Tension']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'SLAVE NODE 683 INSTANCE CF-2 WILL NOT BE TIED TO THE MASTER SURFACE ASSEMBLY_POLYMER-1_POLYBOT. THE DISTANCE FROM THE MASTER SURFACE IS GREATER THAN THE POSITION TOLERANCE VALUE.', 
+    'jobName': 'Tension'})
+mdb.jobs['Tension']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'SLAVE NODE 684 INSTANCE CF-2 WILL NOT BE TIED TO THE MASTER SURFACE ASSEMBLY_POLYMER-1_POLYBOT. THE DISTANCE FROM THE MASTER SURFACE IS GREATER THAN THE POSITION TOLERANCE VALUE.', 
+    'jobName': 'Tension'})
+mdb.jobs['Tension']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'SLAVE NODE 685 INSTANCE CF-2 WILL NOT BE TIED TO THE MASTER SURFACE ASSEMBLY_POLYMER-1_POLYBOT. THE DISTANCE FROM THE MASTER SURFACE IS GREATER THAN THE POSITION TOLERANCE VALUE.', 
+    'jobName': 'Tension'})
+mdb.jobs['Tension']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'SLAVE NODE 686 INSTANCE CF-2 WILL NOT BE TIED TO THE MASTER SURFACE ASSEMBLY_POLYMER-1_POLYBOT. THE DISTANCE FROM THE MASTER SURFACE IS GREATER THAN THE POSITION TOLERANCE VALUE.', 
+    'jobName': 'Tension'})
+mdb.jobs['Tension']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'SLAVE NODE 687 INSTANCE CF-2 WILL NOT BE TIED TO THE MASTER SURFACE ASSEMBLY_POLYMER-1_POLYBOT. THE DISTANCE FROM THE MASTER SURFACE IS GREATER THAN THE POSITION TOLERANCE VALUE.', 
+    'jobName': 'Tension'})
+mdb.jobs['Tension']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'SLAVE NODE 688 INSTANCE CF-2 WILL NOT BE TIED TO THE MASTER SURFACE ASSEMBLY_POLYMER-1_POLYBOT. THE DISTANCE FROM THE MASTER SURFACE IS GREATER THAN THE POSITION TOLERANCE VALUE.', 
+    'jobName': 'Tension'})
+mdb.jobs['Tension']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'SLAVE NODE 689 INSTANCE CF-2 WILL NOT BE TIED TO THE MASTER SURFACE ASSEMBLY_POLYMER-1_POLYBOT. THE DISTANCE FROM THE MASTER SURFACE IS GREATER THAN THE POSITION TOLERANCE VALUE.', 
+    'jobName': 'Tension'})
+mdb.jobs['Tension']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': '1900 nodes are either missing intersection with their respective master surface or are outside the adjust zone. The nodes have been identified in node set WarnNodeMissMasterIntersect.', 
+    'jobName': 'Tension'})
+mdb.jobs['Tension']._Message(ODB_FILE, {'phase': BATCHPRE_PHASE, 
+    'file': 'C:\\SIMULIA\\Abaqus\\Commands\\Tension.odb', 
+    'jobName': 'Tension'})
+mdb.jobs['Tension']._Message(COMPLETED, {'phase': BATCHPRE_PHASE, 
+    'message': 'Analysis phase complete', 'jobName': 'Tension'})
+mdb.jobs['Tension']._Message(STARTED, {'phase': STANDARD_PHASE, 
+    'clientHost': 'Bombik-HPENVY', 'handle': 14716, 'jobName': 'Tension'})
+mdb.jobs['Tension']._Message(STEP, {'phase': STANDARD_PHASE, 'stepId': 1, 
+    'jobName': 'Tension'})
+mdb.jobs['Tension']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 0, 'jobName': 'Tension'})
+mdb.jobs['Tension']._Message(STATUS, {'totalTime': 0.0, 'attempts': 0, 
+    'timeIncrement': 1.0, 'increment': 0, 'stepTime': 0.0, 'step': 1, 
+    'jobName': 'Tension', 'severe': 0, 'iterations': 0, 
+    'phase': STANDARD_PHASE, 'equilibrium': 0})
+mdb.jobs['Tension']._Message(MEMORY_ESTIMATE, {'phase': STANDARD_PHASE, 
+    'jobName': 'Tension', 'memory': 1496.58969402313})
+mdb.jobs['Tension']._Message(STATUS, {'totalTime': 0.0, 'attempts': ' 1U', 
+    'timeIncrement': 1.0, 'increment': 1, 'stepTime': 0.0, 'step': 1, 
+    'jobName': 'Tension', 'severe': 21, 'iterations': 21, 
+    'phase': STANDARD_PHASE, 'equilibrium': 0})
+# Save by Bombik on 2016_12_06-08.50.00; build 6.12-1 2012_03_13-20.23.18 119612
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.jobs['Tension']._Message(STATUS, {'totalTime': 0.0, 'attempts': ' 2U', 
+    'timeIncrement': 0.25, 'increment': 1, 'stepTime': 0.0, 'step': 1, 
+    'jobName': 'Tension', 'severe': 28, 'iterations': 28, 
+    'phase': STANDARD_PHASE, 'equilibrium': 0})
+mdb.jobs['Tension']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 1, 'jobName': 'Tension'})
+mdb.jobs['Tension']._Message(STATUS, {'totalTime': 0.0625, 'attempts': 3, 
+    'timeIncrement': 0.0625, 'increment': 1, 'stepTime': 0.0625, 'step': 1, 
+    'jobName': 'Tension', 'severe': 24, 'iterations': 25, 
+    'phase': STANDARD_PHASE, 'equilibrium': 1})
+mdb.jobs['Tension']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 2, 'jobName': 'Tension'})
+mdb.jobs['Tension']._Message(STATUS, {'totalTime': 0.125, 'attempts': 1, 
+    'timeIncrement': 0.0625, 'increment': 2, 'stepTime': 0.125, 'step': 1, 
+    'jobName': 'Tension', 'severe': 3, 'iterations': 3, 
+    'phase': STANDARD_PHASE, 'equilibrium': 0})
+mdb.jobs['Tension']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 3, 'jobName': 'Tension'})
+mdb.jobs['Tension']._Message(STATUS, {'totalTime': 0.21875, 'attempts': 1, 
+    'timeIncrement': 0.09375, 'increment': 3, 'stepTime': 0.21875, 'step': 1, 
+    'jobName': 'Tension', 'severe': 1, 'iterations': 2, 
+    'phase': STANDARD_PHASE, 'equilibrium': 1})
+mdb.jobs['Tension']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 4, 'jobName': 'Tension'})
+mdb.jobs['Tension']._Message(STATUS, {'totalTime': 0.359375, 'attempts': 1, 
+    'timeIncrement': 0.140625, 'increment': 4, 'stepTime': 0.359375, 'step': 1, 
+    'jobName': 'Tension', 'severe': 3, 'iterations': 3, 
+    'phase': STANDARD_PHASE, 'equilibrium': 0})
+mdb.jobs['Tension']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 5, 'jobName': 'Tension'})
+mdb.jobs['Tension']._Message(STATUS, {'totalTime': 0.5703125, 'attempts': 1, 
+    'timeIncrement': 0.2109375, 'increment': 5, 'stepTime': 0.5703125, 
+    'step': 1, 'jobName': 'Tension', 'severe': 2, 'iterations': 2, 
+    'phase': STANDARD_PHASE, 'equilibrium': 0})
+mdb.jobs['Tension']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 6, 'jobName': 'Tension'})
+mdb.jobs['Tension']._Message(STATUS, {'totalTime': 0.88671875, 'attempts': 1, 
+    'timeIncrement': 0.31640625, 'increment': 6, 'stepTime': 0.88671875, 
+    'step': 1, 'jobName': 'Tension', 'severe': 4, 'iterations': 4, 
+    'phase': STANDARD_PHASE, 'equilibrium': 0})
+mdb.jobs['Tension']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 7, 'jobName': 'Tension'})
+mdb.jobs['Tension']._Message(STATUS, {'totalTime': 1.0, 'attempts': 1, 
+    'timeIncrement': 0.11328125, 'increment': 7, 'stepTime': 1.0, 'step': 1, 
+    'jobName': 'Tension', 'severe': 2, 'iterations': 2, 
+    'phase': STANDARD_PHASE, 'equilibrium': 0})
+mdb.jobs['Tension']._Message(END_STEP, {'phase': STANDARD_PHASE, 'stepId': 1, 
+    'jobName': 'Tension'})
+mdb.jobs['Tension']._Message(COMPLETED, {'phase': STANDARD_PHASE, 
+    'message': 'Analysis phase complete', 'jobName': 'Tension'})
+mdb.jobs['Tension']._Message(JOB_COMPLETED, {
+    'time': 'Tue Dec 06 09:01:11 2016', 'jobName': 'Tension'})
+# Save by Bombik on 2016_12_06-09.04.29; build 6.12-1 2012_03_13-20.23.18 119612
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.models['Model-1'].parts['Battery'].Surface(name='Inner', side1Faces=
+    mdb.models['Model-1'].parts['Battery'].faces.getSequenceFromMask(('[#f ]', 
+    ), ))
+mdb.models['Model-1'].parts['Battery'].Surface(name='All', side1Faces=
+    mdb.models['Model-1'].parts['Battery'].faces.getSequenceFromMask((
+    '[#3ff ]', ), ))
+# Save by Bombik on 2016_12_16-12.25.45; build 6.12-1 2012_03_13-20.23.18 119612
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.models['Model-1'].rootAssembly.regenerate()
+mdb.models['Model-1'].parts['Battery'].Surface(name='riv1', side1Faces=
+    mdb.models['Model-1'].parts['Battery'].faces.getSequenceFromMask(('[#8 ]', 
+    ), ))
+mdb.models['Model-1'].parts['Battery'].Surface(name='riv2', side1Faces=
+    mdb.models['Model-1'].parts['Battery'].faces.getSequenceFromMask(('[#1 ]', 
+    ), ))
+mdb.models['Model-1'].parts['Battery'].Surface(name='riv3', side1Faces=
+    mdb.models['Model-1'].parts['Battery'].faces.getSequenceFromMask(('[#4 ]', 
+    ), ))
+mdb.models['Model-1'].parts['Battery'].Surface(name='riv4', side1Faces=
+    mdb.models['Model-1'].parts['Battery'].faces.getSequenceFromMask(('[#2 ]', 
+    ), ))
+mdb.models['Model-1'].parts['Battery'].Surface(name='topedge', side1Faces=
+    mdb.models['Model-1'].parts['Battery'].faces.getSequenceFromMask(('[#80 ]', 
+    ), ))
+mdb.models['Model-1'].parts['Battery'].Surface(name='rightedge', side1Faces=
+    mdb.models['Model-1'].parts['Battery'].faces.getSequenceFromMask((
+    '[#100 ]', ), ))
+# Save by Bombik on 2016_12_16-12.46.03; build 6.12-1 2012_03_13-20.23.18 119612
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.models['Model-1'].parts['Battery'].Surface(name='leftedge', side1Faces=
+    mdb.models['Model-1'].parts['Battery'].faces.getSequenceFromMask(('[#40 ]', 
+    ), ))
+mdb.models['Model-1'].parts['Battery'].Surface(name='botedge', side1Faces=
+    mdb.models['Model-1'].parts['Battery'].faces.getSequenceFromMask((
+    '[#200 ]', ), ))
+mdb.models['Model-1'].parts['Battery'].Surface(name='front', side1Faces=
+    mdb.models['Model-1'].parts['Battery'].faces.getSequenceFromMask(('[#10 ]', 
+    ), ))
+mdb.models['Model-1'].parts['Battery'].Surface(name='back', side1Faces=
+    mdb.models['Model-1'].parts['Battery'].faces.getSequenceFromMask(('[#20 ]', 
+    ), ))
+# Save by Bombik on 2016_12_16-12.48.31; build 6.12-1 2012_03_13-20.23.18 119612
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.models['Model-1'].rootAssembly.regenerate()
+mdb.models['Model-1'].parts['Polymer'].Surface(name='inner', side1Faces=
+    mdb.models['Model-1'].parts['Polymer'].faces.getSequenceFromMask((
+    '[#3fffff ]', ), ))
+# Save by Bombik on 2016_12_16-13.22.33; build 6.12-1 2012_03_13-20.23.18 119612
