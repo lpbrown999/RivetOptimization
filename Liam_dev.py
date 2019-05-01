@@ -6,24 +6,10 @@
 # #Dimensioning
 # cellW=110.00;
 # frameW=10.00;
-# n=5.00;
-# r=4.00;
+
 
 # F=150.00;
 
-
-# #Battery Properties
-# t_bat=3.00;
-# E11_bat=1090.00;
-# E22_bat=1090.00;
-# E33_bat=500.00;
-# nu12_bat=0.15;
-# nu13_bat=0.15;
-# nu23_bat=0.15;
-# G12_bat=474.00;
-# G13_bat=474.00;
-# G23_bat=474.00;
-# mesh_bat=1.50;
 
 # E_poly=600.00;
 # nu_poly=0.30;
@@ -45,15 +31,14 @@ from sketch import *
 from visualization import *
 from connectorBehavior import *
 
+F=150.00;   
 
-def generate_facesheet():
-    #Dimensioning
-    cellW=110.00;
-    frameW=10.00;
-    n=5.00;
-    r=4.00;
+def generate_facesheet(cellW=110.00, frameW=10.00, t_rod=2.00):
+    ##INPUTS
+    #cellW: Width of cell
+    #frameW: width of frame
+    #t_rod: Thickness of rod that applies 3 point bending load
 
-    F=150.00;   
     #Face Sheet Properties
     t_FS=0.80;
     E11_FS=30420.00;
@@ -65,9 +50,6 @@ def generate_facesheet():
     G12_FS=2081.00;
     G13_FS=2081.00;
     G23_FS=1440.00;
-    t_rod=2.00;
-    # mesh_FS=1.50;
-    mesh_FS = 10;
 
     #Begin sketch
     mdb.models['Model-1'].ConstrainedSketch(name='__profile__', sheetSize=200.0)
@@ -154,134 +136,166 @@ def generate_facesheet():
     mdb.models['Model-1'].parts['CF'].Surface(name='CFbot', side1Faces=
         mdb.models['Model-1'].parts['CF'].faces.getSequenceFromMask(('[#80 ]', ), 
         ))
+    return True 
 
+def generate_battery(cellW=110.00, frameW=10.00, t_bat=3.00):
+
+    E11_bat=1090.00;
+    E22_bat=1090.00;
+    E33_bat=500.00;
+    nu12_bat=0.15;
+    nu13_bat=0.15;
+    nu23_bat=0.15;
+    G12_bat=474.00;
+    G13_bat=474.00;
+    G23_bat=474.00;
+
+    #Sketch batttery
+    mdb.models['Model-1'].ConstrainedSketch(name='__profile__', sheetSize=200.0)
+    mdb.models['Model-1'].sketches['__profile__'].rectangle(point1=(0.0, 0.0), 
+        point2=(cellW-2*frameW, cellW-2*frameW))
+    mdb.models['Model-1'].Part(dimensionality=THREE_D, name='Battery', type=
+        DEFORMABLE_BODY)
+    p = mdb.models['Model-1'].parts['Battery']
+
+    #Extrude, make surfaces
+    p.BaseSolidExtrude(depth=t_bat, sketch= mdb.models['Model-1'].sketches['__profile__'])
+    p.Surface(name='BatTop', side1Faces= mdb.models['Model-1'].parts['Battery'].faces.getSequenceFromMask(('[#10 ]',), ))
+    p.Surface(name='BatBot', side1Faces= mdb.models['Model-1'].parts['Battery'].faces.getSequenceFromMask(('[#20 ]',), ))
+    mdb.models['Model-1'].ConstrainedSketch(gridSpacing=6.36, name='__profile__', 
+        sheetSize=254.62, transform=
+        mdb.models['Model-1'].parts['Battery'].MakeSketchTransform(
+        sketchPlane=mdb.models['Model-1'].parts['Battery'].faces[4], 
+        sketchPlaneSide=SIDE1, 
+        sketchUpEdge=mdb.models['Model-1'].parts['Battery'].edges[7], 
+        sketchOrientation=RIGHT, origin=((cellW-2*frameW)/2.0, (cellW-2*frameW)/2.0, t_bat)))
+
+    #Define battery materials
+    mdb.models['Model-1'].Material(name='BatOrtho')
+    mdb.models['Model-1'].materials['BatOrtho'].Elastic(table=((E11_bat, E22_bat, 
+        E33_bat, nu12_bat, nu13_bat, nu23_bat, G12_bat, G13_bat, G23_bat), ), type=
+        ENGINEERING_CONSTANTS)
+    p.Set(cells= mdb.models['Model-1'].parts['Battery'].cells.getSequenceFromMask(('[#1 ]',),), name='Batset')    
+    mdb.models['Model-1'].HomogeneousSolidSection(material='BatOrtho', name=
+        'BatOrtho', thickness=None)
+    p.SectionAssignment(offset=0.0, offsetField='', offsetType=MIDDLE_SURFACE, region=p.sets['Batset'], 
+        sectionName='BatOrtho', thicknessAssignment=FROM_SECTION)
+    p.MaterialOrientation(additionalRotationType=ROTATION_NONE, axis=AXIS_3, fieldName='', localCsys=None, 
+        orientationType=GLOBAL, region=p.sets['Batset'], stackDirection=STACK_3)    
+
+    #Create datum plane, axis for later cutting holes
+    p.DatumPlaneByPrincipalPlane(principalPlane=XYPLANE, offset=0.0)
+    p.DatumAxisByThruEdge(edge=p.edges[7])
+
+def polymer(cellW=110.00, frameW=10.00, t_bat=3.00):
+
+    E_poly=600.00;
+    nu_poly=0.30;
+
+    mdb.models['Model-1'].ConstrainedSketch(name='__profile__', sheetSize=200.0)
+    mdb.models['Model-1'].sketches['__profile__'].rectangle(point1=(0.0, 0.0), 
+        point2=(cellW, cellW))
+    mdb.models['Model-1'].Part(dimensionality=THREE_D, name='Polymer', type=
+        DEFORMABLE_BODY)
+    mdb.models['Model-1'].parts['Polymer'].BaseSolidExtrude(depth=t_bat, sketch=
+        mdb.models['Model-1'].sketches['__profile__'])
+    del mdb.models['Model-1'].sketches['__profile__']
+
+    #Define polymer material
+    mdb.models['Model-1'].Material(name='Polymer')
+    mdb.models['Model-1'].materials['Polymer'].Elastic(table=((E_poly, nu_poly), ))
+    mdb.models['Model-1'].HomogeneousSolidSection(material='Polymer', name=
+        'PolySec', thickness=None)
+    mdb.models['Model-1'].parts['Polymer'].Set(cells=
+        mdb.models['Model-1'].parts['Polymer'].cells.getSequenceFromMask(('[#1 ]', 
+        ), ), name='PolySet')
+    mdb.models['Model-1'].parts['Polymer'].SectionAssignment(offset=0.0, 
+        offsetField='', offsetType=MIDDLE_SURFACE, region=
+        mdb.models['Model-1'].parts['Polymer'].sets['PolySet'], sectionName=
+        'PolySec', thicknessAssignment=FROM_SECTION)
+
+    #Surfaces
+    mdb.models['Model-1'].parts['Polymer'].Surface(name='PolyTop', side1Faces=
+        mdb.models['Model-1'].parts['Polymer'].faces.getSequenceFromMask(('[#10 ]', 
+        ), ))
+    mdb.models['Model-1'].parts['Polymer'].Surface(name='PolyBot', side1Faces=
+        mdb.models['Model-1'].parts['Polymer'].faces.getSequenceFromMask(('[#20 ]', 
+        ), ))
+
+    #?
+    mdb.models['Model-1'].ConstrainedSketch(gridSpacing=7.77, name='__profile__', 
+        sheetSize=311.18, transform=
+        mdb.models['Model-1'].parts['Polymer'].MakeSketchTransform(
+        sketchPlane=mdb.models['Model-1'].parts['Polymer'].faces[4], 
+        sketchPlaneSide=SIDE1, 
+        sketchUpEdge=mdb.models['Model-1'].parts['Polymer'].edges[7], 
+        sketchOrientation=RIGHT, origin=(cellW/2, cellW/2, t_bat)))
+    mdb.models['Model-1'].parts['Polymer'].projectReferencesOntoSketch(filter=
+        COPLANAR_EDGES, sketch=mdb.models['Model-1'].sketches['__profile__'])    
+    mdb.models['Model-1'].sketches['__profile__'].rectangle(point1=(-cellW/2+frameW,
+        -cellW/2+frameW), point2=(cellW/2-frameW, cellW/2-frameW))
+
+    #Datum stuff
+    p = mdb.models['Model-1'].parts['Polymer']
+    p.DatumPlaneByPrincipalPlane(principalPlane=XYPLANE, offset=0.0)
+    p.DatumAxisByThruEdge(edge=p.edges[7])
+
+    # #Cuts out the linear pattern of rivets
+    # mdb.models['Model-1'].sketches['__profile__'].CircleByCenterPerimeter(center=(
+    #     -cellW/2+frameW+(cellW-2*frameW)/(n+1), -cellW/2+frameW+(cellW-2*frameW)/
+    #     (n+1)), point1=(-cellW/2+frameW+(cellW-2*frameW)/(n+1)+r, -cellW/2+frameW+
+    #     (cellW-2*frameW)/(n+1)))
+
+    # mdb.models['Model-1'].sketches['__profile__'].linearPattern(angle1=0.0, angle2=
+    #     90.0, geomList=(mdb.models['Model-1'].sketches['__profile__'].geometry[10], 
+    #     ), number1=int(n), number2=int(n), spacing1=(cellW-2*frameW)/(n+1), spacing2=(cellW-2
+    #     *frameW)/(n+1), vertexList=())
+    # mdb.models['Model-1'].parts['Polymer'].CutExtrude(flipExtrudeDirection=OFF, 
+    #     sketch=mdb.models['Model-1'].sketches['__profile__'], sketchOrientation=
+    #     RIGHT, sketchPlane=mdb.models['Model-1'].parts['Polymer'].faces[4], 
+    #     sketchPlaneSide=SIDE1, sketchUpEdge=
+    #     mdb.models['Model-1'].parts['Polymer'].edges[7])
+
+    # mdb.models['Model-1'].parts['Polymer'].Surface(name='Inner', side1Faces=
+    #     mdb.models['Model-1'].parts['Polymer'].faces.getSequenceFromMask((
+    #     '[#ffffffff:2 #ffffffff ]', ), ))
+    # del mdb.models['Model-1'].sketches['__profile__']
+
+
+def cut_rivet_hole(part_name,x,y,r):
+    #Part
+    p  = mdb.models['Model-1'].parts[part_name]
+
+    #Sketch
+    s1 = mdb.models['Model-1'].ConstrainedSketch(name='__profile__', sheetSize=200.0)
+    s1.CircleByCenterPerimeter(center=(x,y), point1=(x+r,y))
+
+    #Cut
+    p.CutExtrude(sketchPlane=p.datums[5], sketchUpEdge=p.datums[6], sketchPlaneSide=SIDE1, 
+        sketchOrientation=RIGHT, sketch=s1, flipExtrudeDirection=ON)
+
+
+def mesh_part(part_name, deviationFactor=0.1, minSizeFactor=0.1, size=1.50):
     #Generate mesh
-    mdb.models['Model-1'].parts['CF'].seedPart(deviationFactor=0.1, minSizeFactor=
-        0.1, size=mesh_FS)
-    mdb.models['Model-1'].parts['CF'].generateMesh()
+    mdb.models['Model-1'].parts[part_name].seedPart(deviationFactor=deviationFactor, 
+        minSizeFactor=minSizeFactor, size=size)
+    mdb.models['Model-1'].parts[part_name].generateMesh()
+    return True
+
+
 
 generate_facesheet()
-# #Make Battery Part
+generate_battery()
+polymer()
 
-# mdb.models['Model-1'].ConstrainedSketch(name='__profile__', sheetSize=200.0)
-# mdb.models['Model-1'].sketches['__profile__'].rectangle(point1=(0.0, 0.0), 
-#     point2=(cellW-2*frameW, cellW-2*frameW))
-# mdb.models['Model-1'].Part(dimensionality=THREE_D, name='Battery', type=
-#     DEFORMABLE_BODY)
-# mdb.models['Model-1'].parts['Battery'].BaseSolidExtrude(depth=t_bat, sketch=
-#     mdb.models['Model-1'].sketches['__profile__'])
-# mdb.models['Model-1'].parts['Battery'].Surface(name='BatTop', side1Faces=
-#     mdb.models['Model-1'].parts['Battery'].faces.getSequenceFromMask(('[#10 ]', 
-#     ), ))
-# mdb.models['Model-1'].parts['Battery'].Surface(name='BatBot', side1Faces=
-#     mdb.models['Model-1'].parts['Battery'].faces.getSequenceFromMask(('[#20 ]', 
-#     ), ))
-# mdb.models['Model-1'].ConstrainedSketch(gridSpacing=6.36, name='__profile__', 
-#     sheetSize=254.62, transform=
-#     mdb.models['Model-1'].parts['Battery'].MakeSketchTransform(
-#     sketchPlane=mdb.models['Model-1'].parts['Battery'].faces[4], 
-#     sketchPlaneSide=SIDE1, 
-#     sketchUpEdge=mdb.models['Model-1'].parts['Battery'].edges[7], 
-#     sketchOrientation=RIGHT, origin=((cellW-2*frameW)/2.0, (cellW-2*frameW)/2.0, t_bat)))
-# mdb.models['Model-1'].parts['Battery'].projectReferencesOntoSketch(filter=
-#     COPLANAR_EDGES, sketch=mdb.models['Model-1'].sketches['__profile__'])
-# mdb.models['Model-1'].sketches['__profile__'].CircleByCenterPerimeter(center=(
-#     -(cellW-2*frameW)/2.0+(cellW-2*frameW)/(n+1), -(cellW-2*frameW)/2.0+(cellW-2*frameW)/
-# 	(n+1)), point1=(-(cellW-2*frameW)/2.0+(cellW-2*frameW)/(n+1)+r, -(cellW-2*frameW)/2.0
-# 	+(cellW-2*frameW)/(n+1)))
-# mdb.models['Model-1'].sketches['__profile__'].linearPattern(angle1=0.0, angle2=
-#     90.0, geomList=(mdb.models['Model-1'].sketches['__profile__'].geometry[6], 
-#     ), number1=int(n), number2=int(n), spacing1=(cellW-2*frameW)/(n+1), spacing2=(cellW-
-# 	2*frameW)/(n+1), vertexList=())
-# mdb.models['Model-1'].parts['Battery'].CutExtrude(flipExtrudeDirection=OFF, 
-#     sketch=mdb.models['Model-1'].sketches['__profile__'], sketchOrientation=
-#     RIGHT, sketchPlane=mdb.models['Model-1'].parts['Battery'].faces[4], 
-#     sketchPlaneSide=SIDE1, sketchUpEdge=
-#     mdb.models['Model-1'].parts['Battery'].edges[7])
-# mdb.models['Model-1'].parts['Battery'].Surface(name='Inner', side1Faces=
-#     mdb.models['Model-1'].parts['Battery'].faces.getSequenceFromMask(('[#fffffffff ]', 
-#     ), ))
-# mdb.models['Model-1'].Material(name='BatOrtho')
-# mdb.models['Model-1'].materials['BatOrtho'].Elastic(table=((E11_bat, E22_bat, 
-#     E33_bat, nu12_bat, nu13_bat, nu23_bat, G12_bat, G13_bat, G23_bat), ), type=
-#     ENGINEERING_CONSTANTS)
-# mdb.models['Model-1'].parts['Battery'].Set(cells=
-#     mdb.models['Model-1'].parts['Battery'].cells.getSequenceFromMask(('[#1 ]', 
-#     ), ), name='Batset')	
-# mdb.models['Model-1'].HomogeneousSolidSection(material='BatOrtho', name=
-#     'BatOrtho', thickness=None)
-# mdb.models['Model-1'].parts['Battery'].SectionAssignment(offset=0.0, 
-#     offsetField='', offsetType=MIDDLE_SURFACE, region=
-#     mdb.models['Model-1'].parts['Battery'].sets['Batset'], sectionName=
-#     'BatOrtho', thicknessAssignment=FROM_SECTION)
-# mdb.models['Model-1'].parts['Battery'].MaterialOrientation(
-#     additionalRotationType=ROTATION_NONE, axis=AXIS_3, fieldName='', localCsys=
-#     None, orientationType=GLOBAL, region=
-#     mdb.models['Model-1'].parts['Battery'].sets['Batset'], stackDirection=
-#     STACK_3)	
-# mdb.models['Model-1'].parts['Battery'].seedPart(deviationFactor=0.1, 
-#     minSizeFactor=0.1, size=mesh_bat)
-# mdb.models['Model-1'].parts['Battery'].generateMesh()
+cut_rivet_hole(part_name="Battery",x=10,y=10,r=3)
+cut_rivet_hole(part_name="Battery",x=20,y=10,r=3)
+cut_rivet_hole(part_name="Polymer",x=10,y=10,r=3)
+cut_rivet_hole(part_name="Polymer",x=20,y=10,r=3)
 
-
-# #Make Polymer Surface
-
-# mdb.models['Model-1'].ConstrainedSketch(name='__profile__', sheetSize=200.0)
-# mdb.models['Model-1'].sketches['__profile__'].rectangle(point1=(0.0, 0.0), 
-#     point2=(cellW, cellW))
-# mdb.models['Model-1'].Part(dimensionality=THREE_D, name='Polymer', type=
-#     DEFORMABLE_BODY)
-# mdb.models['Model-1'].parts['Polymer'].BaseSolidExtrude(depth=t_bat, sketch=
-#     mdb.models['Model-1'].sketches['__profile__'])
-# del mdb.models['Model-1'].sketches['__profile__']
-# mdb.models['Model-1'].Material(name='Polymer')
-# mdb.models['Model-1'].materials['Polymer'].Elastic(table=((E_poly, nu_poly), ))
-# mdb.models['Model-1'].HomogeneousSolidSection(material='Polymer', name=
-#     'PolySec', thickness=None)
-# mdb.models['Model-1'].parts['Polymer'].Set(cells=
-#     mdb.models['Model-1'].parts['Polymer'].cells.getSequenceFromMask(('[#1 ]', 
-#     ), ), name='PolySet')
-# mdb.models['Model-1'].parts['Polymer'].SectionAssignment(offset=0.0, 
-#     offsetField='', offsetType=MIDDLE_SURFACE, region=
-#     mdb.models['Model-1'].parts['Polymer'].sets['PolySet'], sectionName=
-#     'PolySec', thicknessAssignment=FROM_SECTION)
-# mdb.models['Model-1'].parts['Polymer'].Surface(name='PolyTop', side1Faces=
-#     mdb.models['Model-1'].parts['Polymer'].faces.getSequenceFromMask(('[#10 ]', 
-#     ), ))
-# mdb.models['Model-1'].parts['Polymer'].Surface(name='PolyBot', side1Faces=
-#     mdb.models['Model-1'].parts['Polymer'].faces.getSequenceFromMask(('[#20 ]', 
-#     ), ))
-# mdb.models['Model-1'].ConstrainedSketch(gridSpacing=7.77, name='__profile__', 
-#     sheetSize=311.18, transform=
-#     mdb.models['Model-1'].parts['Polymer'].MakeSketchTransform(
-#     sketchPlane=mdb.models['Model-1'].parts['Polymer'].faces[4], 
-#     sketchPlaneSide=SIDE1, 
-#     sketchUpEdge=mdb.models['Model-1'].parts['Polymer'].edges[7], 
-#     sketchOrientation=RIGHT, origin=(cellW/2, cellW/2, t_bat)))
-# mdb.models['Model-1'].parts['Polymer'].projectReferencesOntoSketch(filter=
-#     COPLANAR_EDGES, sketch=mdb.models['Model-1'].sketches['__profile__'])
-# mdb.models['Model-1'].sketches['__profile__'].rectangle(point1=(-cellW/2+frameW,
-# 	-cellW/2+frameW), point2=(cellW/2-frameW, cellW/2-frameW))
-# mdb.models['Model-1'].sketches['__profile__'].CircleByCenterPerimeter(center=(
-#     -cellW/2+frameW+(cellW-2*frameW)/(n+1), -cellW/2+frameW+(cellW-2*frameW)/
-# 	(n+1)), point1=(-cellW/2+frameW+(cellW-2*frameW)/(n+1)+r, -cellW/2+frameW+
-# 	(cellW-2*frameW)/(n+1)))
-# mdb.models['Model-1'].sketches['__profile__'].linearPattern(angle1=0.0, angle2=
-#     90.0, geomList=(mdb.models['Model-1'].sketches['__profile__'].geometry[10], 
-#     ), number1=int(n), number2=int(n), spacing1=(cellW-2*frameW)/(n+1), spacing2=(cellW-2
-# 	*frameW)/(n+1), vertexList=())
-# mdb.models['Model-1'].parts['Polymer'].CutExtrude(flipExtrudeDirection=OFF, 
-#     sketch=mdb.models['Model-1'].sketches['__profile__'], sketchOrientation=
-#     RIGHT, sketchPlane=mdb.models['Model-1'].parts['Polymer'].faces[4], 
-#     sketchPlaneSide=SIDE1, sketchUpEdge=
-#     mdb.models['Model-1'].parts['Polymer'].edges[7])
-# mdb.models['Model-1'].parts['Polymer'].Surface(name='Inner', side1Faces=
-#     mdb.models['Model-1'].parts['Polymer'].faces.getSequenceFromMask((
-#     '[#ffffffff:2 #ffffffff ]', ), ))
-# del mdb.models['Model-1'].sketches['__profile__']
-# mdb.models['Model-1'].parts['Polymer'].seedPart(deviationFactor=0.1, 
-#     minSizeFactor=0.1, size=mesh_poly)
-# mdb.models['Model-1'].parts['Polymer'].generateMesh()
+mesh_part('CF')
+mesh_part('Battery')
+mesh_part('Polymer')
 
 
 # # Making the Assembly	
