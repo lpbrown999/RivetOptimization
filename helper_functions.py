@@ -1,6 +1,5 @@
-from assembly_generation import *
-from part_generation import *
-from rivet_generation import *
+import numpy as np 
+
 from part import *
 from material import *
 from section import *
@@ -15,7 +14,7 @@ from sketch import *
 from visualization import *
 from connectorBehavior import *
 from regionToolset import *
-
+from odbAccess import *
 ##GENERATE PARTS
 def generate_facesheet(cellW=110.00, cellL=110.00, loadW=5.00, layup=[0,90,0], t_ply=0.1):
     ##INPUTS
@@ -256,7 +255,6 @@ def define_contact(num_rivets):
     m = mdb.models['Model-1']
     a = m.rootAssembly
 
-
     #Define contact property
     contact_prop = m.ContactProperty('NormCont')
     contact_prop.NormalBehavior( allowSeparation=ON, constraintEnforcementMethod=DEFAULT, 
@@ -301,7 +299,7 @@ def define_contact(num_rivets):
         #     master=a.instances['Polymer-1'].surfaces['Polymer-rivet-'+str(i)], 
         #     slave=a.instances['Battery-1'].surfaces['Battery-rivet-'+str(i)], 
         #     sliding=FINITE, thickness=ON)
-        m.Tie(name='CF1Bat', positionToleranceMethod=SPECIFIED, positionTolerance=0.05, adjust=OFF, 
+        m.Tie(name='BatPoly-'+str(i), positionToleranceMethod=SPECIFIED, positionTolerance=0.05, adjust=OFF, 
             master= a.instances['Polymer-1'].surfaces['Polymer-rivet-'+str(i)], 
             slave = a.instances['Battery-1'].surfaces['Battery-rivet-'+str(i)], 
             thickness=ON, tieRotations=ON)
@@ -386,16 +384,30 @@ def mesh_part(part_name, deviationFactor=0.1, minSizeFactor=0.1, size=1.50):
     mdb.models['Model-1'].parts[part_name].generateMesh()
     return True
 
-def run_model(name='Job-1',description=''):
-    #Create the job
+def create_job(name='Job-1',description='',variables=('U','UT','UR')):
     mdb.Job(name=name, model='Model-1', description=description, type=ANALYSIS, 
         atTime=None, waitMinutes=0, waitHours=0, queue=None, memory=90, 
         memoryUnits=PERCENTAGE, getMemoryFromAnalysis=True, 
         explicitPrecision=SINGLE, nodalOutputPrecision=SINGLE, echoPrint=OFF, 
         modelPrint=OFF, contactPrint=OFF, historyPrint=OFF, userSubroutine='', 
         scratch='', resultsFormat=ODB)
-    #Set our output requests
     mdb.models['Model-1'].fieldOutputRequests['F-Output-1'].setValues(variables=('U', 'UT', 'UR'))
+    return True
+
+def run_model(name='Job-1',description=''):
     mdb.jobs[name].submit(consistencyChecking=OFF)
     mdb.jobs[name].waitForCompletion()
     return True
+
+def get_max_min_disp(name='Job-1'):
+	odb = openOdb(name+'.odb')
+	lastFrame = odb.steps['Loading'].frames[-1]
+	dispFieldOutput = lastFrame.fieldOutputs['U']
+	dispVals = dispFieldOutput.values
+	u3vals = np.zeros((len(dispVals),1))
+	for i,d in enumerate(dispVals):
+		u3vals[i] = d.data[-1]
+
+	maxu3 = max(u3vals)[0]
+	minu3 = min(u3vals)[0]
+	return maxu3,minu3
