@@ -15,6 +15,12 @@ from visualization import *
 from connectorBehavior import *
 from regionToolset import *
 from odbAccess import *
+
+#About:
+#Helper functions for abaqus that generate parts,
+#Apply BC, Apply loads, etc.
+
+
 ##GENERATE PARTS
 def generate_facesheet(cellW=110.00, cellL=110.00, loadW=5.00, layup=[0,90,0], t_ply=0.1):
     ##INPUTS
@@ -291,7 +297,7 @@ def define_contact(num_rivets):
         thickness=ON, tieRotations=ON)
 
     #Apply contact property between battery and polymer holes
-    for i in range(1,num_rivets+1):
+    for i in range(0,num_rivets):
         # m.SurfaceToSurfaceContactStd(adjustMethod=NONE, 
         #     clearanceRegion=None, createStepName='Initial', datumAxis=None, 
         #     initialClearance=OMIT, interactionProperty='NormCont',
@@ -315,7 +321,8 @@ def define_contact(num_rivets):
         slave = a.instances['Polymer-1'].surfaces['PolyTop'], 
         thickness=ON, tieRotations=ON)
 
-    for i in range(1,num_rivets+1):
+    for i in range(0,num_rivets):
+        print i
         m.Tie(name='CF1Poly-Rivet-'+str(i),  positionToleranceMethod=SPECIFIED, positionTolerance=0.05, adjust=OFF,
             master= a.instances['CF-1'].surfaces['CFtop'], 
             slave = a.instances['Polymer-1'].surfaces['Polymer-rivet-bot-'+str(i)], 
@@ -384,7 +391,7 @@ def mesh_part(part_name, deviationFactor=0.1, minSizeFactor=0.1, size=1.50):
     mdb.models['Model-1'].parts[part_name].generateMesh()
     return True
 
-def create_job(name='Job-1',description='',variables=('U','UT','UR')):
+def create_job(name='Job-1', description='',variables=('U','UT','UR')):
     mdb.Job(name=name, model='Model-1', description=description, type=ANALYSIS, 
         atTime=None, waitMinutes=0, waitHours=0, queue=None, memory=90, 
         memoryUnits=PERCENTAGE, getMemoryFromAnalysis=True, 
