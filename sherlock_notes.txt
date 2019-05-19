@@ -1,6 +1,6 @@
 ##Notes on how to use sherlock
 
-1) In windows powershell, start a ubuntu terminal "ubunut"
+1) In windows powershell, start a ubuntu terminal "ubuntu"
 
 
 ## Data transfer
