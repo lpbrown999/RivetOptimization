@@ -1,5 +1,20 @@
 import numpy as np
 
+def optimize(f,c,ndim,neval):
+    #f     -> function
+    #c     -> constraint function (evaluates on the input vector) IGNORED FOR NOW
+    #ndim  -> problem dimension (number of rivets / 3)
+    #neval -> number of evaluations
+
+    S = generate_simplex(3*ndim)
+    
+    S[:,0] = S[:,0]*(xmax-xmin) + xmin
+    S[:,1] = S[:,1]*(ymax-ymin) + ymin
+    S[:,2] = S[:,2]*(rmax-rmin) + rmin
+
+    S,best = nelder_mead(f,S,neval)
+    return best
+
 #Unconstrained optimization method nelder mead-simplex!
 def nelder_mead(f, S, n, alpha=1.0, beta=2.0, gamma=0.5):
     #f -> function 

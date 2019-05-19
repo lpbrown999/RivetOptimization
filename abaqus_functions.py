@@ -401,6 +401,10 @@ def create_job(name='Job-1', description='',variables=('U','UT','UR')):
     mdb.models['Model-1'].fieldOutputRequests['F-Output-1'].setValues(variables=('U', 'UT', 'UR'))
     return True
 
+def write_inp(name='Job-1'):
+    mdb.jobs[name].writeInput(consistencyChecking=OFF)
+    return True
+
 def run_model(name='Job-1',description=''):
     mdb.jobs[name].submit(consistencyChecking=OFF)
     mdb.jobs[name].waitForCompletion()

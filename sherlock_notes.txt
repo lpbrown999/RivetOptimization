@@ -1,0 +1,22 @@
+##Notes on how to use sherlock
+
+1) In windows powershell, start a ubuntu terminal "ubunut"
+
+
+## Data transfer
+
+1) CD into my job files. Since we are in ubuntu it is the mounted drive 
+	"/mnt/c/users/lpbro/gitrepos/RivetOptimization/JobFiles" 
+
+2) scp <source_file_path> <username>@<remote_host>:<destination_path>'
+# ~ indicates user directory. so /home/users/lpbrown/JobFiles is ~/JobFiles
+# to copy "scp /path/to/my/file lpbrown@login.sherlock.stanford.edu:~/folder/filename"
+# to retrieve "scp lpbrown@login.sherlock.stanford.edu:~/folder/filename /path/to/local/filename"
+
+
+## Thoughts
+# Think about how maybe I should have my python script create a bash job rather than a subprocess.
+
+#Could be like "bash script -> abaqus cae nogui=script.py", generates inp
+#Then next bash script -> abaqus job=Job-1, runs job
+#Then next bash script -> abaqus cae=script.py, loads from odb
