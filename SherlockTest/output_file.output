@@ -1,0 +1,921 @@
+0
+Attempted to unset SLURM_GTIDS
+
+Processing time = 0 second(s).
+Running: /home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code/bin/eliT_CheckLicense
+Arguments: ['-standard', '-location']
+Environment supplied for eliT_CheckLicense:
+    ABAQUSLM_LICENSE_FILE = 54782@license4.stanford.edu
+    ABAQUS_LANG = en_US.UTF-8
+    ABAQUS_PY_TRANSLATION_DICTIONARY = Configuration/Xresources/en_US/en_US_PyDict.py
+    ABAQUS_TRANSLATION_DICTIONARY = Configuration/Xresources/en_US/en_US_Dict.py
+    ABA_BLA_LIBRARY_PATH = /home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code/bin:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code/bin/SMAExternal:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/SMA:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/tools/SMApy/python2.7/lib/python2.7/lib-dynload
+    ABA_COMMAND = /home/groups/fkchang/SIMULIA_Abaqus_CAE_2019/linux_a64/code/bin/ABQLauncher
+    ABA_HOME = /home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64
+    ABA_LIBRARY_PATH = /home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/.:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/.:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code/.:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code/bin/.:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code/bin/SMAExternal/.:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/SMA/.:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code/bin:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code/bin/SMAExternal:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/SMA:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/tools/SMApy/python2.7/lib/python2.7/lib-dynload:
+    ABA_LIBRARY_PATHNAME = LD_LIBRARY_PATH
+    ABA_MPI_LIBRARY_PATH = /home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code/bin:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code/bin/SMAExternal:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/SMA:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/tools/SMApy/python2.7/lib/python2.7/lib-dynload
+    ABA_PATH = /home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code/bin:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code/bin/SMAExternal:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/SMA
+    ABA_PATH_BASE = /home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64:
+    ABQLMHANGLIMIT = 0
+    ABQLMIMPL = FLEXNET
+    ABQLMQUEUE = 30
+    ABQLMUSER = lpbrown
+    ABQ_DLALLOCATOR = 1
+    BASH_ENV = /share/software/user/open/lmod/lmod/init/bash
+    BASH_FUNC__cache_cmd() = () {  local cache=$HOME/.cache/sh/;
+ local cmd=${1:-};
+ local cachelife=${2:-};
+ shift 2;
+ [[ -d ${cache} ]] || /bin/mkdir -p ${cache};
+ read prm_hash dash <<< $(/bin/md5sum <<< "$@");
+ entry="${cache}/${cmd##*/}_${prm_hash}";
+ exp=$(/bin/date -d -${cachelife}sec +%s);
+ if [[ -s ${entry} ]] && [[ $(/bin/date -r ${entry} +%s) -gt $exp ]]; then
+ cat ${entry};
+ else
+ ${cmd} "$@" 2>&1 | tee ${entry} 2> /dev/null || rm ${entry} 2> /dev/null;
+ fi;
+ $SH_TIMEOUT_CMD 5 find ${cache} -type f -name "${cmd##*/}_*" \! -newermt @$exp -delete &>/dev/null
+}
+    BASH_FUNC_ml() = () {  eval $($LMOD_DIR/ml_cmd "$@")
+}
+    BASH_FUNC_module() = () {  eval $($LMOD_CMD bash "$@") && eval $(${LMOD_SETTARG_CMD:-:} -s sh)
+}
+    BASH_FUNC_sacct() = () {  _cache_cmd /usr/bin/sacct 10 "$@"
+}
+    BASH_FUNC_sh_jobs() = () {  _cache_cmd $SRCC_PATH/sh_jobs 90 "$@"
+}
+    BASH_FUNC_sh_jobwait() = () {  _cache_cmd $SRCC_PATH/sh_jobwait 300 "$@"
+}
+    BASH_FUNC_sh_part() = () {  _cache_cmd /usr/bin/spart 30 -g -m
+}
+    BASH_FUNC_sh_quota() = () {  _cache_cmd $SRCC_PATH/sh_quota 60 "$@"
+}
+    BASH_FUNC_sh_status() = () {  _cache_cmd $SRCC_PATH/sh_status 600 "$@"
+}
+    BASH_FUNC_sh_usage() = () {  _cache_cmd $SRCC_PATH/sh_usage 90 "$@"
+}
+    BASH_FUNC_sinfo() = () {  _cache_cmd /usr/bin/sinfo 10 "$@"
+}
+    BASH_FUNC_squeue() = () {  _cache_cmd /usr/bin/squeue 10 "$@"
+}
+    BASH_FUNC_sstat() = () {  _cache_cmd /usr/bin/sstat 10 "$@"
+}
+    BASH_FUNC_sudo() = () {  $SRCC_PATH/sudo "$@"
+}
+    CATCommandPath = /home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code/command
+    CATDefaultEnvironment = Env
+    CATDictionaryPath = /home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code/dictionary
+    CUSTOMWORKSPACE = 
+    DSY_TENANT = OnPremise
+    ENVIRONMENT = BATCH
+    FED_DSFLEX_LICENSE_CONFIG = 54782@license4.stanford.edu
+    FED_DSLS_LICENSE_CONFIG = /var/DassaultSystemes/Licenses/DSLicSrv.txt
+    FED_LICENSE_SERVER_TYPE = DSFLEX
+    FIR = /fir/users/lpbrown
+    FLEXLM_DIAGNOSTICS = 4
+    FOR_DISABLE_STACK_TRACE = 1
+    FOR_IGNORE_EXCEPTIONS = 1
+    GROUP = fkchang
+    GROUP_FIR = /fir/groups/fkchang
+    GROUP_HOME = /home/groups/fkchang
+    GROUP_REGAL = /regal/groups/fkchang
+    GROUP_SCRATCH = /scratch/groups/fkchang
+    HISTCONTROL = ignoreboth:erasedups
+    HISTSIZE = 1000
+    HOME = /home/users/lpbrown
+    HOSTNAME = sh-101-48
+    IPATH_NO_CPUAFFINITY = 1
+    KRB5CCNAME = FILE:/tmp/krb5cc_334120_ZOl15tcTdL
+    LANG = en_US.UTF-8
+    LD_LIBRARY_PATH = /home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code/bin:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code/bin/SMAExternal:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/SMA:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/tools/SMApy/python2.7/lib/python2.7/lib-dynload
+    LESSOPEN = ||/usr/bin/lesspipe.sh %s
+    LICENSE_DEBUG = 2
+    LMOD_ADMIN_FILE = /share/software/modules/admin.list
+    LMOD_AVAIL_STYLE = categories
+    LMOD_CMD = /share/software/user/open/lmod/lmod/libexec/lmod
+    LMOD_COLORIZE = yes
+    LMOD_DIR = /share/software/user/open/lmod/lmod/libexec
+    LMOD_FULL_SETTARG_SUPPORT = no
+    LMOD_MODULERCFILE = /share/software/modules/.modulerc.lua
+    LMOD_PACKAGE_PATH = /share/software/modules/
+    LMOD_PKG = /share/software/user/open/lmod/lmod
+    LMOD_PREPEND_BLOCK = normal
+    LMOD_RC = /share/software/modules/lmodrc.lua
+    LMOD_REDIRECT = yes
+    LMOD_SETTARG_CMD = :
+    LMOD_SETTARG_FULL_SUPPORT = no
+    LMOD_SYSHOST = sherlock
+    LMOD_SYSTEM_DEFAULT_MODULES = devel,math
+    LMOD_VERSION = 8.0.7
+    LMOD_arch = x86_64
+    LMOD_sys = Linux
+    LOADEDMODULES = devel:math
+    LOCAL_SCRATCH = /lscratch/lpbrown
+    LOGNAME = lpbrown
+    LS_COLORS = ex=00:su=00:sg=00:ca=00:
+    L_SCRATCH = /lscratch/lpbrown
+    L_SCRATCH_JOB = /lscratch/lpbrown/42733909
+    MAIL = /var/spool/mail/lpbrown
+    MANPATH = /share/software/user/open/lmod/lmod/share/man:/usr/local/share/man:/usr/share/man:/opt/dell/srvadmin/share/man
+    MODULEPATH = /share/software/modules/math:/share/software/modules/devel:/share/software/modules/categories
+    MODULEPATH_ROOT = /share/software/modules
+    MODULESHOME = /share/software/user/open/lmod/lmod
+    MPI_SOCKBUFSIZE = 131072
+    OMP_NUM_THREADS = 1
+    PATH = /share/software/user/srcc/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/opt/dell/srvadmin/bin:/opt/dell/srvadmin/iSM/bin:/home/users/lpbrown/.local/bin
+    PI_HOME = /home/groups/fkchang
+    PI_SCRATCH = /scratch/groups/fkchang
+    PMI_FD = 12
+    PMI_JOBID = 42733909.0
+    PMI_RANK = 0
+    PMI_SIZE = 1
+    PROMPT_COMMAND = RET=$?;logger -t user_audit \
+        "user=$USER pid=$$ cmd=\"$(history 1 | sed "s/^[ ]*[0-9]\+[ ]*//" )\" ret=$RET"
+    PWD = /home/users/lpbrown/SherlockTest
+    PYTHONPATH = /home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code/bin:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code/bin/SMAExternal:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/SMA:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code/python2.7/lib:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/tools/SMApy/python2.7/lib:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/tools/SMApy/python2.7/lib/python2.7:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/tools/SMApy/python2.7/lib/python2.7/lib-tk:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/tools/SMApy/python2.7/lib/python2.7/site-packages:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/tools/SMApy/python2.7/lib/python2.7/lib-dynload:.:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code/bin:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code/bin/SMAExternal:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/SMA:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code/python2.7/lib:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/tools/SMApy/python2.7/lib:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/tools/SMApy/python2.7/lib/python2.7:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/tools/SMApy/python2.7/lib/python2.7/lib-tk:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/tools/SMApy/python2.7/lib/python2.7/site-packages:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/tools/SMApy/python2.7/lib/python2.7/lib-dynload:.:/home/groups/fkchang/SIMULIA_Abaqus_CAE_2019:/home/groups/fkchang/SIMULIA_Abaqus_CAE_2019/linux_a64:/home/groups/fkchang/SIMULIA_Abaqus_CAE_2019/linux_a64/code:/home/groups/fkchang/SIMULIA_Abaqus_CAE_2019/linux_a64/code/bin:/home/groups/fkchang/SIMULIA_Abaqus_CAE_2019/linux_a64/code/bin/SMAExternal:/home/groups/fkchang/SIMULIA_Abaqus_CAE_2019/linux_a64/CAEresources:/home/groups/fkchang/SIMULIA_Abaqus_CAE_2019/linux_a64/SMA:/home/groups/fkchang/SIMULIA_Abaqus_CAE_2019/linux_a64/code/python2.7/lib:/home/groups/fkchang/SIMULIA_Abaqus_CAE_2019/linux_a64/tools/SMApy/python2.7/lib:/home/groups/fkchang/SIMULIA_Abaqus_CAE_2019/linux_a64/tools/SMApy/python2.7/lib/python2.7:/home/groups/fkchang/SIMULIA_Abaqus_CAE_2019/linux_a64/tools/SMApy/python2.7/lib/python2.7/lib-tk:/home/groups/fkchang/SIMULIA_Abaqus_CAE_2019/linux_a64/tools/SMApy/python2.7/lib/python2.7/site-packages:/home/groups/fkchang/SIMULIA_Abaqus_CAE_2019/linux_a64/tools/SMApy/python2.7/lib/python2.7/lib-dynload:.
+    PYVERDIRNAME = python2.7
+    REGAL = /regal/users/lpbrown
+    SCRATCH = /scratch/users/lpbrown
+    SHELL = /bin/bash
+    SHERLOCK = 2
+    SHLVL = 2
+    SH_INFO_TIMEOUT = 5
+    SH_TIMEOUT_CMD = timeout -s9
+    SINGULARITY_CACHEDIR = /scratch/users/lpbrown/.singularity
+    SLURMD_NODENAME = sh-101-48
+    SLURM_CHECKPOINT_IMAGE_DIR = /var/slurm/checkpoint
+    SLURM_CLUSTER_NAME = sherlock
+    SLURM_CPUS_ON_NODE = 1
+    SLURM_CPU_BIND = quiet,mask_cpu:0x02000
+    SLURM_CPU_BIND_LIST = 0x02000
+    SLURM_CPU_BIND_TYPE = mask_cpu:
+    SLURM_CPU_BIND_VERBOSE = quiet
+    SLURM_DISTRIBUTION = cyclic
+    SLURM_GTIDS = 0
+    SLURM_JOBID = 42733909
+    SLURM_JOB_ACCOUNT = fkchang
+    SLURM_JOB_CPUS_PER_NODE = 1
+    SLURM_JOB_GID = 24534
+    SLURM_JOB_ID = 42733909
+    SLURM_JOB_NAME = abaqus_test
+    SLURM_JOB_NODELIST = sh-101-48
+    SLURM_JOB_NUM_NODES = 1
+    SLURM_JOB_PARTITION = normal
+    SLURM_JOB_CL: Attempting: 5 tokens
+CL: Number of licenses: 112
+CL: Number of licenses in use: 0
+CL: Test checkout: 5 "standard" v61.9
+Analysis initiated from SIMULIA established products
+Abaqus JOB Job-1
+Abaqus 3DEXPERIENCE R2019x
+DriverLM command: /home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code/bin/eliT_DriverLM -job Job-1 -indir /home/users/lpbrown/SherlockTest -standard -verbose -tmpdir /home/users/lpbrown/SherlockTest/lpbrown_Job-1_105045 -lmlog
+DriverLM Environment: 
+    ABAQUSLM_LICENSE_FILE = 54782@license4.stanford.edu
+    ABAQUS_LANG = en_US.UTF-8
+    ABAQUS_PY_TRANSLATION_DICTIONARY = Configuration/Xresources/en_US/en_US_PyDict.py
+    ABAQUS_SEQ = 2018_09_24-11.41.51 157541
+    ABAQUS_TRANSLATION_DICTIONARY = Configuration/Xresources/en_US/en_US_Dict.py
+    ABA_BLA_LIBRARY_PATH = /home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code/bin:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code/bin/SMAExternal:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/SMA:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/tools/SMApy/python2.7/lib/python2.7/lib-dynload
+    ABA_COMMAND = /home/groups/fkchang/SIMULIA_Abaqus_CAE_2019/linux_a64/code/bin/ABQLauncher
+    ABA_HOME = /home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64
+    ABA_LIBRARY_PATH = /home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/.:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/.:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code/.:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code/bin/.:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code/bin/SMAExternal/.:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/SMA/.:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code/bin:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code/bin/SMAExternal:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/SMA:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/tools/SMApy/python2.7/lib/python2.7/lib-dynload:
+    ABA_LIBRARY_PATHNAME = LD_LIBRARY_PATH
+    ABA_MPI_LIBRARY_PATH = /home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code/bin:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code/bin/SMAExternal:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/SMA:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/tools/SMApy/python2.7/lib/python2.7/lib-dynload
+    ABA_PATH = /home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code/bin:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code/bin/SMAExternal:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/SMA
+    ABA_PATH_BASE = /home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64:
+    ABQINFO = /home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/SMA/info/
+    ABQLMHANGLIMIT = 0
+    ABQLMIMPL = FLEXNET
+    ABQLMQUEUE = 30
+    ABQLMUSER = lpbrown
+    ABQ_DLALLOCATOR = 1
+    BASH_ENV = /share/software/user/open/lmod/lmod/init/bash
+    BASH_FUNC__cache_cmd() = () {  local cache=$HOME/.cache/sh/;
+ local cmd=${1:-};
+ local cachelife=${2:-};
+ shift 2;
+ [[ -d ${cache} ]] || /bin/mkdir -p ${cache};
+ read prm_hash dash <<< $(/bin/md5sum <<< "$@");
+ entry="${cache}/${cmd##*/}_${prm_hash}";
+ exp=$(/bin/date -d -${cachelife}sec +%s);
+ if [[ -s ${entry} ]] && [[ $(/bin/date -r ${entry} +%s) -gt $exp ]]; then
+ cat ${entry};
+ else
+ ${cmd} "$@" 2>&1 | tee ${entry} 2> /dev/null || rm ${entry} 2> /dev/null;
+ fi;
+ $SH_TIMEOUT_CMD 5 find ${cache} -type f -name "${cmd##*/}_*" \! -newermt @$exp -delete &>/dev/null
+}
+    BASH_FUNC_ml() = () {  eval $($LMOD_DIR/ml_cmd "$@")
+}
+    BASH_FUNC_module() = () {  eval $($LMOD_CMD bash "$@") && eval $(${LMOD_SETTARG_CMD:-:} -s sh)
+}
+    BASH_FUNC_sacct() = () {  _cache_cmd /usr/bin/sacct 10 "$@"
+}
+    BASH_FUNC_sh_jobs() = () {  _cache_cmd $SRCC_PATH/sh_jobs 90 "$@"
+}
+    BASH_FUNC_sh_jobwait() = () {  _cache_cmd $SRCC_PATH/sh_jobwait 300 "$@"
+}
+    BASH_FUNC_sh_part() = () {  _cache_cmd /usr/bin/spart 30 -g -m
+}
+    BASH_FUNC_sh_quota() = () {  _cache_cmd $SRCC_PATH/sh_quota 60 "$@"
+}
+    BASH_FUNC_sh_status() = () {  _cache_cmd $SRCC_PATH/sh_status 600 "$@"
+}
+    BASH_FUNC_sh_usage() = () {  _cache_cmd $SRCC_PATH/sh_usage 90 "$@"
+}
+    BASH_FUNC_sinfo() = () {  _cache_cmd /usr/bin/sinfo 10 "$@"
+}
+    BASH_FUNC_squeue() = () {  _cache_cmd /usr/bin/squeue 10 "$@"
+}
+    BASH_FUNC_sstat() = () {  _cache_cmd /usr/bin/sstat 10 "$@"
+}
+    BASH_FUNC_sudo() = () {  $SRCC_PATH/sudo "$@"
+}
+    CATCommandPath = /home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code/command
+    CATDefaultEnvironment = Env
+    CATDictionaryPath = /home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code/dictionary
+    CUSTOMWORKSPACE = 
+    DSY_TENANT = OnPremise
+    ENVIRONMENT = BATCH
+    FED_DSFLEX_LICENSE_CONFIG = 54782@license4.stanford.edu
+    FED_DSLS_LICENSE_CONFIG = /var/DassaultSystemes/Licenses/DSLicSrv.txt
+    FED_LICENSE_SERVER_TYPE = DSFLEX
+    FIR = /fir/users/lpbrown
+    FLEXLM_DIAGNOSTICS = 4
+    FOR_DISABLE_STACK_TRACE = 1
+    FOR_IGNORE_EXCEPTIONS = 1
+    GROUP = fkchang
+    GROUP_FIR = /fir/groups/fkchang
+    GROUP_HOME = /home/groups/fkchang
+    GROUP_REGAL = /regal/groups/fkchang
+    GROUP_SCRATCH = /scratch/groups/fkchang
+    HISTCONTROL = ignoreboth:erasedups
+    HISTSIZE = 1000
+    HOME = /home/users/lpbrown
+    HOSTNAME = sh-101-48
+    IPATH_NO_CPUAFFINITY = 1
+    KRB5CCNAME = FILE:/tmp/krb5cc_334120_ZOl15tcTdL
+    LANG = en_US.UTF-8
+    LD_LIBRARY_PATH = /home/users/lpbrown/SherlockTest/lpbrown_Job-1_105045:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code/bin:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code/bin/SMAExternal:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/SMA:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/tools/SMApy/python2.7/lib/python2.7/lib-dynload
+    LESSOPEN = ||/usr/bin/lesspipe.sh %s
+    LICENSE_DEBUG = 2
+    LMOD_ADMIN_FILE = /share/software/modules/admin.list
+    LMOD_AVAIL_STYLE = categories
+    LMOD_CMD = /share/software/user/open/lmod/lmod/libexec/lmod
+    LMOD_COLORIZE = yes
+    LMOD_DIR = /share/software/user/open/lmod/lmod/libexec
+    LMOD_FULL_SETTARG_SUPPORT = no
+    LMOD_MODULERCFILE = /share/software/modules/.modulerc.lua
+    LMOD_PACKAGE_PATH = /share/software/modules/
+    LMOD_PKG = /share/software/user/open/lmod/lmod
+    LMOD_PREPEND_BLOCK = normal
+    LMOD_RC = /share/software/modules/lmodrc.lua
+    LMOD_REDIRECT = yes
+    LMOD_SETTARG_CMD = :
+    LMOD_SETTARG_FULL_SUPPORT = no
+    LMOD_SYSHOST = sherlock
+    LMOD_SYSTEM_DEFAULT_MODULES = devel,math
+    LMOD_VERSION = 8.0.7
+    LMOD_arch = x86_64
+    LMOD_sys = Linux
+    LOADEDMODULES = devel:math
+    LOCAL_SCRATCH = /lscratch/lpbrown
+    LOGNAME = lpbrown
+    LS_COLORS = ex=00:su=00:sg=00:ca=00:
+    L_SCRATCH = /lscratch/lpbrown
+    L_SCRATCH_JOB = /lscratch/lpbrown/42733909
+    MAIL = /var/spool/mail/lpbrown
+    MANPATH = /share/software/user/open/lmod/lmod/share/man:/usr/local/share/man:/usr/share/man:/opt/dell/srvadmin/share/man
+    MKL_NUM_THREADS = 1
+    MODULEPATH = /share/software/modules/math:/share/software/modules/devel:/share/software/modules/categories
+    MODULEPATH_ROOT = /share/software/modules
+    MODULESHOME = /share/software/user/open/lmod/lmod
+    MPI_SOCKBUFSIZE = 131072
+    MP_NUMBER_OF_THREADS = 1
+    OMP_NUM_THREADS = 1
+    PATH = /share/software/user/srcc/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/opt/dell/srvadmin/bin:/opt/dell/srvadmin/iSM/bin:/home/users/lpbrown/.local/bin
+    PI_HOME = /home/groups/fkchang
+    PI_SCRATCH = /scratch/groups/fkchang
+    PMI_FD = 12
+    PMI_JOBID = 42733909.0
+    PMI_RANK = 0
+    PMI_SIZE = 1
+    PROMPT_COMMAND = RET=$?;logger -t user_audit \
+        "user=$USER pid=$$ cmd=\"$(history 1 | sed "s/^[ ]*[0-9]\+[ ]*//" )\" ret=$RET"
+    PWD = /home/users/lpbrown/SherlockTest
+    PYTHONPATH = /home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code/bin:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code/bin/SMAExternal:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/SMA:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code/python2.7/lib:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/tools/SMApy/python2.7/lib:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/tools/SMApy/python2.7/lib/python2.7:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/tools/SMApy/python2.7/lib/python2.7/lib-tk:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/tools/SMApy/python2.7/lib/python2.7/site-packages:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/tools/SMApy/python2.7/lib/python2.7/lib-dynload:.:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code/bin:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code/bin/SMAExternal:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/SMA:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code/python2.7/lib:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/tools/SMApy/python2.7/lib:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/tools/SMApy/python2.7/lib/python2.7:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/tools/SMApy/python2.7/lib/python2.7/lib-tk:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/tools/SMApy/python2.7/lib/python2.7/site-packages:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/tools/SMApy/python2.7/lib/python2.7/lib-dynload:.:/home/groups/fkchang/SIMULIA_Abaqus_CAE_2019:/home/groups/fkchang/SIMULIA_Abaqus_CAE_2019/linux_a64:/home/groups/fkchang/SIMULIA_Abaqus_CAE_2019/linux_a64/code:/home/groups/fkchang/SIMULIA_Abaqus_CAE_2019/linux_a64/code/bin:/home/groups/fkchang/SIMULIA_Abaqus_CAE_2019/linux_a64/code/bin/SMAExternal:/home/groups/fkchang/SIMULIA_Abaqus_CAE_2019/linux_a64/CAEresources:/home/groups/fkchang/SIMULIA_Abaqus_CAE_2019/linux_a64/SMA:/home/groups/fkchang/SIMULIA_Abaqus_CAE_2019/linux_a64/code/python2.7/lib:/home/groups/fkchang/SIMULIA_Abaqus_CAE_2019/linux_a64/tools/SMApy/python2.7/lib:/home/groups/fkchang/SIMULIA_Abaqus_CAE_2019/linux_a64/tools/SMApy/python2.7/lib/python2.7:/home/groups/fkchang/SIMULIA_Abaqus_CAE_2019/linux_a64/tools/SMApy/python2.7/lib/python2.7/lib-tk:/home/groups/fkchang/SIMULIA_Abaqus_CAE_2019/linux_a64/tools/SMApy/python2.7/lib/python2.7/site-packages:/home/groups/fkchang/SIMULIA_Abaqus_CAE_2019/linux_a64/tools/SMApy/python2.7/lib/python2.7/lib-dynload:.
+    PYTHONUNBUFFERED = nobuffering
+    PYVERDIRNAME = python2.7
+    REGAL = /regal/users/lpbrown
+    SCRATCH = /scratch/users/lpbrown
+    SHELL = /bin/bash
+    SHERLOCK = 2
+    SHLVL = 2
+    SH_INFO_TIMEOUT = 5
+    SH_TIMEOUT_CMD = timeout -s9
+    SINGULARITY_CACHEDIR = /scratch/users/lpbrown/.singularity
+    SLURMD_NODENAME = sh-101-48
+    SLURM_CHECKPOINT_IMAGE_DIR = /var/slurm/checkpoint
+    SLURM_CLUSTER_NAME = sherlock
+    SLURM_CPUS_ON_NODE = 1
+    SLURM_CPU_BIND = quiet,mask_cpu:0x02000
+    SLURM_CPU_BIND_LIST = 0x02000
+    SLURM_CPU_BIND_TYPE = mask_cpu:
+    SLURM_CPU_BIND_VERBOSE = quiet
+    SLURM_DISTRIBUTION = cyclic
+    SLURM_GTIDS = 0
+    SLURM_JOBID = 42733909
+    SLURM_JOB_ACCOUNT = fkchang
+    SLURM_JOB_CPUS_PER_NODE = 1
+    SLURM_JOB_GID = 24534
+    SLURM_JOB_ID = 42733909
+    SLURM_JOB_NAME = abaqus_test
+    SLURM_JOB_NODELIST = sh-101-48
+    SLURM_JOB_NUM_NODES = 1
+    SLURM_JOB_PARTITION = normal
+    SLURM_JOB_QOS = normal
+    SLURM_JOB_UID = 334120
+    SLURM_JOB_USER = lpbrown
+    SLURM_LAUNCH_NODE_IPADDR = 10.10.101.48
+    SLURM_LOCALID = 0
+    SLURM_MEM_PER_NODE = 4096
+    SLURM_NNODES = 1
+    SLURM_NODEID = 0
+    SLURM_NODELIST = sh-101-48
+    SLURM_NPROCS = 1
+    SLURM_NTASKS = 1
+    SLURM_NTASKS_PER_NODE = 1
+    SLURM_PRIO_PROCESS = 0
+    SLURM_PROCID = 0
+    SLURM_SRUN_COMM_HOST = 10.10.101.48
+    SLURM_SRUN_COMM_PORT = 34289
+    SLURM_STEPID = 0
+    SLURM_STEP_ID = 0
+    SLURM_STEP_LAUNCHER_PORT = 34289
+    SLURM_STEP_NODELIST = sh-101-48
+    SLURM_STEP_NUM_NODES = 1
+    SLURM_STEP_NUM_TASKS = 1
+    SLURM_STEP_TASKS_PER_NODE = 1
+    SLURM_SUBMIT_DIR = /home/users/lpbrown/SherlockTest
+    SLURM_SUBMIT_HOST = sh-101-48.int
+    SLURM_TASKS_PER_NODE = 1
+    SLURM_TASK_PID = 105039
+    SLURM_TOPOLOGY_ADDR = edr_core.ibsw-101-02.sh-101-48
+    SLURM_TOPOLOGY_ADDR_PATTERN = switch.switch.node
+    SLURM_UMASK = 0022
+    SLURM_WORKING_CLUSTER = sherlock:sh-sl01:6817:8448
+    SMASVT_ROOT_PATH = /home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code/bin:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code/bin/SMAExternal:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/SMA:/share/software/user/srcc/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/opt/dell/srvadmin/bin:/opt/dell/srvadmin/iSM/bin:/home/users/lpbrown/.local/bin
+    SMA_ACTIVATE_SIM_LOG = 1
+    SRCC_PATH = /share/software/user/srcc/bin
+    SRUN_DEBUG = 3
+    SSH_CLIENT = 10.30.1.47 50709 22
+    SSH_CONNECTION = 10.30.1.47 50709 171.66.97.103 22
+    SSH_TTY = /dev/pts/19
+    TERM = xterm-256color
+    TMOUT = 86400
+    TMPDIR = /home/users/lpbrown/SherlockTest/lpbrown_Job-1_105045
+    TOSCA_INSTALL_PATH = /home/groups/fkchang/SIMULIA/Tosca/2019/linux_a64/code/command/ToscaStructure.sh
+    USER = lpbrown
+    USUBUSED = 0
+    XDG_RUNTIME_DIR = /run/user/334120
+    XDG_SESSION_ID = 4361
+    XLIB_SKIP_ARGB_VISUALS = 1
+    _ = /usr/bin/srun
+    _LMFILES_ = /share/software/modules/categories/devel.lua:/share/software/modules/categories/math.lua
+    _ModuleTable001_ = X01vZHVsZVRhYmxlXz17WyJNVHZlcnNpb24iXT0zLFsiY19yZWJ1aWxkVGltZSJdPWZhbHNlLFsiY19zaG9ydFRpbWUiXT1mYWxzZSxkZXB0aFQ9e30sZmFtaWx5PXt9LG1UPXtkZXZlbD17WyJmbiJdPSIvc2hhcmUvc29mdHdhcmUvbW9kdWxlcy9jYXRlZ29yaWVzL2RldmVsLmx1YSIsWyJmdWxsTmFtZSJdPSJkZXZlbCIsWyJsb2FkT3JkZXIiXT0xLHByb3BUPXtsbW9kPXtbInN0aWNreSJdPTEsfSx9LFsic3RhY2tEZXB0aCJdPTAsWyJzdGF0dXMiXT0iYWN0aXZlIixbInVzZXJOYW1lIl09ImRldmVsIix9LG1hdGg9e1siZm4iXT0iL3NoYXJlL3NvZnR3YXJlL21vZHVsZXMvY2F0ZWdvcmllcy9tYXRoLmx1YSIsWyJmdWxsTmFtZSJdPSJtYXRoIixbImxvYWRPcmRlciJdPTIs
+    _ModuleTable002_ = cHJvcFQ9e2xtb2Q9e1sic3RpY2t5Il09MSx9LH0sWyJzdGFja0RlcHRoIl09MCxbInN0YXR1cyJdPSJhY3RpdmUiLFsidXNlck5hbWUiXT0ibWF0aCIsfSx9LG1wYXRoQT17Ii9zaGFyZS9zb2Z0d2FyZS9tb2R1bGVzL21hdGgiLCIvc2hhcmUvc29mdHdhcmUvbW9kdWxlcy9kZXZlbCIsIi9zaGFyZS9zb2Z0d2FyZS9tb2R1bGVzL2NhdGVnb3JpZXMiLH0sWyJzeXN0ZW1CYXNlTVBBVEgiXT0iL3NoYXJlL3NvZnR3YXJlL21vZHVsZXMvY2F0ZWdvcmllcyIsfQ==
+    _ModuleTable_Sz_ = 2
+    _NT_SYMBOL_PATH = /home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code/bin:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code/bin/SMAExternal:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/SMA:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/tools/SMApy/python2.7/lib/python2.7/lib-dynload
+    __Init_Default_Modules = 1
+    __LMOD_REF_COUNT_LOADEDMODULES = devel:1;math:1
+    __LMOD_REF_COUNT_MODULEPATH = /share/software/modules/math:1;/share/software/modules/devel:1;/share/software/modules/categories:1
+    __LMOD_REF_COUNT__LMFILES_ = /share/software/modules/categories/devel.lua:1;/share/software/modules/categories/math.lua:1
+DriverLM status: 0
+Umbrella port:   sh-101-48.int 36835
+Begin Analysis Input File Processor
+Sun 19 May 2019 11:53:54 AM PDT
+Run pre
+  Command: /home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code/bin/pre -standard -messaging_mechanism DIRECT -job Job-1 -indir /home/users/lpbrown/SherlockTest -outdir /home/users/lpbrown/SherlockTest -tmpdir /home/users/lpbrown/SherlockTest/lpbrown_Job-1_105045 -inputFormat inp -resultsFormat odb -preDecomp -memory 64 -memory_parameter AUTOMATIC -sim /home/users/lpbrown/SherlockTest/Job-1.sim -simwrk /home/users/lpbrown/SherlockTest/Job-1 -input Job-1 -feature_enhanced -odb_output_requested -convert_sdi -umbrella_host sh-101-48.int -umbrella_port 36835 -dmp_solver -std_parallel -timeout 36000 -auto_calc_analysis 
+  Environment:
+    ABAQUSLM_LICENSE_FILE = 54782@license4.stanford.edu
+    ABAQUS_LANG = en_US.UTF-8
+    ABAQUS_PY_TRANSLATION_DICTIONARY = Configuration/Xresources/en_US/en_US_PyDict.py
+    ABAQUS_SEQ = 2018_09_24-11.41.51 157541
+    ABAQUS_TRANSLATION_DICTIONARY = Configuration/Xresources/en_US/en_US_Dict.py
+    ABA_BLA_LIBRARY_PATH = /home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code/bin:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code/bin/SMAExternal:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/SMA:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/tools/SMApy/python2.7/lib/python2.7/lib-dynload
+    ABA_COMMAND = /home/groups/fkchang/SIMULIA_Abaqus_CAE_2019/linux_a64/code/bin/ABQLauncher
+    ABA_HOME = /home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64
+    ABA_LIBRARY_PATH = /home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/.:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/.:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code/.:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code/bin/.:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code/bin/SMAExternal/.:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/SMA/.:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code/bin:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code/bin/SMAExternal:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/SMA:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/tools/SMApy/python2.7/lib/python2.7/lib-dynload:
+    ABA_LIBRARY_PATHNAME = LD_LIBRARY_PATH
+    ABA_MPI_LIBRARY_PATH = /home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code/bin:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code/bin/SMAExternal:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/SMA:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/tools/SMApy/python2.7/lib/python2.7/lib-dynload
+    ABA_PATH = /home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code/bin:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code/bin/SMAExternal:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/SMA
+    ABA_PATH_BASE = /home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64:
+    ABQINFO = /home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/SMA/info/
+    ABQLMHANGLIMIT = 0
+    ABQLMIMPL = FLEXNET
+    ABQLMQUEUE = 30
+    ABQLMUSER = lpbrown
+    ABQ_DLALLOCATOR = 1
+    AVERAGE_BY_SECTION = OFF
+    BASH_ENV = /share/software/user/open/lmod/lmod/init/bash
+    BASH_FUNC__cache_cmd() = () {  local cache=$HOME/.cache/sh/;
+ local cmd=${1:-};
+ local cachelife=${2:-};
+ shift 2;
+ [[ -d ${cache} ]] || /bin/mkdir -p ${cache};
+ read prm_hash dash <<< $(/bin/md5sum <<< "$@");
+ entry="${cache}/${cmd##*/}_${prm_hash}";
+ exp=$(/bin/date -d -${cachelife}sec +%s);
+ if [[ -s ${entry} ]] && [[ $(/bin/date -r ${entry} +%s) -gt $exp ]]; then
+ cat ${entry};
+ else
+ ${cmd} "$@" 2>&1 | tee ${entry} 2> /dev/null || rm ${entry} 2> /dev/null;
+ fi;
+ $SH_TIMEOUT_CMD 5 find ${cache} -type f -name "${cmd##*/}_*" \! -newermt @$exp -delete &>/dev/null
+}
+    BASH_FUNC_ml() = () {  eval $($LMOD_DIR/ml_cmd "$@")
+}
+    BASH_FUNC_module() = () {  eval $($LMOD_CMD bash "$@") && eval $(${LMOD_SETTARG_CMD:-:} -s sh)
+}
+    BASH_FUNC_sacct() = () {  _cache_cmd /usr/bin/sacct 10 "$@"
+}
+    BASH_FUNC_sh_jobs() = () {  _cache_cmd $SRCC_PATH/sh_jobs 90 "$@"
+}
+    BASH_FUNC_sh_jobwait() = () {  _cache_cmd $SRCC_PATH/sh_jobwait 300 "$@"
+}
+    BASH_FUNC_sh_part() = () {  _cache_cmd /usr/bin/spart 30 -g -m
+}
+    BASH_FUNC_sh_quota() = () {  _cache_cmd $SRCC_PATH/sh_quota 60 "$@"
+}
+    BASH_FUNC_sh_status() = () {  _cache_cmd $SRCC_PATH/sh_status 600 "$@"
+}
+    BASH_FUNC_sh_usage() = () {  _cache_cmd $SRCC_PATH/sh_usage 90 "$@"
+}
+    BASH_FUNC_sinfo() = () {  _cache_cmd /usr/bin/sinfo 10 "$@"
+}
+    BASH_FUNC_squeue() = () {  _cache_cmd /usr/bin/squeue 10 "$@"
+}
+    BASH_FUNC_sstat() = () {  _cache_cmd /usr/bin/sstat 10 "$@"
+}
+    BASH_FUNC_sudo() = () {  $SRCC_PATH/sudo "$@"
+}
+    CATCommandPath = /home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code/command
+    CATDefaultEnvironment = Env
+    CATDictionaryPath = /home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code/dictionary
+    CUSTOMWORKSPACE = 
+    DSY_TENANT = OnPremise
+    ENVIRONMENT = BATCH
+    FED_DSFLEX_LICENSE_CONFIG = 54782@license4.stanford.edu
+    FED_DSLS_LICENSE_CONFIG = /var/DassaultSystemes/Licenses/DSLicSrv.txt
+    FED_LICENSE_SERVER_TYPE = DSFLEX
+    FIR = /fir/users/lpbrown
+    FLEXLM_DIAGNOSTICS = 4
+    FOR_DISABLE_STACK_TRACE = 1
+    FOR_IGNORE_EXCEPTIONS = 1
+    GROUP = fkchang
+    GROUP_FIR = /fir/groups/fkchang
+    GROUP_HOME = /home/groups/fkchang
+    GROUP_REGAL = /regal/groups/fkchang
+    GROUP_SCRATCH = /scratch/groups/fkchang
+    HISTCONTROL = ignoreboth:erasedups
+    HISTSIZE = 1000
+    HOME = /home/users/lpbrown
+    HOSTNAME = sh-101-48
+    IPATH_NO_CPUAFFINITY = 1
+    KRB5CCNAME = FILE:/tmp/krb5cc_334120_ZOl15tcTdL
+    LANG = en_US.UTF-8
+    LD_LIBRARY_PATH = /home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code/bin/pmpi:/home/users/lpbrown/SherlockTest/lpbrown_Job-1_105045:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code/bin:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code/bin/SMAExternal:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/SMA:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/tools/SMApy/python2.7/lib/python2.7/lib-dynload:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code/bin/SMAExternal/pmpi/lib/linux_amd64
+    LESSOPEN = ||/usr/bin/lesspipe.sh %s
+    LICENSE_DEBUG = 2
+    LMOD_ADMIN_FILE = /share/software/modules/admin.list
+    LMOD_AVAIL_STYLE = categories
+    LMOD_CMD = /share/software/user/open/lmod/lmod/libexec/lmod
+    LMOD_COLORIZE = yes
+    LMOD_DIR = /share/software/user/open/lmod/lmod/libexec
+    LMOD_FULL_SETTARG_SUPPORT = no
+    LMOD_MODULERCFILE = /share/software/modules/.modulerc.lua
+    LMOD_PACKAGE_PATH = /share/software/modules/
+    LMOD_PKG = /share/software/user/open/lmod/lmod
+    LMOD_PREPEND_BLOCK = normal
+    LMOD_RC = /share/software/modules/lmodrc.lua
+    LMOD_REDIRECT = yes
+    LMOD_SETTARG_CMD = :
+    LMOD_SETTARG_FULL_SUPPORT = no
+    LMOD_SYSHOST = sherlock
+    LMOD_SYSTEM_DEFAULT_MODULES = devel,math
+    LMOD_VERSION = 8.0.7
+    LMOD_arch = x86_64
+    LMOD_sys = Linux
+    LOADEDMODULES = devel:math
+    LOCAL_SCRATCH = /lscratch/lpbrown
+    LOGNAME = lpbrown
+    LS_COLORS = ex=00:su=00:sg=00:ca=00:
+    L_SCRATCH = /lscratch/lpbrown
+    L_SCRATCH_JOB = /lscratch/lpbrown/42733909
+    MAIL = /var/spool/mail/lpbrown
+    MANPATH = /share/software/user/open/lmod/lmod/share/man:/usr/local/share/man:/usr/share/man:/opt/dell/srvadmin/share/man
+    MKL_DYNAMIC = FALSE
+    MKL_NUM_THREADS = 1
+    MODULEPATH = /share/software/modules/math:/share/software/modules/devel:/share/software/modules/categories
+    MODULEPATH_ROOT = /share/software/modules
+    MODULESHOME = /share/software/user/open/lmod/lmod
+    MPC_GANG = OFF
+    MPI_SOCKBUFSIZE = 131072
+    MP_NUMBER_OF_THREADS = 1
+    NCPUS = 1
+    OMP_DYNAMIC = FALSE
+    OMP_NUM_THREADS = 1
+    PATH = /share/software/user/srcc/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/opt/dell/srvadmin/bin:/opt/dell/srvadmin/iSM/bin:/home/users/lpbrown/.local/bin
+    PI_HOME = /home/groups/fkchang
+    PI_SCRATCH = /scratch/groups/fkchang
+    PMI_FD = 12
+    PMI_JOBID = 42733909.0
+    PMI_RANK = 0
+    PMI_SIZE = 1
+    PROMPT_COMMAND = RET=$?;logger -t user_audit \
+        "user=$USER pid=$$ cmd=\"$(history 1 | sed "s/^[ ]*[0-9]\+[ ]*//" )\" ret=$RET"
+    PWD = /home/users/lpbrown/SherlockTest
+    PYTHONPATH = /home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code/bin:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code/bin/SMAExternal:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/SMA:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code/python2.7/lib:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/tools/SMApy/python2.7/lib:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/tools/SMApy/python2.7/lib/python2.7:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/tools/SMApy/python2.7/lib/python2.7/lib-tk:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/tools/SMApy/python2.7/lib/python2.7/site-packages:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/tools/SMApy/python2.7/lib/python2.7/lib-dynload:.:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code/bin:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code/bin/SMAExternal:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/SMA:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code/python2.7/lib:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/tools/SMApy/python2.7/lib:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/tools/SMApy/python2.7/lib/python2.7:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/tools/SMApy/python2.7/lib/python2.7/lib-tk:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/tools/SMApy/python2.7/lib/python2.7/site-packages:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/tools/SMApy/python2.7/lib/python2.7/lib-dynload:.:/home/groups/fkchang/SIMULIA_Abaqus_CAE_2019:/home/groups/fkchang/SIMULIA_Abaqus_CAE_2019/linux_a64:/home/groups/fkchang/SIMULIA_Abaqus_CAE_2019/linux_a64/code:/home/groups/fkchang/SIMULIA_Abaqus_CAE_2019/linux_a64/code/bin:/home/groups/fkchang/SIMULIA_Abaqus_CAE_2019/linux_a64/code/bin/SMAExternal:/home/groups/fkchang/SIMULIA_Abaqus_CAE_2019/linux_a64/CAEresources:/home/groups/fkchang/SIMULIA_Abaqus_CAE_2019/linux_a64/SMA:/home/groups/fkchang/SIMULIA_Abaqus_CAE_2019/linux_a64/code/python2.7/lib:/home/groups/fkchang/SIMULIA_Abaqus_CAE_2019/linux_a64/tools/SMApy/python2.7/lib:/home/groups/fkchang/SIMULIA_Abaqus_CAE_2019/linux_a64/tools/SMApy/python2.7/lib/python2.7:/home/groups/fkchang/SIMULIA_Abaqus_CAE_2019/linux_a64/tools/SMApy/python2.7/lib/python2.7/lib-tk:/home/groups/fkchang/SIMULIA_Abaqus_CAE_2019/linux_a64/tools/SMApy/python2.7/lib/python2.7/site-packages:/home/groups/fkchang/SIMULIA_Abaqus_CAE_2019/linux_a64/tools/SMApy/python2.7/lib/python2.7/lib-dynload:.
+    PYTHONUNBUFFERED = nobuffering
+    PYVERDIRNAME = python2.7
+    REGAL = /regal/users/lpbrown
+    SCRATCH = /scratch/users/lpbrown
+    SHELL = /bin/bash
+    SHERLOCK = 2
+    SHLVL = 2
+    SH_INFO_TIMEOUT = 5
+    SH_TIMEOUT_CMD = timeout -s9
+    SINGULARITY_CACHEDIR = /scratch/users/lpbrown/.singularity
+    SLURMD_NODENAME = sh-101-48
+    SLURM_CHECKPOINT_IMAGE_DIR = /var/slurm/checkpoint
+    SLURM_CLUSTER_NAME = sherlock
+    SLURM_CPUS_ON_NODE = 1
+    SLURM_CPU_BIND = quiet,mask_cpu:0x02000
+    SLURM_CPU_BIND_LIST = 0x02000
+    SLURM_CPU_BIND_TYPE = mask_cpu:
+    SLURM_CPU_BIND_VERBOSE = quiet
+    SLURM_DISTRIBUTION = cyclic
+    SLURM_GTIDS = 0
+    SLURM_JOBID = 42733909
+    SLURM_JOB_ACCOUNT = fkchang
+    SLURM_JOB_CPUS_PER_NODE = 1
+    SLURM_JOB_GID = 24534
+    SLURM_JOB_ID = 42733909
+    SLURM_JOB_NAME = abaqus_test
+    SLURM_JOB_NODELIST = sh-101-48
+    SLURM_JOB_NUM_NODES = 1
+    SLURM_JOB_PARTITION = normal
+    SLURM_JOB_QOS = normal
+    SLURM_JOB_UID = 334120
+    SLURM_JOB_USER = lpbrown
+    SLURM_LAUNCH_NODE_IPADDR = 10.10.101.48
+    SLURM_LOCALID = 0
+    SLURM_MEM_PER_NODE = 4096
+    SLURM_NNODES = 1
+    SLURM_NODEID = 0
+    SLURM_NODELIST = sh-101-48
+    SLURM_NPROCS = 1
+    SLURM_NTASKS = 1
+    SLURM_NTASKS_PER_NODE = 1
+    SLURM_PRIO_PROCESS = 0
+    SLURM_PROCID = 0
+    SLURM_SRUN_COMM_HOST = 10.10.101.48
+    SLURM_SRUN_COMM_PORT = 34289
+    SLURM_STEPID = 0
+    SLURM_STEP_ID = 0
+    SLURM_STEP_LAUNCHER_PORT = 34289
+    SLURM_STEP_NODELIST = sh-101-48
+    SLURM_STEP_NUM_NODES = 1
+    SLURM_STEP_NUM_TASKS = 1
+    SLURM_STEP_TASKS_PER_NODE = 1
+    SLURM_SUBMIT_DIR = /home/users/lpbrown/SherlockTest
+    SLURM_SUBMIT_HOST = sh-101-48.int
+    SLURM_TASKS_PER_NODE = 1
+    SLURM_TASK_PID = 105039
+    SLURM_TOPOLOGY_ADDR = edr_core.ibsw-101-02.sh-101-48
+    SLURM_TOPOLOGY_ADDR_PATTERN = switch.switch.node
+    SLURM_UMASK = 0022
+    SLURM_WORKING_CLUSTER = sherlock:sh-sl01:6817:8448
+    SMASVT_ROOT_PATH = /home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code/bin:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code/bin/SMAExternal:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/SMA:/share/software/user/srcc/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/opt/dell/srvadmin/bin:/opt/dell/srvadmin/iSM/bin:/home/users/lpbrown/.local/bin
+    SMA_ACTIVATE_SIM_LOG = 1
+    SRCC_PATH = /share/software/user/srcc/bin
+    SRUN_DEBUG = 3
+    SSH_CLIENT = 10.30.1.47 50709 22
+    SSH_CONNECTION = 10.30.1.47 50709 171.66.97.103 22
+    SSH_TTY = /dev/pts/19
+    TERM = xterm-256color
+    TMOUT = 86400
+    TMPDIR = /home/users/lpbrown/SherlockTest/lpbrown_Job-1_105045
+    TOSCA_INSTALL_PATH = /home/groups/fkchang/SIMULIA/Tosca/2019/linux_a64/code/command/ToscaStructure.sh
+    USER = lpbrown
+    USUBUSED = 0
+    XDG_RUNTIME_DIR = /run/user/334120
+    XDG_SESSION_ID = 4361
+    XLIB_SKIP_ARGB_VISUALS = 1
+    _ = /usr/bin/srun
+    _LMFILES_ = /share/software/modules/categories/devel.lua:/share/software/modules/categories/math.lua
+    _ModuleTable001_ = X01vZHVsZVRhYmxlXz17WyJNVHZlcnNpb24iXT0zLFsiY19yZWJ1aWxkVGltZSJdPWZhbHNlLFsiY19zaG9ydFRpbWUiXT1mYWxzZSxkZXB0aFQ9e30sZmFtaWx5PXt9LG1UPXtkZXZlbD17WyJmbiJdPSIvc2hhcmUvc29mdHdhcmUvbW9kdWxlcy9jYXRlZ29yaWVzL2RldmVsLmx1YSIsWyJmdWxsTmFtZSJdPSJkZXZlbCIsWyJsb2FkT3JkZXIiXT0xLHByb3BUPXtsbW9kPXtbInN0aWNreSJdPTEsfSx9LFsic3RhY2tEZXB0aCJdPTAsWyJzdGF0dXMiXT0iYWN0aXZlIixbInVzZXJOYW1lIl09ImRldmVsIix9LG1hdGg9e1siZm4iXT0iL3NoYXJlL3NvZnR3YXJlL21vZHVsZXMvY2F0ZWdvcmllcy9tYXRoLmx1YSIsWyJmdWxsTmFtZSJdPSJtYXRoIixbImxvYWRPcmRlciJdPTIs
+    _ModuleTable002_ = cHJvcFQ9e2xtb2Q9e1sic3RpY2t5Il09MSx9LH0sWyJzdGFja0RlcHRoIl09MCxbInN0YXR1cyJdPSJhY3RpdmUiLFsidXNlck5hbWUiXT0ibWF0aCIsfSx9LG1wYXRoQT17Ii9zaGFyZS9zb2Z0d2FyZS9tb2R1bGVzL21hdGgiLCIvc2hhcmUvc29mdHdhcmUvbW9kdWxlcy9kZXZlbCIsIi9zaGFyZS9zb2Z0d2FyZS9tb2R1bGVzL2NhdGVnb3JpZXMiLH0sWyJzeXN0ZW1CYXNlTVBBVEgiXT0iL3NoYXJlL3NvZnR3YXJlL21vZHVsZXMvY2F0ZWdvcmllcyIsfQ==
+    _ModuleTable_Sz_ = 2
+    _NT_SYMBOL_PATH = /home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code/bin:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code/bin/SMAExternal:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/SMA:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/tools/SMApy/python2.7/lib/python2.7/lib-dynload
+    __Init_Default_Modules = 1
+    __LMOD_REF_COUNT_LOADEDMODULES = devel:1;math:1
+    __LMOD_REF_COUNT_MODULEPATH = /share/software/modules/math:1;/share/software/modules/devel:1;/share/software/modules/categories:1
+    __LMOD_REF_COUNT__LMFILES_ = /share/software/modules/categories/devel.lua:1;/share/software/modules/categories/math.lua:1
+Sun 19 May 2019 11:53:54 AM PDT
+Phase Analysis Input File Processor status -11
+File /home/users/lpbrown/SherlockTest/Job-1.cid removed sucessfully.
+Abaqus Error: Analysis Input File Processor exited with an error.
+Exception:  (<class 'driverExceptions.AbaqusExecutionError'>, AbaqusExecutionError('Analysis Input File Processor', -11), <traceback object at 0x1e25200>)
+RESULTSFORMAT: ODB
+SIMMODE: SFS
+SIMEXT: .sim
+Begin Convert MFS to SFS
+Sun 19 May 2019 11:53:55 AM PDT
+Run SMASimUtility
+  Command: /home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code/bin/SMASimUtility wrap /home/users/lpbrown/SherlockTest/Job-1 
+  Environment:
+    ABAQUSLM_LICENSE_FILE = 54782@license4.stanford.edu
+    ABAQUS_LANG = en_US.UTF-8
+    ABAQUS_PY_TRANSLATION_DICTIONARY = Configuration/Xresources/en_US/en_US_PyDict.py
+    ABAQUS_SEQ = 2018_09_24-11.41.51 157541
+    ABAQUS_TRANSLATION_DICTIONARY = Configuration/Xresources/en_US/en_US_Dict.py
+    ABA_BLA_LIBRARY_PATH = /home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code/bin:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code/bin/SMAExternal:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/SMA:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/tools/SMApy/python2.7/lib/python2.7/lib-dynload
+    ABA_COMMAND = /home/groups/fkchang/SIMULIA_Abaqus_CAE_2019/linux_a64/code/bin/ABQLauncher
+    ABA_HOME = /home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64
+    ABA_LIBRARY_PATH = /home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/.:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/.:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code/.:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code/bin/.:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code/bin/SMAExternal/.:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/SMA/.:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code/bin:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code/bin/SMAExternal:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/SMA:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/tools/SMApy/python2.7/lib/python2.7/lib-dynload:
+    ABA_LIBRARY_PATHNAME = LD_LIBRARY_PATH
+    ABA_MPI_LIBRARY_PATH = /home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code/bin:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code/bin/SMAExternal:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/SMA:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/tools/SMApy/python2.7/lib/python2.7/lib-dynload
+    ABA_PATH = /home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code/bin:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code/bin/SMAExternal:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/SMA
+    ABA_PATH_BASE = /home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64:
+    ABQINFO = /home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/SMA/info/
+    ABQLMHANGLIMIT = 0
+    ABQLMIMPL = FLEXNET
+    ABQLMQUEUE = 30
+    ABQLMUSER = lpbrown
+    ABQ_DLALLOCATOR = 1
+    BASH_ENV = /share/software/user/open/lmod/lmod/init/bash
+    BASH_FUNC__cache_cmd() = () {  local cache=$HOME/.cache/sh/;
+ local cmd=${1:-};
+ local cachelife=${2:-};
+ shift 2;
+ [[ -d ${cache} ]] || /bin/mkdir -p ${cache};
+ read prm_hash dash <<< $(/bin/md5sum <<< "$@");
+ entry="${cache}/${cmd##*/}_${prm_hash}";
+ exp=$(/bin/date -d -${cachelife}sec +%s);
+ if [[ -s ${entry} ]] && [[ $(/bin/date -r ${entry} +%s) -gt $exp ]]; then
+ cat ${entry};
+ else
+ ${cmd} "$@" 2>&1 | tee ${entry} 2> /dev/null || rm ${entry} 2> /dev/null;
+ fi;
+ $SH_TIMEOUT_CMD 5 find ${cache} -type f -name "${cmd##*/}_*" \! -newermt @$exp -delete &>/dev/null
+}
+    BASH_FUNC_ml() = () {  eval $($LMOD_DIR/ml_cmd "$@")
+}
+    BASH_FUNC_module() = () {  eval $($LMOD_CMD bash "$@") && eval $(${LMOD_SETTARG_CMD:-:} -s sh)
+}
+    BASH_FUNC_sacct() = () {  _cache_cmd /usr/bin/sacct 10 "$@"
+}
+    BASH_FUNC_sh_jobs() = () {  _cache_cmd $SRCC_PATH/sh_jobs 90 "$@"
+}
+    BASH_FUNC_sh_jobwait() = () {  _cache_cmd $SRCC_PATH/sh_jobwait 300 "$@"
+}
+    BASH_FUNC_sh_part() = () {  _cache_cmd /usr/bin/spart 30 -g -m
+}
+    BASH_FUNC_sh_quota() = () {  _cache_cmd $SRCC_PATH/sh_quota 60 "$@"
+}
+    BASH_FUNC_sh_status() = () {  _cache_cmd $SRCC_PATH/sh_status 600 "$@"
+}
+    BASH_FUNC_sh_usage() = () {  _cache_cmd $SRCC_PATH/sh_usage 90 "$@"
+}
+    BASH_FUNC_sinfo() = () {  _cache_cmd /usr/bin/sinfo 10 "$@"
+}
+    BASH_FUNC_squeue() = () {  _cache_cmd /usr/bin/squeue 10 "$@"
+}
+    BASH_FUNC_sstat() = () {  _cache_cmd /usr/bin/sstat 10 "$@"
+}
+    BASH_FUNC_sudo() = () {  $SRCC_PATH/sudo "$@"
+}
+    CATCommandPath = /home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code/command
+    CATDefaultEnvironment = Env
+    CATDictionaryPath = /home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code/dictionary
+    CUSTOMWORKSPACE = 
+    DSY_TENANT = OnPremise
+    ENVIRONMENT = BATCH
+    FED_DSFLEX_LICENSE_CONFIG = 54782@license4.stanford.edu
+    FED_DSLS_LICENSE_CONFIG = /var/DassaultSystemes/Licenses/DSLicSrv.txt
+    FED_LICENSE_SERVER_TYPE = DSFLEX
+    FIR = /fir/users/lpbrown
+    FLEXLM_DIAGNOSTICS = 4
+    FOR_DISABLE_STACK_TRACE = 1
+    FOR_IGNORE_EXCEPTIONS = 1
+    GROUP = fkchang
+    GROUP_FIR = /fir/groups/fkchang
+    GROUP_HOME = /home/groups/fkchang
+    GROUP_REGAL = /regal/groups/fkchang
+    GROUP_SCRATCH = /scratch/groups/fkchang
+    HISTCONTROL = ignoreboth:erasedups
+    HISTSIZE = 1000
+    HOME = /home/users/lpbrown
+    HOSTNAME = sh-101-48
+    IPATH_NO_CPUAFFINITY = 1
+    KRB5CCNAME = FILE:/tmp/krb5cc_334120_ZOl15tcTdL
+    LANG = en_US.UTF-8
+    LD_LIBRARY_PATH = /home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code/bin/pmpi:/home/users/lpbrown/SherlockTest/lpbrown_Job-1_105045:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code/bin:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code/bin/SMAExternal:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/SMA:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/tools/SMApy/python2.7/lib/python2.7/lib-dynload:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code/bin/SMAExternal/pmpi/lib/linux_amd64
+    LESSOPEN = ||/usr/bin/lesspipe.sh %s
+    LICENSE_DEBUG = 2
+    LMOD_ADMIN_FILE = /share/software/modules/admin.list
+    LMOD_AVAIL_STYLE = categories
+    LMOD_CMD = /share/software/user/open/lmod/lmod/libexec/lmod
+    LMOD_COLORIZE = yes
+    LMOD_DIR = /share/software/user/open/lmod/lmod/libexec
+    LMOD_FULL_SETTARG_SUPPORT = no
+    LMOD_MODULERCFILE = /share/software/modules/.modulerc.lua
+    LMOD_PACKAGE_PATH = /share/software/modules/
+    LMOD_PKG = /share/software/user/open/lmod/lmod
+    LMOD_PREPEND_BLOCK = normal
+    LMOD_RC = /share/software/modules/lmodrc.lua
+    LMOD_REDIRECT = yes
+    LMOD_SETTARG_CMD = :
+    LMOD_SETTARG_FULL_SUPPORT = no
+    LMOD_SYSHOST = sherlock
+    LMOD_SYSTEM_DEFAULT_MODULES = devel,math
+    LMOD_VERSION = 8.0.7
+    LMOD_arch = x86_64
+    LMOD_sys = Linux
+    LOADEDMODULES = devel:math
+    LOCAL_SCRATCH = /lscratch/lpbrown
+    LOGNAME = lpbrown
+    LS_COLORS = ex=00:su=00:sg=00:ca=00:
+    L_SCRATCH = /lscratch/lpbrown
+    L_SCRATCH_JOB = /lscratch/lpbrown/42733909
+    MAIL = /var/spool/mail/lpbrown
+    MANPATH = /share/software/user/open/lmod/lmod/share/man:/usr/local/share/man:/usr/share/man:/opt/dell/srvadmin/share/man
+    MKL_NUM_THREADS = 1
+    MODULEPATH = /share/software/modules/math:/share/software/modules/devel:/share/software/modules/categories
+    MODULEPATH_ROOT = /share/software/modules
+    MODULESHOME = /share/software/user/open/lmod/lmod
+    MPI_SOCKBUFSIZE = 131072
+    MP_NUMBER_OF_THREADS = 1
+    OMP_NUM_THREADS = 1
+    PATH = /share/software/user/srcc/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/opt/dell/srvadmin/bin:/opt/dell/srvadmin/iSM/bin:/home/users/lpbrown/.local/bin
+    PI_HOME = /home/groups/fkchang
+    PI_SCRATCH = /scratch/groups/fkchang
+    PMI_FD = 12
+    PMI_JOBID = 42733909.0
+    PMI_RANK = 0
+    PMI_SIZE = 1
+    PROMPT_COMMAND = RET=$?;logger -t user_audit \
+        "user=$USER pid=$$ cmd=\"$(history 1 | sed "s/^[ ]*[0-9]\+[ ]*//" )\" ret=$RET"
+    PWD = /home/users/lpbrown/SherlockTest
+    PYTHONPATH = /home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code/bin:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code/bin/SMAExternal:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/SMA:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code/python2.7/lib:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/tools/SMApy/python2.7/lib:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/tools/SMApy/python2.7/lib/python2.7:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/tools/SMApy/python2.7/lib/python2.7/lib-tk:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/tools/SMApy/python2.7/lib/python2.7/site-packages:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/tools/SMApy/python2.7/lib/python2.7/lib-dynload:.:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code/bin:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code/bin/SMAExternal:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/SMA:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code/python2.7/lib:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/tools/SMApy/python2.7/lib:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/tools/SMApy/python2.7/lib/python2.7:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/tools/SMApy/python2.7/lib/python2.7/lib-tk:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/tools/SMApy/python2.7/lib/python2.7/site-packages:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/tools/SMApy/python2.7/lib/python2.7/lib-dynload:.:/home/groups/fkchang/SIMULIA_Abaqus_CAE_2019:/home/groups/fkchang/SIMULIA_Abaqus_CAE_2019/linux_a64:/home/groups/fkchang/SIMULIA_Abaqus_CAE_2019/linux_a64/code:/home/groups/fkchang/SIMULIA_Abaqus_CAE_2019/linux_a64/code/bin:/home/groups/fkchang/SIMULIA_Abaqus_CAE_2019/linux_a64/code/bin/SMAExternal:/home/groups/fkchang/SIMULIA_Abaqus_CAE_2019/linux_a64/CAEresources:/home/groups/fkchang/SIMULIA_Abaqus_CAE_2019/linux_a64/SMA:/home/groups/fkchang/SIMULIA_Abaqus_CAE_2019/linux_a64/code/python2.7/lib:/home/groups/fkchang/SIMULIA_Abaqus_CAE_2019/linux_a64/tools/SMApy/python2.7/lib:/home/groups/fkchang/SIMULIA_Abaqus_CAE_2019/linux_a64/tools/SMApy/python2.7/lib/python2.7:/home/groups/fkchang/SIMULIA_Abaqus_CAE_2019/linux_a64/tools/SMApy/python2.7/lib/python2.7/lib-tk:/home/groups/fkchang/SIMULIA_Abaqus_CAE_2019/linux_a64/tools/SMApy/python2.7/lib/python2.7/site-packages:/home/groups/fkchang/SIMULIA_Abaqus_CAE_2019/linux_a64/tools/SMApy/python2.7/lib/python2.7/lib-dynload:.
+    PYTHONUNBUFFERED = nobuffering
+    PYVERDIRNAME = python2.7
+    REGAL = /regal/users/lpbrown
+    SCRATCH = /scratch/users/lpbrown
+    SHELL = /bin/bash
+    SHERLOCK = 2
+    SHLVL = 2
+    SH_INFO_TIMEOUT = 5
+    SH_TIMEOUT_CMD = timeout -s9
+    SINGULARITY_CACHEDIR = /scratch/users/lpbrown/.singularity
+    SLURMD_NODENAME = sh-101-48
+    SLURM_CHECKPOINT_IMAGE_DIR = /var/slurm/checkpoint
+    SLURM_CLUSTER_NAME = sherlock
+    SLURM_CPUS_ON_NODE = 1
+    SLURM_CPU_BIND = quiet,mask_cpu:0x02000
+    SLURM_CPU_BIND_LIST = 0x02000
+    SLURM_CPU_BIND_TYPE = mask_cpu:
+    SLURM_CPU_BIND_VERBOSE = quiet
+    SLURM_DISTRIBUTION = cyclic
+    SLURM_GTIDS = 0
+    SLURM_JOBID = 42733909
+    SLURM_JOB_ACCOUNT = fkchang
+    SLURM_JOB_CPUS_PER_NODE = 1
+    SLURM_JOB_GID = 24534
+    SLURM_JOB_ID = 42733909
+    SLURM_JOB_NAME = abaqus_test
+    SLURM_JOB_NODELIST = sh-101-48
+    SLURM_JOB_NUM_NODES = 1
+    SLURM_JOB_PARTITION = normal
+    SLURM_JOB_QOS = normal
+    SLURM_JOB_UID = 334120
+    SLURM_JOB_USER = lpbrown
+    SLURM_LAUNCH_NODE_IPADDR = 10.10.101.48
+    SLURM_LOCALID = 0
+    SLURM_MEM_PER_NODE = 4096
+    SLURM_NNODES = 1
+    SLURM_NODEID = 0
+    SLURM_NODELIST = sh-101-48
+    SLURM_NPROCS = 1
+    SLURM_NTASKS = 1
+    SLURM_NTASKS_PER_NODE = 1
+    SLURM_PRIO_PROCESS = 0
+    SLURM_PROCID = 0
+    SLURM_SRUN_COMM_HOST = 10.10.101.48
+    SLURM_SRUN_COMM_PORT = 34289
+    SLURM_STEPID = 0
+    SLURM_STEP_ID = 0
+    SLURM_STEP_LAUNCHER_PORT = 34289
+    SLURM_STEP_NODELIST = sh-101-48
+    SLURM_STEP_NUM_NODES = 1
+    SLURM_STEP_NUM_TASKS = 1
+    SLURM_STEP_TASKS_PER_NODE = 1
+    SLURM_SUBMIT_DIR = /home/users/lpbrown/SherlockTest
+    SLURM_SUBMIT_HOST = sh-101-48.int
+    SLURM_TASKS_PER_NODE = 1
+    SLURM_TASK_PID = 105039
+    SLURM_TOPOLOGY_ADDR = edr_core.ibsw-101-02.sh-101-48
+    SLURM_TOPOLOGY_ADDR_PATTERN = switch.switch.node
+    SLURM_UMASK = 0022
+    SLURM_WORKING_CLUSTER = sherlock:sh-sl01:6817:8448
+    SMASVT_ROOT_PATH = /home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code/bin:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code/bin/SMAExternal:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/SMA:/share/software/user/srcc/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/opt/dell/srvadmin/bin:/opt/dell/srvadmin/iSM/bin:/home/users/lpbrown/.local/bin
+    SMA_ACTIVATE_SIM_LOG = 1
+    SRCC_PATH = /share/software/user/srcc/bin
+    SRUN_DEBUG = 3
+    SSH_CLIENT = 10.30.1.47 50709 22
+    SSH_CONNECTION = 10.30.1.47 50709 171.66.97.103 22
+    SSH_TTY = /dev/pts/19
+    TERM = xterm-256color
+    TMOUT = 86400
+    TMPDIR = /home/users/lpbrown/SherlockTest/lpbrown_Job-1_105045
+    TOSCA_INSTALL_PATH = /home/groups/fkchang/SIMULIA/Tosca/2019/linux_a64/code/command/ToscaStructure.sh
+    USER = lpbrown
+    USUBUSED = 0
+    XDG_RUNTIME_DIR = /run/user/334120
+    XDG_SESSION_ID = 4361
+    XLIB_SKIP_ARGB_VISUALS = 1
+    _ = /usr/bin/srun
+    _LMFILES_ = /share/software/modules/categories/devel.lua:/share/software/modules/categories/math.lua
+    _ModuleTable001_ = X01vZHVsZVRhYmxlXz17WyJNVHZlcnNpb24iXT0zLFsiY19yZWJ1aWxkVGltZSJdPWZhbHNlLFsiY19zaG9ydFRpbWUiXT1mYWxzZSxkZXB0aFQ9e30sZmFtaWx5PXt9LG1UPXtkZXZlbD17WyJmbiJdPSIvc2hhcmUvc29mdHdhcmUvbW9kdWxlcy9jYXRlZ29yaWVzL2RldmVsLmx1YSIsWyJmdWxsTmFtZSJdPSJkZXZlbCIsWyJsb2FkT3JkZXIiXT0xLHByb3BUPXtsbW9kPXtbInN0aWNreSJdPTEsfSx9LFsic3RhY2tEZXB0aCJdPTAsWyJzdGF0dXMiXT0iYWN0aXZlIixbInVzZXJOYW1lIl09ImRldmVsIix9LG1hdGg9e1siZm4iXT0iL3NoYXJlL3NvZnR3YXJlL21vZHVsZXMvY2F0ZWdvcmllcy9tYXRoLmx1YSIsWyJmdWxsTmFtZSJdPSJtYXRoIixbImxvYWRPcmRlciJdPTIs
+    _ModuleTable002_ = cHJvcFQ9e2xtb2Q9e1sic3RpY2t5Il09MSx9LH0sWyJzdGFja0RlcHRoIl09MCxbInN0YXR1cyJdPSJhY3RpdmUiLFsidXNlck5hbWUiXT0ibWF0aCIsfSx9LG1wYXRoQT17Ii9zaGFyZS9zb2Z0d2FyZS9tb2R1bGVzL21hdGgiLCIvc2hhcmUvc29mdHdhcmUvbW9kdWxlcy9kZXZlbCIsIi9zaGFyZS9zb2Z0d2FyZS9tb2R1bGVzL2NhdGVnb3JpZXMiLH0sWyJzeXN0ZW1CYXNlTVBBVEgiXT0iL3NoYXJlL3NvZnR3YXJlL21vZHVsZXMvY2F0ZWdvcmllcyIsfQ==
+    _ModuleTable_Sz_ = 2
+    _NT_SYMBOL_PATH = /home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code/bin:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code/bin/SMAExternal:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/SMA:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/tools/SMApy/python2.7/lib/python2.7/lib-dynload
+    __Init_Default_Modules = 1
+    __LMOD_REF_COUNT_LOADEDMODULES = devel:1;math:1
+    __LMOD_REF_COUNT_MODULEPATH = /share/software/modules/math:1;/share/software/modules/devel:1;/share/software/modules/categories:1
+    __LMOD_REF_COUNT__LMFILES_ = /share/software/modules/categories/devel.lua:1;/share/software/modules/categories/math.lua:1
+Sun 19 May 2019 11:53:55 AM PDT
+Phase Convert MFS to SFS status 0
+End Convert MFS to SFS
+Abaqus/Analysis exited with errors
+QOS = normal
+    SLURM_JOB_UID = 334120
+    SLURM_JOB_USER = lpbrown
+    SLURM_LAUNCH_NODE_IPADDR = 10.10.101.48
+    SLURM_LOCALID = 0
+    SLURM_MEM_PER_NODE = 4096
+    SLURM_NNODES = 1
+    SLURM_NODEID = 0
+    SLURM_NODELIST = sh-101-48
+    SLURM_NPROCS = 1
+    SLURM_NTASKS = 1
+    SLURM_NTASKS_PER_NODE = 1
+    SLURM_PRIO_PROCESS = 0
+    SLURM_PROCID = 0
+    SLURM_SRUN_COMM_HOST = 10.10.101.48
+    SLURM_SRUN_COMM_PORT = 34289
+    SLURM_STEPID = 0
+    SLURM_STEP_ID = 0
+    SLURM_STEP_LAUNCHER_PORT = 34289
+    SLURM_STEP_NODELIST = sh-101-48
+    SLURM_STEP_NUM_NODES = 1
+    SLURM_STEP_NUM_TASKS = 1
+    SLURM_STEP_TASKS_PER_NODE = 1
+    SLURM_SUBMIT_DIR = /home/users/lpbrown/SherlockTest
+    SLURM_SUBMIT_HOST = sh-101-48.int
+    SLURM_TASKS_PER_NODE = 1
+    SLURM_TASK_PID = 105039
+    SLURM_TOPOLOGY_ADDR = edr_core.ibsw-101-02.sh-101-48
+    SLURM_TOPOLOGY_ADDR_PATTERN = switch.switch.node
+    SLURM_UMASK = 0022
+    SLURM_WORKING_CLUSTER = sherlock:sh-sl01:6817:8448
+    SMASVT_ROOT_PATH = /home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code/bin:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code/bin/SMAExternal:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/SMA:/share/software/user/srcc/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/opt/dell/srvadmin/bin:/opt/dell/srvadmin/iSM/bin:/home/users/lpbrown/.local/bin
+    SMA_ACTIVATE_SIM_LOG = 1
+    SRCC_PATH = /share/software/user/srcc/bin
+    SRUN_DEBUG = 3
+    SSH_CLIENT = 10.30.1.47 50709 22
+    SSH_CONNECTION = 10.30.1.47 50709 171.66.97.103 22
+    SSH_TTY = /dev/pts/19
+    TERM = xterm-256color
+    TMOUT = 86400
+    TMPDIR = /tmp
+    TOSCA_INSTALL_PATH = /home/groups/fkchang/SIMULIA/Tosca/2019/linux_a64/code/command/ToscaStructure.sh
+    USER = lpbrown
+    XDG_RUNTIME_DIR = /run/user/334120
+    XDG_SESSION_ID = 4361
+    XLIB_SKIP_ARGB_VISUALS = 1
+    _ = /usr/bin/srun
+    _LMFILES_ = /share/software/modules/categories/devel.lua:/share/software/modules/categories/math.lua
+    _ModuleTable001_ = X01vZHVsZVRhYmxlXz17WyJNVHZlcnNpb24iXT0zLFsiY19yZWJ1aWxkVGltZSJdPWZhbHNlLFsiY19zaG9ydFRpbWUiXT1mYWxzZSxkZXB0aFQ9e30sZmFtaWx5PXt9LG1UPXtkZXZlbD17WyJmbiJdPSIvc2hhcmUvc29mdHdhcmUvbW9kdWxlcy9jYXRlZ29yaWVzL2RldmVsLmx1YSIsWyJmdWxsTmFtZSJdPSJkZXZlbCIsWyJsb2FkT3JkZXIiXT0xLHByb3BUPXtsbW9kPXtbInN0aWNreSJdPTEsfSx9LFsic3RhY2tEZXB0aCJdPTAsWyJzdGF0dXMiXT0iYWN0aXZlIixbInVzZXJOYW1lIl09ImRldmVsIix9LG1hdGg9e1siZm4iXT0iL3NoYXJlL3NvZnR3YXJlL21vZHVsZXMvY2F0ZWdvcmllcy9tYXRoLmx1YSIsWyJmdWxsTmFtZSJdPSJtYXRoIixbImxvYWRPcmRlciJdPTIs
+    _ModuleTable002_ = cHJvcFQ9e2xtb2Q9e1sic3RpY2t5Il09MSx9LH0sWyJzdGFja0RlcHRoIl09MCxbInN0YXR1cyJdPSJhY3RpdmUiLFsidXNlck5hbWUiXT0ibWF0aCIsfSx9LG1wYXRoQT17Ii9zaGFyZS9zb2Z0d2FyZS9tb2R1bGVzL21hdGgiLCIvc2hhcmUvc29mdHdhcmUvbW9kdWxlcy9kZXZlbCIsIi9zaGFyZS9zb2Z0d2FyZS9tb2R1bGVzL2NhdGVnb3JpZXMiLH0sWyJzeXN0ZW1CYXNlTVBBVEgiXT0iL3NoYXJlL3NvZnR3YXJlL21vZHVsZXMvY2F0ZWdvcmllcyIsfQ==
+    _ModuleTable_Sz_ = 2
+    _NT_SYMBOL_PATH = /home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code/bin:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/code/bin/SMAExternal:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/SMA:/home/groups/fkchang/SIMULIA_AbaqusServices/V6R2019x/linux_a64/tools/SMApy/python2.7/lib/python2.7/lib-dynload
+    __Init_Default_Modules = 1
+    __LMOD_REF_COUNT_LOADEDMODULES = devel:1;math:1
+    __LMOD_REF_COUNT_MODULEPATH = /share/software/modules/math:1;/share/software/modules/devel:1;/share/software/modules/categories:1
+    __LMOD_REF_COUNT__LMFILES_ = /share/software/modules/categories/devel.lua:1;/share/software/modules/categories/math.lua:1
+License for standard is available.
+Reached end of bash script
