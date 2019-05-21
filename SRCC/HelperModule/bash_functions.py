@@ -10,7 +10,7 @@ def write_generate_inp_script(jobname,scriptname):
         fh.writelines("#SBATCH --job-name=inp_%s\n" % jobname)
         fh.writelines("#SBATCH --time=10:00\n")
         fh.writelines("#SBATCH --mem=4Gb\n")
-        fh.writelines("#SBATCH --output=log_%j.output\n")
+        fh.writelines("#SBATCH --output=./SlurmReports/output=log_%j.output\n")
         
         #fixes for abaqus running on slurm
         fh.writelines("#The follwing are abaqus fixes for slurm\n")
@@ -46,7 +46,7 @@ def write_job_submission_script(jobname,scriptname):
         fh.writelines("#SBATCH --job-name=run_%s\n" % jobname)
         fh.writelines("#SBATCH --time=10:00\n")
         fh.writelines("#SBATCH --mem=8Gb\n")
-        fh.writelines("#SBATCH --output=log_%j.output")
+        fh.writelines("#SBATCH --output=./SlurmReports/output=log_%j.output")
         
         #fixes for abaqus running on slurm
         fh.writelines("#The follwing are abaqus fixes for slurm\n")
@@ -88,7 +88,7 @@ def write_odb_extraction_script(jobname,scriptname):
         fh.writelines("#SBATCH --job-name=odb_%s\n" % jobname)
         fh.writelines("#SBATCH --time=10:00\n")
         fh.writelines("#SBATCH --mem=4Gb\n")
-        fh.writelines("#SBATCH --output=log_%j.output\n")
+        fh.writelines("#SBATCH --output=./SlurmReports/output=log_%j.output\n")
         
         #fixes for abaqus running on slurm
         fh.writelines("#The follwing are abaqus fixes for slurm\n")

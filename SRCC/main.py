@@ -62,12 +62,11 @@ def abaqus_evaluation_wrapper(vec):
         
     print('%s.odb finished extraction. Returning values!' % jobname)
 
-    output_values = np.load("/home/users/lpbrown/SRCC/OutputFile/"+jobname+".npy")
+    output_values = np.load(os.getcwd()+"/OutputFiles/"+jobname+".npy")
     maxu3 = output_values[0]
     minu3 = output_values[1]
 
-
-    #Clean up the results
+    #Clean up the results?
     # os.system("rm *.log")
     # os.system("rm *.output")
     # os.system("rm *.rpy*")
@@ -95,6 +94,8 @@ def generate_xyr_simplex(num_rivets):
 
 #Run job for generating cae
 if __name__ == "__main__":
-    S = generate_xyr_simplex(1)
-    minu3 =  abaqus_evaluation_wrapper(S[1])
-    print("%f minu3!" % minu3)
+    S = generate_xyr_simplex(2)
+    minu3_1 =  abaqus_evaluation_wrapper(S[1])
+    minu3_2 =  abaqus_evaluation_wrapper(S[2])
+    print("%f minu3!" % minu3_1)
+    print("%f minu3!" % minu3_2)

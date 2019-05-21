@@ -4,6 +4,6 @@
 #SBATCH --job-name=abaqus_rivet_main	#Name of slurm job
 #SBATCH --time=1:00:00					#Max time
 #SBATCH --mem=512Mb						#Memory requested
-#SBATCH --output=log_%j.output			#output log
+#SBATCH --output=./SlurmReports/log_%j.output			#output log
 
 python3 main.py
