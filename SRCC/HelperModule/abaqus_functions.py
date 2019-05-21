@@ -20,7 +20,6 @@ from odbAccess import *
 #Helper functions for abaqus that generate parts,
 #Apply BC, Apply loads, etc.
 
-
 ##GENERATE PARTS
 def generate_facesheet(cellW=110.00, cellL=110.00, loadW=5.00, layup=[0,90,0], t_ply=0.1):
     ##INPUTS
