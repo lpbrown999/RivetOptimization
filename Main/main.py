@@ -5,93 +5,45 @@ import os
 import subprocess
 import re
 import time
-from HelperModule import bash_functions
-
-# from HelperModule.optimization_functions import *
-# from HelperModule.bash_functions import *
-
-def abaqus_evaluation_wrapper_SRCC(vec):
-
-    #Function that will take in the arbitrary vector, write to a csv, run abaqus through a separate command, return value.
-    total_length = len(vec)
-    n = int(total_length/3)
-
-    xs = vec[0*n:1*n]
-    ys = vec[1*n:2*n]
-    rs = vec[2*n:3*n]
-
-    #Write xs, ys, rs to binaries for input generating script to load.
-    np.save(os.getcwd()+'/ScratchFiles/xs.npy',xs)
-    np.save(os.getcwd()+'/ScratchFiles/ys.npy',ys)
-    np.save(os.getcwd()+'/ScratchFiles/rs.npy',rs)
-
-    #Get job name
-    mylist = [item for item in os.listdir(os.getcwd()+'/InpFiles/') if item.endswith(".inp")] 
-    myints = [int(re.findall(r'\b\d+\b',item)[0]) for item in mylist]
-    if not myints:
-        myints.append(0)
-    jobname = "Job-"+str(max(myints)+1)
-
-    #Write bash script to generate the inp file, then run it. Result: Input file generated, as well as stored battery volume.
-    bash_functions.write_generate_inp_script(jobname,"abaqus_generate_inp.sh")
-    os.system("sbatch abaqus_generate_inp.sh")
-    while not os.path.isfile(os.getcwd()+'/InpFiles/'+jobname+'.inp'):
-        time.sleep(2)
-        print('Waiting for %s.inp to generate.' % jobname)
-
-    print('%s.inp generated. Submitting for analysis.' % jobname)
-
-
-
-    #Write bash script to run the job, then run it. Result: job ran. 
-    bash_functions.write_job_submission_script(jobname,"abaqus_job_submission.sh")
-    os.system("sbatch abaqus_job_submission.sh")
-
-    while not os.path.isfile(os.getcwd()+'/OutputFiles/'+jobname+'.odb'):
-        time.sleep(2)
-        print('Waiting for %s to finish analysis.' % jobname)
-    print('%s finished analyzing. Inspecting ODB.' % jobname)
-    
-
-    #Extract results from odb file. Since this requires a cae session, 
-    #once again write a bash script to schedule a job
-    bash_functions.write_odb_extraction_script(jobname,"abaqus_odb_extraction.sh")
-    os.system("sbatch abaqus_odb_extraction.sh")
-
-    while not os.path.isfile(os.getcwd()+'/OutputFiles/'+jobname+'.npy'):
-        time.sleep(2)
-        print('Waiting for %s.odb to finish extraction.' % jobname)
-        
-    print('%s.odb finished extraction. Returning values!' % jobname)
-
-    output_values  = np.load(os.getcwd()+"/OutputFiles/"+jobname+".npy")
-    battery_volume = np.load(os.getcwd()+"/OutputFiles/"+jobname+"")
-    maxu3 = output_values[0]
-    minu3 = output_values[1]
-
-    #Clean up the results?
-    # os.system("rm *.log")
-    # os.system("rm *.output")
-    # os.system("rm *.rpy*")
-    
-    return minu3
-
+import csv
+from shutil import copy2
+from HelperModule.optimization_functions import * 
 
 def abaqus_evaluation_wrapper_local(vec):
+    
+    #Constraint values, penalty factors
+    Gmin = 0         #minimum G -> 20 MPa
+    dist_tol = 3        #distance tolerance from frame, other rivets
+    p1 = 100            #penalty weighting
 
-    #Function that will take in the arbitrary vector, write to a csv, run abaqus through a separate command, return value.
-    total_length = len(vec)
-    n = int(total_length/3)
+    #Sizing, copy pasted from abaqus script
+    #Could include in input vector in the future but not today
+    cellL = 110.00
+    cellW = 110.00
+    frameW = 10.00
+    t_bat = 3.00
 
+    #From the input vector, and then clip so rivet locations are valid.
+    # 1. rivets cannot be over or under sized
+    # 2. cannot be outside of frame.
+    n = int(len(vec)/3)
     xs = vec[0*n:1*n]
     ys = vec[1*n:2*n]
     rs = vec[2*n:3*n]
 
-    #Save to be accessed by abaqus
-    np.save(os.getcwd()+'/ScratchFiles/xs.npy',xs)
-    np.save(os.getcwd()+'/ScratchFiles/ys.npy',ys)
-    np.save(os.getcwd()+'/ScratchFiles/rs.npy',rs)
+    rs = np.clip(rs,dist_tol,min(cellL/4,cellW/4))                  
+    xs = np.clip(xs-rs,frameW+rs+dist_tol,cellL-frameW-rs-dist_tol) 
+    ys = np.clip(ys-rs,frameW+rs+dist_tol,cellW-frameW-rs-dist_tol)
 
+    #Check if any rivets are within distance tolerance of each other. If they are, return a high value (penalized)
+    #Think about: adding a "ramping constraint" as the pieces get too close together
+    rivet_separations = compute_separation(xs,ys,rs)
+    if any(rivet_separations<=0):
+        print(xs,ys,rs)
+        print("Skipping because identified rivet intersection!")
+        return np.inf
+
+    #Made it to here means rivets do not intersect
     #Get job name
     mylist = [item for item in os.listdir(os.getcwd()+'/InpFiles/') if item.endswith(".inp")] 
     myints = [int(re.findall(r'\b\d+\b',item)[0]) for item in mylist]
@@ -99,67 +51,57 @@ def abaqus_evaluation_wrapper_local(vec):
         myints.append(0)
     jobname = "Job-"+str(max(myints)+1)
 
-    #Generate inp file, it ends up being where?
-    os.system('abaqus cae nogui=abaqus_generate_inp.py -- %s' % jobname)
+    #Save input vector to be accessed by abaqus
+    vec = np.concatenate((xs,ys,rs),axis=0)
+    with open(os.getcwd()+'/InpFiles/input_vec.csv', mode='a+') as f:
+        writer = csv.writer(f)
+        writer.writerow(vec)
 
- #    #Run the job
- #    subprocess.run('abaqus job=%s input=%s scratch=%s' % (jobname,jobname+'.inp', ))
- # 'abaqus job=%s input=%s scratch=%s' % ('blah', 'blah1', 'blah2')
+    #Run the job
+    subprocess.run('abaqus cae nogui=abaqus_script.py -- %s' % jobname, shell=True)
+    copy2(os.getcwd()+'/ScratchFiles/%s.odb' % jobname, os.getcwd()+'/OutputFiles/')
+    copy2(os.getcwd()+'/ScratchFiles/%s.inp' % jobname, os.getcwd()+'/InpFiles/')
 
- #    #Write bash script to run the job, then run it. Result: job ran. 
- #    bash_functions.write_job_submission_script(jobname,"abaqus_job_submission.sh")
- #    os.system("sbatch abaqus_job_submission.sh")
+    #Load output information
+    output_vec = np.genfromtxt(os.getcwd()+'/OutputFiles/output_vec.csv', delimiter=',')[-1]
+    battery_volume = output_vec[0]
+    G = output_vec[1]
+    print(G)
 
- #    while not os.path.isfile(os.getcwd()+'/OutputFiles/'+jobname+'.odb'):
- #        time.sleep(2)
- #        print('Waiting for %s to finish analysis.' % jobname)
- #    print('%s finished analyzing. Inspecting ODB.' % jobname)
-    
+    #compute penalties. c<=0
+    c_G = [Gmin-G]                          #Gmin<=G
+    c_Separation = (dist_tol - rivet_separations)*1000
+    c = np.concatenate((c_G,c_Separation), axis=0)
+    penalty = quad_penalty(c)
 
- #    #Extract results from odb file. Since this requires a cae session, 
- #    #once again write a bash script to schedule a job
- #    bash_functions.write_odb_extraction_script(jobname,"abaqus_odb_extraction.sh")
- #    os.system("sbatch abaqus_odb_extraction.sh")
-
- #    while not os.path.isfile(os.getcwd()+'/OutputFiles/'+jobname+'.npy'):
- #        time.sleep(2)
- #        print('Waiting for %s.odb to finish extraction.' % jobname)
-        
- #    print('%s.odb finished extraction. Returning values!' % jobname)
-
- #    output_values  = np.load(os.getcwd()+"/OutputFiles/"+jobname+".npy")
- #    battery_volume = np.load(os.getcwd()+"/OutputFiles/"+jobname+"")
- #    maxu3 = output_values[0]
- #    minu3 = output_values[1]
-
-    #Clean up the results?
-    # os.system("rm *.log")
-    # os.system("rm *.output")
-    # os.system("rm *.rpy*")
-#Function to generate an initial simplex for a given number of rivets
-def generate_xyr_simplex(num_rivets):
-    xmin = 0
-    xmax = 110
-    ymin = 0
-    ymax = 110
-    rmin = 0
-    rmax = 50
-
-    ndim = num_rivets*3
-    S = np.random.random_sample((ndim+1,ndim))
-    S[:,0*num_rivets:1*num_rivets] = S[:,0*num_rivets:1*num_rivets]*(xmax-xmin) + xmin
-    S[:,1*num_rivets:2*num_rivets] = S[:,1*num_rivets:2*num_rivets]*(ymax-ymin) + ymin
-    S[:,2*num_rivets:3*num_rivets] = S[:,2*num_rivets:3*num_rivets]*(rmax-rmin) + rmin
-
-    return S
-
-
-#Function to compute the estimated shear stiffness from the core
-
-#best = optimize(abaqus_evaluation_deflection_vec, None, 3, 10)
+    #Now return the objective + the penalty (note we are minimizing)
+    return -battery_volume + p1*penalty
 
 #Run job for generating cae
 if __name__ == "__main__":
-    S = generate_xyr_simplex(2)
-    abaqus_evaluation_wrapper_local(S[1])
-    # minu3_2 =  abaqus_evaluation_wrapper(S[2])
+    num_rivets = 4
+    neval = 200
+    nrestarts = 10
+
+    #Prepare and overwrite the input/output csv files by writing zero vectors of appropriate length
+    with open(os.getcwd()+'/OutputFiles/output_vec.csv', mode='w') as f:
+        writer = csv.writer(f)
+        writer.writerow(np.zeros(2))
+        writer.writerow(np.zeros(2))
+
+    with open(os.getcwd()+'/InpFiles/input_vec.csv', mode='w') as f:
+        writer = csv.writer(f)
+        writer.writerow(np.zeros(num_rivets*3))
+        writer.writerow(np.zeros(num_rivets*3))
+
+    S = generate_xyr_simplex(num_rivets)
+    print(abaqus_evaluation_wrapper_local(S[1]))
+
+
+    #Optimize
+    # best_design = optimize(abaqus_evaluation_wrapper_local, num_rivets, neval, nrestarts)
+
+    #Save the best design
+    # with open(os.getcwd()+'/results.csv', mode='w') as f:
+    #     writer = csv.writer(f)
+    #     writer.writerow(best_design)

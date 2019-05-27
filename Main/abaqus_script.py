@@ -2,9 +2,12 @@
 import numpy as np
 import os
 import sys
+import csv
+import time
+
 from HelperModule.abaqus_functions import *
 
-def abaqus_generate_inp(jobname,xs,ys,rs):
+def abaqus_run_job(jobname,xs,ys,rs):
     ## Inputs: vector x location, y location, r size of the 
     # rivets. Must all be the same length (num rivets long)
 
@@ -13,11 +16,11 @@ def abaqus_generate_inp(jobname,xs,ys,rs):
 
     #New model
     Mdb()
-    mesh_size = 1.0
+    mesh_size = 3.0
 
     #Load to be applied (3 point bending)
     #and the width of strip it is applied to
-    load = 10  
+    load = 100 
     loadW = 5.00
 
     #Cell sizing
@@ -25,12 +28,6 @@ def abaqus_generate_inp(jobname,xs,ys,rs):
     cellW = 110.00
     frameW = 10.00
     t_bat = 5.00
-
-    #Clip the input rivet locations so they are valid (within the battery)
-    dist_tol = 3.0                                                  #Rivet clearance from the frame
-    rs = np.clip(rs,dist_tol,min(cellL/4,cellW/4))                  #Rivets cannot be bigger than half of the shortest dimension
-    xs = np.clip(xs-rs,frameW+rs+dist_tol,cellL-frameW-rs-dist_tol) #Rivets must be at least the distance tolerance away from the edges
-    ys = np.clip(ys-rs,frameW+rs+dist_tol,cellW-frameW-rs-dist_tol)
 
     #Face sheet layups
     face_layup = [0,90,90,0]
@@ -54,25 +51,44 @@ def abaqus_generate_inp(jobname,xs,ys,rs):
     constrain_assembly(cellL=cellL, cellW=cellW, t_FS=t_FS)
     load_part(cellL=cellL, cellW=cellW, t_bat=t_bat, t_FS=t_FS, load=load)
 
-    #Save the volume of the battery for optimization
-    battery_volume = get_part_volume('Battery')
-    np.save("%s_bat_vol.npy" % jobname, battery_volume)
-
     #Mesh everything
     mesh_part('CF',      size=mesh_size)
     mesh_part('Battery', size=mesh_size)
     mesh_part('Polymer', size=mesh_size)
 
-    #Create job, write inp
-    create_job(name=jobname)
-    write_inp(name=jobname)
-    return True
+    #Create job, write inp, run it, save cae
+    # create_job(name=jobname, variables=('U','UT','UR','EVOL'))
+    # write_inp(name=jobname)
+    # run_model(name=jobname)?
+
+    # #Sleep to let abaqus finish cleaning up the model that just ran before we query it
+    # time.sleep(5)
+
+    # #Extract needed values
+    # maxu3,minu3 = get_max_min_disp(name=jobname)
+    # delta = max(abs(np.array([maxu3,minu3])))
+    # G = simple_sandwich_theory_G(delta, cellW=cellW, cellL=cellL, layup=face_layup, t_ply=t_ply, t_bat=t_bat, load=load)
+    # battery_volume = get_part_volume('Battery')
+
+    # return [battery_volume, G]
 
 if __name__ == "__main__":
-    os.chdir("ScratchFiles")
-    xs = np.load("xs.npy")
-    ys = np.load("ys.npy")
-    rs = np.load("rs.npy")
-    jobname = sys.argv[-1]
-    abaqus_generate_inp(jobname,xs,ys,rs)
 
+    vec = np.genfromtxt(os.getcwd()+'/InpFiles/input_vec.csv', delimiter=',')[-1]
+    os.chdir('ScratchFiles')
+    total_length = len(vec)
+    n = int(total_length/3)
+    
+    xs = vec[0*n:1*n]
+    ys = vec[1*n:2*n]
+    rs = vec[2*n:3*n]
+
+    jobname = sys.argv[-1]
+    output_vec = abaqus_run_job(jobname,xs,ys,rs)
+    os.chdir('..')
+
+    # #Save input vector to be accessed by abaqus
+    # with open(os.getcwd()+'/OutputFiles/output_vec.csv', mode='a+') as f:
+    #     writer = csv.writer(f)
+    #     writer.writerow(output_vec)
+    # sys.exit()

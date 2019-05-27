@@ -20,27 +20,48 @@ from odbAccess import *
 #Helper functions for abaqus that generate parts,
 #Apply BC, Apply loads, etc.
 
-##GENERATE PARTS
+def CF_properties():
+    E11  = 30420
+    E22  = 4023
+    E33  = 4023
+    Nu12 = .29
+    Nu13 = .29
+    Nu23 = .3928
+    G12  = 2081
+    G13  = 2081
+    G23  = 1440
+    return (E11,E22,E33,Nu12,Nu13,Nu23,G12,G13,G23)
+
+def Battery_properties():
+    E11_bat=1090.00;
+    E22_bat=109.00;
+    E33_bat=500.00;
+    nu12_bat=0.15;
+    nu13_bat=0.15;
+    nu23_bat=0.15;
+    G12_bat=474.00;
+    G13_bat=474.00;
+    G23_bat=474.00;
+    return (E11_bat,E22_bat,E33_bat,nu12_bat,nu13_bat,nu23_bat,G12_bat,G13_bat,G23_bat)
+
+def Polymer_properties():
+    E_poly = 500.00;
+    nu_poly = 0.30;
+    return (E_poly, nu_poly)
+
+### Part generation
 def generate_facesheet(cellW=110.00, cellL=110.00, loadW=5.00, layup=[0,90,90,0], t_ply=0.2):
-    ##INPUTS
 
     #Carbon Fiber properties
-    #Taken from anthonys work
-    #Consider switching to the new material properties we tested?
-    E11_FS=30420.00;
-    E22_FS=4023.00;
-    nu12_FS=0.29;
-
-    G12_FS=2081.00;
-    G13_FS=2081.00;
-    G23_FS=1440.00;
+    # E11_FS,E22_FS,nu12_FS,G12_FS,G13_FS,G23_FS = CF_properties()
+    E11,E22,E33,Nu12,Nu13,Nu23,G12,G13,G23 = CF_properties()
     
     m = mdb.models['Model-1']
 
     #Define composite material
     m.Material(name='CF_material')
-    m.materials['CF_material'].Elastic(type=LAMINA, table=((E11_FS, E22_FS, nu12_FS, G12_FS, G13_FS, G23_FS), ))
-
+    # m.materials['CF_material'].Elastic(table=((E11_FS, E22_FS, nu12_FS, G12_FS, G13_FS, G23_FS), ), type=LAMINA)
+    m.materials['CF_material'].Elastic(table=((E11,E22,E33,Nu12,Nu13,Nu23,G12,G13,G23), ), type=ENGINEERING_CONSTANTS)
     ply_angles = ()
     for i, angle in enumerate(layup):
         ply_angles = ply_angles + (SectionLayer(material='CF_material', thickness=t_ply, orientAngle=angle,  numIntPts=3),)
@@ -86,18 +107,9 @@ def generate_facesheet(cellW=110.00, cellL=110.00, loadW=5.00, layup=[0,90,90,0]
     return True 
 
 def generate_battery(cellL= 110.00, cellW=110.00, frameW=10.00, t_bat=3.00):
-
+    
     #Anthony battery properties
-    E11_bat=1090.00;
-    E22_bat=1090.00;
-    E33_bat=500.00;
-    nu12_bat=0.15;
-    nu13_bat=0.15;
-    nu23_bat=0.15;
-    G12_bat=474.00;
-    G13_bat=474.00;
-    G23_bat=474.00;
-
+    E11_bat,E22_bat,E33_bat,nu12_bat,nu13_bat,nu23_bat,G12_bat,G13_bat,G23_bat = Battery_properties()
     m = mdb.models['Model-1']
 
     #Sketch batttery
@@ -130,8 +142,7 @@ def generate_battery(cellL= 110.00, cellW=110.00, frameW=10.00, t_bat=3.00):
 
 def generate_polymer(cellL=110.00, cellW=110.00, frameW=10.00, t_bat=3.00):
 
-    E_poly=600.00;
-    nu_poly=0.30;
+    E_poly, nu_poly = Polymer_properties()
 
     m =  mdb.models['Model-1']
 
@@ -169,7 +180,6 @@ def generate_polymer(cellL=110.00, cellW=110.00, frameW=10.00, t_bat=3.00):
     del m.sketches['__profile__']
 
     return True
-
 
 ### Rivet functions
 def cut_battery_rivet_hole(x,y,r):
@@ -231,8 +241,8 @@ def add_rivet(x,y,r,rivet_num,t_bat=3.00,frameW=10.00):
 
     return True
 
-##ASSEMBLY STUFF
-def assemble(t_FS=1.0, frameW=10.00, t_bat=3.00):
+### Assembly, constraints 
+def assemble(t_FS=0.8, frameW=10.00, t_bat=3.00):
     # session.viewports['Viewport: 1'].assemblyDisplay.setValues(renderShellThickness=ON)
     session.viewports['Viewport: 1'].assemblyDisplay.geometryOptions.setValues(
         datumAxes=OFF, datumPlanes=OFF)
@@ -275,74 +285,74 @@ def define_contact(num_rivets):
         table=((0.3, ), ), temperatureDependency=OFF)
 
     # #Apply contact property to top CF, battery and bot CF, battery
-    # m.SurfaceToSurfaceContactStd(adjustMethod=NONE, 
-    #     clearanceRegion=None, createStepName='Initial', datumAxis=None, 
-    #     initialClearance=OMIT, interactionProperty='NormCont', 
-    #     name='CF2Bat',
-    #     master=a.instances['CF-2'].surfaces['CFbot'],
-    #     slave= a.instances['Battery-1'].surfaces['BatTop'], 
-    #     sliding=FINITE, thickness=ON)
-    m.Tie(name='CF2Bat', positionToleranceMethod=SPECIFIED, positionTolerance=0.05, adjust=OFF, 
-        master= a.instances['CF-2'].surfaces['CFbot'], 
-        slave = a.instances['Battery-1'].surfaces['BatTop'], 
-        thickness=ON, tieRotations=ON)
+    m.SurfaceToSurfaceContactStd(adjustMethod=NONE, 
+        clearanceRegion=None, createStepName='Initial', datumAxis=None, 
+        initialClearance=OMIT, interactionProperty='NormCont', 
+        name='CF2Bat',
+        master=a.instances['CF-2'].surfaces['CFbot'],
+        slave= a.instances['Battery-1'].surfaces['BatTop'], 
+        sliding=FINITE, thickness=ON)
+    m.SurfaceToSurfaceContactStd(adjustMethod=NONE, 
+        clearanceRegion=None, createStepName='Initial', datumAxis=None, 
+        initialClearance=OMIT, interactionProperty='NormCont', 
+        name='CF1Bat',
+        master=a.instances['CF-1'].surfaces['CFtop'],
+        slave= a.instances['Battery-1'].surfaces['BatBot'], 
+        sliding=FINITE, thickness=ON)
+    # m.Tie(name='CF2Bat', positionToleranceMethod=SPECIFIED, positionTolerance=0.05, adjust=OFF, 
+    #     master= a.instances['CF-2'].surfaces['CFbot'], 
+    #     slave = a.instances['Battery-1'].surfaces['BatTop'], 
+    #     thickness=ON, tieRotations=ON)
+    # m.Tie(name='CF1Bat', positionToleranceMethod=SPECIFIED, positionTolerance=0.05, adjust=OFF, 
+    #     master= a.instances['CF-1'].surfaces['CFtop'], 
+    #     slave = a.instances['Battery-1'].surfaces['BatBot'], 
+    #     thickness=ON, tieRotations=ON)
 
-    # m.SurfaceToSurfaceContactStd(adjustMethod=NONE, 
-    #     clearanceRegion=None, createStepName='Initial', datumAxis=None, 
-    #     initialClearance=OMIT, interactionProperty='NormCont', 
-    #     name='CF1Bat',
-    #     master=a.instances['CF-1'].surfaces['CFtop'],
-    #     slave= a.instances['Battery-1'].surfaces['BatBot'], 
-    #     sliding=FINITE, thickness=ON)
-    m.Tie(name='CF1Bat', positionToleranceMethod=SPECIFIED, positionTolerance=0.05, adjust=OFF, 
-        master= a.instances['CF-1'].surfaces['CFtop'], 
-        slave = a.instances['Battery-1'].surfaces['BatBot'], 
-        thickness=ON, tieRotations=ON)
-
-    #Apply contact property between battery and polymer holes
+    #Apply contact property between battery holes and polymer rivets
     for i in range(0,num_rivets):
-        # m.SurfaceToSurfaceContactStd(adjustMethod=NONE, 
-        #     clearanceRegion=None, createStepName='Initial', datumAxis=None, 
-        #     initialClearance=OMIT, interactionProperty='NormCont',
-        #     name='BatPoly-'+str(i),
-        #     master=a.instances['Polymer-1'].surfaces['Polymer-rivet-'+str(i)], 
-        #     slave=a.instances['Battery-1'].surfaces['Battery-rivet-'+str(i)], 
-        #     sliding=FINITE, thickness=ON)
-        m.Tie(name='BatPoly-'+str(i), positionToleranceMethod=SPECIFIED, positionTolerance=0.05, adjust=OFF, 
-            master= a.instances['Polymer-1'].surfaces['Polymer-rivet-'+str(i)], 
-            slave = a.instances['Battery-1'].surfaces['Battery-rivet-'+str(i)], 
-            thickness=ON, tieRotations=ON)
+        m.SurfaceToSurfaceContactStd(adjustMethod=NONE, 
+            clearanceRegion=None, createStepName='Initial', datumAxis=None, 
+            initialClearance=OMIT, interactionProperty='NormCont',
+            name='BatPoly-'+str(i),
+            master=a.instances['Polymer-1'].surfaces['Polymer-rivet-'+str(i)], 
+            slave=a.instances['Battery-1'].surfaces['Battery-rivet-'+str(i)], 
+            sliding=FINITE, thickness=ON)
+        # m.Tie(name='BatPoly-'+str(i), positionToleranceMethod=SPECIFIED, positionTolerance=0.05, adjust=OFF, 
+        #     master= a.instances['Polymer-1'].surfaces['Polymer-rivet-'+str(i)], 
+        #     slave = a.instances['Battery-1'].surfaces['Battery-rivet-'+str(i)], 
+        #     thickness=ON, tieRotations=ON)
 
 
-    #Tie the polymer to the face sheet. Rivets + frame.
-    m.Tie(name='CF1Poly',  positionToleranceMethod=SPECIFIED, positionTolerance=0.05, adjust=OFF, 
+    #Tie the polymer (rivets, frame) to the face sheet.
+    tol = 1.0
+    m.Tie(name='CF1Poly',  positionToleranceMethod=SPECIFIED, positionTolerance=tol, adjust=OFF, 
         master= a.instances['CF-1'].surfaces['CFtop'], 
         slave = a.instances['Polymer-1'].surfaces['PolyBot'], 
         thickness=ON, tieRotations=ON)
-    m.Tie(name='CF2Poly',  positionToleranceMethod=SPECIFIED, positionTolerance=0.05, adjust=OFF,
+    m.Tie(name='CF2Poly',  positionToleranceMethod=SPECIFIED, positionTolerance=tol, adjust=OFF,
         master= a.instances['CF-2'].surfaces['CFbot'], 
         slave = a.instances['Polymer-1'].surfaces['PolyTop'], 
         thickness=ON, tieRotations=ON)
 
     for i in range(0,num_rivets):
         print i
-        m.Tie(name='CF1Poly-Rivet-'+str(i),  positionToleranceMethod=SPECIFIED, positionTolerance=0.05, adjust=OFF,
+        m.Tie(name='CF1Poly-Rivet-'+str(i),  positionToleranceMethod=SPECIFIED, positionTolerance=tol, adjust=OFF,
             master= a.instances['CF-1'].surfaces['CFtop'], 
             slave = a.instances['Polymer-1'].surfaces['Polymer-rivet-bot-'+str(i)], 
             thickness=ON, tieRotations=ON)
-        m.Tie(name='CF2Poly-Rivet-'+str(i),  positionToleranceMethod=SPECIFIED, positionTolerance=0.05, adjust=OFF,
+        m.Tie(name='CF2Poly-Rivet-'+str(i),  positionToleranceMethod=SPECIFIED, positionTolerance=tol, adjust=OFF,
             master= a.instances['CF-2'].surfaces['CFbot'], 
             slave = a.instances['Polymer-1'].surfaces['Polymer-rivet-top-'+str(i)], 
             thickness=ON, tieRotations=ON)
     
     return True
 
-def constrain_assembly(cellL=110.00,cellW=110.00,t_FS=1.0):
+def constrain_assembly(cellL=110.00,cellW=110.00,t_FS=0.8):
     
     #Define a loadstep
     m = mdb.models['Model-1']
     a = m.rootAssembly
-    m.StaticStep(name='Loading', previous='Initial')
+    m.StaticStep(name='Loading', previous='Initial', nlgeom=OFF)
 
     ##Sets up 3 point bending constraints
     #Vertical supports
@@ -356,7 +366,7 @@ def constrain_assembly(cellL=110.00,cellW=110.00,t_FS=1.0):
 
     #Inplane support
     v = a.instances['CF-1'].vertices
-    vertices = v.findAt(( (0.0, 0.0, -t_FS/2), ), ( (0.0, cellW, -t_FS/2), ))
+    vertices = v.findAt( ((0.0, cellW, -t_FS/2),) )
     region = a.Set(vertices=vertices, name="XDirSupport")
     m.DisplacementBC(name='XDirSupport', createStepName='Loading', region=region, 
         u1=0.0, u2=UNSET, u3=UNSET, ur1=UNSET, ur2=UNSET, 
@@ -372,21 +382,31 @@ def constrain_assembly(cellL=110.00,cellW=110.00,t_FS=1.0):
 
     return True
 
-def load_part(cellL=110.00,cellW=110.00,t_bat=3.0, t_FS=1.0, load=100):
+def load_part(cellL=110.00,cellW=110.00,t_bat=3.0, t_FS=0.8, load=100):
     m = mdb.models['Model-1']
     a = m.rootAssembly
     a.regenerate()
 
-    #Apply load
+    #Create reference point on the loading surface, and a set
     f = a.instances['CF-2'].faces
-    region = Region(side1Faces=f.findAt(((cellL/2, cellW/2, t_bat+t_FS/2),),))
+    loading_set=a.Set(faces=f.findAt(((cellL/2, cellW/2, t_bat+t_FS/2),),), name='rigid_loading_set')
+
+    a.ReferencePoint(point=(cellL/2, cellW/2, t_bat+t_FS/2))
+    r1 = a.referencePoints
+    ref_point_region = Region(referencePoints=(r1[r1.keys()[0]],))
+    
+    #Create rigid body for loading
+    m.RigidBody(name='LoadingRigidBody', refPointRegion=ref_point_region, tieRegion=loading_set)
+
+    #Apply load
+    loading_region = Region(side1Faces=f.findAt(((cellL/2, cellW/2, t_bat+t_FS/2),),))
     m.Pressure(name='Load-1', createStepName='Loading', 
-        region=region, distributionType=TOTAL_FORCE, field='', magnitude=load, 
+        region=loading_region, distributionType=TOTAL_FORCE, field='', magnitude=load, 
         amplitude=UNSET)
 
     return True
 
-##JOB STUFF
+### Meshing, input files, running job
 def mesh_part(part_name, deviationFactor=0.1, minSizeFactor=0.1, size=1.50):
     #Generate mesh
     mdb.models['Model-1'].parts[part_name].seedPart(deviationFactor=deviationFactor, 
@@ -401,7 +421,7 @@ def create_job(name='Job-1', description='',variables=('U','UT','UR')):
         explicitPrecision=SINGLE, nodalOutputPrecision=SINGLE, echoPrint=OFF, 
         modelPrint=OFF, contactPrint=OFF, historyPrint=OFF, userSubroutine='', 
         scratch='', resultsFormat=ODB)
-    mdb.models['Model-1'].fieldOutputRequests['F-Output-1'].setValues(variables=('U', 'UT', 'UR'))
+    mdb.models['Model-1'].fieldOutputRequests['F-Output-1'].setValues(variables=variables)
     return True
 
 def write_inp(name='Job-1'):
@@ -413,7 +433,7 @@ def run_model(name='Job-1',description=''):
     mdb.jobs[name].waitForCompletion()
     return True
 
-## Helper functions for optimization
+## Helper functions
 def get_max_min_disp(name='Job-1'):
 	odb = openOdb(name+'.odb')
 	lastFrame = odb.steps['Loading'].frames[-1]
@@ -430,3 +450,37 @@ def get_max_min_disp(name='Job-1'):
 def get_part_volume(part):
     p = mdb.models['Model-1'].parts[part]
     return  p.getMassProperties()['volume']
+
+def simple_sandwich_theory_G(delta, cellW=110.00, cellL=110.00, layup=[0,90,90,0], t_ply=0.2, t_bat=3.0, load=100):
+    #Note: everything is in N, mm right now.
+    # so when we load in the numbers, correct them!
+    #Assumes a balanced 0/90 face sheet laminate
+
+    #Get material properties
+    E11_FS,E22_FS,_,_,_,_,_,_,_ = CF_properties()
+    E11_bat,_,_,_,_,_,_,_,_ = Battery_properties()
+    E_poly, _ = Polymer_properties()
+
+    #Effective modulus of each component (N/m^2)
+    E_core = E_poly * 1e6;          
+    E_FS = (1/2)*(E11_FS+E22_FS) * 1e6;     
+
+    #Geometry (m)
+    t_FS = len(layup)*t_ply *1e-3;    
+    t_core = t_bat *1e-3 ;   #core thickness
+    w = cellW *1e-3;    #base
+    L = cellL *1e-3;    #length
+    t = 2*t_FS + c; #total thickness
+    d = t_FS + c;   
+
+    #Bending stiffnesses EIyy
+    Iyy_core = (1/12)*(w)*(t_core**3)
+    Iyy_FS = (1/12)*(w)*(t_FS**3) + (w*t_FS)*(t_core/2 + t_FS/2)**2
+    EIyy = E_core*Iyy_core + 2*E_FS*Iyy_FS
+
+    #Compute G: delta = PL^3 / 48EIyy + PL/4GA
+    P = load
+    A = w*t_core
+    G = P*L/(4*A*(delta - ((P)*(L**3)/(48*EIyy))))
+    
+    return G
