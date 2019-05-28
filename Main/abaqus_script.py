@@ -56,21 +56,21 @@ def abaqus_run_job(jobname,xs,ys,rs):
     mesh_part('Battery', size=mesh_size)
     mesh_part('Polymer', size=mesh_size)
 
-    #Create job, write inp, run it, save cae
-    # create_job(name=jobname, variables=('U','UT','UR','EVOL'))
-    # write_inp(name=jobname)
-    # run_model(name=jobname)?
+    # Create job, write inp, run it, save cae
+    create_job(name=jobname, variables=('U','UT','UR','EVOL'))
+    write_inp(name=jobname)
+    run_model(name=jobname)
 
-    # #Sleep to let abaqus finish cleaning up the model that just ran before we query it
-    # time.sleep(5)
+    #Sleep to let abaqus finish cleaning up the model that just ran before we query it
+    time.sleep(5)
 
-    # #Extract needed values
-    # maxu3,minu3 = get_max_min_disp(name=jobname)
-    # delta = max(abs(np.array([maxu3,minu3])))
-    # G = simple_sandwich_theory_G(delta, cellW=cellW, cellL=cellL, layup=face_layup, t_ply=t_ply, t_bat=t_bat, load=load)
-    # battery_volume = get_part_volume('Battery')
+    #Extract needed values
+    maxu3,minu3 = get_max_min_disp(name=jobname)
+    delta = max(abs(np.array([maxu3,minu3])))
+    G = simple_sandwich_theory_G(delta, cellW=cellW, cellL=cellL, layup=face_layup, t_ply=t_ply, t_bat=t_bat, load=load)
+    battery_volume = get_part_volume('Battery')
 
-    # return [battery_volume, G]
+    return [battery_volume, G]
 
 if __name__ == "__main__":
 
@@ -87,8 +87,8 @@ if __name__ == "__main__":
     output_vec = abaqus_run_job(jobname,xs,ys,rs)
     os.chdir('..')
 
-    # #Save input vector to be accessed by abaqus
-    # with open(os.getcwd()+'/OutputFiles/output_vec.csv', mode='a+') as f:
-    #     writer = csv.writer(f)
-    #     writer.writerow(output_vec)
-    # sys.exit()
+    #Save input vector to be accessed by abaqus
+    with open(os.getcwd()+'/OutputFiles/output_vec.csv', mode='a+') as f:
+        writer = csv.writer(f)
+        writer.writerow(output_vec)
+    sys.exit()

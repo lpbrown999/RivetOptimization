@@ -1,5 +1,4 @@
 #PYTHON 3
-#This gets called by main.sh
 import numpy as np
 import os
 import subprocess
@@ -66,7 +65,7 @@ def abaqus_evaluation_wrapper_local(vec):
     output_vec = np.genfromtxt(os.getcwd()+'/OutputFiles/output_vec.csv', delimiter=',')[-1]
     battery_volume = output_vec[0]
     G = output_vec[1]
-    print(G)
+    # print(G)
 
     #compute penalties. c<=0
     c_G = [Gmin-G]                          #Gmin<=G
@@ -94,14 +93,14 @@ if __name__ == "__main__":
         writer.writerow(np.zeros(num_rivets*3))
         writer.writerow(np.zeros(num_rivets*3))
 
-    S = generate_xyr_simplex(num_rivets)
-    print(abaqus_evaluation_wrapper_local(S[1]))
+    # S = generate_xyr_simplex(num_rivets)
+    # print(abaqus_evaluation_wrapper_local(S[1]))
 
 
     #Optimize
-    # best_design = optimize(abaqus_evaluation_wrapper_local, num_rivets, neval, nrestarts)
+    best_design = optimize(abaqus_evaluation_wrapper_local, num_rivets, neval, nrestarts)
 
     #Save the best design
-    # with open(os.getcwd()+'/results.csv', mode='w') as f:
-    #     writer = csv.writer(f)
-    #     writer.writerow(best_design)
+    with open(os.getcwd()+'/results.csv', mode='w') as f:
+        writer = csv.writer(f)
+        writer.writerow(best_design)

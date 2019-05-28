@@ -1,4 +1,0 @@
-#Documentation: 
-
-#Main starts up the process
-#And runs an abaqus command that calls another script to generate the inp file

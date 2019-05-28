@@ -273,7 +273,7 @@ def assemble(t_FS=0.8, frameW=10.00, t_bat=3.00):
 def define_contact(num_rivets):
     m = mdb.models['Model-1']
     a = m.rootAssembly
-
+    tol = 1.0
     #Define contact property
     contact_prop = m.ContactProperty('NormCont')
     contact_prop.NormalBehavior( allowSeparation=ON, constraintEnforcementMethod=DEFAULT, 
@@ -284,7 +284,7 @@ def define_contact(num_rivets):
         pressureDependency=OFF, shearStressLimit=None, slipRateDependency=OFF, 
         table=((0.3, ), ), temperatureDependency=OFF)
 
-    # #Apply contact property to top CF, battery and bot CF, battery
+    #Apply contact property to top CF, battery and bot CF, battery
     m.SurfaceToSurfaceContactStd(adjustMethod=NONE, 
         clearanceRegion=None, createStepName='Initial', datumAxis=None, 
         initialClearance=OMIT, interactionProperty='NormCont', 
@@ -299,32 +299,31 @@ def define_contact(num_rivets):
         master=a.instances['CF-1'].surfaces['CFtop'],
         slave= a.instances['Battery-1'].surfaces['BatBot'], 
         sliding=FINITE, thickness=ON)
-    # m.Tie(name='CF2Bat', positionToleranceMethod=SPECIFIED, positionTolerance=0.05, adjust=OFF, 
+    # m.Tie(name='CF2Bat', positionToleranceMethod=SPECIFIED, positionTolerance=tol, adjust=OFF, 
     #     master= a.instances['CF-2'].surfaces['CFbot'], 
     #     slave = a.instances['Battery-1'].surfaces['BatTop'], 
     #     thickness=ON, tieRotations=ON)
-    # m.Tie(name='CF1Bat', positionToleranceMethod=SPECIFIED, positionTolerance=0.05, adjust=OFF, 
+    # m.Tie(name='CF1Bat', positionToleranceMethod=SPECIFIED, positionTolerance=tol, adjust=OFF, 
     #     master= a.instances['CF-1'].surfaces['CFtop'], 
     #     slave = a.instances['Battery-1'].surfaces['BatBot'], 
     #     thickness=ON, tieRotations=ON)
 
     #Apply contact property between battery holes and polymer rivets
     for i in range(0,num_rivets):
-        m.SurfaceToSurfaceContactStd(adjustMethod=NONE, 
-            clearanceRegion=None, createStepName='Initial', datumAxis=None, 
-            initialClearance=OMIT, interactionProperty='NormCont',
-            name='BatPoly-'+str(i),
-            master=a.instances['Polymer-1'].surfaces['Polymer-rivet-'+str(i)], 
-            slave=a.instances['Battery-1'].surfaces['Battery-rivet-'+str(i)], 
-            sliding=FINITE, thickness=ON)
-        # m.Tie(name='BatPoly-'+str(i), positionToleranceMethod=SPECIFIED, positionTolerance=0.05, adjust=OFF, 
-        #     master= a.instances['Polymer-1'].surfaces['Polymer-rivet-'+str(i)], 
-        #     slave = a.instances['Battery-1'].surfaces['Battery-rivet-'+str(i)], 
-        #     thickness=ON, tieRotations=ON)
+        # m.SurfaceToSurfaceContactStd(adjustMethod=NONE, 
+        #     clearanceRegion=None, createStepName='Initial', datumAxis=None, 
+        #     initialClearance=OMIT, interactionProperty='NormCont',
+        #     name='BatPoly-'+str(i),
+        #     master=a.instances['Polymer-1'].surfaces['Polymer-rivet-'+str(i)], 
+        #     slave=a.instances['Battery-1'].surfaces['Battery-rivet-'+str(i)], 
+        #     sliding=FINITE, thickness=ON)
+        m.Tie(name='BatPoly-'+str(i), positionToleranceMethod=SPECIFIED, positionTolerance=tol, adjust=OFF, 
+            master= a.instances['Polymer-1'].surfaces['Polymer-rivet-'+str(i)], 
+            slave = a.instances['Battery-1'].surfaces['Battery-rivet-'+str(i)], 
+            thickness=ON, tieRotations=ON)
 
 
-    #Tie the polymer (rivets, frame) to the face sheet.
-    tol = 1.0
+    #Tie the polymer (rivets, frame) to the CF
     m.Tie(name='CF1Poly',  positionToleranceMethod=SPECIFIED, positionTolerance=tol, adjust=OFF, 
         master= a.instances['CF-1'].surfaces['CFtop'], 
         slave = a.instances['Polymer-1'].surfaces['PolyBot'], 
@@ -463,24 +462,22 @@ def simple_sandwich_theory_G(delta, cellW=110.00, cellL=110.00, layup=[0,90,90,0
 
     #Effective modulus of each component (N/m^2)
     E_core = E_poly * 1e6;          
-    E_FS = (1/2)*(E11_FS+E22_FS) * 1e6;     
+    E_FS = (1.0/2)*(E11_FS+E22_FS) * 1e6;     
 
     #Geometry (m)
     t_FS = len(layup)*t_ply *1e-3;    
     t_core = t_bat *1e-3 ;   #core thickness
     w = cellW *1e-3;    #base
     L = cellL *1e-3;    #length
-    t = 2*t_FS + c; #total thickness
-    d = t_FS + c;   
 
     #Bending stiffnesses EIyy
-    Iyy_core = (1/12)*(w)*(t_core**3)
-    Iyy_FS = (1/12)*(w)*(t_FS**3) + (w*t_FS)*(t_core/2 + t_FS/2)**2
+    Iyy_core = (1.0/12)*(w)*(t_core**3)
+    Iyy_FS = (1.0/12)*(w)*(t_FS**3) + (w*t_FS)*(t_core/2 + t_FS/2)**2
     EIyy = E_core*Iyy_core + 2*E_FS*Iyy_FS
 
     #Compute G: delta = PL^3 / 48EIyy + PL/4GA
     P = load
     A = w*t_core
     G = P*L/(4*A*(delta - ((P)*(L**3)/(48*EIyy))))
-    
+
     return G

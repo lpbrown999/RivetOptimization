@@ -332,24 +332,24 @@ mdb.models['Model-1'].fieldOutputRequests['F-Output-1'].setValues(variables=(
 	
 # Run Job	
 
-mdb.jobs['3PointBend'].submit(consistencyChecking=OFF)
+# mdb.jobs['3PointBend'].submit(consistencyChecking=OFF)
 
 
-# Output Displacement
+# # Output Displacement
 
-import odbAccess
-odb = session.openOdb('3PointBend.odb')
-timeFrame = odb.steps['Loading'].frames[1]
-displacement = timeFrame.fieldOutputs['U']
-loadnode = odb.rootAssembly.nodeSets['LOADSET']
-loadnodeDisp = displacement.getSubset(region=loadnode)
-for v in loadnodeDisp.values:
-	myoutfile.write(str(v.data[0]))
-	myoutfile.write(' ')
-	myoutfile.write(str(v.data[1]))
-	myoutfile.write(' ')
-	myoutfile.write(str(v.data[2]))
-	myoutfile.write("\n")
-myoutfile.close()
-odb.close()
-#
+# import odbAccess
+# odb = session.openOdb('3PointBend.odb')
+# timeFrame = odb.steps['Loading'].frames[1]
+# displacement = timeFrame.fieldOutputs['U']
+# loadnode = odb.rootAssembly.nodeSets['LOADSET']
+# loadnodeDisp = displacement.getSubset(region=loadnode)
+# for v in loadnodeDisp.values:
+# 	myoutfile.write(str(v.data[0]))
+# 	myoutfile.write(' ')
+# 	myoutfile.write(str(v.data[1]))
+# 	myoutfile.write(' ')
+# 	myoutfile.write(str(v.data[2]))
+# 	myoutfile.write("\n")
+# myoutfile.close()
+# odb.close()
+# #
