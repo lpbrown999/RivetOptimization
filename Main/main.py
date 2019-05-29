@@ -11,7 +11,7 @@ from HelperModule.optimization_functions import *
 def abaqus_evaluation_wrapper_local(vec):
     
     #Constraint values, penalty factors
-    Gmin = 0         #minimum G -> 20 MPa
+    Gmin = 20e6         #minimum G -> 20 MPa
     dist_tol = 3        #distance tolerance from frame, other rivets
     p1 = 100            #penalty weighting
 
