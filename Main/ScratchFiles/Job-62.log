@@ -1,0 +1,27 @@
+Analysis initiated from SIMULIA established products
+Abaqus JOB Job-62
+Abaqus 3DEXPERIENCE R2019x
+Abaqus License Manager checked out the following licenses:
+Abaqus/Standard checked out 5 tokens from Flexnet server license4.stanford.edu.
+<107 out of 112 licenses remain available>.
+Begin Analysis Input File Processor
+5/28/2019 12:34:48 AM
+Run pre.exe
+5/28/2019 12:34:52 AM
+End Analysis Input File Processor
+Begin Abaqus/Standard Analysis
+5/28/2019 12:34:52 AM
+Run standard.exe
+forrtl: error (200): program aborting due to window-CLOSE event
+Image              PC                Routine            Line        Source             
+libifcoremd.dll    00007FFE8B0F43E4  Unknown               Unknown  Unknown
+KERNELBASE.dll     00007FFEE2603A33  Unknown               Unknown  Unknown
+KERNEL32.DLL       00007FFEE4767974  Unknown               Unknown  Unknown
+ntdll.dll          00007FFEE606A271  Unknown               Unknown  Unknown
+5/28/2019 1:11:20 AM
+forrtl: error (200): program aborting due to window-CLOSE event
+Image              PC                Routine            Line        Source             
+libifcoremd.dll    00007FFE8B0F43E4  Unknown               Unknown  Unknown
+KERNELBASE.dll     00007FFEE2603A33  Unknown               Unknown  Unknown
+KERNEL32.DLL       00007FFEE4767974  Unknown               Unknown  Unknown
+ntdll.dll          00007FFEE606A271  Unknown               Unknown  Unknown
