@@ -455,6 +455,9 @@ def simple_sandwich_theory_G(delta, cellW=110.00, cellL=110.00, layup=[0,90,90,0
     # so when we load in the numbers, correct them!
     #Assumes a balanced 0/90 face sheet laminate
 
+    #Fix delta in to meters
+    delta = delta*1e-3
+
     #Get material properties
     E11_FS,E22_FS,_,_,_,_,_,_,_ = CF_properties()
     E11_bat,_,_,_,_,_,_,_,_ = Battery_properties()
