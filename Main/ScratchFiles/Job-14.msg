@@ -1,0 +1,4255 @@
+1
+
+   Abaqus 3DEXPERIENCE R2019x                                  Date 29-May-2019   Time 12:07:20
+   For demonstration or benchmarking only under agreement with Dassault Systemes or its subsidiary.
+
+                                                                                 
+                                                                                 
+ STEP    1     INCREMENT     1     STEP TIME    0.00    
+
+
+                        S T E P       1     S T A T I C   A N A L Y S I S
+
+
+                                                                                          
+
+     AUTOMATIC TIME CONTROL WITH -
+          A SUGGESTED INITIAL TIME INCREMENT OF                 1.00    
+          AND A TOTAL TIME PERIOD OF                            1.00    
+          THE MINIMUM TIME INCREMENT ALLOWED IS                1.000E-05
+          THE MAXIMUM TIME INCREMENT ALLOWED IS                 1.00    
+
+     LINEAR EQUATION SOLVER TYPE         DIRECT SPARSE
+
+ CONVERGENCE TOLERANCE PARAMETERS FOR FORCE    
+     CRITERION FOR RESIDUAL FORCE     FOR A NONLINEAR PROBLEM          5.000E-03
+     CRITERION FOR DISP.    CORRECTION IN A NONLINEAR PROBLEM          1.000E-02
+     INITIAL VALUE OF TIME AVERAGE FORCE                               1.000E-02
+     AVERAGE FORCE     IS TIME AVERAGE FORCE    
+     ALTERNATE CRIT. FOR RESIDUAL FORCE     FOR A NONLINEAR PROBLEM    2.000E-02
+     CRITERION FOR ZERO FORCE     RELATIVE TO TIME AVRG. FORCE         1.000E-05
+     CRITERION FOR RESIDUAL FORCE     WHEN THERE IS ZERO FLUX          1.000E-05
+     CRITERION FOR DISP.    CORRECTION WHEN THERE IS ZERO FLUX         1.000E-03
+     CRITERION FOR RESIDUAL FORCE     FOR A LINEAR INCREMENT           1.000E-08
+     FIELD CONVERSION RATIO                                             1.00    
+     CRITERION FOR ZERO FORCE     REL. TO TIME AVRG. MAX. FORCE        1.000E-05
+     CRITERION FOR ZERO DISP.    RELATIVE TO CHARACTERISTIC LENGTH     1.000E-08
+
+ CONVERGENCE TOLERANCE PARAMETERS FOR MOMENT   
+     CRITERION FOR RESIDUAL MOMENT    FOR A NONLINEAR PROBLEM          5.000E-03
+     CRITERION FOR ROTATION CORRECTION IN A NONLINEAR PROBLEM          1.000E-02
+     INITIAL VALUE OF TIME AVERAGE MOMENT                              1.000E-02
+     AVERAGE MOMENT    IS TIME AVERAGE MOMENT   
+     ALTERNATE CRIT. FOR RESIDUAL MOMENT    FOR A NONLINEAR PROBLEM    2.000E-02
+     CRITERION FOR ZERO MOMENT    RELATIVE TO TIME AVRG. MOMENT        1.000E-05
+     CRITERION FOR RESIDUAL MOMENT    WHEN THERE IS ZERO FLUX          1.000E-05
+     CRITERION FOR ROTATION CORRECTION WHEN THERE IS ZERO FLUX         1.000E-03
+     CRITERION FOR RESIDUAL MOMENT    FOR A LINEAR INCREMENT           1.000E-08
+     FIELD CONVERSION RATIO                                             1.00    
+     CRITERION FOR ZERO MOMENT    REL. TO TIME AVRG. MAX. MOMENT       1.000E-05
+
+     VOLUMETRIC STRAIN COMPATIBILITY TOLERANCE FOR HYBRID SOLIDS       1.000E-05
+     AXIAL STRAIN COMPATIBILITY TOLERANCE FOR HYBRID BEAMS             1.000E-05
+     TRANS. SHEAR STRAIN COMPATIBILITY TOLERANCE FOR HYBRID BEAMS      1.000E-05
+     SOFT CONTACT CONSTRAINT COMPATIBILITY TOLERANCE FOR P>P0          5.000E-03
+     SOFT CONTACT CONSTRAINT COMPATIBILITY TOLERANCE FOR P=0.0         0.100    
+     CONTACT FORCE ERROR TOLERANCE FOR CONVERT SDI=YES                 1.00    
+     DISPLACEMENT COMPATIBILITY TOLERANCE FOR DCOUP ELEMENTS           1.000E-05
+     ROTATION COMPATIBILITY TOLERANCE FOR DCOUP ELEMENTS               1.000E-05
+
+ EQUILIBRIUM WILL BE CHECKED FOR SEVERE DISCONTINUITY ITERATIONS
+
+ TIME INCREMENTATION CONTROL PARAMETERS:
+     FIRST EQUILIBRIUM ITERATION FOR CONSECUTIVE DIVERGENCE CHECK              4
+     EQUILIBRIUM ITERATION AT WHICH LOG. CONVERGENCE RATE CHECK BEGINS         8
+     EQUILIBRIUM ITERATION AFTER WHICH ALTERNATE RESIDUAL IS USED              9
+     MAXIMUM EQUILIBRIUM ITERATIONS ALLOWED                                   16
+     EQUILIBRIUM ITERATION COUNT FOR CUT-BACK IN NEXT INCREMENT               10
+     MAXIMUM EQUILIB. ITERS IN TWO INCREMENTS FOR TIME INCREMENT INCREASE      4
+     MAXIMUM ITERATIONS FOR SEVERE DISCONTINUITIES                            50
+     MAXIMUM ATTEMPTS ALLOWED IN AN INCREMENT                                  5
+     MAXIMUM DISCON. ITERS IN TWO INCREMENTS FOR TIME INCREMENT INCREASE      50
+     MAXIMUM CONTACT AUGMENTATIONS FOR *SURFACE BEHAVIOR,AUGMENTED LAGRANGE   50
+     CUT-BACK FACTOR AFTER DIVERGENCE                                 0.2500    
+     CUT-BACK FACTOR FOR TOO SLOW CONVERGENCE                         0.5000    
+     CUT-BACK FACTOR AFTER TOO MANY EQUILIBRIUM ITERATIONS            0.7500    
+     CUT-BACK FACTOR AFTER TOO MANY SEVERE DISCONTINUITY ITERATIONS   0.2500    
+     CUT-BACK FACTOR AFTER PROBLEMS IN ELEMENT ASSEMBLY               0.2500    
+     INCREASE FACTOR AFTER TWO INCREMENTS THAT CONVERGE QUICKLY        1.500    
+     MAX. TIME INCREMENT INCREASE FACTOR ALLOWED                       1.500    
+     MAX. TIME INCREMENT INCREASE FACTOR ALLOWED (DYNAMICS)            1.250    
+     MAX. TIME INCREMENT INCREASE FACTOR ALLOWED (DIFFUSION)           2.000    
+     MINIMUM TIME INCREMENT RATIO FOR EXTRAPOLATION TO OCCUR          0.1000    
+     MAX. RATIO OF TIME INCREMENT TO STABILITY LIMIT                   1.000    
+     FRACTION OF STABILITY LIMIT FOR NEW TIME INCREMENT               0.9500    
+     TIME INCREMENT INCREASE FACTOR BEFORE A TIME POINT                1.000    
+
+ CONTACT CONTROLS APPLIED TO ALL CONTACT PAIRS:
+     GLOBAL STABILIZATION CONTROL IS NOT USED
+     RELATIVE PENETRATION TOLERANCE FOR AUGMENTED LAGRANGE CONTACT:
+          FINITE-SLIDING SURFACE-TO-SURFACE                            5.000E-02
+          OTHERWISE                                                    1.000E-03
+
+          PRINT OF INCREMENT NUMBER, TIME, ETC., EVERY    1  INCREMENTS
+
+     THE MAXIMUM NUMBER OF INCREMENTS IN THIS STEP IS                     100
+
+          UNSYMMETRIC MATRIX STORAGE AND SOLUTION WILL BE USED
+
+     LINEAR EXTRAPOLATION WILL BE USED
+
+     CHARACTERISTIC ELEMENT LENGTH      2.72    
+
+     DETAILS REGARDING ACTUAL SOLUTION WAVEFRONT REQUESTED
+
+     DETAILED OUTPUT OF DIAGNOSTICS TO DATABASE REQUESTED
+
+     PRINT OF INCREMENT NUMBER, TIME, ETC., TO THE MESSAGE FILE EVERY     1  INCREMENTS
+
+     ELEMENT OPERATIONS WILL BE CARRIED OUT IN PARALLEL USING   6 PROCESSORS
+
+     PARALLEL CONTACT TRACKING ENABLED
+
+
+     COLLECTING MODEL CONSTRAINT INFORMATION FOR OVERCONSTRAINT CHECKS
+
+     COLLECTING STEP CONSTRAINT INFORMATION FOR OVERCONSTRAINT CHECKS
+  
+     ASYNCHRONOUS OUTPUT DATABASE FRAME FLUSH STARTED
+  
+
+
+  INCREMENT     1 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT   1.00    
+  
+     ASYNCHRONOUS TRACKING ELEMENT LOOP STARTED
+  
+ 
+     INITIAL ELEMENT LOAD BALANCE
+            PROCESS    1   THREAD     NUMBER OF ELEMENTS
+                              1            2560
+                              2            4096
+                              3            1279
+                              4            3328
+                              5            2688
+                              6            2048
+
+  NUMBER OF EQUATIONS =     30480     NUMBER OF RHS =    1
+  NUMBER OF FLOATING PT. OPERATIONS =  1.07E+11
+
+  USING THE DIRECT SOLVER WITH   6 PROCESSORS
+
+     CHECK POINT   START OF SOLVER    
+
+     CHECK POINT  END OF SOLVER       
+
+       ELAPSED USER TIME (SEC)      =   12.300    
+       ELAPSED SYSTEM TIME (SEC)    =  0.20000    
+       ELAPSED TOTAL CPU TIME (SEC) =   12.500    
+       ELAPSED WALLCLOCK TIME (SEC) =          3
+ 
+
+ ***WARNING: SOLVER PROBLEM. NUMERICAL SINGULARITY WHEN PROCESSING NODE 
+             ASSEMBLY.1 D.O.F. 6 RATIO = 368.605E+12  .
+  
+     ASYNCHRONOUS TRACKING ELEMENT LOOP STARTED
+  
+
+                 1219 SEVERE DISCONTINUITIES OCCURRED DURING THIS ITERATION.
+                 1219 POINTS CHANGED FROM CLOSED TO OPEN
+
+               CONVERGENCE CHECKS FOR SEVERE DISCONTINUITY ITERATION     1
+
+   MAX. PENETRATION ERROR 32.7592E-06  AT NODE BATTERY-1.347 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATBOT,ASSEMBLY_CF-1_CFTOP)
+   MAX. CONTACT FORCE ERROR -1.20982     AT NODE BATTERY-1.2830 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATTOP,ASSEMBLY_CF-2_CFBOT)
+          THE ESTIMATED CONTACT FORCE ERROR IS OUTSIDE OF CONVERGENCE TOLERANCES.
+
+ AVERAGE FORCE                      0.180       TIME AVG. FORCE       0.180    
+ LARGEST RESIDUAL FORCE              8.27       AT NODE        789   DOF  1
+   INSTANCE: BATTERY-1                                                                       
+ LARGEST INCREMENT OF DISP.        -0.139       AT NODE        491   DOF  3
+   INSTANCE: POLYMER-1                                                                       
+ LARGEST CORRECTION TO DISP.       -0.139       AT NODE        491   DOF  3
+   INSTANCE: POLYMER-1                                                                       
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     5.838E-02   TIME AVG. MOMENT      5.838E-02
+ LARGEST RESIDUAL MOMENT             131.       AT NODE          1   DOF  6
+   INSTANCE:                                                                                 
+ LARGEST INCREMENT OF ROTATION     -4.506E-03   AT NODE          7   DOF  5
+   INSTANCE: CF-1                                                                            
+ LARGEST CORRECTION TO ROTATION    -4.506E-03   AT NODE          7   DOF  5
+   INSTANCE: CF-1                                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+  NUMBER OF EQUATIONS =     30480     NUMBER OF RHS =    1
+  NUMBER OF FLOATING PT. OPERATIONS =  1.00E+11
+
+  USING THE DIRECT SOLVER WITH   6 PROCESSORS
+
+     CHECK POINT   START OF SOLVER    
+
+     CHECK POINT  END OF SOLVER       
+
+       ELAPSED USER TIME (SEC)      =   12.000    
+       ELAPSED SYSTEM TIME (SEC)    =  0.10000    
+       ELAPSED TOTAL CPU TIME (SEC) =   12.100    
+       ELAPSED WALLCLOCK TIME (SEC) =          2
+ 
+
+ ***WARNING: SOLVER PROBLEM. NUMERICAL SINGULARITY WHEN PROCESSING NODE 
+             ASSEMBLY.1 D.O.F. 6 RATIO = 78.7259E+09 .
+  
+     ASYNCHRONOUS TRACKING ELEMENT LOOP STARTED
+  
+
+                 1631 SEVERE DISCONTINUITIES OCCURRED DURING THIS ITERATION.
+                  555 POINTS CHANGED FROM OPEN TO CLOSED
+                  628 POINTS CHANGED FROM CLOSED TO OPEN
+                  448 POINTS CHANGED FROM STICKING TO SLIPPING
+
+               CONVERGENCE CHECKS FOR SEVERE DISCONTINUITY ITERATION     2
+
+   MAX. PENETRATION ERROR 2.35095E-03 AT NODE BATTERY-1.2715 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATTOP,ASSEMBLY_CF-2_CFBOT)
+   MAX. CONTACT FORCE ERROR 2.24218     AT NODE BATTERY-1.385 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATBOT,ASSEMBLY_CF-1_CFTOP)
+          THE ESTIMATED CONTACT FORCE ERROR IS OUTSIDE OF CONVERGENCE TOLERANCES.
+
+ AVERAGE FORCE                      0.208       TIME AVG. FORCE       0.208    
+ LARGEST RESIDUAL FORCE              17.6       AT NODE          1   DOF  3
+   INSTANCE:                                                                                 
+ LARGEST INCREMENT OF DISP.          9.55       AT NODE          7   DOF  1
+   INSTANCE: CF-1                                                                            
+ LARGEST CORRECTION TO DISP.         9.55       AT NODE          7   DOF  1
+   INSTANCE: CF-1                                                                            
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     0.128       TIME AVG. MOMENT      0.128    
+ LARGEST RESIDUAL MOMENT            -187.       AT NODE          1   DOF  4
+   INSTANCE:                                                                                 
+ LARGEST INCREMENT OF ROTATION      8.695E-02   AT NODE        173   DOF  6
+   INSTANCE: CF-1                                                                            
+ LARGEST CORRECTION TO ROTATION     8.710E-02   AT NODE        173   DOF  6
+   INSTANCE: CF-1                                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+  NUMBER OF EQUATIONS =     30480     NUMBER OF RHS =    1
+  NUMBER OF FLOATING PT. OPERATIONS =  9.56E+10
+
+  USING THE DIRECT SOLVER WITH   6 PROCESSORS
+
+     CHECK POINT   START OF SOLVER    
+
+     CHECK POINT  END OF SOLVER       
+
+       ELAPSED USER TIME (SEC)      =   11.500    
+       ELAPSED SYSTEM TIME (SEC)    =   0.0000    
+       ELAPSED TOTAL CPU TIME (SEC) =   11.500    
+       ELAPSED WALLCLOCK TIME (SEC) =          2
+ 
+
+ ***WARNING: SOLVER PROBLEM. NUMERICAL SINGULARITY WHEN PROCESSING NODE 
+             ASSEMBLY.1 D.O.F. 6 RATIO = 12.4568E+09 .
+  
+     ASYNCHRONOUS TRACKING ELEMENT LOOP STARTED
+  
+
+                  893 SEVERE DISCONTINUITIES OCCURRED DURING THIS ITERATION.
+                  235 POINTS CHANGED FROM OPEN TO CLOSED
+                  496 POINTS CHANGED FROM CLOSED TO OPEN
+                    3 POINTS CHANGED FROM SLIPPING TO STICKING
+                  159 POINTS CHANGED FROM STICKING TO SLIPPING
+
+               CONVERGENCE CHECKS FOR SEVERE DISCONTINUITY ITERATION     3
+
+   MAX. PENETRATION ERROR 368.767E-06   AT NODE BATTERY-1.457 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATBOT,ASSEMBLY_CF-1_CFTOP)
+   MAX. CONTACT FORCE ERROR -1.33907     AT NODE BATTERY-1.2572 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATTOP,ASSEMBLY_CF-2_CFBOT)
+          THE ESTIMATED CONTACT FORCE ERROR IS OUTSIDE OF CONVERGENCE TOLERANCES.
+
+ AVERAGE FORCE                      0.209       TIME AVG. FORCE       0.209    
+ LARGEST RESIDUAL FORCE              3.98       AT NODE          1   DOF  3
+   INSTANCE:                                                                                 
+ LARGEST INCREMENT OF DISP.        -0.729       AT NODE          4   DOF  1
+   INSTANCE: CF-1                                                                            
+ LARGEST CORRECTION TO DISP.        -10.2       AT NODE          4   DOF  1
+   INSTANCE: CF-1                                                                            
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     0.135       TIME AVG. MOMENT      0.135    
+ LARGEST RESIDUAL MOMENT            -33.3       AT NODE          1   DOF  4
+   INSTANCE:                                                                                 
+ LARGEST INCREMENT OF ROTATION     -8.118E-03   AT NODE          7   DOF  5
+   INSTANCE: CF-1                                                                            
+ LARGEST CORRECTION TO ROTATION    -9.316E-02   AT NODE       1335   DOF  6
+   INSTANCE: CF-2                                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+  NUMBER OF EQUATIONS =     30480     NUMBER OF RHS =    1
+  NUMBER OF FLOATING PT. OPERATIONS =  9.10E+10
+
+  USING THE DIRECT SOLVER WITH   6 PROCESSORS
+
+     CHECK POINT   START OF SOLVER    
+
+     CHECK POINT  END OF SOLVER       
+
+       ELAPSED USER TIME (SEC)      =   10.700    
+       ELAPSED SYSTEM TIME (SEC)    =   0.0000    
+       ELAPSED TOTAL CPU TIME (SEC) =   10.700    
+       ELAPSED WALLCLOCK TIME (SEC) =          2
+ 
+
+ ***WARNING: SOLVER PROBLEM. NUMERICAL SINGULARITY WHEN PROCESSING NODE 
+             ASSEMBLY.1 D.O.F. 6 RATIO = 10.8349E+09 .
+  
+     ASYNCHRONOUS TRACKING ELEMENT LOOP STARTED
+  
+
+                  495 SEVERE DISCONTINUITIES OCCURRED DURING THIS ITERATION.
+                  108 POINTS CHANGED FROM OPEN TO CLOSED
+                  311 POINTS CHANGED FROM CLOSED TO OPEN
+                    1 POINTS CHANGED FROM SLIPPING TO STICKING
+                   75 POINTS CHANGED FROM STICKING TO SLIPPING
+
+               CONVERGENCE CHECKS FOR SEVERE DISCONTINUITY ITERATION     4
+
+   MAX. PENETRATION ERROR 262.348E-06   AT NODE BATTERY-1.3322 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATTOP,ASSEMBLY_CF-2_CFBOT)
+   MAX. CONTACT FORCE ERROR -845.806E-03   AT NODE BATTERY-1.3212 OF CONTACT 
+   PAIR (ASSEMBLY_BATTERY-1_BATTOP,ASSEMBLY_CF-2_CFBOT)
+          THE ESTIMATED CONTACT FORCE ERROR IS OUTSIDE OF CONVERGENCE TOLERANCES.
+
+ AVERAGE FORCE                      0.209       TIME AVG. FORCE       0.209    
+ LARGEST RESIDUAL FORCE             0.584       AT NODE       1216   DOF  3
+   INSTANCE: CF-2                                                                            
+ LARGEST INCREMENT OF DISP.        -0.427       AT NODE          4   DOF  1
+   INSTANCE: CF-1                                                                            
+ LARGEST CORRECTION TO DISP.        0.302       AT NODE        167   DOF  1
+   INSTANCE: CF-1                                                                            
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     0.137       TIME AVG. MOMENT      0.137    
+ LARGEST RESIDUAL MOMENT            -3.74       AT NODE          1   DOF  4
+   INSTANCE:                                                                                 
+ LARGEST INCREMENT OF ROTATION     -8.145E-03   AT NODE          7   DOF  5
+   INSTANCE: CF-1                                                                            
+ LARGEST CORRECTION TO ROTATION     2.748E-03   AT NODE       1371   DOF  6
+   INSTANCE: CF-1                                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+  NUMBER OF EQUATIONS =     30480     NUMBER OF RHS =    1
+  NUMBER OF FLOATING PT. OPERATIONS =  8.58E+10
+
+  USING THE DIRECT SOLVER WITH   6 PROCESSORS
+
+     CHECK POINT   START OF SOLVER    
+
+     CHECK POINT  END OF SOLVER       
+
+       ELAPSED USER TIME (SEC)      =   9.9000    
+       ELAPSED SYSTEM TIME (SEC)    =  0.10000    
+       ELAPSED TOTAL CPU TIME (SEC) =   10.000    
+       ELAPSED WALLCLOCK TIME (SEC) =          1
+ 
+
+ ***WARNING: SOLVER PROBLEM. NUMERICAL SINGULARITY WHEN PROCESSING NODE 
+             ASSEMBLY.1 D.O.F. 6 RATIO = 11.9311E+09 .
+  
+     ASYNCHRONOUS TRACKING ELEMENT LOOP STARTED
+  
+
+                  401 SEVERE DISCONTINUITIES OCCURRED DURING THIS ITERATION.
+                  125 POINTS CHANGED FROM OPEN TO CLOSED
+                  183 POINTS CHANGED FROM CLOSED TO OPEN
+                   93 POINTS CHANGED FROM STICKING TO SLIPPING
+
+               CONVERGENCE CHECKS FOR SEVERE DISCONTINUITY ITERATION     5
+
+   MAX. PENETRATION ERROR 343.415E-06   AT NODE BATTERY-1.454 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATBOT,ASSEMBLY_CF-1_CFTOP)
+   MAX. CONTACT FORCE ERROR -819.659E-03   AT NODE BATTERY-1.3231 OF CONTACT 
+   PAIR (ASSEMBLY_BATTERY-1_BATTOP,ASSEMBLY_CF-2_CFBOT)
+          THE ESTIMATED CONTACT FORCE ERROR IS OUTSIDE OF CONVERGENCE TOLERANCES.
+
+ AVERAGE FORCE                      0.209       TIME AVG. FORCE       0.209    
+ LARGEST RESIDUAL FORCE            -0.546       AT NODE       3231   DOF  3
+   INSTANCE: BATTERY-1                                                                       
+ LARGEST INCREMENT OF DISP.        -0.296       AT NODE          4   DOF  1
+   INSTANCE: CF-1                                                                            
+ LARGEST CORRECTION TO DISP.        0.130       AT NODE          7   DOF  1
+   INSTANCE: CF-1                                                                            
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     0.138       TIME AVG. MOMENT      0.138    
+ LARGEST RESIDUAL MOMENT           -1.061E-02   AT NODE          1   DOF  4
+   INSTANCE:                                                                                 
+ LARGEST INCREMENT OF ROTATION     -8.163E-03   AT NODE          7   DOF  5
+   INSTANCE: CF-1                                                                            
+ LARGEST CORRECTION TO ROTATION     1.188E-03   AT NODE       1371   DOF  6
+   INSTANCE: CF-1                                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+  NUMBER OF EQUATIONS =     30480     NUMBER OF RHS =    1
+  NUMBER OF FLOATING PT. OPERATIONS =  8.34E+10
+
+  USING THE DIRECT SOLVER WITH   6 PROCESSORS
+
+     CHECK POINT   START OF SOLVER    
+
+     CHECK POINT  END OF SOLVER       
+
+       ELAPSED USER TIME (SEC)      =   10.000    
+       ELAPSED SYSTEM TIME (SEC)    =   0.0000    
+       ELAPSED TOTAL CPU TIME (SEC) =   10.000    
+       ELAPSED WALLCLOCK TIME (SEC) =          2
+ 
+
+ ***WARNING: SOLVER PROBLEM. NUMERICAL SINGULARITY WHEN PROCESSING NODE 
+             ASSEMBLY.1 D.O.F. 6 RATIO = 13.0055E+09 .
+  
+     ASYNCHRONOUS TRACKING ELEMENT LOOP STARTED
+  
+
+                  301 SEVERE DISCONTINUITIES OCCURRED DURING THIS ITERATION.
+                   88 POINTS CHANGED FROM OPEN TO CLOSED
+                  149 POINTS CHANGED FROM CLOSED TO OPEN
+                    1 POINTS CHANGED FROM SLIPPING TO STICKING
+                   63 POINTS CHANGED FROM STICKING TO SLIPPING
+
+               CONVERGENCE CHECKS FOR SEVERE DISCONTINUITY ITERATION     6
+
+   MAX. PENETRATION ERROR 291.452E-06   AT NODE BATTERY-1.3410 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATTOP,ASSEMBLY_CF-2_CFBOT)
+   MAX. CONTACT FORCE ERROR -1.08893     AT NODE BATTERY-1.3277 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATTOP,ASSEMBLY_CF-2_CFBOT)
+          THE ESTIMATED CONTACT FORCE ERROR IS OUTSIDE OF CONVERGENCE TOLERANCES.
+
+ AVERAGE FORCE                      0.208       TIME AVG. FORCE       0.208    
+ LARGEST RESIDUAL FORCE            -0.628       AT NODE       3277   DOF  3
+   INSTANCE: BATTERY-1                                                                       
+ LARGEST INCREMENT OF DISP.        -0.269       AT NODE          4   DOF  1
+   INSTANCE: CF-1                                                                            
+ LARGEST CORRECTION TO DISP.        2.777E-02   AT NODE        169   DOF  1
+   INSTANCE: CF-1                                                                            
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     0.138       TIME AVG. MOMENT      0.138    
+ LARGEST RESIDUAL MOMENT           -1.384E-02   AT NODE          1   DOF  4
+   INSTANCE:                                                                                 
+ LARGEST INCREMENT OF ROTATION     -8.177E-03   AT NODE          7   DOF  5
+   INSTANCE: CF-1                                                                            
+ LARGEST CORRECTION TO ROTATION    -7.033E-04   AT NODE       1167   DOF  5
+   INSTANCE: CF-2                                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+  NUMBER OF EQUATIONS =     30480     NUMBER OF RHS =    1
+  NUMBER OF FLOATING PT. OPERATIONS =  8.13E+10
+
+  USING THE DIRECT SOLVER WITH   6 PROCESSORS
+
+     CHECK POINT   START OF SOLVER    
+
+     CHECK POINT  END OF SOLVER       
+
+       ELAPSED USER TIME (SEC)      =   9.7000    
+       ELAPSED SYSTEM TIME (SEC)    =   0.0000    
+       ELAPSED TOTAL CPU TIME (SEC) =   9.7000    
+       ELAPSED WALLCLOCK TIME (SEC) =          1
+ 
+
+ ***WARNING: SOLVER PROBLEM. NUMERICAL SINGULARITY WHEN PROCESSING NODE 
+             ASSEMBLY.1 D.O.F. 6 RATIO = 13.2722E+09 .
+  
+     ASYNCHRONOUS TRACKING ELEMENT LOOP STARTED
+  
+
+                  281 SEVERE DISCONTINUITIES OCCURRED DURING THIS ITERATION.
+                  103 POINTS CHANGED FROM OPEN TO CLOSED
+                  117 POINTS CHANGED FROM CLOSED TO OPEN
+                   61 POINTS CHANGED FROM STICKING TO SLIPPING
+
+               CONVERGENCE CHECKS FOR SEVERE DISCONTINUITY ITERATION     7
+
+   MAX. PENETRATION ERROR 353.645E-06   AT NODE BATTERY-1.3201 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATTOP,ASSEMBLY_CF-2_CFBOT)
+   MAX. CONTACT FORCE ERROR -709.538E-03   AT NODE BATTERY-1.2590 OF CONTACT 
+   PAIR (ASSEMBLY_BATTERY-1_BATTOP,ASSEMBLY_CF-2_CFBOT)
+          THE ESTIMATED CONTACT FORCE ERROR IS OUTSIDE OF CONVERGENCE TOLERANCES.
+
+ AVERAGE FORCE                      0.208       TIME AVG. FORCE       0.208    
+ LARGEST RESIDUAL FORCE             0.451       AT NODE       1103   DOF  3
+   INSTANCE: CF-2                                                                            
+ LARGEST INCREMENT OF DISP.        -0.245       AT NODE        491   DOF  3
+   INSTANCE: POLYMER-1                                                                       
+ LARGEST CORRECTION TO DISP.        5.963E-02   AT NODE          7   DOF  1
+   INSTANCE: CF-1                                                                            
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     0.139       TIME AVG. MOMENT      0.139    
+ LARGEST RESIDUAL MOMENT           -1.375E-02   AT NODE          1   DOF  4
+   INSTANCE:                                                                                 
+ LARGEST INCREMENT OF ROTATION     -8.190E-03   AT NODE          7   DOF  5
+   INSTANCE: CF-1                                                                            
+ LARGEST CORRECTION TO ROTATION    -6.993E-04   AT NODE       1134   DOF  5
+   INSTANCE: CF-2                                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+  NUMBER OF EQUATIONS =     30480     NUMBER OF RHS =    1
+  NUMBER OF FLOATING PT. OPERATIONS =  7.97E+10
+
+  USING THE DIRECT SOLVER WITH   6 PROCESSORS
+
+     CHECK POINT   START OF SOLVER    
+
+     CHECK POINT  END OF SOLVER       
+
+       ELAPSED USER TIME (SEC)      =   9.5000    
+       ELAPSED SYSTEM TIME (SEC)    =   0.0000    
+       ELAPSED TOTAL CPU TIME (SEC) =   9.5000    
+       ELAPSED WALLCLOCK TIME (SEC) =          2
+ 
+
+ ***WARNING: SOLVER PROBLEM. NUMERICAL SINGULARITY WHEN PROCESSING NODE 
+             ASSEMBLY.1 D.O.F. 6 RATIO = 13.9879E+09 .
+  
+     ASYNCHRONOUS TRACKING ELEMENT LOOP STARTED
+  
+
+                  239 SEVERE DISCONTINUITIES OCCURRED DURING THIS ITERATION.
+                   89 POINTS CHANGED FROM OPEN TO CLOSED
+                  121 POINTS CHANGED FROM CLOSED TO OPEN
+                   29 POINTS CHANGED FROM STICKING TO SLIPPING
+
+               CONVERGENCE CHECKS FOR SEVERE DISCONTINUITY ITERATION     8
+
+   MAX. PENETRATION ERROR 382.210E-06   AT NODE BATTERY-1.3199 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATTOP,ASSEMBLY_CF-2_CFBOT)
+   MAX. CONTACT FORCE ERROR -697.913E-03   AT NODE BATTERY-1.3305 OF CONTACT 
+   PAIR (ASSEMBLY_BATTERY-1_BATTOP,ASSEMBLY_CF-2_CFBOT)
+          THE ESTIMATED CONTACT FORCE ERROR IS OUTSIDE OF CONVERGENCE TOLERANCES.
+
+ AVERAGE FORCE                      0.208       TIME AVG. FORCE       0.208    
+ LARGEST RESIDUAL FORCE            -0.485       AT NODE       3305   DOF  3
+   INSTANCE: BATTERY-1                                                                       
+ LARGEST INCREMENT OF DISP.        -0.245       AT NODE        491   DOF  3
+   INSTANCE: POLYMER-1                                                                       
+ LARGEST CORRECTION TO DISP.       -2.873E-02   AT NODE        165   DOF  1
+   INSTANCE: CF-2                                                                            
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     0.139       TIME AVG. MOMENT      0.139    
+ LARGEST RESIDUAL MOMENT            8.235E-04   AT NODE          1   DOF  6
+   INSTANCE:                                                                                 
+ LARGEST INCREMENT OF ROTATION     -8.202E-03   AT NODE          7   DOF  5
+   INSTANCE: CF-1                                                                            
+ LARGEST CORRECTION TO ROTATION    -6.896E-04   AT NODE       1100   DOF  5
+   INSTANCE: CF-2                                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+  NUMBER OF EQUATIONS =     30480     NUMBER OF RHS =    1
+  NUMBER OF FLOATING PT. OPERATIONS =  7.77E+10
+
+  USING THE DIRECT SOLVER WITH   6 PROCESSORS
+
+     CHECK POINT   START OF SOLVER    
+
+     CHECK POINT  END OF SOLVER       
+
+       ELAPSED USER TIME (SEC)      =   9.1000    
+       ELAPSED SYSTEM TIME (SEC)    =  0.10000    
+       ELAPSED TOTAL CPU TIME (SEC) =   9.2000    
+       ELAPSED WALLCLOCK TIME (SEC) =          1
+ 
+
+ ***WARNING: SOLVER PROBLEM. NUMERICAL SINGULARITY WHEN PROCESSING NODE 
+             ASSEMBLY.1 D.O.F. 6 RATIO = 14.1520E+09 .
+  
+     ASYNCHRONOUS TRACKING ELEMENT LOOP STARTED
+  
+
+                  166 SEVERE DISCONTINUITIES OCCURRED DURING THIS ITERATION.
+                   58 POINTS CHANGED FROM OPEN TO CLOSED
+                  103 POINTS CHANGED FROM CLOSED TO OPEN
+                    5 POINTS CHANGED FROM STICKING TO SLIPPING
+
+               CONVERGENCE CHECKS FOR SEVERE DISCONTINUITY ITERATION     9
+
+   MAX. PENETRATION ERROR 254.934E-06   AT NODE BATTERY-1.3610 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATTOP,ASSEMBLY_CF-2_CFBOT)
+   MAX. CONTACT FORCE ERROR -591.665E-03   AT NODE BATTERY-1.3464 OF CONTACT 
+   PAIR (ASSEMBLY_BATTERY-1_BATTOP,ASSEMBLY_CF-2_CFBOT)
+          THE ESTIMATED CONTACT FORCE ERROR IS OUTSIDE OF CONVERGENCE TOLERANCES.
+
+ AVERAGE FORCE                      0.208       TIME AVG. FORCE       0.208    
+ LARGEST RESIDUAL FORCE            -0.351       AT NODE       3464   DOF  3
+   INSTANCE: BATTERY-1                                                                       
+ LARGEST INCREMENT OF DISP.        -0.246       AT NODE        491   DOF  3
+   INSTANCE: POLYMER-1                                                                       
+ LARGEST CORRECTION TO DISP.        7.035E-02   AT NODE        169   DOF  1
+   INSTANCE: CF-1                                                                            
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     0.139       TIME AVG. MOMENT      0.139    
+ LARGEST RESIDUAL MOMENT           -7.382E-04   AT NODE          1   DOF  4
+   INSTANCE:                                                                                 
+ LARGEST INCREMENT OF ROTATION     -8.210E-03   AT NODE          7   DOF  5
+   INSTANCE: CF-1                                                                            
+ LARGEST CORRECTION TO ROTATION     6.406E-04   AT NODE       1064   DOF  6
+   INSTANCE: CF-2                                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+  NUMBER OF EQUATIONS =     30480     NUMBER OF RHS =    1
+  NUMBER OF FLOATING PT. OPERATIONS =  7.72E+10
+
+  USING THE DIRECT SOLVER WITH   6 PROCESSORS
+
+     CHECK POINT   START OF SOLVER    
+
+     CHECK POINT  END OF SOLVER       
+
+       ELAPSED USER TIME (SEC)      =   9.0000    
+       ELAPSED SYSTEM TIME (SEC)    =  0.10000    
+       ELAPSED TOTAL CPU TIME (SEC) =   9.1000    
+       ELAPSED WALLCLOCK TIME (SEC) =          2
+ 
+
+ ***WARNING: SOLVER PROBLEM. NUMERICAL SINGULARITY WHEN PROCESSING NODE 
+             ASSEMBLY.1 D.O.F. 6 RATIO = 14.8217E+09 .
+  
+     ASYNCHRONOUS TRACKING ELEMENT LOOP STARTED
+  
+
+                  125 SEVERE DISCONTINUITIES OCCURRED DURING THIS ITERATION.
+                   37 POINTS CHANGED FROM OPEN TO CLOSED
+                   80 POINTS CHANGED FROM CLOSED TO OPEN
+                    8 POINTS CHANGED FROM STICKING TO SLIPPING
+
+               CONVERGENCE CHECKS FOR SEVERE DISCONTINUITY ITERATION    10
+
+   MAX. PENETRATION ERROR 168.661E-06   AT NODE BATTERY-1.3523 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATTOP,ASSEMBLY_CF-2_CFBOT)
+   MAX. CONTACT FORCE ERROR -552.193E-03   AT NODE BATTERY-1.3437 OF CONTACT 
+   PAIR (ASSEMBLY_BATTERY-1_BATTOP,ASSEMBLY_CF-2_CFBOT)
+          THE ESTIMATED CONTACT FORCE ERROR IS OUTSIDE OF CONVERGENCE TOLERANCES.
+
+ AVERAGE FORCE                      0.208       TIME AVG. FORCE       0.208    
+ LARGEST RESIDUAL FORCE             0.348       AT NODE       1036   DOF  3
+   INSTANCE: CF-2                                                                            
+ LARGEST INCREMENT OF DISP.        -0.246       AT NODE        491   DOF  3
+   INSTANCE: POLYMER-1                                                                       
+ LARGEST CORRECTION TO DISP.       -7.667E-02   AT NODE        101   DOF  1
+   INSTANCE: CF-1                                                                            
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     0.139       TIME AVG. MOMENT      0.139    
+ LARGEST RESIDUAL MOMENT           -6.222E-02   AT NODE          1   DOF  4
+   INSTANCE:                                                                                 
+ LARGEST INCREMENT OF ROTATION     -8.216E-03   AT NODE          7   DOF  5
+   INSTANCE: CF-1                                                                            
+ LARGEST CORRECTION TO ROTATION    -6.980E-04   AT NODE        427   DOF  6
+   INSTANCE: CF-2                                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+  NUMBER OF EQUATIONS =     30480     NUMBER OF RHS =    1
+  NUMBER OF FLOATING PT. OPERATIONS =  7.61E+10
+
+  USING THE DIRECT SOLVER WITH   6 PROCESSORS
+
+     CHECK POINT   START OF SOLVER    
+
+     CHECK POINT  END OF SOLVER       
+
+       ELAPSED USER TIME (SEC)      =   8.9000    
+       ELAPSED SYSTEM TIME (SEC)    =   0.0000    
+       ELAPSED TOTAL CPU TIME (SEC) =   8.9000    
+       ELAPSED WALLCLOCK TIME (SEC) =          1
+ 
+
+ ***WARNING: SOLVER PROBLEM. NUMERICAL SINGULARITY WHEN PROCESSING NODE 
+             ASSEMBLY.1 D.O.F. 6 RATIO = 15.3169E+09 .
+  
+     ASYNCHRONOUS TRACKING ELEMENT LOOP STARTED
+  
+
+                  109 SEVERE DISCONTINUITIES OCCURRED DURING THIS ITERATION.
+                   31 POINTS CHANGED FROM OPEN TO CLOSED
+                   72 POINTS CHANGED FROM CLOSED TO OPEN
+                    6 POINTS CHANGED FROM STICKING TO SLIPPING
+
+               CONVERGENCE CHECKS FOR SEVERE DISCONTINUITY ITERATION    11
+
+   MAX. PENETRATION ERROR 164.948E-06   AT NODE BATTERY-1.3764 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATTOP,ASSEMBLY_CF-2_CFBOT)
+   MAX. CONTACT FORCE ERROR -518.723E-03   AT NODE BATTERY-1.3489 OF CONTACT 
+   PAIR (ASSEMBLY_BATTERY-1_BATTOP,ASSEMBLY_CF-2_CFBOT)
+          THE ESTIMATED CONTACT FORCE ERROR IS OUTSIDE OF CONVERGENCE TOLERANCES.
+
+ AVERAGE FORCE                      0.208       TIME AVG. FORCE       0.208    
+ LARGEST RESIDUAL FORCE             0.356       AT NODE       1001   DOF  3
+   INSTANCE: CF-2                                                                            
+ LARGEST INCREMENT OF DISP.        -0.246       AT NODE        491   DOF  3
+   INSTANCE: POLYMER-1                                                                       
+ LARGEST CORRECTION TO DISP.        3.406E-02   AT NODE        169   DOF  1
+   INSTANCE: CF-1                                                                            
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     0.139       TIME AVG. MOMENT      0.139    
+ LARGEST RESIDUAL MOMENT            9.669E-05   AT NODE          1   DOF  6
+   INSTANCE:                                                                                 
+ LARGEST INCREMENT OF ROTATION     -8.222E-03   AT NODE          7   DOF  5
+   INSTANCE: CF-1                                                                            
+ LARGEST CORRECTION TO ROTATION    -4.270E-04   AT NODE       1037   DOF  5
+   INSTANCE: CF-2                                                                            
+ ESTIMATE OF ROTATION CORRECTION    5.594E-05
+ MOMENT    EQUILIB. ACCEPTED BASED ON SMALL RESIDUAL AND ESTIMATED CORRECTION
+
+  NUMBER OF EQUATIONS =     30480     NUMBER OF RHS =    1
+  NUMBER OF FLOATING PT. OPERATIONS =  7.61E+10
+
+  USING THE DIRECT SOLVER WITH   6 PROCESSORS
+
+     CHECK POINT   START OF SOLVER    
+
+     CHECK POINT  END OF SOLVER       
+
+       ELAPSED USER TIME (SEC)      =   9.1000    
+       ELAPSED SYSTEM TIME (SEC)    =   0.0000    
+       ELAPSED TOTAL CPU TIME (SEC) =   9.1000    
+       ELAPSED WALLCLOCK TIME (SEC) =          2
+ 
+
+ ***WARNING: SOLVER PROBLEM. NUMERICAL SINGULARITY WHEN PROCESSING NODE 
+             ASSEMBLY.1 D.O.F. 6 RATIO = 15.7010E+09 .
+  
+     ASYNCHRONOUS TRACKING ELEMENT LOOP STARTED
+  
+
+                   98 SEVERE DISCONTINUITIES OCCURRED DURING THIS ITERATION.
+                   26 POINTS CHANGED FROM OPEN TO CLOSED
+                   68 POINTS CHANGED FROM CLOSED TO OPEN
+                    4 POINTS CHANGED FROM STICKING TO SLIPPING
+
+               CONVERGENCE CHECKS FOR SEVERE DISCONTINUITY ITERATION    12
+
+   MAX. PENETRATION ERROR 70.0614E-06  AT NODE BATTERY-1.965 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATBOT,ASSEMBLY_CF-1_CFTOP)
+   MAX. CONTACT FORCE ERROR -658.066E-03   AT NODE BATTERY-1.3490 OF CONTACT 
+   PAIR (ASSEMBLY_BATTERY-1_BATTOP,ASSEMBLY_CF-2_CFBOT)
+          THE ESTIMATED CONTACT FORCE ERROR IS OUTSIDE OF CONVERGENCE TOLERANCES.
+
+ AVERAGE FORCE                      0.208       TIME AVG. FORCE       0.208    
+ LARGEST RESIDUAL FORCE            -0.374       AT NODE       3490   DOF  3
+   INSTANCE: BATTERY-1                                                                       
+ LARGEST INCREMENT OF DISP.        -0.246       AT NODE        491   DOF  3
+   INSTANCE: POLYMER-1                                                                       
+ LARGEST CORRECTION TO DISP.        2.527E-02   AT NODE        169   DOF  1
+   INSTANCE: CF-1                                                                            
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     0.139       TIME AVG. MOMENT      0.139    
+ LARGEST RESIDUAL MOMENT           -1.192E-02   AT NODE          1   DOF  4
+   INSTANCE:                                                                                 
+ LARGEST INCREMENT OF ROTATION     -8.228E-03   AT NODE          7   DOF  5
+   INSTANCE: CF-1                                                                            
+ LARGEST CORRECTION TO ROTATION    -4.629E-04   AT NODE       1001   DOF  5
+   INSTANCE: CF-2                                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+  NUMBER OF EQUATIONS =     30480     NUMBER OF RHS =    1
+  NUMBER OF FLOATING PT. OPERATIONS =  7.62E+10
+
+  USING THE DIRECT SOLVER WITH   6 PROCESSORS
+
+     CHECK POINT   START OF SOLVER    
+
+     CHECK POINT  END OF SOLVER       
+
+       ELAPSED USER TIME (SEC)      =   9.0000    
+       ELAPSED SYSTEM TIME (SEC)    =   0.0000    
+       ELAPSED TOTAL CPU TIME (SEC) =   9.0000    
+       ELAPSED WALLCLOCK TIME (SEC) =          1
+ 
+
+ ***WARNING: SOLVER PROBLEM. NUMERICAL SINGULARITY WHEN PROCESSING NODE 
+             ASSEMBLY.1 D.O.F. 6 RATIO = 16.1134E+09 .
+  
+     ASYNCHRONOUS TRACKING ELEMENT LOOP STARTED
+  
+
+                   69 SEVERE DISCONTINUITIES OCCURRED DURING THIS ITERATION.
+                   29 POINTS CHANGED FROM OPEN TO CLOSED
+                   40 POINTS CHANGED FROM CLOSED TO OPEN
+
+               CONVERGENCE CHECKS FOR SEVERE DISCONTINUITY ITERATION    13
+
+   MAX. PENETRATION ERROR 204.152E-06   AT NODE BATTERY-1.3551 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATTOP,ASSEMBLY_CF-2_CFBOT)
+   MAX. CONTACT FORCE ERROR -714.842E-03   AT NODE BATTERY-1.3833 OF CONTACT 
+   PAIR (ASSEMBLY_BATTERY-1_BATTOP,ASSEMBLY_CF-2_CFBOT)
+          THE ESTIMATED CONTACT FORCE ERROR IS OUTSIDE OF CONVERGENCE TOLERANCES.
+
+ AVERAGE FORCE                      0.208       TIME AVG. FORCE       0.208    
+ LARGEST RESIDUAL FORCE            -0.419       AT NODE       3833   DOF  3
+   INSTANCE: BATTERY-1                                                                       
+ LARGEST INCREMENT OF DISP.        -0.246       AT NODE        491   DOF  3
+   INSTANCE: POLYMER-1                                                                       
+ LARGEST CORRECTION TO DISP.       -1.163E-02   AT NODE          7   DOF  1
+   INSTANCE: CF-2                                                                            
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     0.139       TIME AVG. MOMENT      0.139    
+ LARGEST RESIDUAL MOMENT           -2.706E-02   AT NODE          1   DOF  4
+   INSTANCE:                                                                                 
+ LARGEST INCREMENT OF ROTATION     -8.234E-03   AT NODE          7   DOF  5
+   INSTANCE: CF-1                                                                            
+ LARGEST CORRECTION TO ROTATION    -5.097E-04   AT NODE        965   DOF  5
+   INSTANCE: CF-2                                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+  NUMBER OF EQUATIONS =     30480     NUMBER OF RHS =    1
+  NUMBER OF FLOATING PT. OPERATIONS =  7.64E+10
+
+  USING THE DIRECT SOLVER WITH   6 PROCESSORS
+
+     CHECK POINT   START OF SOLVER    
+
+     CHECK POINT  END OF SOLVER       
+
+       ELAPSED USER TIME (SEC)      =   9.4000    
+       ELAPSED SYSTEM TIME (SEC)    =  0.10000    
+       ELAPSED TOTAL CPU TIME (SEC) =   9.5000    
+       ELAPSED WALLCLOCK TIME (SEC) =          2
+ 
+
+ ***WARNING: SOLVER PROBLEM. NUMERICAL SINGULARITY WHEN PROCESSING NODE 
+             ASSEMBLY.1 D.O.F. 6 RATIO = 16.5589E+09 .
+  
+     ASYNCHRONOUS TRACKING ELEMENT LOOP STARTED
+  
+
+                   52 SEVERE DISCONTINUITIES OCCURRED DURING THIS ITERATION.
+                   17 POINTS CHANGED FROM OPEN TO CLOSED
+                   34 POINTS CHANGED FROM CLOSED TO OPEN
+                    1 POINTS CHANGED FROM STICKING TO SLIPPING
+
+               CONVERGENCE CHECKS FOR SEVERE DISCONTINUITY ITERATION    14
+
+   MAX. PENETRATION ERROR 55.9316E-06  AT NODE BATTERY-1.1267 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATBOT,ASSEMBLY_CF-1_CFTOP)
+   MAX. CONTACT FORCE ERROR -282.195E-03   AT NODE BATTERY-1.3521 OF CONTACT 
+   PAIR (ASSEMBLY_BATTERY-1_BATTOP,ASSEMBLY_CF-2_CFBOT)
+          THE ESTIMATED CONTACT FORCE ERROR IS OUTSIDE OF CONVERGENCE TOLERANCES.
+
+ AVERAGE FORCE                      0.208       TIME AVG. FORCE       0.208    
+ LARGEST RESIDUAL FORCE             0.197       AT NODE        929   DOF  3
+   INSTANCE: CF-2                                                                            
+ LARGEST INCREMENT OF DISP.        -0.246       AT NODE        491   DOF  3
+   INSTANCE: POLYMER-1                                                                       
+ LARGEST CORRECTION TO DISP.       -5.780E-02   AT NODE         93   DOF  2
+   INSTANCE: CF-1                                                                            
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     0.138       TIME AVG. MOMENT      0.138    
+ LARGEST RESIDUAL MOMENT           -0.177       AT NODE          1   DOF  4
+   INSTANCE:                                                                                 
+ LARGEST INCREMENT OF ROTATION     -8.236E-03   AT NODE          7   DOF  5
+   INSTANCE: CF-1                                                                            
+ LARGEST CORRECTION TO ROTATION     5.259E-04   AT NODE        176   DOF  6
+   INSTANCE: CF-1                                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+  NUMBER OF EQUATIONS =     30480     NUMBER OF RHS =    1
+  NUMBER OF FLOATING PT. OPERATIONS =  7.56E+10
+
+  USING THE DIRECT SOLVER WITH   6 PROCESSORS
+
+     CHECK POINT   START OF SOLVER    
+
+     CHECK POINT  END OF SOLVER       
+
+       ELAPSED USER TIME (SEC)      =   9.3000    
+       ELAPSED SYSTEM TIME (SEC)    =   0.0000    
+       ELAPSED TOTAL CPU TIME (SEC) =   9.3000    
+       ELAPSED WALLCLOCK TIME (SEC) =          1
+ 
+
+ ***WARNING: SOLVER PROBLEM. NUMERICAL SINGULARITY WHEN PROCESSING NODE 
+             ASSEMBLY.1 D.O.F. 6 RATIO = 16.8313E+09 .
+  
+     ASYNCHRONOUS TRACKING ELEMENT LOOP STARTED
+  
+
+                   22 SEVERE DISCONTINUITIES OCCURRED DURING THIS ITERATION.
+                    5 POINTS CHANGED FROM OPEN TO CLOSED
+                   17 POINTS CHANGED FROM CLOSED TO OPEN
+
+               CONVERGENCE CHECKS FOR SEVERE DISCONTINUITY ITERATION    15
+
+   MAX. PENETRATION ERROR 19.8300E-06  AT NODE BATTERY-1.1041 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATBOT,ASSEMBLY_CF-1_CFTOP)
+   MAX. CONTACT FORCE ERROR -290.340E-03   AT NODE BATTERY-1.2583 OF CONTACT 
+   PAIR (ASSEMBLY_BATTERY-1_BATTOP,ASSEMBLY_CF-2_CFBOT)
+          THE ESTIMATED CONTACT FORCE ERROR IS OUTSIDE OF CONVERGENCE TOLERANCES.
+
+ AVERAGE FORCE                      0.208       TIME AVG. FORCE       0.208    
+ LARGEST RESIDUAL FORCE            -4.933E-02   AT NODE       3642   DOF  3
+   INSTANCE: BATTERY-1                                                                       
+ LARGEST INCREMENT OF DISP.        -0.246       AT NODE        491   DOF  3
+   INSTANCE: POLYMER-1                                                                       
+ LARGEST CORRECTION TO DISP.       -5.585E-02   AT NODE          7   DOF  1
+   INSTANCE: CF-2                                                                            
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     0.138       TIME AVG. MOMENT      0.138    
+ LARGEST RESIDUAL MOMENT           -1.325E-02   AT NODE          1   DOF  4
+   INSTANCE:                                                                                 
+ LARGEST INCREMENT OF ROTATION     -8.237E-03   AT NODE          7   DOF  5
+   INSTANCE: CF-1                                                                            
+ LARGEST CORRECTION TO ROTATION    -5.082E-04   AT NODE        928   DOF  6
+   INSTANCE: CF-2                                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+  NUMBER OF EQUATIONS =     30480     NUMBER OF RHS =    1
+  NUMBER OF FLOATING PT. OPERATIONS =  7.52E+10
+
+  USING THE DIRECT SOLVER WITH   6 PROCESSORS
+
+     CHECK POINT   START OF SOLVER    
+
+     CHECK POINT  END OF SOLVER       
+
+       ELAPSED USER TIME (SEC)      =   8.9000    
+       ELAPSED SYSTEM TIME (SEC)    =  0.10000    
+       ELAPSED TOTAL CPU TIME (SEC) =   9.0000    
+       ELAPSED WALLCLOCK TIME (SEC) =          2
+ 
+
+ ***WARNING: SOLVER PROBLEM. NUMERICAL SINGULARITY WHEN PROCESSING NODE 
+             ASSEMBLY.1 D.O.F. 6 RATIO = 16.9312E+09 .
+  
+     ASYNCHRONOUS TRACKING ELEMENT LOOP STARTED
+  
+
+                   11 SEVERE DISCONTINUITIES OCCURRED DURING THIS ITERATION.
+                    3 POINTS CHANGED FROM OPEN TO CLOSED
+                    8 POINTS CHANGED FROM CLOSED TO OPEN
+
+               CONVERGENCE CHECKS FOR SEVERE DISCONTINUITY ITERATION    16
+
+   MAX. PENETRATION ERROR 13.3408E-06  AT NODE BATTERY-1.1067 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATBOT,ASSEMBLY_CF-1_CFTOP)
+   MAX. CONTACT FORCE ERROR -39.6298E-03  AT NODE BATTERY-1.1041 OF CONTACT 
+   PAIR (ASSEMBLY_BATTERY-1_BATBOT,ASSEMBLY_CF-1_CFTOP)
+          THE CONTACT CONSTRAINT ERRORS ARE WITHIN THE TOLERANCES.
+
+ AVERAGE FORCE                      0.208       TIME AVG. FORCE       0.208    
+ LARGEST RESIDUAL FORCE             2.237E-02   AT NODE       1041   DOF  3
+   INSTANCE: BATTERY-1                                                                       
+ LARGEST INCREMENT OF DISP.        -0.246       AT NODE        491   DOF  3
+   INSTANCE: POLYMER-1                                                                       
+ LARGEST CORRECTION TO DISP.        5.399E-02   AT NODE        166   DOF  1
+   INSTANCE: CF-1                                                                            
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     0.138       TIME AVG. MOMENT      0.138    
+ LARGEST RESIDUAL MOMENT           -3.269E-04   AT NODE          1   DOF  4
+   INSTANCE:                                                                                 
+ LARGEST INCREMENT OF ROTATION     -8.237E-03   AT NODE          7   DOF  5
+   INSTANCE: CF-1                                                                            
+ LARGEST CORRECTION TO ROTATION     4.909E-04   AT NODE       1068   DOF  6
+   INSTANCE: CF-1                                                                            
+ ESTIMATE OF ROTATION CORRECTION    1.211E-05
+ MOMENT    EQUILIB. ACCEPTED BASED ON SMALL RESIDUAL AND ESTIMATED CORRECTION
+
+  NUMBER OF EQUATIONS =     30480     NUMBER OF RHS =    1
+  NUMBER OF FLOATING PT. OPERATIONS =  7.49E+10
+
+  USING THE DIRECT SOLVER WITH   6 PROCESSORS
+
+     CHECK POINT   START OF SOLVER    
+
+     CHECK POINT  END OF SOLVER       
+
+       ELAPSED USER TIME (SEC)      =   8.9000    
+       ELAPSED SYSTEM TIME (SEC)    =   0.0000    
+       ELAPSED TOTAL CPU TIME (SEC) =   8.9000    
+       ELAPSED WALLCLOCK TIME (SEC) =          2
+ 
+
+ ***WARNING: SOLVER PROBLEM. NUMERICAL SINGULARITY WHEN PROCESSING NODE 
+             ASSEMBLY.1 D.O.F. 6 RATIO = 16.9572E+09 .
+  
+     ASYNCHRONOUS TRACKING ELEMENT LOOP STARTED
+  
+
+                    6 SEVERE DISCONTINUITIES OCCURRED DURING THIS ITERATION.
+                    1 POINTS CHANGED FROM OPEN TO CLOSED
+                    5 POINTS CHANGED FROM CLOSED TO OPEN
+
+               CONVERGENCE CHECKS FOR SEVERE DISCONTINUITY ITERATION    17
+
+   MAX. PENETRATION ERROR 1.96374E-06 AT NODE BATTERY-1.929 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATBOT,ASSEMBLY_CF-1_CFTOP)
+   MAX. CONTACT FORCE ERROR -10.5130E-03  AT NODE BATTERY-1.1051 OF CONTACT 
+   PAIR (ASSEMBLY_BATTERY-1_BATBOT,ASSEMBLY_CF-1_CFTOP)
+          THE CONTACT CONSTRAINT ERRORS ARE WITHIN THE TOLERANCES.
+
+ AVERAGE FORCE                      0.208       TIME AVG. FORCE       0.208    
+ LARGEST RESIDUAL FORCE            -8.400E-03   AT NODE        926   DOF  3
+   INSTANCE: CF-1                                                                            
+ LARGEST INCREMENT OF DISP.        -0.246       AT NODE        491   DOF  3
+   INSTANCE: POLYMER-1                                                                       
+ LARGEST CORRECTION TO DISP.       -4.991E-02   AT NODE        167   DOF  1
+   INSTANCE: CF-1                                                                            
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     0.138       TIME AVG. MOMENT      0.138    
+ LARGEST RESIDUAL MOMENT            1.074E-04   AT NODE          1   DOF  6
+   INSTANCE:                                                                                 
+ LARGEST INCREMENT OF ROTATION     -8.237E-03   AT NODE          7   DOF  5
+   INSTANCE: CF-1                                                                            
+ LARGEST CORRECTION TO ROTATION    -4.538E-04   AT NODE       1000   DOF  6
+   INSTANCE: CF-1                                                                            
+          ROTATION CORRECTION TOO LARGE COMPARED TO ROTATION INCREMENT
+
+  NUMBER OF EQUATIONS =     30480     NUMBER OF RHS =    1
+  NUMBER OF FLOATING PT. OPERATIONS =  7.48E+10
+
+  USING THE DIRECT SOLVER WITH   6 PROCESSORS
+
+     CHECK POINT   START OF SOLVER    
+
+     CHECK POINT  END OF SOLVER       
+
+       ELAPSED USER TIME (SEC)      =   9.4000    
+       ELAPSED SYSTEM TIME (SEC)    =   0.0000    
+       ELAPSED TOTAL CPU TIME (SEC) =   9.4000    
+       ELAPSED WALLCLOCK TIME (SEC) =          1
+ 
+
+ ***WARNING: SOLVER PROBLEM. NUMERICAL SINGULARITY WHEN PROCESSING NODE 
+             ASSEMBLY.1 D.O.F. 6 RATIO = 16.9678E+09 .
+  
+     ASYNCHRONOUS TRACKING ELEMENT LOOP STARTED
+  
+
+                    2 SEVERE DISCONTINUITIES OCCURRED DURING THIS ITERATION.
+                    2 POINTS CHANGED FROM CLOSED TO OPEN
+
+               CONVERGENCE CHECKS FOR SEVERE DISCONTINUITY ITERATION    18
+
+   MAX. PENETRATION ERROR -17.7798E-12  AT NODE BATTERY-1.3577 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATTOP,ASSEMBLY_CF-2_CFBOT)
+   MAX. CONTACT FORCE ERROR -1.68345E-03 AT NODE BATTERY-1.1248 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATBOT,ASSEMBLY_CF-1_CFTOP)
+          THE CONTACT CONSTRAINT ERRORS ARE WITHIN THE TOLERANCES.
+
+ AVERAGE FORCE                      0.208       TIME AVG. FORCE       0.208    
+ LARGEST RESIDUAL FORCE             9.470E-04   AT NODE       1248   DOF  3
+   INSTANCE: BATTERY-1                                                                       
+ LARGEST INCREMENT OF DISP.        -0.246       AT NODE        491   DOF  3
+   INSTANCE: POLYMER-1                                                                       
+ LARGEST CORRECTION TO DISP.        4.560E-02   AT NODE        152   DOF  1
+   INSTANCE: CF-1                                                                            
+          DISP.    CORRECTION TOO LARGE COMPARED TO DISP.    INCREMENT
+
+ AVERAGE MOMENT                     0.138       TIME AVG. MOMENT      0.138    
+ LARGEST RESIDUAL MOMENT           -1.001E-04   AT NODE          1   DOF  6
+   INSTANCE:                                                                                 
+ LARGEST INCREMENT OF ROTATION     -8.237E-03   AT NODE          7   DOF  5
+   INSTANCE: CF-1                                                                            
+ LARGEST CORRECTION TO ROTATION     4.145E-04   AT NODE        925   DOF  6
+   INSTANCE: CF-1                                                                            
+          ROTATION CORRECTION TOO LARGE COMPARED TO ROTATION INCREMENT
+
+  NUMBER OF EQUATIONS =     30480     NUMBER OF RHS =    1
+  NUMBER OF FLOATING PT. OPERATIONS =  7.46E+10
+
+  USING THE DIRECT SOLVER WITH   6 PROCESSORS
+
+     CHECK POINT   START OF SOLVER    
+
+     CHECK POINT  END OF SOLVER       
+
+       ELAPSED USER TIME (SEC)      =   8.9000    
+       ELAPSED SYSTEM TIME (SEC)    =  0.10000    
+       ELAPSED TOTAL CPU TIME (SEC) =   9.0000    
+       ELAPSED WALLCLOCK TIME (SEC) =          2
+ 
+
+ ***WARNING: SOLVER PROBLEM. NUMERICAL SINGULARITY WHEN PROCESSING NODE 
+             ASSEMBLY.1 D.O.F. 6 RATIO = 16.9661E+09 .
+  
+     ASYNCHRONOUS TRACKING ELEMENT LOOP STARTED
+  
+
+                    1 SEVERE DISCONTINUITIES OCCURRED DURING THIS ITERATION.
+                    1 POINTS CHANGED FROM CLOSED TO OPEN
+
+               CONVERGENCE CHECKS FOR SEVERE DISCONTINUITY ITERATION    19
+
+   MAX. PENETRATION ERROR -12.9625E-12  AT NODE BATTERY-1.347 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATBOT,ASSEMBLY_CF-1_CFTOP)
+   MAX. CONTACT FORCE ERROR -32.0947E-06  AT NODE BATTERY-1.895 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATBOT,ASSEMBLY_CF-1_CFTOP)
+          THE CONTACT CONSTRAINT ERRORS ARE WITHIN THE TOLERANCES.
+
+ AVERAGE FORCE                      0.208       TIME AVG. FORCE       0.208    
+ LARGEST RESIDUAL FORCE             1.775E-05   AT NODE        895   DOF  3
+   INSTANCE: BATTERY-1                                                                       
+ LARGEST INCREMENT OF DISP.        -0.246       AT NODE        491   DOF  3
+   INSTANCE: POLYMER-1                                                                       
+ LARGEST CORRECTION TO DISP.       -4.173E-02   AT NODE          1   DOF  1
+   INSTANCE: CF-2                                                                            
+          DISP.    CORRECTION TOO LARGE COMPARED TO DISP.    INCREMENT
+
+ AVERAGE MOMENT                     0.138       TIME AVG. MOMENT      0.138    
+ LARGEST RESIDUAL MOMENT            9.105E-05   AT NODE          1   DOF  6
+   INSTANCE:                                                                                 
+ LARGEST INCREMENT OF ROTATION     -8.237E-03   AT NODE          7   DOF  5
+   INSTANCE: CF-1                                                                            
+ LARGEST CORRECTION TO ROTATION    -3.793E-04   AT NODE       1357   DOF  6
+   INSTANCE: CF-1                                                                            
+          ROTATION CORRECTION TOO LARGE COMPARED TO ROTATION INCREMENT
+
+  NUMBER OF EQUATIONS =     30480     NUMBER OF RHS =    1
+  NUMBER OF FLOATING PT. OPERATIONS =  7.46E+10
+
+  USING THE DIRECT SOLVER WITH   6 PROCESSORS
+
+     CHECK POINT   START OF SOLVER    
+
+     CHECK POINT  END OF SOLVER       
+
+       ELAPSED USER TIME (SEC)      =   9.3000    
+       ELAPSED SYSTEM TIME (SEC)    =   0.0000    
+       ELAPSED TOTAL CPU TIME (SEC) =   9.3000    
+       ELAPSED WALLCLOCK TIME (SEC) =          1
+ 
+
+ ***WARNING: SOLVER PROBLEM. NUMERICAL SINGULARITY WHEN PROCESSING NODE 
+             ASSEMBLY.1 D.O.F. 6 RATIO = 16.9676E+09 .
+  
+     ASYNCHRONOUS TRACKING ELEMENT LOOP STARTED
+  
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+   MAX. PENETRATION ERROR -12.5059E-12  AT NODE BATTERY-1.252 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATBOT,ASSEMBLY_CF-1_CFTOP)
+   MAX. CONTACT FORCE ERROR -17.0982E-09  AT NODE BATTERY-1.219 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATBOT,ASSEMBLY_CF-1_CFTOP)
+          THE CONTACT CONSTRAINTS HAVE CONVERGED.
+
+ AVERAGE FORCE                      0.208       TIME AVG. FORCE       0.208    
+ LARGEST RESIDUAL FORCE            -1.615E-05   AT NODE        268   DOF  2
+   INSTANCE: BATTERY-1                                                                       
+ LARGEST INCREMENT OF DISP.        -0.246       AT NODE        491   DOF  3
+   INSTANCE: POLYMER-1                                                                       
+ LARGEST CORRECTION TO DISP.        3.820E-02   AT NODE          1   DOF  1
+   INSTANCE: CF-2                                                                            
+          DISP.    CORRECTION TOO LARGE COMPARED TO DISP.    INCREMENT
+
+ AVERAGE MOMENT                     0.138       TIME AVG. MOMENT      0.138    
+ LARGEST RESIDUAL MOMENT           -8.327E-05   AT NODE          1   DOF  6
+   INSTANCE:                                                                                 
+ LARGEST INCREMENT OF ROTATION     -8.237E-03   AT NODE          7   DOF  5
+   INSTANCE: CF-1                                                                            
+ LARGEST CORRECTION TO ROTATION     3.473E-04   AT NODE       1357   DOF  6
+   INSTANCE: CF-1                                                                            
+          ROTATION CORRECTION TOO LARGE COMPARED TO ROTATION INCREMENT
+
+  NUMBER OF EQUATIONS =     30480     NUMBER OF RHS =    1
+  NUMBER OF FLOATING PT. OPERATIONS =  7.46E+10
+
+  USING THE DIRECT SOLVER WITH   6 PROCESSORS
+
+     CHECK POINT   START OF SOLVER    
+
+     CHECK POINT  END OF SOLVER       
+
+       ELAPSED USER TIME (SEC)      =   8.8000    
+       ELAPSED SYSTEM TIME (SEC)    =   0.0000    
+       ELAPSED TOTAL CPU TIME (SEC) =   8.8000    
+       ELAPSED WALLCLOCK TIME (SEC) =          2
+ 
+
+ ***WARNING: SOLVER PROBLEM. NUMERICAL SINGULARITY WHEN PROCESSING NODE 
+             ASSEMBLY.1 D.O.F. 6 RATIO = 16.9674E+09 .
+  
+     ASYNCHRONOUS TRACKING ELEMENT LOOP STARTED
+  
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+   MAX. PENETRATION ERROR -9.06651E-12 AT NODE BATTERY-1.347 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATBOT,ASSEMBLY_CF-1_CFTOP)
+   MAX. CONTACT FORCE ERROR -13.5537E-09  AT NODE BATTERY-1.380 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATBOT,ASSEMBLY_CF-1_CFTOP)
+          THE CONTACT CONSTRAINTS HAVE CONVERGED.
+
+ AVERAGE FORCE                      0.208       TIME AVG. FORCE       0.208    
+ LARGEST RESIDUAL FORCE             1.479E-05   AT NODE        268   DOF  2
+   INSTANCE: BATTERY-1                                                                       
+ LARGEST INCREMENT OF DISP.        -0.246       AT NODE        491   DOF  3
+   INSTANCE: POLYMER-1                                                                       
+ LARGEST CORRECTION TO DISP.       -3.498E-02   AT NODE          1   DOF  1
+   INSTANCE: CF-2                                                                            
+          DISP.    CORRECTION TOO LARGE COMPARED TO DISP.    INCREMENT
+
+ AVERAGE MOMENT                     0.138       TIME AVG. MOMENT      0.138    
+ LARGEST RESIDUAL MOMENT            7.632E-05   AT NODE          1   DOF  6
+   INSTANCE:                                                                                 
+ LARGEST INCREMENT OF ROTATION     -8.237E-03   AT NODE          7   DOF  5
+   INSTANCE: CF-1                                                                            
+ LARGEST CORRECTION TO ROTATION    -3.180E-04   AT NODE       1357   DOF  6
+   INSTANCE: CF-1                                                                            
+          ROTATION CORRECTION TOO LARGE COMPARED TO ROTATION INCREMENT
+
+  NUMBER OF EQUATIONS =     30480     NUMBER OF RHS =    1
+  NUMBER OF FLOATING PT. OPERATIONS =  7.46E+10
+
+  USING THE DIRECT SOLVER WITH   6 PROCESSORS
+
+     CHECK POINT   START OF SOLVER    
+
+     CHECK POINT  END OF SOLVER       
+
+       ELAPSED USER TIME (SEC)      =   8.9000    
+       ELAPSED SYSTEM TIME (SEC)    =  0.10000    
+       ELAPSED TOTAL CPU TIME (SEC) =   9.0000    
+       ELAPSED WALLCLOCK TIME (SEC) =          1
+ 
+
+ ***WARNING: SOLVER PROBLEM. NUMERICAL SINGULARITY WHEN PROCESSING NODE 
+             ASSEMBLY.1 D.O.F. 6 RATIO = 16.9657E+09 .
+  
+     ASYNCHRONOUS TRACKING ELEMENT LOOP STARTED
+  
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     3
+
+   MAX. PENETRATION ERROR -9.52621E-12 AT NODE BATTERY-1.252 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATBOT,ASSEMBLY_CF-1_CFTOP)
+   MAX. CONTACT FORCE ERROR -12.8403E-09  AT NODE BATTERY-1.219 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATBOT,ASSEMBLY_CF-1_CFTOP)
+          THE CONTACT CONSTRAINTS HAVE CONVERGED.
+
+ AVERAGE FORCE                      0.208       TIME AVG. FORCE       0.208    
+ LARGEST RESIDUAL FORCE            -1.354E-05   AT NODE        268   DOF  2
+   INSTANCE: BATTERY-1                                                                       
+ LARGEST INCREMENT OF DISP.        -0.246       AT NODE        491   DOF  3
+   INSTANCE: POLYMER-1                                                                       
+ LARGEST CORRECTION TO DISP.        3.203E-02   AT NODE          1   DOF  1
+   INSTANCE: CF-2                                                                            
+          DISP.    CORRECTION TOO LARGE COMPARED TO DISP.    INCREMENT
+
+ AVERAGE MOMENT                     0.138       TIME AVG. MOMENT      0.138    
+ LARGEST RESIDUAL MOMENT           -6.981E-05   AT NODE          1   DOF  6
+   INSTANCE:                                                                                 
+ LARGEST INCREMENT OF ROTATION     -8.237E-03   AT NODE          7   DOF  5
+   INSTANCE: CF-1                                                                            
+ LARGEST CORRECTION TO ROTATION     2.912E-04   AT NODE       1357   DOF  6
+   INSTANCE: CF-1                                                                            
+          ROTATION CORRECTION TOO LARGE COMPARED TO ROTATION INCREMENT
+
+  NUMBER OF EQUATIONS =     30480     NUMBER OF RHS =    1
+  NUMBER OF FLOATING PT. OPERATIONS =  7.46E+10
+
+  USING THE DIRECT SOLVER WITH   6 PROCESSORS
+
+     CHECK POINT   START OF SOLVER    
+
+     CHECK POINT  END OF SOLVER       
+
+       ELAPSED USER TIME (SEC)      =   8.9000    
+       ELAPSED SYSTEM TIME (SEC)    =  0.10000    
+       ELAPSED TOTAL CPU TIME (SEC) =   9.0000    
+       ELAPSED WALLCLOCK TIME (SEC) =          1
+ 
+
+ ***WARNING: SOLVER PROBLEM. NUMERICAL SINGULARITY WHEN PROCESSING NODE 
+             ASSEMBLY.1 D.O.F. 6 RATIO = 16.9662E+09 .
+  
+     ASYNCHRONOUS TRACKING ELEMENT LOOP STARTED
+  
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     4
+
+   MAX. PENETRATION ERROR -6.33513E-12 AT NODE BATTERY-1.347 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATBOT,ASSEMBLY_CF-1_CFTOP)
+   MAX. CONTACT FORCE ERROR -9.61646E-09 AT NODE BATTERY-1.380 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATBOT,ASSEMBLY_CF-1_CFTOP)
+          THE CONTACT CONSTRAINTS HAVE CONVERGED.
+
+ AVERAGE FORCE                      0.208       TIME AVG. FORCE       0.208    
+ LARGEST RESIDUAL FORCE             1.240E-05   AT NODE        268   DOF  2
+   INSTANCE: BATTERY-1                                                                       
+ LARGEST INCREMENT OF DISP.        -0.246       AT NODE        491   DOF  3
+   INSTANCE: POLYMER-1                                                                       
+ LARGEST CORRECTION TO DISP.       -2.932E-02   AT NODE          1   DOF  1
+   INSTANCE: CF-2                                                                            
+          DISP.    CORRECTION TOO LARGE COMPARED TO DISP.    INCREMENT
+
+ AVERAGE MOMENT                     0.138       TIME AVG. MOMENT      0.138    
+ LARGEST RESIDUAL MOMENT            6.396E-05   AT NODE          1   DOF  6
+   INSTANCE:                                                                                 
+ LARGEST INCREMENT OF ROTATION     -8.237E-03   AT NODE          7   DOF  5
+   INSTANCE: CF-1                                                                            
+ LARGEST CORRECTION TO ROTATION    -2.665E-04   AT NODE       1357   DOF  6
+   INSTANCE: CF-1                                                                            
+          ROTATION CORRECTION TOO LARGE COMPARED TO ROTATION INCREMENT
+
+  NUMBER OF EQUATIONS =     30480     NUMBER OF RHS =    1
+  NUMBER OF FLOATING PT. OPERATIONS =  7.46E+10
+
+  USING THE DIRECT SOLVER WITH   6 PROCESSORS
+
+     CHECK POINT   START OF SOLVER    
+
+     CHECK POINT  END OF SOLVER       
+
+       ELAPSED USER TIME (SEC)      =   8.9000    
+       ELAPSED SYSTEM TIME (SEC)    =  0.10000    
+       ELAPSED TOTAL CPU TIME (SEC) =   9.0000    
+       ELAPSED WALLCLOCK TIME (SEC) =          2
+ 
+
+ ***WARNING: SOLVER PROBLEM. NUMERICAL SINGULARITY WHEN PROCESSING NODE 
+             ASSEMBLY.1 D.O.F. 6 RATIO = 16.9673E+09 .
+  
+     ASYNCHRONOUS TRACKING ELEMENT LOOP STARTED
+  
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     5
+
+   MAX. PENETRATION ERROR -7.31105E-12 AT NODE BATTERY-1.252 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATBOT,ASSEMBLY_CF-1_CFTOP)
+   MAX. CONTACT FORCE ERROR -9.71204E-09 AT NODE BATTERY-1.219 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATBOT,ASSEMBLY_CF-1_CFTOP)
+          THE CONTACT CONSTRAINTS HAVE CONVERGED.
+
+ AVERAGE FORCE                      0.208       TIME AVG. FORCE       0.208    
+ LARGEST RESIDUAL FORCE            -1.135E-05   AT NODE        268   DOF  2
+   INSTANCE: BATTERY-1                                                                       
+ LARGEST INCREMENT OF DISP.        -0.246       AT NODE        491   DOF  3
+   INSTANCE: POLYMER-1                                                                       
+ LARGEST CORRECTION TO DISP.        2.684E-02   AT NODE          1   DOF  1
+   INSTANCE: CF-2                                                                            
+          DISP.    CORRECTION TOO LARGE COMPARED TO DISP.    INCREMENT
+
+ AVERAGE MOMENT                     0.138       TIME AVG. MOMENT      0.138    
+ LARGEST RESIDUAL MOMENT           -5.852E-05   AT NODE          1   DOF  6
+   INSTANCE:                                                                                 
+ LARGEST INCREMENT OF ROTATION     -8.237E-03   AT NODE          7   DOF  5
+   INSTANCE: CF-1                                                                            
+ LARGEST CORRECTION TO ROTATION     2.440E-04   AT NODE       1357   DOF  6
+   INSTANCE: CF-1                                                                            
+          ROTATION CORRECTION TOO LARGE COMPARED TO ROTATION INCREMENT
+
+  NUMBER OF EQUATIONS =     30480     NUMBER OF RHS =    1
+  NUMBER OF FLOATING PT. OPERATIONS =  7.46E+10
+
+  USING THE DIRECT SOLVER WITH   6 PROCESSORS
+
+     CHECK POINT   START OF SOLVER    
+
+     CHECK POINT  END OF SOLVER       
+
+       ELAPSED USER TIME (SEC)      =   9.1000    
+       ELAPSED SYSTEM TIME (SEC)    =   0.0000    
+       ELAPSED TOTAL CPU TIME (SEC) =   9.1000    
+       ELAPSED WALLCLOCK TIME (SEC) =          1
+ 
+
+ ***WARNING: SOLVER PROBLEM. NUMERICAL SINGULARITY WHEN PROCESSING NODE 
+             ASSEMBLY.1 D.O.F. 6 RATIO = 16.9693E+09 .
+  
+     ASYNCHRONOUS TRACKING ELEMENT LOOP STARTED
+  
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     6
+
+   MAX. PENETRATION ERROR -4.42493E-12 AT NODE BATTERY-1.347 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATBOT,ASSEMBLY_CF-1_CFTOP)
+   MAX. CONTACT FORCE ERROR -6.83961E-09 AT NODE BATTERY-1.380 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATBOT,ASSEMBLY_CF-1_CFTOP)
+          THE CONTACT CONSTRAINTS HAVE CONVERGED.
+
+ AVERAGE FORCE                      0.208       TIME AVG. FORCE       0.208    
+ LARGEST RESIDUAL FORCE             1.039E-05   AT NODE        268   DOF  2
+   INSTANCE: BATTERY-1                                                                       
+ LARGEST INCREMENT OF DISP.        -0.246       AT NODE        491   DOF  3
+   INSTANCE: POLYMER-1                                                                       
+ LARGEST CORRECTION TO DISP.       -2.458E-02   AT NODE          1   DOF  1
+   INSTANCE: CF-2                                                                            
+          DISP.    CORRECTION TOO LARGE COMPARED TO DISP.    INCREMENT
+
+ AVERAGE MOMENT                     0.138       TIME AVG. MOMENT      0.138    
+ LARGEST RESIDUAL MOMENT            5.362E-05   AT NODE          1   DOF  6
+   INSTANCE:                                                                                 
+ LARGEST INCREMENT OF ROTATION     -8.237E-03   AT NODE          7   DOF  5
+   INSTANCE: CF-1                                                                            
+ LARGEST CORRECTION TO ROTATION    -2.235E-04   AT NODE       1357   DOF  6
+   INSTANCE: CF-1                                                                            
+          ROTATION CORRECTION TOO LARGE COMPARED TO ROTATION INCREMENT
+
+  NUMBER OF EQUATIONS =     30480     NUMBER OF RHS =    1
+  NUMBER OF FLOATING PT. OPERATIONS =  7.46E+10
+
+  USING THE DIRECT SOLVER WITH   6 PROCESSORS
+
+     CHECK POINT   START OF SOLVER    
+
+     CHECK POINT  END OF SOLVER       
+
+       ELAPSED USER TIME (SEC)      =   8.8000    
+       ELAPSED SYSTEM TIME (SEC)    =   0.0000    
+       ELAPSED TOTAL CPU TIME (SEC) =   8.8000    
+       ELAPSED WALLCLOCK TIME (SEC) =          2
+ 
+
+ ***WARNING: SOLVER PROBLEM. NUMERICAL SINGULARITY WHEN PROCESSING NODE 
+             ASSEMBLY.1 D.O.F. 6 RATIO = 16.9658E+09 .
+  
+     ASYNCHRONOUS TRACKING ELEMENT LOOP STARTED
+  
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     7
+
+   MAX. PENETRATION ERROR -5.65800E-12 AT NODE BATTERY-1.252 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATBOT,ASSEMBLY_CF-1_CFTOP)
+   MAX. CONTACT FORCE ERROR -7.40696E-09 AT NODE BATTERY-1.219 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATBOT,ASSEMBLY_CF-1_CFTOP)
+          THE CONTACT CONSTRAINTS HAVE CONVERGED.
+
+ AVERAGE FORCE                      0.208       TIME AVG. FORCE       0.208    
+ LARGEST RESIDUAL FORCE            -9.515E-06   AT NODE        268   DOF  2
+   INSTANCE: BATTERY-1                                                                       
+ LARGEST INCREMENT OF DISP.        -0.246       AT NODE        491   DOF  3
+   INSTANCE: POLYMER-1                                                                       
+ LARGEST CORRECTION TO DISP.        2.251E-02   AT NODE          1   DOF  1
+   INSTANCE: CF-2                                                                            
+          DISP.    CORRECTION TOO LARGE COMPARED TO DISP.    INCREMENT
+
+ AVERAGE MOMENT                     0.138       TIME AVG. MOMENT      0.138    
+ LARGEST RESIDUAL MOMENT           -4.907E-05   AT NODE          1   DOF  6
+   INSTANCE:                                                                                 
+ LARGEST INCREMENT OF ROTATION     -8.237E-03   AT NODE          7   DOF  5
+   INSTANCE: CF-1                                                                            
+ LARGEST CORRECTION TO ROTATION     2.046E-04   AT NODE       1357   DOF  6
+   INSTANCE: CF-1                                                                            
+          ROTATION CORRECTION TOO LARGE COMPARED TO ROTATION INCREMENT
+
+  NUMBER OF EQUATIONS =     30480     NUMBER OF RHS =    1
+  NUMBER OF FLOATING PT. OPERATIONS =  7.46E+10
+
+  USING THE DIRECT SOLVER WITH   6 PROCESSORS
+
+     CHECK POINT   START OF SOLVER    
+
+     CHECK POINT  END OF SOLVER       
+
+       ELAPSED USER TIME (SEC)      =   8.9000    
+       ELAPSED SYSTEM TIME (SEC)    =   0.0000    
+       ELAPSED TOTAL CPU TIME (SEC) =   8.9000    
+       ELAPSED WALLCLOCK TIME (SEC) =          2
+ 
+
+ ***WARNING: SOLVER PROBLEM. NUMERICAL SINGULARITY WHEN PROCESSING NODE 
+             ASSEMBLY.1 D.O.F. 6 RATIO = 16.9694E+09 .
+  
+     ASYNCHRONOUS TRACKING ELEMENT LOOP STARTED
+  
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     8
+
+   MAX. PENETRATION ERROR -3.11805E-12 AT NODE BATTERY-1.449 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATBOT,ASSEMBLY_CF-1_CFTOP)
+   MAX. CONTACT FORCE ERROR -4.87493E-09 AT NODE BATTERY-1.380 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATBOT,ASSEMBLY_CF-1_CFTOP)
+          THE CONTACT CONSTRAINTS HAVE CONVERGED.
+
+ AVERAGE FORCE                      0.208       TIME AVG. FORCE       0.208    
+ LARGEST RESIDUAL FORCE             8.714E-06   AT NODE        268   DOF  2
+   INSTANCE: BATTERY-1                                                                       
+ LARGEST INCREMENT OF DISP.        -0.246       AT NODE        491   DOF  3
+   INSTANCE: POLYMER-1                                                                       
+ LARGEST CORRECTION TO DISP.       -2.061E-02   AT NODE          1   DOF  1
+   INSTANCE: CF-2                                                                            
+          DISP.    CORRECTION TOO LARGE COMPARED TO DISP.    INCREMENT
+
+ AVERAGE MOMENT                     0.138       TIME AVG. MOMENT      0.138    
+ LARGEST RESIDUAL MOMENT            4.495E-05   AT NODE          1   DOF  6
+   INSTANCE:                                                                                 
+ LARGEST INCREMENT OF ROTATION     -8.237E-03   AT NODE          7   DOF  5
+   INSTANCE: CF-1                                                                            
+ LARGEST CORRECTION TO ROTATION    -1.873E-04   AT NODE       1357   DOF  6
+   INSTANCE: CF-1                                                                            
+          ROTATION CORRECTION TOO LARGE COMPARED TO ROTATION INCREMENT
+
+  NUMBER OF EQUATIONS =     30480     NUMBER OF RHS =    1
+  NUMBER OF FLOATING PT. OPERATIONS =  7.46E+10
+
+  USING THE DIRECT SOLVER WITH   6 PROCESSORS
+
+     CHECK POINT   START OF SOLVER    
+
+     CHECK POINT  END OF SOLVER       
+
+       ELAPSED USER TIME (SEC)      =   9.0000    
+       ELAPSED SYSTEM TIME (SEC)    =  0.10000    
+       ELAPSED TOTAL CPU TIME (SEC) =   9.1000    
+       ELAPSED WALLCLOCK TIME (SEC) =          1
+ 
+
+ ***WARNING: SOLVER PROBLEM. NUMERICAL SINGULARITY WHEN PROCESSING NODE 
+             ASSEMBLY.1 D.O.F. 6 RATIO = 16.9659E+09 .
+  
+     ASYNCHRONOUS TRACKING ELEMENT LOOP STARTED
+  
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     9
+
+   MAX. PENETRATION ERROR -4.41168E-12 AT NODE BATTERY-1.252 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATBOT,ASSEMBLY_CF-1_CFTOP)
+   MAX. CONTACT FORCE ERROR -5.69225E-09 AT NODE BATTERY-1.219 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATBOT,ASSEMBLY_CF-1_CFTOP)
+          THE CONTACT CONSTRAINTS HAVE CONVERGED.
+
+ AVERAGE FORCE                      0.208       TIME AVG. FORCE       0.208    
+ LARGEST RESIDUAL FORCE            -7.978E-06   AT NODE        268   DOF  2
+   INSTANCE: BATTERY-1                                                                       
+ LARGEST INCREMENT OF DISP.        -0.246       AT NODE        491   DOF  3
+   INSTANCE: POLYMER-1                                                                       
+ LARGEST CORRECTION TO DISP.        1.887E-02   AT NODE          1   DOF  1
+   INSTANCE: CF-2                                                                            
+          DISP.    CORRECTION TOO LARGE COMPARED TO DISP.    INCREMENT
+
+ AVERAGE MOMENT                     0.138       TIME AVG. MOMENT      0.138    
+ LARGEST RESIDUAL MOMENT           -4.114E-05   AT NODE          1   DOF  6
+   INSTANCE:                                                                                 
+ LARGEST INCREMENT OF ROTATION     -8.237E-03   AT NODE          7   DOF  5
+   INSTANCE: CF-1                                                                            
+ LARGEST CORRECTION TO ROTATION     1.715E-04   AT NODE       1357   DOF  6
+   INSTANCE: CF-1                                                                            
+          ROTATION CORRECTION TOO LARGE COMPARED TO ROTATION INCREMENT
+
+  NUMBER OF EQUATIONS =     30480     NUMBER OF RHS =    1
+  NUMBER OF FLOATING PT. OPERATIONS =  7.46E+10
+
+  USING THE DIRECT SOLVER WITH   6 PROCESSORS
+
+     CHECK POINT   START OF SOLVER    
+
+     CHECK POINT  END OF SOLVER       
+
+       ELAPSED USER TIME (SEC)      =   8.8000    
+       ELAPSED SYSTEM TIME (SEC)    =   0.0000    
+       ELAPSED TOTAL CPU TIME (SEC) =   8.8000    
+       ELAPSED WALLCLOCK TIME (SEC) =          2
+ 
+
+ ***WARNING: SOLVER PROBLEM. NUMERICAL SINGULARITY WHEN PROCESSING NODE 
+             ASSEMBLY.1 D.O.F. 6 RATIO = 16.9654E+09 .
+  
+     ASYNCHRONOUS TRACKING ELEMENT LOOP STARTED
+  
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION    10
+
+   MAX. PENETRATION ERROR -2.20816E-12 AT NODE BATTERY-1.449 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATBOT,ASSEMBLY_CF-1_CFTOP)
+   MAX. CONTACT FORCE ERROR -3.48178E-09 AT NODE BATTERY-1.380 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATBOT,ASSEMBLY_CF-1_CFTOP)
+          THE CONTACT CONSTRAINTS HAVE CONVERGED.
+
+ AVERAGE FORCE                      0.208       TIME AVG. FORCE       0.208    
+ LARGEST RESIDUAL FORCE             7.304E-06   AT NODE        268   DOF  2
+   INSTANCE: BATTERY-1                                                                       
+ LARGEST INCREMENT OF DISP.        -0.246       AT NODE        491   DOF  3
+   INSTANCE: POLYMER-1                                                                       
+ LARGEST CORRECTION TO DISP.       -1.727E-02   AT NODE          1   DOF  1
+   INSTANCE: CF-2                                                                            
+          DISP.    CORRECTION TOO LARGE COMPARED TO DISP.    INCREMENT
+
+ AVERAGE MOMENT                     0.138       TIME AVG. MOMENT      0.138    
+ LARGEST RESIDUAL MOMENT            3.768E-05   AT NODE          1   DOF  6
+   INSTANCE:                                                                                 
+ LARGEST INCREMENT OF ROTATION     -8.237E-03   AT NODE          7   DOF  5
+   INSTANCE: CF-1                                                                            
+ LARGEST CORRECTION TO ROTATION    -1.570E-04   AT NODE       1357   DOF  6
+   INSTANCE: CF-1                                                                            
+          ROTATION CORRECTION TOO LARGE COMPARED TO ROTATION INCREMENT
+
+  NUMBER OF EQUATIONS =     30480     NUMBER OF RHS =    1
+  NUMBER OF FLOATING PT. OPERATIONS =  7.46E+10
+
+  USING THE DIRECT SOLVER WITH   6 PROCESSORS
+
+     CHECK POINT   START OF SOLVER    
+
+     CHECK POINT  END OF SOLVER       
+
+       ELAPSED USER TIME (SEC)      =   9.0000    
+       ELAPSED SYSTEM TIME (SEC)    =   0.0000    
+       ELAPSED TOTAL CPU TIME (SEC) =   9.0000    
+       ELAPSED WALLCLOCK TIME (SEC) =          1
+ 
+
+ ***WARNING: SOLVER PROBLEM. NUMERICAL SINGULARITY WHEN PROCESSING NODE 
+             ASSEMBLY.1 D.O.F. 6 RATIO = 16.9667E+09 .
+  
+     ASYNCHRONOUS TRACKING ELEMENT LOOP STARTED
+  
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION    11
+
+   MAX. PENETRATION ERROR -3.46327E-12 AT NODE BATTERY-1.252 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATBOT,ASSEMBLY_CF-1_CFTOP)
+   MAX. CONTACT FORCE ERROR -4.40562E-09 AT NODE BATTERY-1.219 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATBOT,ASSEMBLY_CF-1_CFTOP)
+          THE CONTACT CONSTRAINTS HAVE CONVERGED.
+
+ AVERAGE FORCE                      0.208       TIME AVG. FORCE       0.208    
+ LARGEST RESIDUAL FORCE            -6.685E-06   AT NODE        268   DOF  2
+   INSTANCE: BATTERY-1                                                                       
+ LARGEST INCREMENT OF DISP.        -0.246       AT NODE        491   DOF  3
+   INSTANCE: POLYMER-1                                                                       
+ LARGEST CORRECTION TO DISP.        1.581E-02   AT NODE          1   DOF  1
+   INSTANCE: CF-2                                                                            
+          DISP.    CORRECTION TOO LARGE COMPARED TO DISP.    INCREMENT
+
+ AVERAGE MOMENT                     0.138       TIME AVG. MOMENT      0.138    
+ LARGEST RESIDUAL MOMENT           -3.448E-05   AT NODE          1   DOF  6
+   INSTANCE:                                                                                 
+ LARGEST INCREMENT OF ROTATION     -8.237E-03   AT NODE          7   DOF  5
+   INSTANCE: CF-1                                                                            
+ LARGEST CORRECTION TO ROTATION     1.438E-04   AT NODE       1357   DOF  6
+   INSTANCE: CF-1                                                                            
+          ROTATION CORRECTION TOO LARGE COMPARED TO ROTATION INCREMENT
+
+  NUMBER OF EQUATIONS =     30480     NUMBER OF RHS =    1
+  NUMBER OF FLOATING PT. OPERATIONS =  7.46E+10
+
+  USING THE DIRECT SOLVER WITH   6 PROCESSORS
+
+     CHECK POINT   START OF SOLVER    
+
+     CHECK POINT  END OF SOLVER       
+
+       ELAPSED USER TIME (SEC)      =   9.0000    
+       ELAPSED SYSTEM TIME (SEC)    =   0.0000    
+       ELAPSED TOTAL CPU TIME (SEC) =   9.0000    
+       ELAPSED WALLCLOCK TIME (SEC) =          1
+ 
+
+ ***WARNING: SOLVER PROBLEM. NUMERICAL SINGULARITY WHEN PROCESSING NODE 
+             ASSEMBLY.1 D.O.F. 6 RATIO = 16.9666E+09 .
+  
+     ASYNCHRONOUS TRACKING ELEMENT LOOP STARTED
+  
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION    12
+
+   MAX. PENETRATION ERROR -1.56578E-12 AT NODE BATTERY-1.449 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATBOT,ASSEMBLY_CF-1_CFTOP)
+   MAX. CONTACT FORCE ERROR -2.49322E-09 AT NODE BATTERY-1.380 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATBOT,ASSEMBLY_CF-1_CFTOP)
+          THE CONTACT CONSTRAINTS HAVE CONVERGED.
+
+ AVERAGE FORCE                      0.208       TIME AVG. FORCE       0.208    
+ LARGEST RESIDUAL FORCE             6.122E-06   AT NODE        268   DOF  2
+   INSTANCE: BATTERY-1                                                                       
+ LARGEST INCREMENT OF DISP.        -0.246       AT NODE        491   DOF  3
+   INSTANCE: POLYMER-1                                                                       
+ LARGEST CORRECTION TO DISP.       -1.448E-02   AT NODE          1   DOF  1
+   INSTANCE: CF-2                                                                            
+          DISP.    CORRECTION TOO LARGE COMPARED TO DISP.    INCREMENT
+
+ AVERAGE MOMENT                     0.138       TIME AVG. MOMENT      0.138    
+ LARGEST RESIDUAL MOMENT            3.158E-05   AT NODE          1   DOF  6
+   INSTANCE:                                                                                 
+ LARGEST INCREMENT OF ROTATION     -8.237E-03   AT NODE          7   DOF  5
+   INSTANCE: CF-1                                                                            
+ LARGEST CORRECTION TO ROTATION    -1.316E-04   AT NODE       1357   DOF  6
+   INSTANCE: CF-1                                                                            
+          ROTATION CORRECTION TOO LARGE COMPARED TO ROTATION INCREMENT
+
+  NUMBER OF EQUATIONS =     30480     NUMBER OF RHS =    1
+  NUMBER OF FLOATING PT. OPERATIONS =  7.46E+10
+
+  USING THE DIRECT SOLVER WITH   6 PROCESSORS
+
+     CHECK POINT   START OF SOLVER    
+
+     CHECK POINT  END OF SOLVER       
+
+       ELAPSED USER TIME (SEC)      =   8.9000    
+       ELAPSED SYSTEM TIME (SEC)    =   0.0000    
+       ELAPSED TOTAL CPU TIME (SEC) =   8.9000    
+       ELAPSED WALLCLOCK TIME (SEC) =          2
+ 
+
+ ***WARNING: SOLVER PROBLEM. NUMERICAL SINGULARITY WHEN PROCESSING NODE 
+             ASSEMBLY.1 D.O.F. 6 RATIO = 16.9694E+09 .
+  
+     ASYNCHRONOUS TRACKING ELEMENT LOOP STARTED
+  
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION    13
+
+   MAX. PENETRATION ERROR -2.73943E-12 AT NODE BATTERY-1.252 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATBOT,ASSEMBLY_CF-1_CFTOP)
+   MAX. CONTACT FORCE ERROR -3.43761E-09 AT NODE BATTERY-1.219 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATBOT,ASSEMBLY_CF-1_CFTOP)
+          THE CONTACT CONSTRAINTS HAVE CONVERGED.
+
+ AVERAGE FORCE                      0.208       TIME AVG. FORCE       0.208    
+ LARGEST RESIDUAL FORCE            -5.605E-06   AT NODE        268   DOF  2
+   INSTANCE: BATTERY-1                                                                       
+ LARGEST INCREMENT OF DISP.        -0.246       AT NODE        491   DOF  3
+   INSTANCE: POLYMER-1                                                                       
+ LARGEST CORRECTION TO DISP.        1.326E-02   AT NODE          1   DOF  1
+   INSTANCE: CF-2                                                                            
+          DISP.    CORRECTION TOO LARGE COMPARED TO DISP.    INCREMENT
+
+ AVERAGE MOMENT                     0.138       TIME AVG. MOMENT      0.138    
+ LARGEST RESIDUAL MOMENT           -2.890E-05   AT NODE          1   DOF  6
+   INSTANCE:                                                                                 
+ LARGEST INCREMENT OF ROTATION     -8.237E-03   AT NODE          7   DOF  5
+   INSTANCE: CF-1                                                                            
+ LARGEST CORRECTION TO ROTATION     1.205E-04   AT NODE       1357   DOF  6
+   INSTANCE: CF-1                                                                            
+          ROTATION CORRECTION TOO LARGE COMPARED TO ROTATION INCREMENT
+
+  NUMBER OF EQUATIONS =     30480     NUMBER OF RHS =    1
+  NUMBER OF FLOATING PT. OPERATIONS =  7.46E+10
+
+  USING THE DIRECT SOLVER WITH   6 PROCESSORS
+
+     CHECK POINT   START OF SOLVER    
+
+     CHECK POINT  END OF SOLVER       
+
+       ELAPSED USER TIME (SEC)      =   9.0000    
+       ELAPSED SYSTEM TIME (SEC)    =  0.10000    
+       ELAPSED TOTAL CPU TIME (SEC) =   9.1000    
+       ELAPSED WALLCLOCK TIME (SEC) =          1
+ 
+
+ ***WARNING: SOLVER PROBLEM. NUMERICAL SINGULARITY WHEN PROCESSING NODE 
+             ASSEMBLY.1 D.O.F. 6 RATIO = 16.9678E+09 .
+  
+     ASYNCHRONOUS TRACKING ELEMENT LOOP STARTED
+  
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION    14
+
+   MAX. PENETRATION ERROR -1.11335E-12 AT NODE BATTERY-1.449 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATBOT,ASSEMBLY_CF-1_CFTOP)
+   MAX. CONTACT FORCE ERROR 1.95499E-09 AT NODE BATTERY-1.3418 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATTOP,ASSEMBLY_CF-2_CFBOT)
+          THE CONTACT CONSTRAINTS HAVE CONVERGED.
+
+ AVERAGE FORCE                      0.208       TIME AVG. FORCE       0.208    
+ LARGEST RESIDUAL FORCE             5.133E-06   AT NODE        268   DOF  2
+   INSTANCE: BATTERY-1                                                                       
+ LARGEST INCREMENT OF DISP.        -0.246       AT NODE        491   DOF  3
+   INSTANCE: POLYMER-1                                                                       
+ LARGEST CORRECTION TO DISP.       -1.214E-02   AT NODE          1   DOF  1
+   INSTANCE: CF-2                                                                            
+          DISP.    CORRECTION TOO LARGE COMPARED TO DISP.    INCREMENT
+
+ AVERAGE MOMENT                     0.138       TIME AVG. MOMENT      0.138    
+ LARGEST RESIDUAL MOMENT            2.648E-05   AT NODE          1   DOF  6
+   INSTANCE:                                                                                 
+ LARGEST INCREMENT OF ROTATION     -8.237E-03   AT NODE          7   DOF  5
+   INSTANCE: CF-1                                                                            
+ LARGEST CORRECTION TO ROTATION    -1.104E-04   AT NODE       1357   DOF  6
+   INSTANCE: CF-1                                                                            
+          ROTATION CORRECTION TOO LARGE COMPARED TO ROTATION INCREMENT
+
+  NUMBER OF EQUATIONS =     30480     NUMBER OF RHS =    1
+  NUMBER OF FLOATING PT. OPERATIONS =  7.46E+10
+
+  USING THE DIRECT SOLVER WITH   6 PROCESSORS
+
+     CHECK POINT   START OF SOLVER    
+
+     CHECK POINT  END OF SOLVER       
+
+       ELAPSED USER TIME (SEC)      =   8.7000    
+       ELAPSED SYSTEM TIME (SEC)    =  0.10000    
+       ELAPSED TOTAL CPU TIME (SEC) =   8.8000    
+       ELAPSED WALLCLOCK TIME (SEC) =          2
+ 
+
+ ***WARNING: SOLVER PROBLEM. NUMERICAL SINGULARITY WHEN PROCESSING NODE 
+             ASSEMBLY.1 D.O.F. 6 RATIO = 16.9673E+09 .
+  
+     ASYNCHRONOUS TRACKING ELEMENT LOOP STARTED
+  
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION    15
+
+   MAX. PENETRATION ERROR -2.18186E-12 AT NODE BATTERY-1.252 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATBOT,ASSEMBLY_CF-1_CFTOP)
+   MAX. CONTACT FORCE ERROR -2.71456E-09 AT NODE BATTERY-1.252 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATBOT,ASSEMBLY_CF-1_CFTOP)
+          THE CONTACT CONSTRAINTS HAVE CONVERGED.
+
+ AVERAGE FORCE                      0.208       TIME AVG. FORCE       0.208    
+ LARGEST RESIDUAL FORCE            -4.700E-06   AT NODE        268   DOF  2
+   INSTANCE: BATTERY-1                                                                       
+ LARGEST INCREMENT OF DISP.        -0.246       AT NODE        491   DOF  3
+   INSTANCE: POLYMER-1                                                                       
+ LARGEST CORRECTION TO DISP.        1.112E-02   AT NODE          1   DOF  1
+   INSTANCE: CF-2                                                                            
+          DISP.    CORRECTION TOO LARGE COMPARED TO DISP.    INCREMENT
+
+ AVERAGE MOMENT                     0.138       TIME AVG. MOMENT      0.138    
+ LARGEST RESIDUAL MOMENT           -2.424E-05   AT NODE          1   DOF  6
+   INSTANCE:                                                                                 
+ LARGEST INCREMENT OF ROTATION     -8.237E-03   AT NODE          7   DOF  5
+   INSTANCE: CF-1                                                                            
+ LARGEST CORRECTION TO ROTATION     1.010E-04   AT NODE       1357   DOF  6
+   INSTANCE: CF-1                                                                            
+          ROTATION CORRECTION TOO LARGE COMPARED TO ROTATION INCREMENT
+
+  NUMBER OF EQUATIONS =     30480     NUMBER OF RHS =    1
+  NUMBER OF FLOATING PT. OPERATIONS =  7.46E+10
+
+  USING THE DIRECT SOLVER WITH   6 PROCESSORS
+
+     CHECK POINT   START OF SOLVER    
+
+     CHECK POINT  END OF SOLVER       
+
+       ELAPSED USER TIME (SEC)      =   8.7000    
+       ELAPSED SYSTEM TIME (SEC)    =  0.10000    
+       ELAPSED TOTAL CPU TIME (SEC) =   8.8000    
+       ELAPSED WALLCLOCK TIME (SEC) =          1
+ 
+
+ ***WARNING: SOLVER PROBLEM. NUMERICAL SINGULARITY WHEN PROCESSING NODE 
+             ASSEMBLY.1 D.O.F. 6 RATIO = 16.9683E+09 .
+  
+     ASYNCHRONOUS TRACKING ELEMENT LOOP STARTED
+  
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION    16
+
+   MAX. PENETRATION ERROR 996.732E-15   AT NODE BATTERY-1.249 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATBOT,ASSEMBLY_CF-1_CFTOP)
+   MAX. CONTACT FORCE ERROR 1.66224E-09 AT NODE BATTERY-1.3418 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATTOP,ASSEMBLY_CF-2_CFBOT)
+          THE CONTACT CONSTRAINTS HAVE CONVERGED.
+
+ AVERAGE FORCE                      0.208       TIME AVG. FORCE       0.208    
+ LARGEST RESIDUAL FORCE             4.304E-06   AT NODE        268   DOF  2
+   INSTANCE: BATTERY-1                                                                       
+ LARGEST INCREMENT OF DISP.        -0.246       AT NODE        491   DOF  3
+   INSTANCE: POLYMER-1                                                                       
+ LARGEST CORRECTION TO DISP.       -1.018E-02   AT NODE          1   DOF  1
+   INSTANCE: CF-2                                                                            
+          DISP.    CORRECTION TOO LARGE COMPARED TO DISP.    INCREMENT
+
+ AVERAGE MOMENT                     0.138       TIME AVG. MOMENT      0.138    
+ LARGEST RESIDUAL MOMENT            2.220E-05   AT NODE          1   DOF  6
+   INSTANCE:                                                                                 
+ LARGEST INCREMENT OF ROTATION     -8.237E-03   AT NODE          7   DOF  5
+   INSTANCE: CF-1                                                                            
+ LARGEST CORRECTION TO ROTATION    -9.253E-05   AT NODE       1357   DOF  6
+   INSTANCE: CF-1                                                                            
+          ROTATION CORRECTION TOO LARGE COMPARED TO ROTATION INCREMENT
+ 
+
+ ***NOTE: THE SOLUTION FAILS TO CONVERGE IN THE MAXIMUM NUMBER OF EQUILIBRIUM 
+          ITERATIONS ALLOWED.
+
+
+  INCREMENT     1 STARTS. ATTEMPT NUMBER  2, TIME INCREMENT  0.250    
+  
+     ASYNCHRONOUS TRACKING ELEMENT LOOP STARTED
+  
+ 
+     INITIAL ELEMENT LOAD BALANCE
+            PROCESS    1   THREAD     NUMBER OF ELEMENTS
+                              1            2560
+                              2            3584
+                              3            2560
+                              4            3456
+                              5            2560
+                              6            1279
+
+  NUMBER OF EQUATIONS =     30480     NUMBER OF RHS =    1
+  NUMBER OF FLOATING PT. OPERATIONS =  1.22E+11
+
+  USING THE DIRECT SOLVER WITH   6 PROCESSORS
+
+     CHECK POINT   START OF SOLVER    
+
+     CHECK POINT  END OF SOLVER       
+
+       ELAPSED USER TIME (SEC)      =   14.400    
+       ELAPSED SYSTEM TIME (SEC)    =  0.10000    
+       ELAPSED TOTAL CPU TIME (SEC) =   14.500    
+       ELAPSED WALLCLOCK TIME (SEC) =          2
+ 
+
+ ***WARNING: SOLVER PROBLEM. NUMERICAL SINGULARITY WHEN PROCESSING NODE 
+             ASSEMBLY.1 D.O.F. 6 RATIO = 116.881E+12  .
+  
+     ASYNCHRONOUS TRACKING ELEMENT LOOP STARTED
+  
+
+                 1220 SEVERE DISCONTINUITIES OCCURRED DURING THIS ITERATION.
+                 1220 POINTS CHANGED FROM CLOSED TO OPEN
+
+               CONVERGENCE CHECKS FOR SEVERE DISCONTINUITY ITERATION     1
+
+   MAX. PENETRATION ERROR 1.99431E-06 AT NODE BATTERY-1.347 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATBOT,ASSEMBLY_CF-1_CFTOP)
+   MAX. CONTACT FORCE ERROR -302.470E-03   AT NODE BATTERY-1.2830 OF CONTACT 
+   PAIR (ASSEMBLY_BATTERY-1_BATTOP,ASSEMBLY_CF-2_CFBOT)
+          THE ESTIMATED CONTACT FORCE ERROR IS OUTSIDE OF CONVERGENCE TOLERANCES.
+
+ AVERAGE FORCE                      4.510E-02   TIME AVG. FORCE       4.510E-02
+ LARGEST RESIDUAL FORCE              2.07       AT NODE        789   DOF  1
+   INSTANCE: BATTERY-1                                                                       
+ LARGEST INCREMENT OF DISP.        -3.471E-02   AT NODE        491   DOF  3
+   INSTANCE: POLYMER-1                                                                       
+ LARGEST CORRECTION TO DISP.       -3.471E-02   AT NODE        491   DOF  3
+   INSTANCE: POLYMER-1                                                                       
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.460E-02   TIME AVG. MOMENT      1.460E-02
+ LARGEST RESIDUAL MOMENT             32.8       AT NODE          1   DOF  6
+   INSTANCE:                                                                                 
+ LARGEST INCREMENT OF ROTATION     -1.127E-03   AT NODE          7   DOF  5
+   INSTANCE: CF-1                                                                            
+ LARGEST CORRECTION TO ROTATION    -1.127E-03   AT NODE          7   DOF  5
+   INSTANCE: CF-1                                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+  NUMBER OF EQUATIONS =     30480     NUMBER OF RHS =    1
+  NUMBER OF FLOATING PT. OPERATIONS =  1.16E+11
+
+  USING THE DIRECT SOLVER WITH   6 PROCESSORS
+
+     CHECK POINT   START OF SOLVER    
+
+     CHECK POINT  END OF SOLVER       
+
+       ELAPSED USER TIME (SEC)      =   13.600    
+       ELAPSED SYSTEM TIME (SEC)    =  0.10000    
+       ELAPSED TOTAL CPU TIME (SEC) =   13.700    
+       ELAPSED WALLCLOCK TIME (SEC) =          3
+ 
+
+ ***WARNING: SOLVER PROBLEM. NUMERICAL SINGULARITY WHEN PROCESSING NODE 
+             ASSEMBLY.1 D.O.F. 6 RATIO = 4.95770E+12.
+  
+     ASYNCHRONOUS TRACKING ELEMENT LOOP STARTED
+  
+
+                 1117 SEVERE DISCONTINUITIES OCCURRED DURING THIS ITERATION.
+                  488 POINTS CHANGED FROM OPEN TO CLOSED
+                  629 POINTS CHANGED FROM CLOSED TO OPEN
+
+               CONVERGENCE CHECKS FOR SEVERE DISCONTINUITY ITERATION     2
+
+   MAX. PENETRATION ERROR 605.038E-06   AT NODE BATTERY-1.2715 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATTOP,ASSEMBLY_CF-2_CFBOT)
+   MAX. CONTACT FORCE ERROR 583.417E-03   AT NODE BATTERY-1.385 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATBOT,ASSEMBLY_CF-1_CFTOP)
+          THE ESTIMATED CONTACT FORCE ERROR IS OUTSIDE OF CONVERGENCE TOLERANCES.
+
+ AVERAGE FORCE                      5.247E-02   TIME AVG. FORCE       5.247E-02
+ LARGEST RESIDUAL FORCE              4.56       AT NODE          1   DOF  3
+   INSTANCE:                                                                                 
+ LARGEST INCREMENT OF DISP.          9.27       AT NODE          7   DOF  1
+   INSTANCE: CF-1                                                                            
+ LARGEST CORRECTION TO DISP.         9.26       AT NODE          7   DOF  1
+   INSTANCE: CF-1                                                                            
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     3.294E-02   TIME AVG. MOMENT      3.294E-02
+ LARGEST RESIDUAL MOMENT            -48.1       AT NODE          1   DOF  4
+   INSTANCE:                                                                                 
+ LARGEST INCREMENT OF ROTATION      8.429E-02   AT NODE        173   DOF  6
+   INSTANCE: CF-1                                                                            
+ LARGEST CORRECTION TO ROTATION     8.430E-02   AT NODE        173   DOF  6
+   INSTANCE: CF-1                                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+  NUMBER OF EQUATIONS =     30480     NUMBER OF RHS =    1
+  NUMBER OF FLOATING PT. OPERATIONS =  1.16E+11
+
+  USING THE DIRECT SOLVER WITH   6 PROCESSORS
+
+     CHECK POINT   START OF SOLVER    
+
+     CHECK POINT  END OF SOLVER       
+
+       ELAPSED USER TIME (SEC)      =   13.400    
+       ELAPSED SYSTEM TIME (SEC)    =  0.10000    
+       ELAPSED TOTAL CPU TIME (SEC) =   13.500    
+       ELAPSED WALLCLOCK TIME (SEC) =          2
+ 
+
+ ***WARNING: SOLVER PROBLEM. NUMERICAL SINGULARITY WHEN PROCESSING NODE 
+             ASSEMBLY.1 D.O.F. 6 RATIO = 676.545E+09  .
+  
+     ASYNCHRONOUS TRACKING ELEMENT LOOP STARTED
+  
+
+                  675 SEVERE DISCONTINUITIES OCCURRED DURING THIS ITERATION.
+                  218 POINTS CHANGED FROM OPEN TO CLOSED
+                  457 POINTS CHANGED FROM CLOSED TO OPEN
+
+               CONVERGENCE CHECKS FOR SEVERE DISCONTINUITY ITERATION     3
+
+   MAX. PENETRATION ERROR 83.9892E-06  AT NODE BATTERY-1.3367 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATTOP,ASSEMBLY_CF-2_CFBOT)
+   MAX. CONTACT FORCE ERROR -334.537E-03   AT NODE BATTERY-1.2572 OF CONTACT 
+   PAIR (ASSEMBLY_BATTERY-1_BATTOP,ASSEMBLY_CF-2_CFBOT)
+          THE ESTIMATED CONTACT FORCE ERROR IS OUTSIDE OF CONVERGENCE TOLERANCES.
+
+ AVERAGE FORCE                      5.240E-02   TIME AVG. FORCE       5.240E-02
+ LARGEST RESIDUAL FORCE              1.01       AT NODE          1   DOF  3
+   INSTANCE:                                                                                 
+ LARGEST INCREMENT OF DISP.         0.115       AT NODE          7   DOF  1
+   INSTANCE: CF-1                                                                            
+ LARGEST CORRECTION TO DISP.        -9.15       AT NODE         98   DOF  1
+   INSTANCE: CF-1                                                                            
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     3.409E-02   TIME AVG. MOMENT      3.409E-02
+ LARGEST RESIDUAL MOMENT            -8.44       AT NODE          1   DOF  4
+   INSTANCE:                                                                                 
+ LARGEST INCREMENT OF ROTATION     -2.041E-03   AT NODE          7   DOF  5
+   INSTANCE: CF-1                                                                            
+ LARGEST CORRECTION TO ROTATION    -8.320E-02   AT NODE       1371   DOF  6
+   INSTANCE: CF-2                                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+  NUMBER OF EQUATIONS =     30480     NUMBER OF RHS =    1
+  NUMBER OF FLOATING PT. OPERATIONS =  1.13E+11
+
+  USING THE DIRECT SOLVER WITH   6 PROCESSORS
+
+     CHECK POINT   START OF SOLVER    
+
+     CHECK POINT  END OF SOLVER       
+
+       ELAPSED USER TIME (SEC)      =   13.500    
+       ELAPSED SYSTEM TIME (SEC)    =   0.0000    
+       ELAPSED TOTAL CPU TIME (SEC) =   13.500    
+       ELAPSED WALLCLOCK TIME (SEC) =          2
+ 
+
+ ***WARNING: SOLVER PROBLEM. NUMERICAL SINGULARITY WHEN PROCESSING NODE 
+             ASSEMBLY.1 D.O.F. 6 RATIO = 611.374E+09  .
+  
+     ASYNCHRONOUS TRACKING ELEMENT LOOP STARTED
+  
+
+                  390 SEVERE DISCONTINUITIES OCCURRED DURING THIS ITERATION.
+                  109 POINTS CHANGED FROM OPEN TO CLOSED
+                  281 POINTS CHANGED FROM CLOSED TO OPEN
+
+               CONVERGENCE CHECKS FOR SEVERE DISCONTINUITY ITERATION     4
+
+   MAX. PENETRATION ERROR 45.4039E-06  AT NODE BATTERY-1.786 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATBOT,ASSEMBLY_CF-1_CFTOP)
+   MAX. CONTACT FORCE ERROR -241.012E-03   AT NODE BATTERY-1.3110 OF CONTACT 
+   PAIR (ASSEMBLY_BATTERY-1_BATTOP,ASSEMBLY_CF-2_CFBOT)
+          THE ESTIMATED CONTACT FORCE ERROR IS OUTSIDE OF CONVERGENCE TOLERANCES.
+
+ AVERAGE FORCE                      5.229E-02   TIME AVG. FORCE       5.229E-02
+ LARGEST RESIDUAL FORCE             0.175       AT NODE       1253   DOF  3
+   INSTANCE: CF-2                                                                            
+ LARGEST INCREMENT OF DISP.        -0.632       AT NODE          4   DOF  1
+   INSTANCE: CF-1                                                                            
+ LARGEST CORRECTION TO DISP.       -0.740       AT NODE        167   DOF  1
+   INSTANCE: CF-2                                                                            
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     3.460E-02   TIME AVG. MOMENT      3.460E-02
+ LARGEST RESIDUAL MOMENT            -1.01       AT NODE          1   DOF  4
+   INSTANCE:                                                                                 
+ LARGEST INCREMENT OF ROTATION     -5.845E-03   AT NODE        173   DOF  6
+   INSTANCE: CF-2                                                                            
+ LARGEST CORRECTION TO ROTATION    -6.725E-03   AT NODE       1335   DOF  6
+   INSTANCE: CF-2                                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+  NUMBER OF EQUATIONS =     30480     NUMBER OF RHS =    1
+  NUMBER OF FLOATING PT. OPERATIONS =  1.10E+11
+
+  USING THE DIRECT SOLVER WITH   6 PROCESSORS
+
+     CHECK POINT   START OF SOLVER    
+
+     CHECK POINT  END OF SOLVER       
+
+       ELAPSED USER TIME (SEC)      =   13.000    
+       ELAPSED SYSTEM TIME (SEC)    =   0.0000    
+       ELAPSED TOTAL CPU TIME (SEC) =   13.000    
+       ELAPSED WALLCLOCK TIME (SEC) =          3
+ 
+
+ ***WARNING: SOLVER PROBLEM. NUMERICAL SINGULARITY WHEN PROCESSING NODE 
+             ASSEMBLY.1 D.O.F. 6 RATIO = 663.805E+09  .
+  
+     ASYNCHRONOUS TRACKING ELEMENT LOOP STARTED
+  
+
+                  305 SEVERE DISCONTINUITIES OCCURRED DURING THIS ITERATION.
+                  131 POINTS CHANGED FROM OPEN TO CLOSED
+                  174 POINTS CHANGED FROM CLOSED TO OPEN
+
+               CONVERGENCE CHECKS FOR SEVERE DISCONTINUITY ITERATION     5
+
+   MAX. PENETRATION ERROR 94.8916E-06  AT NODE BATTERY-1.3291 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATTOP,ASSEMBLY_CF-2_CFBOT)
+   MAX. CONTACT FORCE ERROR -286.154E-03   AT NODE BATTERY-1.3178 OF CONTACT 
+   PAIR (ASSEMBLY_BATTERY-1_BATTOP,ASSEMBLY_CF-2_CFBOT)
+          THE ESTIMATED CONTACT FORCE ERROR IS OUTSIDE OF CONVERGENCE TOLERANCES.
+
+ AVERAGE FORCE                      5.223E-02   TIME AVG. FORCE       5.223E-02
+ LARGEST RESIDUAL FORCE            -0.162       AT NODE       3178   DOF  3
+   INSTANCE: BATTERY-1                                                                       
+ LARGEST INCREMENT OF DISP.        -0.554       AT NODE          4   DOF  1
+   INSTANCE: CF-1                                                                            
+ LARGEST CORRECTION TO DISP.        7.789E-02   AT NODE        169   DOF  1
+   INSTANCE: CF-1                                                                            
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     3.484E-02   TIME AVG. MOMENT      3.484E-02
+ LARGEST RESIDUAL MOMENT           -1.106E-02   AT NODE          1   DOF  4
+   INSTANCE:                                                                                 
+ LARGEST INCREMENT OF ROTATION     -5.138E-03   AT NODE        173   DOF  6
+   INSTANCE: CF-2                                                                            
+ LARGEST CORRECTION TO ROTATION     7.087E-04   AT NODE        174   DOF  6
+   INSTANCE: CF-1                                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+  NUMBER OF EQUATIONS =     30480     NUMBER OF RHS =    1
+  NUMBER OF FLOATING PT. OPERATIONS =  1.08E+11
+
+  USING THE DIRECT SOLVER WITH   6 PROCESSORS
+
+     CHECK POINT   START OF SOLVER    
+
+     CHECK POINT  END OF SOLVER       
+
+       ELAPSED USER TIME (SEC)      =   12.800    
+       ELAPSED SYSTEM TIME (SEC)    =   0.0000    
+       ELAPSED TOTAL CPU TIME (SEC) =   12.800    
+       ELAPSED WALLCLOCK TIME (SEC) =          2
+ 
+
+ ***WARNING: SOLVER PROBLEM. NUMERICAL SINGULARITY WHEN PROCESSING NODE 
+             ASSEMBLY.1 D.O.F. 6 RATIO = 700.819E+09  .
+  
+     ASYNCHRONOUS TRACKING ELEMENT LOOP STARTED
+  
+
+                  229 SEVERE DISCONTINUITIES OCCURRED DURING THIS ITERATION.
+                   86 POINTS CHANGED FROM OPEN TO CLOSED
+                  143 POINTS CHANGED FROM CLOSED TO OPEN
+
+               CONVERGENCE CHECKS FOR SEVERE DISCONTINUITY ITERATION     6
+
+   MAX. PENETRATION ERROR 68.1204E-06  AT NODE BATTERY-1.3248 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATTOP,ASSEMBLY_CF-2_CFBOT)
+   MAX. CONTACT FORCE ERROR -295.869E-03   AT NODE BATTERY-1.3277 OF CONTACT 
+   PAIR (ASSEMBLY_BATTERY-1_BATTOP,ASSEMBLY_CF-2_CFBOT)
+          THE ESTIMATED CONTACT FORCE ERROR IS OUTSIDE OF CONVERGENCE TOLERANCES.
+
+ AVERAGE FORCE                      5.221E-02   TIME AVG. FORCE       5.221E-02
+ LARGEST RESIDUAL FORCE            -0.170       AT NODE       3277   DOF  3
+   INSTANCE: BATTERY-1                                                                       
+ LARGEST INCREMENT OF DISP.        -0.493       AT NODE          4   DOF  1
+   INSTANCE: CF-1                                                                            
+ LARGEST CORRECTION TO DISP.        6.105E-02   AT NODE        169   DOF  1
+   INSTANCE: CF-1                                                                            
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     3.497E-02   TIME AVG. MOMENT      3.497E-02
+ LARGEST RESIDUAL MOMENT           -4.432E-03   AT NODE          1   DOF  4
+   INSTANCE:                                                                                 
+ LARGEST INCREMENT OF ROTATION     -4.583E-03   AT NODE        173   DOF  6
+   INSTANCE: CF-2                                                                            
+ LARGEST CORRECTION TO ROTATION     5.554E-04   AT NODE        174   DOF  6
+   INSTANCE: CF-1                                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+  NUMBER OF EQUATIONS =     30480     NUMBER OF RHS =    1
+  NUMBER OF FLOATING PT. OPERATIONS =  1.07E+11
+
+  USING THE DIRECT SOLVER WITH   6 PROCESSORS
+
+     CHECK POINT   START OF SOLVER    
+
+     CHECK POINT  END OF SOLVER       
+
+       ELAPSED USER TIME (SEC)      =   12.800    
+       ELAPSED SYSTEM TIME (SEC)    =   0.0000    
+       ELAPSED TOTAL CPU TIME (SEC) =   12.800    
+       ELAPSED WALLCLOCK TIME (SEC) =          2
+ 
+
+ ***WARNING: SOLVER PROBLEM. NUMERICAL SINGULARITY WHEN PROCESSING NODE 
+             ASSEMBLY.1 D.O.F. 6 RATIO = 724.096E+09  .
+  
+     ASYNCHRONOUS TRACKING ELEMENT LOOP STARTED
+  
+
+                  218 SEVERE DISCONTINUITIES OCCURRED DURING THIS ITERATION.
+                  103 POINTS CHANGED FROM OPEN TO CLOSED
+                  115 POINTS CHANGED FROM CLOSED TO OPEN
+
+               CONVERGENCE CHECKS FOR SEVERE DISCONTINUITY ITERATION     7
+
+   MAX. PENETRATION ERROR 65.5004E-06  AT NODE BATTERY-1.3539 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATTOP,ASSEMBLY_CF-2_CFBOT)
+   MAX. CONTACT FORCE ERROR -265.448E-03   AT NODE BATTERY-1.3291 OF CONTACT 
+   PAIR (ASSEMBLY_BATTERY-1_BATTOP,ASSEMBLY_CF-2_CFBOT)
+          THE ESTIMATED CONTACT FORCE ERROR IS OUTSIDE OF CONVERGENCE TOLERANCES.
+
+ AVERAGE FORCE                      5.221E-02   TIME AVG. FORCE       5.221E-02
+ LARGEST RESIDUAL FORCE            -0.149       AT NODE       3291   DOF  3
+   INSTANCE: BATTERY-1                                                                       
+ LARGEST INCREMENT OF DISP.        -0.408       AT NODE          4   DOF  1
+   INSTANCE: CF-1                                                                            
+ LARGEST CORRECTION TO DISP.        8.518E-02   AT NODE        169   DOF  1
+   INSTANCE: CF-1                                                                            
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     3.505E-02   TIME AVG. MOMENT      3.505E-02
+ LARGEST RESIDUAL MOMENT           -4.696E-04   AT NODE       1094   DOF  5
+   INSTANCE: CF-2                                                                            
+ LARGEST INCREMENT OF ROTATION     -3.809E-03   AT NODE        173   DOF  6
+   INSTANCE: CF-2                                                                            
+ LARGEST CORRECTION TO ROTATION     7.748E-04   AT NODE       1371   DOF  6
+   INSTANCE: CF-1                                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+  NUMBER OF EQUATIONS =     30480     NUMBER OF RHS =    1
+  NUMBER OF FLOATING PT. OPERATIONS =  1.06E+11
+
+  USING THE DIRECT SOLVER WITH   6 PROCESSORS
+
+     CHECK POINT   START OF SOLVER    
+
+     CHECK POINT  END OF SOLVER       
+
+       ELAPSED USER TIME (SEC)      =   12.400    
+       ELAPSED SYSTEM TIME (SEC)    =  0.10000    
+       ELAPSED TOTAL CPU TIME (SEC) =   12.500    
+       ELAPSED WALLCLOCK TIME (SEC) =          2
+ 
+
+ ***WARNING: SOLVER PROBLEM. NUMERICAL SINGULARITY WHEN PROCESSING NODE 
+             ASSEMBLY.1 D.O.F. 6 RATIO = 754.308E+09  .
+  
+     ASYNCHRONOUS TRACKING ELEMENT LOOP STARTED
+  
+
+                  172 SEVERE DISCONTINUITIES OCCURRED DURING THIS ITERATION.
+                   60 POINTS CHANGED FROM OPEN TO CLOSED
+                  112 POINTS CHANGED FROM CLOSED TO OPEN
+
+               CONVERGENCE CHECKS FOR SEVERE DISCONTINUITY ITERATION     8
+
+   MAX. PENETRATION ERROR 83.4071E-06  AT NODE BATTERY-1.3199 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATTOP,ASSEMBLY_CF-2_CFBOT)
+   MAX. CONTACT FORCE ERROR -180.526E-03   AT NODE BATTERY-1.3506 OF CONTACT 
+   PAIR (ASSEMBLY_BATTERY-1_BATTOP,ASSEMBLY_CF-2_CFBOT)
+          THE ESTIMATED CONTACT FORCE ERROR IS OUTSIDE OF CONVERGENCE TOLERANCES.
+
+ AVERAGE FORCE                      5.221E-02   TIME AVG. FORCE       5.221E-02
+ LARGEST RESIDUAL FORCE             0.114       AT NODE       1146   DOF  3
+   INSTANCE: CF-2                                                                            
+ LARGEST INCREMENT OF DISP.        -0.389       AT NODE          4   DOF  1
+   INSTANCE: CF-1                                                                            
+ LARGEST CORRECTION TO DISP.        1.909E-02   AT NODE        169   DOF  1
+   INSTANCE: CF-1                                                                            
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     3.512E-02   TIME AVG. MOMENT      3.512E-02
+ LARGEST RESIDUAL MOMENT           -4.625E-05   AT NODE       1094   DOF  5
+   INSTANCE: CF-2                                                                            
+ LARGEST INCREMENT OF ROTATION     -3.636E-03   AT NODE        173   DOF  6
+   INSTANCE: CF-2                                                                            
+ LARGEST CORRECTION TO ROTATION     1.738E-04   AT NODE        174   DOF  6
+   INSTANCE: CF-1                                                                            
+ ESTIMATE OF ROTATION CORRECTION    1.711E-05
+ MOMENT    EQUILIB. ACCEPTED BASED ON SMALL RESIDUAL AND ESTIMATED CORRECTION
+
+  NUMBER OF EQUATIONS =     30480     NUMBER OF RHS =    1
+  NUMBER OF FLOATING PT. OPERATIONS =  1.05E+11
+
+  USING THE DIRECT SOLVER WITH   6 PROCESSORS
+
+     CHECK POINT   START OF SOLVER    
+
+     CHECK POINT  END OF SOLVER       
+
+       ELAPSED USER TIME (SEC)      =   12.300    
+       ELAPSED SYSTEM TIME (SEC)    =   0.0000    
+       ELAPSED TOTAL CPU TIME (SEC) =   12.300    
+       ELAPSED WALLCLOCK TIME (SEC) =          2
+ 
+
+ ***WARNING: SOLVER PROBLEM. NUMERICAL SINGULARITY WHEN PROCESSING NODE 
+             ASSEMBLY.1 D.O.F. 6 RATIO = 771.999E+09  .
+  
+     ASYNCHRONOUS TRACKING ELEMENT LOOP STARTED
+  
+
+                  182 SEVERE DISCONTINUITIES OCCURRED DURING THIS ITERATION.
+                   78 POINTS CHANGED FROM OPEN TO CLOSED
+                  104 POINTS CHANGED FROM CLOSED TO OPEN
+
+               CONVERGENCE CHECKS FOR SEVERE DISCONTINUITY ITERATION     9
+
+   MAX. PENETRATION ERROR 98.5547E-06  AT NODE BATTERY-1.3457 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATTOP,ASSEMBLY_CF-2_CFBOT)
+   MAX. CONTACT FORCE ERROR -163.611E-03   AT NODE BATTERY-1.3410 OF CONTACT 
+   PAIR (ASSEMBLY_BATTERY-1_BATTOP,ASSEMBLY_CF-2_CFBOT)
+          THE ESTIMATED CONTACT FORCE ERROR IS OUTSIDE OF CONVERGENCE TOLERANCES.
+
+ AVERAGE FORCE                      5.221E-02   TIME AVG. FORCE       5.221E-02
+ LARGEST RESIDUAL FORCE            -0.110       AT NODE       3410   DOF  3
+   INSTANCE: BATTERY-1                                                                       
+ LARGEST INCREMENT OF DISP.        -0.424       AT NODE          4   DOF  1
+   INSTANCE: CF-1                                                                            
+ LARGEST CORRECTION TO DISP.       -3.547E-02   AT NODE        101   DOF  1
+   INSTANCE: CF-1                                                                            
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     3.514E-02   TIME AVG. MOMENT      3.514E-02
+ LARGEST RESIDUAL MOMENT           -2.776E-03   AT NODE          1   DOF  4
+   INSTANCE:                                                                                 
+ LARGEST INCREMENT OF ROTATION     -3.959E-03   AT NODE        173   DOF  6
+   INSTANCE: CF-2                                                                            
+ LARGEST CORRECTION TO ROTATION    -3.227E-04   AT NODE        196   DOF  6
+   INSTANCE: CF-1                                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+  NUMBER OF EQUATIONS =     30480     NUMBER OF RHS =    1
+  NUMBER OF FLOATING PT. OPERATIONS =  1.04E+11
+
+  USING THE DIRECT SOLVER WITH   6 PROCESSORS
+
+     CHECK POINT   START OF SOLVER    
+
+     CHECK POINT  END OF SOLVER       
+
+       ELAPSED USER TIME (SEC)      =   13.200    
+       ELAPSED SYSTEM TIME (SEC)    =   0.0000    
+       ELAPSED TOTAL CPU TIME (SEC) =   13.200    
+       ELAPSED WALLCLOCK TIME (SEC) =          3
+ 
+
+ ***WARNING: SOLVER PROBLEM. NUMERICAL SINGULARITY WHEN PROCESSING NODE 
+             ASSEMBLY.1 D.O.F. 6 RATIO = 792.598E+09  .
+  
+     ASYNCHRONOUS TRACKING ELEMENT LOOP STARTED
+  
+
+                  118 SEVERE DISCONTINUITIES OCCURRED DURING THIS ITERATION.
+                   33 POINTS CHANGED FROM OPEN TO CLOSED
+                   85 POINTS CHANGED FROM CLOSED TO OPEN
+
+               CONVERGENCE CHECKS FOR SEVERE DISCONTINUITY ITERATION    10
+
+   MAX. PENETRATION ERROR 29.9419E-06  AT NODE BATTERY-1.900 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATBOT,ASSEMBLY_CF-1_CFTOP)
+   MAX. CONTACT FORCE ERROR -171.722E-03   AT NODE BATTERY-1.3483 OF CONTACT 
+   PAIR (ASSEMBLY_BATTERY-1_BATTOP,ASSEMBLY_CF-2_CFBOT)
+          THE ESTIMATED CONTACT FORCE ERROR IS OUTSIDE OF CONVERGENCE TOLERANCES.
+
+ AVERAGE FORCE                      5.221E-02   TIME AVG. FORCE       5.221E-02
+ LARGEST RESIDUAL FORCE            -0.113       AT NODE       3483   DOF  3
+   INSTANCE: BATTERY-1                                                                       
+ LARGEST INCREMENT OF DISP.        -0.338       AT NODE          4   DOF  1
+   INSTANCE: CF-1                                                                            
+ LARGEST CORRECTION TO DISP.        8.672E-02   AT NODE        169   DOF  1
+   INSTANCE: CF-1                                                                            
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     3.517E-02   TIME AVG. MOMENT      3.517E-02
+ LARGEST RESIDUAL MOMENT            5.603E-05   AT NODE          1   DOF  4
+   INSTANCE:                                                                                 
+ LARGEST INCREMENT OF ROTATION     -3.171E-03   AT NODE        173   DOF  6
+   INSTANCE: CF-2                                                                            
+ LARGEST CORRECTION TO ROTATION     7.885E-04   AT NODE        174   DOF  6
+   INSTANCE: CF-1                                                                            
+          ROTATION CORRECTION TOO LARGE COMPARED TO ROTATION INCREMENT
+
+  NUMBER OF EQUATIONS =     30480     NUMBER OF RHS =    1
+  NUMBER OF FLOATING PT. OPERATIONS =  1.04E+11
+
+  USING THE DIRECT SOLVER WITH   6 PROCESSORS
+
+     CHECK POINT   START OF SOLVER    
+
+     CHECK POINT  END OF SOLVER       
+
+       ELAPSED USER TIME (SEC)      =   12.100    
+       ELAPSED SYSTEM TIME (SEC)    =   0.0000    
+       ELAPSED TOTAL CPU TIME (SEC) =   12.100    
+       ELAPSED WALLCLOCK TIME (SEC) =          3
+ 
+
+ ***WARNING: SOLVER PROBLEM. NUMERICAL SINGULARITY WHEN PROCESSING NODE 
+             ASSEMBLY.1 D.O.F. 6 RATIO = 816.878E+09  .
+  
+     ASYNCHRONOUS TRACKING ELEMENT LOOP STARTED
+  
+
+                  101 SEVERE DISCONTINUITIES OCCURRED DURING THIS ITERATION.
+                   30 POINTS CHANGED FROM OPEN TO CLOSED
+                   71 POINTS CHANGED FROM CLOSED TO OPEN
+
+               CONVERGENCE CHECKS FOR SEVERE DISCONTINUITY ITERATION    11
+
+   MAX. PENETRATION ERROR 63.3663E-06  AT NODE BATTERY-1.3458 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATTOP,ASSEMBLY_CF-2_CFBOT)
+   MAX. CONTACT FORCE ERROR -147.584E-03   AT NODE BATTERY-1.3419 OF CONTACT 
+   PAIR (ASSEMBLY_BATTERY-1_BATTOP,ASSEMBLY_CF-2_CFBOT)
+          THE ESTIMATED CONTACT FORCE ERROR IS OUTSIDE OF CONVERGENCE TOLERANCES.
+
+ AVERAGE FORCE                      5.221E-02   TIME AVG. FORCE       5.221E-02
+ LARGEST RESIDUAL FORCE             0.109       AT NODE       1038   DOF  3
+   INSTANCE: CF-2                                                                            
+ LARGEST INCREMENT OF DISP.        -0.398       AT NODE          4   DOF  1
+   INSTANCE: CF-1                                                                            
+ LARGEST CORRECTION TO DISP.       -6.004E-02   AT NODE         98   DOF  1
+   INSTANCE: CF-1                                                                            
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     3.516E-02   TIME AVG. MOMENT      3.516E-02
+ LARGEST RESIDUAL MOMENT           -3.484E-03   AT NODE          1   DOF  5
+   INSTANCE:                                                                                 
+ LARGEST INCREMENT OF ROTATION     -3.717E-03   AT NODE        173   DOF  6
+   INSTANCE: CF-2                                                                            
+ LARGEST CORRECTION TO ROTATION    -5.460E-04   AT NODE        197   DOF  6
+   INSTANCE: CF-1                                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+  NUMBER OF EQUATIONS =     30480     NUMBER OF RHS =    1
+  NUMBER OF FLOATING PT. OPERATIONS =  1.04E+11
+
+  USING THE DIRECT SOLVER WITH   6 PROCESSORS
+
+     CHECK POINT   START OF SOLVER    
+
+     CHECK POINT  END OF SOLVER       
+
+       ELAPSED USER TIME (SEC)      =   12.500    
+       ELAPSED SYSTEM TIME (SEC)    =   0.0000    
+       ELAPSED TOTAL CPU TIME (SEC) =   12.500    
+       ELAPSED WALLCLOCK TIME (SEC) =          2
+ 
+
+ ***WARNING: SOLVER PROBLEM. NUMERICAL SINGULARITY WHEN PROCESSING NODE 
+             ASSEMBLY.1 D.O.F. 6 RATIO = 829.307E+09  .
+  
+     ASYNCHRONOUS TRACKING ELEMENT LOOP STARTED
+  
+
+                   86 SEVERE DISCONTINUITIES OCCURRED DURING THIS ITERATION.
+                   30 POINTS CHANGED FROM OPEN TO CLOSED
+                   56 POINTS CHANGED FROM CLOSED TO OPEN
+
+               CONVERGENCE CHECKS FOR SEVERE DISCONTINUITY ITERATION    12
+
+   MAX. PENETRATION ERROR 19.9398E-06  AT NODE BATTERY-1.1270 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATBOT,ASSEMBLY_CF-1_CFTOP)
+   MAX. CONTACT FORCE ERROR -149.681E-03   AT NODE BATTERY-1.3422 OF CONTACT 
+   PAIR (ASSEMBLY_BATTERY-1_BATTOP,ASSEMBLY_CF-2_CFBOT)
+          THE ESTIMATED CONTACT FORCE ERROR IS OUTSIDE OF CONVERGENCE TOLERANCES.
+
+ AVERAGE FORCE                      5.221E-02   TIME AVG. FORCE       5.221E-02
+ LARGEST RESIDUAL FORCE             9.450E-02   AT NODE       1003   DOF  3
+   INSTANCE: CF-2                                                                            
+ LARGEST INCREMENT OF DISP.        -0.341       AT NODE          4   DOF  1
+   INSTANCE: CF-1                                                                            
+ LARGEST CORRECTION TO DISP.        5.654E-02   AT NODE        169   DOF  1
+   INSTANCE: CF-1                                                                            
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     3.512E-02   TIME AVG. MOMENT      3.512E-02
+ LARGEST RESIDUAL MOMENT           -1.170E-03   AT NODE          1   DOF  4
+   INSTANCE:                                                                                 
+ LARGEST INCREMENT OF ROTATION     -3.203E-03   AT NODE        173   DOF  6
+   INSTANCE: CF-2                                                                            
+ LARGEST CORRECTION TO ROTATION     5.141E-04   AT NODE        174   DOF  6
+   INSTANCE: CF-1                                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+  NUMBER OF EQUATIONS =     30480     NUMBER OF RHS =    1
+  NUMBER OF FLOATING PT. OPERATIONS =  1.04E+11
+
+  USING THE DIRECT SOLVER WITH   6 PROCESSORS
+
+     CHECK POINT   START OF SOLVER    
+
+     CHECK POINT  END OF SOLVER       
+
+       ELAPSED USER TIME (SEC)      =   12.200    
+       ELAPSED SYSTEM TIME (SEC)    =  0.10000    
+       ELAPSED TOTAL CPU TIME (SEC) =   12.300    
+       ELAPSED WALLCLOCK TIME (SEC) =          2
+ 
+
+ ***WARNING: SOLVER PROBLEM. NUMERICAL SINGULARITY WHEN PROCESSING NODE 
+             ASSEMBLY.1 D.O.F. 6 RATIO = 855.971E+09  .
+  
+     ASYNCHRONOUS TRACKING ELEMENT LOOP STARTED
+  
+
+                   59 SEVERE DISCONTINUITIES OCCURRED DURING THIS ITERATION.
+                   15 POINTS CHANGED FROM OPEN TO CLOSED
+                   44 POINTS CHANGED FROM CLOSED TO OPEN
+
+               CONVERGENCE CHECKS FOR SEVERE DISCONTINUITY ITERATION    13
+
+   MAX. PENETRATION ERROR 39.3857E-06  AT NODE BATTERY-1.3618 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATTOP,ASSEMBLY_CF-2_CFBOT)
+   MAX. CONTACT FORCE ERROR -134.269E-03   AT NODE BATTERY-1.3813 OF CONTACT 
+   PAIR (ASSEMBLY_BATTERY-1_BATTOP,ASSEMBLY_CF-2_CFBOT)
+          THE ESTIMATED CONTACT FORCE ERROR IS OUTSIDE OF CONVERGENCE TOLERANCES.
+
+ AVERAGE FORCE                      5.221E-02   TIME AVG. FORCE       5.221E-02
+ LARGEST RESIDUAL FORCE             8.995E-02   AT NODE        966   DOF  3
+   INSTANCE: CF-2                                                                            
+ LARGEST INCREMENT OF DISP.        -0.339       AT NODE          4   DOF  1
+   INSTANCE: CF-1                                                                            
+ LARGEST CORRECTION TO DISP.        1.679E-03   AT NODE        169   DOF  1
+   INSTANCE: CF-1                                                                            
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     3.508E-02   TIME AVG. MOMENT      3.508E-02
+ LARGEST RESIDUAL MOMENT           -1.020E-03   AT NODE          1   DOF  4
+   INSTANCE:                                                                                 
+ LARGEST INCREMENT OF ROTATION     -3.188E-03   AT NODE        173   DOF  6
+   INSTANCE: CF-2                                                                            
+ LARGEST CORRECTION TO ROTATION    -1.384E-04   AT NODE       1002   DOF  5
+   INSTANCE: CF-2                                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+  NUMBER OF EQUATIONS =     30480     NUMBER OF RHS =    1
+  NUMBER OF FLOATING PT. OPERATIONS =  1.03E+11
+
+  USING THE DIRECT SOLVER WITH   6 PROCESSORS
+
+     CHECK POINT   START OF SOLVER    
+
+     CHECK POINT  END OF SOLVER       
+
+       ELAPSED USER TIME (SEC)      =   12.300    
+       ELAPSED SYSTEM TIME (SEC)    =   0.0000    
+       ELAPSED TOTAL CPU TIME (SEC) =   12.300    
+       ELAPSED WALLCLOCK TIME (SEC) =          2
+ 
+
+ ***WARNING: SOLVER PROBLEM. NUMERICAL SINGULARITY WHEN PROCESSING NODE 
+             ASSEMBLY.1 D.O.F. 6 RATIO = 859.574E+09  .
+  
+     ASYNCHRONOUS TRACKING ELEMENT LOOP STARTED
+  
+
+                   56 SEVERE DISCONTINUITIES OCCURRED DURING THIS ITERATION.
+                   27 POINTS CHANGED FROM OPEN TO CLOSED
+                   29 POINTS CHANGED FROM CLOSED TO OPEN
+
+               CONVERGENCE CHECKS FOR SEVERE DISCONTINUITY ITERATION    14
+
+   MAX. PENETRATION ERROR 21.6619E-06  AT NODE BATTERY-1.3836 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATTOP,ASSEMBLY_CF-2_CFBOT)
+   MAX. CONTACT FORCE ERROR -74.4610E-03  AT NODE BATTERY-1.3664 OF CONTACT 
+   PAIR (ASSEMBLY_BATTERY-1_BATTOP,ASSEMBLY_CF-2_CFBOT)
+          THE ESTIMATED CONTACT FORCE ERROR IS OUTSIDE OF CONVERGENCE TOLERANCES.
+
+ AVERAGE FORCE                      5.220E-02   TIME AVG. FORCE       5.220E-02
+ LARGEST RESIDUAL FORCE             4.549E-02   AT NODE        928   DOF  3
+   INSTANCE: CF-2                                                                            
+ LARGEST INCREMENT OF DISP.        -0.336       AT NODE          4   DOF  1
+   INSTANCE: CF-1                                                                            
+ LARGEST CORRECTION TO DISP.       -3.717E-03   AT NODE         91   DOF  2
+   INSTANCE: CF-1                                                                            
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     3.504E-02   TIME AVG. MOMENT      3.504E-02
+ LARGEST RESIDUAL MOMENT           -1.157E-03   AT NODE          1   DOF  4
+   INSTANCE:                                                                                 
+ LARGEST INCREMENT OF ROTATION     -3.154E-03   AT NODE        173   DOF  6
+   INSTANCE: CF-2                                                                            
+ LARGEST CORRECTION TO ROTATION    -1.139E-04   AT NODE        965   DOF  5
+   INSTANCE: CF-2                                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+  NUMBER OF EQUATIONS =     30480     NUMBER OF RHS =    1
+  NUMBER OF FLOATING PT. OPERATIONS =  1.04E+11
+
+  USING THE DIRECT SOLVER WITH   6 PROCESSORS
+
+     CHECK POINT   START OF SOLVER    
+
+     CHECK POINT  END OF SOLVER       
+
+       ELAPSED USER TIME (SEC)      =   12.100    
+       ELAPSED SYSTEM TIME (SEC)    =   0.0000    
+       ELAPSED TOTAL CPU TIME (SEC) =   12.100    
+       ELAPSED WALLCLOCK TIME (SEC) =          2
+ 
+
+ ***WARNING: SOLVER PROBLEM. NUMERICAL SINGULARITY WHEN PROCESSING NODE 
+             ASSEMBLY.1 D.O.F. 6 RATIO = 876.719E+09  .
+  
+     ASYNCHRONOUS TRACKING ELEMENT LOOP STARTED
+  
+
+                   38 SEVERE DISCONTINUITIES OCCURRED DURING THIS ITERATION.
+                   12 POINTS CHANGED FROM OPEN TO CLOSED
+                   26 POINTS CHANGED FROM CLOSED TO OPEN
+
+               CONVERGENCE CHECKS FOR SEVERE DISCONTINUITY ITERATION    15
+
+   MAX. PENETRATION ERROR 9.48568E-06 AT NODE BATTERY-1.1248 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATBOT,ASSEMBLY_CF-1_CFTOP)
+   MAX. CONTACT FORCE ERROR -70.5124E-03  AT NODE BATTERY-1.2583 OF CONTACT 
+   PAIR (ASSEMBLY_BATTERY-1_BATTOP,ASSEMBLY_CF-2_CFBOT)
+          THE ESTIMATED CONTACT FORCE ERROR IS OUTSIDE OF CONVERGENCE TOLERANCES.
+
+ AVERAGE FORCE                      5.219E-02   TIME AVG. FORCE       5.219E-02
+ LARGEST RESIDUAL FORCE            -1.305E-02   AT NODE       3608   DOF  3
+   INSTANCE: BATTERY-1                                                                       
+ LARGEST INCREMENT OF DISP.        -0.333       AT NODE          4   DOF  1
+   INSTANCE: CF-1                                                                            
+ LARGEST CORRECTION TO DISP.       -2.346E-03   AT NODE         91   DOF  2
+   INSTANCE: CF-1                                                                            
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     3.502E-02   TIME AVG. MOMENT      3.502E-02
+ LARGEST RESIDUAL MOMENT           -4.906E-03   AT NODE          1   DOF  4
+   INSTANCE:                                                                                 
+ LARGEST INCREMENT OF ROTATION     -3.133E-03   AT NODE        173   DOF  6
+   INSTANCE: CF-2                                                                            
+ LARGEST CORRECTION TO ROTATION    -4.512E-05   AT NODE        926   DOF  5
+   INSTANCE: CF-2                                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+  NUMBER OF EQUATIONS =     30480     NUMBER OF RHS =    1
+  NUMBER OF FLOATING PT. OPERATIONS =  1.03E+11
+
+  USING THE DIRECT SOLVER WITH   6 PROCESSORS
+
+     CHECK POINT   START OF SOLVER    
+
+     CHECK POINT  END OF SOLVER       
+
+       ELAPSED USER TIME (SEC)      =   11.900    
+       ELAPSED SYSTEM TIME (SEC)    =  0.10000    
+       ELAPSED TOTAL CPU TIME (SEC) =   12.000    
+       ELAPSED WALLCLOCK TIME (SEC) =          2
+ 
+
+ ***WARNING: SOLVER PROBLEM. NUMERICAL SINGULARITY WHEN PROCESSING NODE 
+             ASSEMBLY.1 D.O.F. 6 RATIO = 887.473E+09  .
+  
+     ASYNCHRONOUS TRACKING ELEMENT LOOP STARTED
+  
+
+                   12 SEVERE DISCONTINUITIES OCCURRED DURING THIS ITERATION.
+                    2 POINTS CHANGED FROM OPEN TO CLOSED
+                   10 POINTS CHANGED FROM CLOSED TO OPEN
+
+               CONVERGENCE CHECKS FOR SEVERE DISCONTINUITY ITERATION    16
+
+   MAX. PENETRATION ERROR 2.57842E-06 AT NODE BATTERY-1.1067 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATBOT,ASSEMBLY_CF-1_CFTOP)
+   MAX. CONTACT FORCE ERROR -6.85120E-03 AT NODE BATTERY-1.1019 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATBOT,ASSEMBLY_CF-1_CFTOP)
+          THE CONTACT CONSTRAINT ERRORS ARE WITHIN THE TOLERANCES.
+
+ AVERAGE FORCE                      5.219E-02   TIME AVG. FORCE       5.219E-02
+ LARGEST RESIDUAL FORCE             4.079E-03   AT NODE       1019   DOF  3
+   INSTANCE: BATTERY-1                                                                       
+ LARGEST INCREMENT OF DISP.        -0.334       AT NODE          4   DOF  1
+   INSTANCE: CF-1                                                                            
+ LARGEST CORRECTION TO DISP.        7.576E-04   AT NODE         78   DOF  2
+   INSTANCE: CF-1                                                                            
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     3.502E-02   TIME AVG. MOMENT      3.502E-02
+ LARGEST RESIDUAL MOMENT           -9.136E-04   AT NODE          1   DOF  4
+   INSTANCE:                                                                                 
+ LARGEST INCREMENT OF ROTATION     -3.140E-03   AT NODE        173   DOF  6
+   INSTANCE: CF-2                                                                            
+ LARGEST CORRECTION TO ROTATION    -1.271E-05   AT NODE        285   DOF  4
+   INSTANCE: CF-2                                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+  NUMBER OF EQUATIONS =     30480     NUMBER OF RHS =    1
+  NUMBER OF FLOATING PT. OPERATIONS =  1.03E+11
+
+  USING THE DIRECT SOLVER WITH   6 PROCESSORS
+
+     CHECK POINT   START OF SOLVER    
+
+     CHECK POINT  END OF SOLVER       
+
+       ELAPSED USER TIME (SEC)      =   12.100    
+       ELAPSED SYSTEM TIME (SEC)    =   0.0000    
+       ELAPSED TOTAL CPU TIME (SEC) =   12.100    
+       ELAPSED WALLCLOCK TIME (SEC) =          2
+ 
+
+ ***WARNING: SOLVER PROBLEM. NUMERICAL SINGULARITY WHEN PROCESSING NODE 
+             ASSEMBLY.1 D.O.F. 6 RATIO = 895.307E+09  .
+  
+     ASYNCHRONOUS TRACKING ELEMENT LOOP STARTED
+  
+
+                    7 SEVERE DISCONTINUITIES OCCURRED DURING THIS ITERATION.
+                    7 POINTS CHANGED FROM CLOSED TO OPEN
+
+               CONVERGENCE CHECKS FOR SEVERE DISCONTINUITY ITERATION    17
+
+   MAX. PENETRATION ERROR -6.60849E-12 AT NODE BATTERY-1.930 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATBOT,ASSEMBLY_CF-1_CFTOP)
+   MAX. CONTACT FORCE ERROR -2.42472E-03 AT NODE BATTERY-1.1121 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATBOT,ASSEMBLY_CF-1_CFTOP)
+          THE CONTACT CONSTRAINT ERRORS ARE WITHIN THE TOLERANCES.
+
+ AVERAGE FORCE                      5.219E-02   TIME AVG. FORCE       5.219E-02
+ LARGEST RESIDUAL FORCE             1.425E-03   AT NODE       1121   DOF  3
+   INSTANCE: BATTERY-1                                                                       
+ LARGEST INCREMENT OF DISP.        -0.334       AT NODE          4   DOF  1
+   INSTANCE: CF-1                                                                            
+ LARGEST CORRECTION TO DISP.        3.798E-04   AT NODE        152   DOF  1
+   INSTANCE: CF-1                                                                            
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     3.502E-02   TIME AVG. MOMENT      3.502E-02
+ LARGEST RESIDUAL MOMENT           -5.008E-08   AT NODE          1   DOF  4
+   INSTANCE:                                                                                 
+ LARGEST INCREMENT OF ROTATION     -3.136E-03   AT NODE        173   DOF  6
+   INSTANCE: CF-2                                                                            
+ LARGEST CORRECTION TO ROTATION     3.454E-06   AT NODE        890   DOF  6
+   INSTANCE: CF-1                                                                            
+          THE MOMENT    EQUILIBRIUM EQUATIONS HAVE CONVERGED
+
+  NUMBER OF EQUATIONS =     30480     NUMBER OF RHS =    1
+  NUMBER OF FLOATING PT. OPERATIONS =  1.02E+11
+
+  USING THE DIRECT SOLVER WITH   6 PROCESSORS
+
+     CHECK POINT   START OF SOLVER    
+
+     CHECK POINT  END OF SOLVER       
+
+       ELAPSED USER TIME (SEC)      =   12.300    
+       ELAPSED SYSTEM TIME (SEC)    =   0.0000    
+       ELAPSED TOTAL CPU TIME (SEC) =   12.300    
+       ELAPSED WALLCLOCK TIME (SEC) =          2
+ 
+
+ ***WARNING: SOLVER PROBLEM. NUMERICAL SINGULARITY WHEN PROCESSING NODE 
+             ASSEMBLY.1 D.O.F. 6 RATIO = 887.297E+09  .
+  
+     ASYNCHRONOUS TRACKING ELEMENT LOOP STARTED
+  
+
+                    3 SEVERE DISCONTINUITIES OCCURRED DURING THIS ITERATION.
+                    3 POINTS CHANGED FROM CLOSED TO OPEN
+
+               CONVERGENCE CHECKS FOR SEVERE DISCONTINUITY ITERATION    18
+
+   MAX. PENETRATION ERROR -5.35484E-12 AT NODE BATTERY-1.1095 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATBOT,ASSEMBLY_CF-1_CFTOP)
+   MAX. CONTACT FORCE ERROR -1.94843E-03 AT NODE BATTERY-1.1124 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATBOT,ASSEMBLY_CF-1_CFTOP)
+          THE CONTACT CONSTRAINT ERRORS ARE WITHIN THE TOLERANCES.
+
+ AVERAGE FORCE                      5.219E-02   TIME AVG. FORCE       5.219E-02
+ LARGEST RESIDUAL FORCE             1.097E-03   AT NODE       1124   DOF  3
+   INSTANCE: BATTERY-1                                                                       
+ LARGEST INCREMENT OF DISP.        -0.334       AT NODE          4   DOF  1
+   INSTANCE: CF-1                                                                            
+ LARGEST CORRECTION TO DISP.        2.793E-04   AT NODE         89   DOF  2
+   INSTANCE: CF-1                                                                            
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     3.502E-02   TIME AVG. MOMENT      3.502E-02
+ LARGEST RESIDUAL MOMENT            1.889E-08   AT NODE          1   DOF  6
+   INSTANCE:                                                                                 
+ LARGEST INCREMENT OF ROTATION     -3.139E-03   AT NODE        173   DOF  6
+   INSTANCE: CF-2                                                                            
+ LARGEST CORRECTION TO ROTATION    -2.540E-06   AT NODE       1060   DOF  6
+   INSTANCE: CF-2                                                                            
+          THE MOMENT    EQUILIBRIUM EQUATIONS HAVE CONVERGED
+
+  NUMBER OF EQUATIONS =     30480     NUMBER OF RHS =    1
+  NUMBER OF FLOATING PT. OPERATIONS =  1.02E+11
+
+  USING THE DIRECT SOLVER WITH   6 PROCESSORS
+
+     CHECK POINT   START OF SOLVER    
+
+     CHECK POINT  END OF SOLVER       
+
+       ELAPSED USER TIME (SEC)      =   11.900    
+       ELAPSED SYSTEM TIME (SEC)    =   0.0000    
+       ELAPSED TOTAL CPU TIME (SEC) =   11.900    
+       ELAPSED WALLCLOCK TIME (SEC) =          2
+ 
+
+ ***WARNING: SOLVER PROBLEM. NUMERICAL SINGULARITY WHEN PROCESSING NODE 
+             ASSEMBLY.1 D.O.F. 6 RATIO = 885.882E+09  .
+  
+     ASYNCHRONOUS TRACKING ELEMENT LOOP STARTED
+  
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+   MAX. PENETRATION ERROR -351.318E-15   AT NODE BATTERY-1.1123 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATBOT,ASSEMBLY_CF-1_CFTOP)
+   MAX. CONTACT FORCE ERROR -405.244E-12   AT NODE BATTERY-1.1123 OF CONTACT 
+   PAIR (ASSEMBLY_BATTERY-1_BATBOT,ASSEMBLY_CF-1_CFTOP)
+          THE CONTACT CONSTRAINTS HAVE CONVERGED.
+
+ AVERAGE FORCE                      5.219E-02   TIME AVG. FORCE       5.219E-02
+ LARGEST RESIDUAL FORCE            -6.872E-09   AT NODE        268   DOF  2
+   INSTANCE: BATTERY-1                                                                       
+ LARGEST INCREMENT OF DISP.        -0.334       AT NODE          4   DOF  1
+   INSTANCE: CF-1                                                                            
+ LARGEST CORRECTION TO DISP.        2.283E-04   AT NODE          5   DOF  1
+   INSTANCE: CF-1                                                                            
+          THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
+
+ AVERAGE MOMENT                     3.502E-02   TIME AVG. MOMENT      3.502E-02
+ LARGEST RESIDUAL MOMENT           -2.501E-08   AT NODE          1   DOF  6
+   INSTANCE:                                                                                 
+ LARGEST INCREMENT OF ROTATION     -3.137E-03   AT NODE        173   DOF  6
+   INSTANCE: CF-2                                                                            
+ LARGEST CORRECTION TO ROTATION     2.076E-06   AT NODE        928   DOF  6
+   INSTANCE: CF-1                                                                            
+          THE MOMENT    EQUILIBRIUM EQUATIONS HAVE CONVERGED
+
+ ITERATION SUMMARY FOR THE INCREMENT:  19 TOTAL ITERATIONS, OF WHICH
+  18 ARE SEVERE DISCONTINUITY ITERATIONS AND  1 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  0.250    ,  FRACTION OF STEP COMPLETED  0.250    
+ STEP TIME COMPLETED       0.250    ,  TOTAL TIME COMPLETED        0.250    
+  
+     ASYNCHRONOUS OUTPUT DATABASE FRAME FLUSH STARTED
+  
+
+
+  INCREMENT     2 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  0.250    
+  
+     ASYNCHRONOUS TRACKING ELEMENT LOOP STARTED
+  
+
+  NUMBER OF EQUATIONS =     30480     NUMBER OF RHS =    1
+  NUMBER OF FLOATING PT. OPERATIONS =  1.02E+11
+
+  USING THE DIRECT SOLVER WITH   6 PROCESSORS
+
+     CHECK POINT   START OF SOLVER    
+
+     CHECK POINT  END OF SOLVER       
+
+       ELAPSED USER TIME (SEC)      =   12.400    
+       ELAPSED SYSTEM TIME (SEC)    =  0.20000    
+       ELAPSED TOTAL CPU TIME (SEC) =   12.600    
+       ELAPSED WALLCLOCK TIME (SEC) =          2
+  
+     ASYNCHRONOUS TRACKING ELEMENT LOOP STARTED
+  
+
+                   10 SEVERE DISCONTINUITIES OCCURRED DURING THIS ITERATION.
+                    7 POINTS CHANGED FROM OPEN TO CLOSED
+                    3 POINTS CHANGED FROM CLOSED TO OPEN
+
+               CONVERGENCE CHECKS FOR SEVERE DISCONTINUITY ITERATION     1
+
+   MAX. PENETRATION ERROR 7.02426E-06 AT NODE BATTERY-1.3507 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATTOP,ASSEMBLY_CF-2_CFBOT)
+   MAX. CONTACT FORCE ERROR -6.94835E-03 AT NODE BATTERY-1.3588 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATTOP,ASSEMBLY_CF-2_CFBOT)
+          THE CONTACT CONSTRAINT ERRORS ARE WITHIN THE TOLERANCES.
+
+ AVERAGE FORCE                      0.206       TIME AVG. FORCE       0.129    
+ LARGEST RESIDUAL FORCE            -3.938E-03   AT NODE       3588   DOF  3
+   INSTANCE: BATTERY-1                                                                       
+ LARGEST INCREMENT OF DISP.         0.874       AT NODE          7   DOF  1
+   INSTANCE: CF-1                                                                            
+ LARGEST CORRECTION TO DISP.         1.20       AT NODE          4   DOF  1
+   INSTANCE: CF-1                                                                            
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     7.174E-02   TIME AVG. MOMENT      5.338E-02
+ LARGEST RESIDUAL MOMENT           -1.635E-03   AT NODE          1   DOF  6
+   INSTANCE:                                                                                 
+ LARGEST INCREMENT OF ROTATION      7.989E-03   AT NODE        173   DOF  6
+   INSTANCE: CF-1                                                                            
+ LARGEST CORRECTION TO ROTATION     1.091E-02   AT NODE        201   DOF  6
+   INSTANCE: CF-1                                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+  NUMBER OF EQUATIONS =     30480     NUMBER OF RHS =    1
+  NUMBER OF FLOATING PT. OPERATIONS =  1.02E+11
+
+  USING THE DIRECT SOLVER WITH   6 PROCESSORS
+
+     CHECK POINT   START OF SOLVER    
+
+     CHECK POINT  END OF SOLVER       
+
+       ELAPSED USER TIME (SEC)      =   12.600    
+       ELAPSED SYSTEM TIME (SEC)    =   0.0000    
+       ELAPSED TOTAL CPU TIME (SEC) =   12.600    
+       ELAPSED WALLCLOCK TIME (SEC) =          2
+ 
+
+ ***WARNING: SOLVER PROBLEM. NUMERICAL SINGULARITY WHEN PROCESSING NODE 
+             ASSEMBLY.1 D.O.F. 6 RATIO = 114.537E+09  .
+  
+     ASYNCHRONOUS TRACKING ELEMENT LOOP STARTED
+  
+
+                    3 SEVERE DISCONTINUITIES OCCURRED DURING THIS ITERATION.
+                    1 POINTS CHANGED FROM OPEN TO CLOSED
+                    2 POINTS CHANGED FROM CLOSED TO OPEN
+
+               CONVERGENCE CHECKS FOR SEVERE DISCONTINUITY ITERATION     2
+
+   MAX. PENETRATION ERROR 53.3966E-09  AT NODE BATTERY-1.1132 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATBOT,ASSEMBLY_CF-1_CFTOP)
+   MAX. CONTACT FORCE ERROR -323.217E-06   AT NODE BATTERY-1.929 OF CONTACT 
+   PAIR (ASSEMBLY_BATTERY-1_BATBOT,ASSEMBLY_CF-1_CFTOP)
+          THE CONTACT CONSTRAINT ERRORS ARE WITHIN THE TOLERANCES.
+
+ AVERAGE FORCE                      0.206       TIME AVG. FORCE       0.129    
+ LARGEST RESIDUAL FORCE             1.367E-03   AT NODE          1   DOF  3
+   INSTANCE:                                                                                 
+ LARGEST INCREMENT OF DISP.         -1.37       AT NODE          4   DOF  1
+   INSTANCE: CF-1                                                                            
+ LARGEST CORRECTION TO DISP.        -2.23       AT NODE          1   DOF  1
+   INSTANCE: CF-2                                                                            
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     7.174E-02   TIME AVG. MOMENT      5.338E-02
+ LARGEST RESIDUAL MOMENT            3.934E-03   AT NODE          1   DOF  4
+   INSTANCE:                                                                                 
+ LARGEST INCREMENT OF ROTATION     -1.253E-02   AT NODE        173   DOF  6
+   INSTANCE: CF-2                                                                            
+ LARGEST CORRECTION TO ROTATION    -2.030E-02   AT NODE       1357   DOF  6
+   INSTANCE: CF-1                                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+  NUMBER OF EQUATIONS =     30480     NUMBER OF RHS =    1
+  NUMBER OF FLOATING PT. OPERATIONS =  1.02E+11
+
+  USING THE DIRECT SOLVER WITH   6 PROCESSORS
+
+     CHECK POINT   START OF SOLVER    
+
+     CHECK POINT  END OF SOLVER       
+
+       ELAPSED USER TIME (SEC)      =   12.600    
+       ELAPSED SYSTEM TIME (SEC)    =  0.10000    
+       ELAPSED TOTAL CPU TIME (SEC) =   12.700    
+       ELAPSED WALLCLOCK TIME (SEC) =          3
+ 
+
+ ***WARNING: SOLVER PROBLEM. NUMERICAL SINGULARITY WHEN PROCESSING NODE 
+             ASSEMBLY.1 D.O.F. 6 RATIO = 114.826E+09  .
+  
+     ASYNCHRONOUS TRACKING ELEMENT LOOP STARTED
+  
+
+                    1 SEVERE DISCONTINUITIES OCCURRED DURING THIS ITERATION.
+                    1 POINTS CHANGED FROM OPEN TO CLOSED
+
+               CONVERGENCE CHECKS FOR SEVERE DISCONTINUITY ITERATION     3
+
+   MAX. PENETRATION ERROR 146.138E-09   AT NODE BATTERY-1.2885 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATTOP,ASSEMBLY_CF-2_CFBOT)
+   MAX. CONTACT FORCE ERROR 169.532E-06   AT NODE BATTERY-1.2885 OF CONTACT 
+   PAIR (ASSEMBLY_BATTERY-1_BATTOP,ASSEMBLY_CF-2_CFBOT)
+          THE CONTACT CONSTRAINT ERRORS ARE WITHIN THE TOLERANCES.
+
+ AVERAGE FORCE                      0.206       TIME AVG. FORCE       0.129    
+ LARGEST RESIDUAL FORCE             4.835E-03   AT NODE          1   DOF  3
+   INSTANCE:                                                                                 
+ LARGEST INCREMENT OF DISP.          2.91       AT NODE          7   DOF  1
+   INSTANCE: CF-1                                                                            
+ LARGEST CORRECTION TO DISP.         4.27       AT NODE          1   DOF  1
+   INSTANCE: CF-2                                                                            
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     7.173E-02   TIME AVG. MOMENT      5.338E-02
+ LARGEST RESIDUAL MOMENT            1.234E-02   AT NODE          1   DOF  4
+   INSTANCE:                                                                                 
+ LARGEST INCREMENT OF ROTATION      2.649E-02   AT NODE        173   DOF  6
+   INSTANCE: CF-1                                                                            
+ LARGEST CORRECTION TO ROTATION     3.880E-02   AT NODE       1357   DOF  6
+   INSTANCE: CF-1                                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+  NUMBER OF EQUATIONS =     30480     NUMBER OF RHS =    1
+  NUMBER OF FLOATING PT. OPERATIONS =  1.02E+11
+
+  USING THE DIRECT SOLVER WITH   6 PROCESSORS
+
+     CHECK POINT   START OF SOLVER    
+
+     CHECK POINT  END OF SOLVER       
+
+       ELAPSED USER TIME (SEC)      =   12.600    
+       ELAPSED SYSTEM TIME (SEC)    =  0.10000    
+       ELAPSED TOTAL CPU TIME (SEC) =   12.700    
+       ELAPSED WALLCLOCK TIME (SEC) =          2
+ 
+
+ ***WARNING: SOLVER PROBLEM. NUMERICAL SINGULARITY WHEN PROCESSING NODE 
+             ASSEMBLY.1 D.O.F. 6 RATIO = 115.244E+09  .
+  
+     ASYNCHRONOUS TRACKING ELEMENT LOOP STARTED
+  
+
+                    1 SEVERE DISCONTINUITIES OCCURRED DURING THIS ITERATION.
+                    1 POINTS CHANGED FROM CLOSED TO OPEN
+
+               CONVERGENCE CHECKS FOR SEVERE DISCONTINUITY ITERATION     4
+
+   MAX. PENETRATION ERROR -135.491E-09   AT NODE BATTERY-1.347 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATBOT,ASSEMBLY_CF-1_CFTOP)
+   MAX. CONTACT FORCE ERROR -366.592E-06   AT NODE BATTERY-1.2885 OF CONTACT 
+   PAIR (ASSEMBLY_BATTERY-1_BATTOP,ASSEMBLY_CF-2_CFBOT)
+          THE CONTACT CONSTRAINT ERRORS ARE WITHIN THE TOLERANCES.
+
+ AVERAGE FORCE                      0.206       TIME AVG. FORCE       0.129    
+ LARGEST RESIDUAL FORCE             1.787E-02   AT NODE          1   DOF  3
+   INSTANCE:                                                                                 
+ LARGEST INCREMENT OF DISP.         -5.29       AT NODE          4   DOF  1
+   INSTANCE: CF-1                                                                            
+ LARGEST CORRECTION TO DISP.        -8.19       AT NODE          1   DOF  1
+   INSTANCE: CF-2                                                                            
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     7.173E-02   TIME AVG. MOMENT      5.338E-02
+ LARGEST RESIDUAL MOMENT            5.001E-02   AT NODE          1   DOF  4
+   INSTANCE:                                                                                 
+ LARGEST INCREMENT OF ROTATION     -4.815E-02   AT NODE        173   DOF  6
+   INSTANCE: CF-2                                                                            
+ LARGEST CORRECTION TO ROTATION    -7.443E-02   AT NODE       1357   DOF  6
+   INSTANCE: CF-1                                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+  NUMBER OF EQUATIONS =     30480     NUMBER OF RHS =    1
+  NUMBER OF FLOATING PT. OPERATIONS =  1.02E+11
+
+  USING THE DIRECT SOLVER WITH   6 PROCESSORS
+
+     CHECK POINT   START OF SOLVER    
+
+     CHECK POINT  END OF SOLVER       
+
+       ELAPSED USER TIME (SEC)      =   12.200    
+       ELAPSED SYSTEM TIME (SEC)    =  0.10000    
+       ELAPSED TOTAL CPU TIME (SEC) =   12.300    
+       ELAPSED WALLCLOCK TIME (SEC) =          2
+ 
+
+ ***WARNING: SOLVER PROBLEM. NUMERICAL SINGULARITY WHEN PROCESSING NODE 
+             ASSEMBLY.1 D.O.F. 6 RATIO = 117.986E+09  .
+  
+     ASYNCHRONOUS TRACKING ELEMENT LOOP STARTED
+  
+
+                    1 SEVERE DISCONTINUITIES OCCURRED DURING THIS ITERATION.
+                    1 POINTS CHANGED FROM OPEN TO CLOSED
+
+               CONVERGENCE CHECKS FOR SEVERE DISCONTINUITY ITERATION     5
+
+   MAX. PENETRATION ERROR 941.811E-09   AT NODE BATTERY-1.2885 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATTOP,ASSEMBLY_CF-2_CFBOT)
+   MAX. CONTACT FORCE ERROR 1.10174E-03 AT NODE BATTERY-1.2885 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATTOP,ASSEMBLY_CF-2_CFBOT)
+          THE CONTACT CONSTRAINT ERRORS ARE WITHIN THE TOLERANCES.
+
+ AVERAGE FORCE                      0.206       TIME AVG. FORCE       0.129    
+ LARGEST RESIDUAL FORCE             6.850E-02   AT NODE          1   DOF  3
+   INSTANCE:                                                                                 
+ LARGEST INCREMENT OF DISP.          10.7       AT NODE          7   DOF  1
+   INSTANCE: CF-1                                                                            
+ LARGEST CORRECTION TO DISP.         16.0       AT NODE          1   DOF  1
+   INSTANCE: CF-2                                                                            
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     7.174E-02   TIME AVG. MOMENT      5.338E-02
+ LARGEST RESIDUAL MOMENT            0.183       AT NODE          1   DOF  4
+   INSTANCE:                                                                                 
+ LARGEST INCREMENT OF ROTATION      9.765E-02   AT NODE        173   DOF  6
+   INSTANCE: CF-1                                                                            
+ LARGEST CORRECTION TO ROTATION     0.146       AT NODE       1357   DOF  6
+   INSTANCE: CF-1                                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+
+ ***NOTE: THE SOLUTION APPEARS TO BE DIVERGING. CONVERGENCE IS JUDGED UNLIKELY.
+
+
+  INCREMENT     2 STARTS. ATTEMPT NUMBER  2, TIME INCREMENT  6.250E-02
+  
+     ASYNCHRONOUS TRACKING ELEMENT LOOP STARTED
+  
+
+  NUMBER OF EQUATIONS =     30480     NUMBER OF RHS =    1
+  NUMBER OF FLOATING PT. OPERATIONS =  1.02E+11
+
+  USING THE DIRECT SOLVER WITH   6 PROCESSORS
+
+     CHECK POINT   START OF SOLVER    
+
+     CHECK POINT  END OF SOLVER       
+
+       ELAPSED USER TIME (SEC)      =   12.300    
+       ELAPSED SYSTEM TIME (SEC)    =   0.0000    
+       ELAPSED TOTAL CPU TIME (SEC) =   12.300    
+       ELAPSED WALLCLOCK TIME (SEC) =          2
+ 
+
+ ***WARNING: SOLVER PROBLEM. NUMERICAL SINGULARITY WHEN PROCESSING NODE 
+             ASSEMBLY.1 D.O.F. 6 RATIO = 451.000E+09  .
+  
+     ASYNCHRONOUS TRACKING ELEMENT LOOP STARTED
+  
+
+                    9 SEVERE DISCONTINUITIES OCCURRED DURING THIS ITERATION.
+                    4 POINTS CHANGED FROM OPEN TO CLOSED
+                    5 POINTS CHANGED FROM CLOSED TO OPEN
+
+               CONVERGENCE CHECKS FOR SEVERE DISCONTINUITY ITERATION     1
+
+   MAX. PENETRATION ERROR 3.36928E-06 AT NODE BATTERY-1.3507 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATTOP,ASSEMBLY_CF-2_CFBOT)
+   MAX. CONTACT FORCE ERROR -6.14994E-03 AT NODE BATTERY-1.3588 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATTOP,ASSEMBLY_CF-2_CFBOT)
+          THE CONTACT CONSTRAINT ERRORS ARE WITHIN THE TOLERANCES.
+
+ AVERAGE FORCE                      0.131       TIME AVG. FORCE       9.148E-02
+ LARGEST RESIDUAL FORCE            -3.477E-03   AT NODE       3588   DOF  3
+   INSTANCE: BATTERY-1                                                                       
+ LARGEST INCREMENT OF DISP.         0.312       AT NODE          7   DOF  1
+   INSTANCE: CF-1                                                                            
+ LARGEST CORRECTION TO DISP.        0.393       AT NODE          4   DOF  1
+   INSTANCE: CF-1                                                                            
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     4.505E-02   TIME AVG. MOMENT      4.003E-02
+ LARGEST RESIDUAL MOMENT           -2.400E-04   AT NODE          1   DOF  6
+   INSTANCE:                                                                                 
+ LARGEST INCREMENT OF ROTATION      2.848E-03   AT NODE        173   DOF  6
+   INSTANCE: CF-1                                                                            
+ LARGEST CORRECTION TO ROTATION     3.577E-03   AT NODE        201   DOF  6
+   INSTANCE: CF-1                                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+  NUMBER OF EQUATIONS =     30480     NUMBER OF RHS =    1
+  NUMBER OF FLOATING PT. OPERATIONS =  1.02E+11
+
+  USING THE DIRECT SOLVER WITH   6 PROCESSORS
+
+     CHECK POINT   START OF SOLVER    
+
+     CHECK POINT  END OF SOLVER       
+
+       ELAPSED USER TIME (SEC)      =   12.000    
+       ELAPSED SYSTEM TIME (SEC)    =  0.10000    
+       ELAPSED TOTAL CPU TIME (SEC) =   12.100    
+       ELAPSED WALLCLOCK TIME (SEC) =          2
+ 
+
+ ***WARNING: SOLVER PROBLEM. NUMERICAL SINGULARITY WHEN PROCESSING NODE 
+             ASSEMBLY.1 D.O.F. 6 RATIO = 455.382E+09  .
+  
+     ASYNCHRONOUS TRACKING ELEMENT LOOP STARTED
+  
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+   MAX. PENETRATION ERROR -773.068E-12   AT NODE BATTERY-1.347 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATBOT,ASSEMBLY_CF-1_CFTOP)
+   MAX. CONTACT FORCE ERROR -1.14098E-06 AT NODE BATTERY-1.380 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATBOT,ASSEMBLY_CF-1_CFTOP)
+          THE CONTACT CONSTRAINTS HAVE CONVERGED.
+
+ AVERAGE FORCE                      0.131       TIME AVG. FORCE       9.147E-02
+ LARGEST RESIDUAL FORCE             1.992E-04   AT NODE        268   DOF  2
+   INSTANCE: BATTERY-1                                                                       
+ LARGEST INCREMENT OF DISP.        -0.661       AT NODE          4   DOF  1
+   INSTANCE: CF-1                                                                            
+ LARGEST CORRECTION TO DISP.       -0.971       AT NODE          1   DOF  1
+   INSTANCE: CF-2                                                                            
+          DISP.    CORRECTION TOO LARGE COMPARED TO DISP.    INCREMENT
+
+ AVERAGE MOMENT                     4.504E-02   TIME AVG. MOMENT      4.003E-02
+ LARGEST RESIDUAL MOMENT            5.070E-04   AT NODE          1   DOF  4
+   INSTANCE:                                                                                 
+ LARGEST INCREMENT OF ROTATION     -6.038E-03   AT NODE        173   DOF  6
+   INSTANCE: CF-2                                                                            
+ LARGEST CORRECTION TO ROTATION    -8.831E-03   AT NODE       1357   DOF  6
+   INSTANCE: CF-1                                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+  NUMBER OF EQUATIONS =     30480     NUMBER OF RHS =    1
+  NUMBER OF FLOATING PT. OPERATIONS =  1.02E+11
+
+  USING THE DIRECT SOLVER WITH   6 PROCESSORS
+
+     CHECK POINT   START OF SOLVER    
+
+     CHECK POINT  END OF SOLVER       
+
+       ELAPSED USER TIME (SEC)      =   12.200    
+       ELAPSED SYSTEM TIME (SEC)    =  0.10000    
+       ELAPSED TOTAL CPU TIME (SEC) =   12.300    
+       ELAPSED WALLCLOCK TIME (SEC) =          2
+ 
+
+ ***WARNING: SOLVER PROBLEM. NUMERICAL SINGULARITY WHEN PROCESSING NODE 
+             ASSEMBLY.1 D.O.F. 6 RATIO = 456.650E+09  .
+  
+     ASYNCHRONOUS TRACKING ELEMENT LOOP STARTED
+  
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+   MAX. PENETRATION ERROR -4.84160E-09 AT NODE BATTERY-1.347 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATBOT,ASSEMBLY_CF-1_CFTOP)
+   MAX. CONTACT FORCE ERROR -6.98295E-06 AT NODE BATTERY-1.380 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATBOT,ASSEMBLY_CF-1_CFTOP)
+          THE CONTACT CONSTRAINTS HAVE CONVERGED.
+
+ AVERAGE FORCE                      0.131       TIME AVG. FORCE       9.146E-02
+ LARGEST RESIDUAL FORCE             9.671E-04   AT NODE          1   DOF  3
+   INSTANCE:                                                                                 
+ LARGEST INCREMENT OF DISP.          1.76       AT NODE          7   DOF  1
+   INSTANCE: CF-1                                                                            
+ LARGEST CORRECTION TO DISP.         2.42       AT NODE          1   DOF  1
+   INSTANCE: CF-2                                                                            
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     4.505E-02   TIME AVG. MOMENT      4.003E-02
+ LARGEST RESIDUAL MOMENT            2.569E-03   AT NODE          1   DOF  4
+   INSTANCE:                                                                                 
+ LARGEST INCREMENT OF ROTATION      1.601E-02   AT NODE        173   DOF  6
+   INSTANCE: CF-1                                                                            
+ LARGEST CORRECTION TO ROTATION     2.199E-02   AT NODE       1357   DOF  6
+   INSTANCE: CF-1                                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+  NUMBER OF EQUATIONS =     30480     NUMBER OF RHS =    1
+  NUMBER OF FLOATING PT. OPERATIONS =  1.02E+11
+
+  USING THE DIRECT SOLVER WITH   6 PROCESSORS
+
+     CHECK POINT   START OF SOLVER    
+
+     CHECK POINT  END OF SOLVER       
+
+       ELAPSED USER TIME (SEC)      =   11.800    
+       ELAPSED SYSTEM TIME (SEC)    =   0.0000    
+       ELAPSED TOTAL CPU TIME (SEC) =   11.800    
+       ELAPSED WALLCLOCK TIME (SEC) =          2
+ 
+
+ ***WARNING: SOLVER PROBLEM. NUMERICAL SINGULARITY WHEN PROCESSING NODE 
+             ASSEMBLY.1 D.O.F. 6 RATIO = 457.981E+09  .
+  
+     ASYNCHRONOUS TRACKING ELEMENT LOOP STARTED
+  
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     3
+
+   MAX. PENETRATION ERROR -30.0829E-09  AT NODE BATTERY-1.347 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATBOT,ASSEMBLY_CF-1_CFTOP)
+   MAX. CONTACT FORCE ERROR -43.8712E-06  AT NODE BATTERY-1.380 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATBOT,ASSEMBLY_CF-1_CFTOP)
+          THE CONTACT CONSTRAINTS HAVE CONVERGED.
+
+ AVERAGE FORCE                      0.131       TIME AVG. FORCE       9.146E-02
+ LARGEST RESIDUAL FORCE             6.064E-03   AT NODE          1   DOF  3
+   INSTANCE:                                                                                 
+ LARGEST INCREMENT OF DISP.         -4.29       AT NODE          4   DOF  1
+   INSTANCE: CF-1                                                                            
+ LARGEST CORRECTION TO DISP.        -6.04       AT NODE          1   DOF  1
+   INSTANCE: CF-2                                                                            
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     4.504E-02   TIME AVG. MOMENT      4.003E-02
+ LARGEST RESIDUAL MOMENT            1.756E-02   AT NODE          1   DOF  4
+   INSTANCE:                                                                                 
+ LARGEST INCREMENT OF ROTATION     -3.899E-02   AT NODE        173   DOF  6
+   INSTANCE: CF-2                                                                            
+ LARGEST CORRECTION TO ROTATION    -5.494E-02   AT NODE       1357   DOF  6
+   INSTANCE: CF-1                                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+  NUMBER OF EQUATIONS =     30480     NUMBER OF RHS =    1
+  NUMBER OF FLOATING PT. OPERATIONS =  1.02E+11
+
+  USING THE DIRECT SOLVER WITH   6 PROCESSORS
+
+     CHECK POINT   START OF SOLVER    
+
+     CHECK POINT  END OF SOLVER       
+
+       ELAPSED USER TIME (SEC)      =   12.000    
+       ELAPSED SYSTEM TIME (SEC)    =   0.0000    
+       ELAPSED TOTAL CPU TIME (SEC) =   12.000    
+       ELAPSED WALLCLOCK TIME (SEC) =          2
+ 
+
+ ***WARNING: SOLVER PROBLEM. NUMERICAL SINGULARITY WHEN PROCESSING NODE 
+             ASSEMBLY.1 D.O.F. 6 RATIO = 462.445E+09  .
+  
+     ASYNCHRONOUS TRACKING ELEMENT LOOP STARTED
+  
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     4
+
+   MAX. PENETRATION ERROR -189.568E-09   AT NODE BATTERY-1.347 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATBOT,ASSEMBLY_CF-1_CFTOP)
+   MAX. CONTACT FORCE ERROR -277.493E-06   AT NODE BATTERY-1.380 OF CONTACT 
+   PAIR (ASSEMBLY_BATTERY-1_BATBOT,ASSEMBLY_CF-1_CFTOP)
+          THE CONTACT CONSTRAINTS HAVE CONVERGED.
+
+ AVERAGE FORCE                      0.131       TIME AVG. FORCE       9.147E-02
+ LARGEST RESIDUAL FORCE             3.848E-02   AT NODE          1   DOF  3
+   INSTANCE:                                                                                 
+ LARGEST INCREMENT OF DISP.          10.9       AT NODE          7   DOF  1
+   INSTANCE: CF-1                                                                            
+ LARGEST CORRECTION TO DISP.         15.2       AT NODE          1   DOF  1
+   INSTANCE: CF-2                                                                            
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     4.505E-02   TIME AVG. MOMENT      4.004E-02
+ LARGEST RESIDUAL MOMENT            0.108       AT NODE          1   DOF  4
+   INSTANCE:                                                                                 
+ LARGEST INCREMENT OF ROTATION      9.929E-02   AT NODE        173   DOF  6
+   INSTANCE: CF-1                                                                            
+ LARGEST CORRECTION TO ROTATION     0.138       AT NODE       1357   DOF  6
+   INSTANCE: CF-1                                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+
+ ***NOTE: THE SOLUTION APPEARS TO BE DIVERGING. CONVERGENCE IS JUDGED UNLIKELY.
+
+
+  INCREMENT     2 STARTS. ATTEMPT NUMBER  3, TIME INCREMENT  1.562E-02
+  
+     ASYNCHRONOUS TRACKING ELEMENT LOOP STARTED
+  
+
+  NUMBER OF EQUATIONS =     30480     NUMBER OF RHS =    1
+  NUMBER OF FLOATING PT. OPERATIONS =  1.02E+11
+
+  USING THE DIRECT SOLVER WITH   6 PROCESSORS
+
+     CHECK POINT   START OF SOLVER    
+
+     CHECK POINT  END OF SOLVER       
+
+       ELAPSED USER TIME (SEC)      =   12.200    
+       ELAPSED SYSTEM TIME (SEC)    =  0.10000    
+       ELAPSED TOTAL CPU TIME (SEC) =   12.300    
+       ELAPSED WALLCLOCK TIME (SEC) =          2
+ 
+
+ ***WARNING: SOLVER PROBLEM. NUMERICAL SINGULARITY WHEN PROCESSING NODE 
+             ASSEMBLY.1 D.O.F. 6 RATIO = 883.646E+09  .
+  
+     ASYNCHRONOUS TRACKING ELEMENT LOOP STARTED
+  
+
+                   10 SEVERE DISCONTINUITIES OCCURRED DURING THIS ITERATION.
+                    4 POINTS CHANGED FROM OPEN TO CLOSED
+                    6 POINTS CHANGED FROM CLOSED TO OPEN
+
+               CONVERGENCE CHECKS FOR SEVERE DISCONTINUITY ITERATION     1
+
+   MAX. PENETRATION ERROR 2.48633E-06 AT NODE BATTERY-1.3507 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATTOP,ASSEMBLY_CF-2_CFBOT)
+   MAX. CONTACT FORCE ERROR -5.23248E-03 AT NODE BATTERY-1.3588 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATTOP,ASSEMBLY_CF-2_CFBOT)
+          THE CONTACT CONSTRAINT ERRORS ARE WITHIN THE TOLERANCES.
+
+ AVERAGE FORCE                      0.112       TIME AVG. FORCE       8.195E-02
+ LARGEST RESIDUAL FORCE            -2.957E-03   AT NODE       3588   DOF  3
+   INSTANCE: BATTERY-1                                                                       
+ LARGEST INCREMENT OF DISP.         1.779E-02   AT NODE          7   DOF  1
+   INSTANCE: CF-1                                                                            
+ LARGEST CORRECTION TO DISP.        1.779E-02   AT NODE          7   DOF  1
+   INSTANCE: CF-1                                                                            
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     3.834E-02   TIME AVG. MOMENT      3.668E-02
+ LARGEST RESIDUAL MOMENT           -2.694E-04   AT NODE          1   DOF  4
+   INSTANCE:                                                                                 
+ LARGEST INCREMENT OF ROTATION      1.647E-04   AT NODE        173   DOF  6
+   INSTANCE: CF-1                                                                            
+ LARGEST CORRECTION TO ROTATION     1.647E-04   AT NODE        173   DOF  6
+   INSTANCE: CF-1                                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+  NUMBER OF EQUATIONS =     30480     NUMBER OF RHS =    1
+  NUMBER OF FLOATING PT. OPERATIONS =  1.02E+11
+
+  USING THE DIRECT SOLVER WITH   6 PROCESSORS
+
+     CHECK POINT   START OF SOLVER    
+
+     CHECK POINT  END OF SOLVER       
+
+       ELAPSED USER TIME (SEC)      =   12.200    
+       ELAPSED SYSTEM TIME (SEC)    =   0.0000    
+       ELAPSED TOTAL CPU TIME (SEC) =   12.200    
+       ELAPSED WALLCLOCK TIME (SEC) =          2
+ 
+
+ ***WARNING: SOLVER PROBLEM. NUMERICAL SINGULARITY WHEN PROCESSING NODE 
+             ASSEMBLY.1 D.O.F. 6 RATIO = 746.019E+09  .
+  
+     ASYNCHRONOUS TRACKING ELEMENT LOOP STARTED
+  
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+   MAX. PENETRATION ERROR 3.62726E-12 AT NODE BATTERY-1.250 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATBOT,ASSEMBLY_CF-1_CFTOP)
+   MAX. CONTACT FORCE ERROR 4.43338E-09 AT NODE BATTERY-1.250 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATBOT,ASSEMBLY_CF-1_CFTOP)
+          THE CONTACT CONSTRAINTS HAVE CONVERGED.
+
+ AVERAGE FORCE                      0.112       TIME AVG. FORCE       8.194E-02
+ LARGEST RESIDUAL FORCE             1.213E-05   AT NODE          1   DOF  3
+   INSTANCE:                                                                                 
+ LARGEST INCREMENT OF DISP.        -2.551E-02   AT NODE          4   DOF  1
+   INSTANCE: CF-1                                                                            
+ LARGEST CORRECTION TO DISP.       -4.280E-02   AT NODE          7   DOF  1
+   INSTANCE: CF-1                                                                            
+ ESTIMATE OF DISP.    CORRECTION    9.924E-05
+ FORCE     EQUILIB. ACCEPTED BASED ON SMALL RESIDUAL AND ESTIMATED CORRECTION
+
+ AVERAGE MOMENT                     3.834E-02   TIME AVG. MOMENT      3.668E-02
+ LARGEST RESIDUAL MOMENT           -2.787E-05   AT NODE          1   DOF  5
+   INSTANCE:                                                                                 
+ LARGEST INCREMENT OF ROTATION     -2.383E-04   AT NODE        173   DOF  6
+   INSTANCE: CF-2                                                                            
+ LARGEST CORRECTION TO ROTATION    -3.891E-04   AT NODE        174   DOF  6
+   INSTANCE: CF-1                                                                            
+          ROTATION CORRECTION TOO LARGE COMPARED TO ROTATION INCREMENT
+
+  NUMBER OF EQUATIONS =     30480     NUMBER OF RHS =    1
+  NUMBER OF FLOATING PT. OPERATIONS =  1.02E+11
+
+  USING THE DIRECT SOLVER WITH   6 PROCESSORS
+
+     CHECK POINT   START OF SOLVER    
+
+     CHECK POINT  END OF SOLVER       
+
+       ELAPSED USER TIME (SEC)      =   12.200    
+       ELAPSED SYSTEM TIME (SEC)    =   0.0000    
+       ELAPSED TOTAL CPU TIME (SEC) =   12.200    
+       ELAPSED WALLCLOCK TIME (SEC) =          2
+ 
+
+ ***WARNING: SOLVER PROBLEM. NUMERICAL SINGULARITY WHEN PROCESSING NODE 
+             ASSEMBLY.1 D.O.F. 6 RATIO = 738.276E+09  .
+  
+     ASYNCHRONOUS TRACKING ELEMENT LOOP STARTED
+  
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+   MAX. PENETRATION ERROR -15.3785E-12  AT NODE BATTERY-1.252 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATBOT,ASSEMBLY_CF-1_CFTOP)
+   MAX. CONTACT FORCE ERROR -19.3976E-09  AT NODE BATTERY-1.219 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATBOT,ASSEMBLY_CF-1_CFTOP)
+          THE CONTACT CONSTRAINTS HAVE CONVERGED.
+
+ AVERAGE FORCE                      0.112       TIME AVG. FORCE       8.194E-02
+ LARGEST RESIDUAL FORCE            -1.995E-05   AT NODE        268   DOF  2
+   INSTANCE: BATTERY-1                                                                       
+ LARGEST INCREMENT OF DISP.         9.391E-02   AT NODE          7   DOF  1
+   INSTANCE: CF-1                                                                            
+ LARGEST CORRECTION TO DISP.        0.119       AT NODE          1   DOF  1
+   INSTANCE: CF-2                                                                            
+          DISP.    CORRECTION TOO LARGE COMPARED TO DISP.    INCREMENT
+
+ AVERAGE MOMENT                     3.834E-02   TIME AVG. MOMENT      3.668E-02
+ LARGEST RESIDUAL MOMENT           -4.273E-05   AT NODE          1   DOF  6
+   INSTANCE:                                                                                 
+ LARGEST INCREMENT OF ROTATION      8.567E-04   AT NODE        173   DOF  6
+   INSTANCE: CF-1                                                                            
+ LARGEST CORRECTION TO ROTATION     1.081E-03   AT NODE       1357   DOF  6
+   INSTANCE: CF-1                                                                            
+          ROTATION CORRECTION TOO LARGE COMPARED TO ROTATION INCREMENT
+
+  NUMBER OF EQUATIONS =     30480     NUMBER OF RHS =    1
+  NUMBER OF FLOATING PT. OPERATIONS =  1.02E+11
+
+  USING THE DIRECT SOLVER WITH   6 PROCESSORS
+
+     CHECK POINT   START OF SOLVER    
+
+     CHECK POINT  END OF SOLVER       
+
+       ELAPSED USER TIME (SEC)      =   12.100    
+       ELAPSED SYSTEM TIME (SEC)    =   0.0000    
+       ELAPSED TOTAL CPU TIME (SEC) =   12.100    
+       ELAPSED WALLCLOCK TIME (SEC) =          2
+ 
+
+ ***WARNING: SOLVER PROBLEM. NUMERICAL SINGULARITY WHEN PROCESSING NODE 
+             ASSEMBLY.1 D.O.F. 6 RATIO = 742.313E+09  .
+  
+     ASYNCHRONOUS TRACKING ELEMENT LOOP STARTED
+  
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     3
+
+   MAX. PENETRATION ERROR -64.4887E-12  AT NODE BATTERY-1.347 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATBOT,ASSEMBLY_CF-1_CFTOP)
+   MAX. CONTACT FORCE ERROR -99.7737E-09  AT NODE BATTERY-1.380 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATBOT,ASSEMBLY_CF-1_CFTOP)
+          THE CONTACT CONSTRAINTS HAVE CONVERGED.
+
+ AVERAGE FORCE                      0.112       TIME AVG. FORCE       8.194E-02
+ LARGEST RESIDUAL FORCE             5.552E-05   AT NODE        268   DOF  2
+   INSTANCE: BATTERY-1                                                                       
+ LARGEST INCREMENT OF DISP.        -0.237       AT NODE          4   DOF  1
+   INSTANCE: CF-1                                                                            
+ LARGEST CORRECTION TO DISP.       -0.331       AT NODE          1   DOF  1
+   INSTANCE: CF-2                                                                            
+          DISP.    CORRECTION TOO LARGE COMPARED TO DISP.    INCREMENT
+
+ AVERAGE MOMENT                     3.834E-02   TIME AVG. MOMENT      3.668E-02
+ LARGEST RESIDUAL MOMENT            1.192E-04   AT NODE          1   DOF  6
+   INSTANCE:                                                                                 
+ LARGEST INCREMENT OF ROTATION     -2.165E-03   AT NODE        173   DOF  6
+   INSTANCE: CF-2                                                                            
+ LARGEST CORRECTION TO ROTATION    -3.008E-03   AT NODE       1357   DOF  6
+   INSTANCE: CF-1                                                                            
+          ROTATION CORRECTION TOO LARGE COMPARED TO ROTATION INCREMENT
+
+  NUMBER OF EQUATIONS =     30480     NUMBER OF RHS =    1
+  NUMBER OF FLOATING PT. OPERATIONS =  1.02E+11
+
+  USING THE DIRECT SOLVER WITH   6 PROCESSORS
+
+     CHECK POINT   START OF SOLVER    
+
+     CHECK POINT  END OF SOLVER       
+
+       ELAPSED USER TIME (SEC)      =   12.100    
+       ELAPSED SYSTEM TIME (SEC)    =   0.0000    
+       ELAPSED TOTAL CPU TIME (SEC) =   12.100    
+       ELAPSED WALLCLOCK TIME (SEC) =          2
+ 
+
+ ***WARNING: SOLVER PROBLEM. NUMERICAL SINGULARITY WHEN PROCESSING NODE 
+             ASSEMBLY.1 D.O.F. 6 RATIO = 746.330E+09  .
+  
+     ASYNCHRONOUS TRACKING ELEMENT LOOP STARTED
+  
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     4
+
+   MAX. PENETRATION ERROR -528.585E-12   AT NODE BATTERY-1.347 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATBOT,ASSEMBLY_CF-1_CFTOP)
+   MAX. CONTACT FORCE ERROR -748.820E-09   AT NODE BATTERY-1.380 OF CONTACT 
+   PAIR (ASSEMBLY_BATTERY-1_BATBOT,ASSEMBLY_CF-1_CFTOP)
+          THE CONTACT CONSTRAINTS HAVE CONVERGED.
+
+ AVERAGE FORCE                      0.112       TIME AVG. FORCE       8.194E-02
+ LARGEST RESIDUAL FORCE            -1.556E-04   AT NODE        268   DOF  2
+   INSTANCE: BATTERY-1                                                                       
+ LARGEST INCREMENT OF DISP.         0.690       AT NODE          7   DOF  1
+   INSTANCE: CF-1                                                                            
+ LARGEST CORRECTION TO DISP.        0.927       AT NODE          1   DOF  1
+   INSTANCE: CF-2                                                                            
+          DISP.    CORRECTION TOO LARGE COMPARED TO DISP.    INCREMENT
+
+ AVERAGE MOMENT                     3.834E-02   TIME AVG. MOMENT      3.668E-02
+ LARGEST RESIDUAL MOMENT           -3.315E-04   AT NODE          1   DOF  6
+   INSTANCE:                                                                                 
+ LARGEST INCREMENT OF ROTATION      6.280E-03   AT NODE        173   DOF  6
+   INSTANCE: CF-1                                                                            
+ LARGEST CORRECTION TO ROTATION     8.431E-03   AT NODE       1357   DOF  6
+   INSTANCE: CF-1                                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+
+ ***NOTE: THE SOLUTION APPEARS TO BE DIVERGING. CONVERGENCE IS JUDGED UNLIKELY.
+
+
+  INCREMENT     2 STARTS. ATTEMPT NUMBER  4, TIME INCREMENT  3.906E-03
+  
+     ASYNCHRONOUS TRACKING ELEMENT LOOP STARTED
+  
+
+  NUMBER OF EQUATIONS =     30480     NUMBER OF RHS =    1
+  NUMBER OF FLOATING PT. OPERATIONS =  1.02E+11
+
+  USING THE DIRECT SOLVER WITH   6 PROCESSORS
+
+     CHECK POINT   START OF SOLVER    
+
+     CHECK POINT  END OF SOLVER       
+
+       ELAPSED USER TIME (SEC)      =   11.700    
+       ELAPSED SYSTEM TIME (SEC)    =   0.0000    
+       ELAPSED TOTAL CPU TIME (SEC) =   11.700    
+       ELAPSED WALLCLOCK TIME (SEC) =          2
+ 
+
+ ***WARNING: SOLVER PROBLEM. NUMERICAL SINGULARITY WHEN PROCESSING NODE 
+             ASSEMBLY.1 D.O.F. 6 RATIO = 891.016E+09  .
+  
+     ASYNCHRONOUS TRACKING ELEMENT LOOP STARTED
+  
+
+                    8 SEVERE DISCONTINUITIES OCCURRED DURING THIS ITERATION.
+                    2 POINTS CHANGED FROM OPEN TO CLOSED
+                    6 POINTS CHANGED FROM CLOSED TO OPEN
+
+               CONVERGENCE CHECKS FOR SEVERE DISCONTINUITY ITERATION     1
+
+   MAX. PENETRATION ERROR 1.90764E-06 AT NODE BATTERY-1.3507 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATTOP,ASSEMBLY_CF-2_CFBOT)
+   MAX. CONTACT FORCE ERROR -3.96895E-03 AT NODE BATTERY-1.3588 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATTOP,ASSEMBLY_CF-2_CFBOT)
+          THE CONTACT CONSTRAINT ERRORS ARE WITHIN THE TOLERANCES.
+
+ AVERAGE FORCE                      0.107       TIME AVG. FORCE       7.949E-02
+ LARGEST RESIDUAL FORCE            -2.243E-03   AT NODE       3588   DOF  3
+   INSTANCE: BATTERY-1                                                                       
+ LARGEST INCREMENT OF DISP.        -4.147E-03   AT NODE          4   DOF  1
+   INSTANCE: CF-1                                                                            
+ LARGEST CORRECTION TO DISP.       -4.147E-03   AT NODE          4   DOF  1
+   INSTANCE: CF-1                                                                            
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     3.666E-02   TIME AVG. MOMENT      3.584E-02
+ LARGEST RESIDUAL MOMENT           -3.745E-05   AT NODE          1   DOF  5
+   INSTANCE:                                                                                 
+ LARGEST INCREMENT OF ROTATION     -3.934E-05   AT NODE        173   DOF  6
+   INSTANCE: CF-2                                                                            
+ LARGEST CORRECTION TO ROTATION    -3.934E-05   AT NODE        173   DOF  6
+   INSTANCE: CF-2                                                                            
+ ESTIMATE OF ROTATION CORRECTION   -2.454E-07
+ MOMENT    EQUILIB. ACCEPTED BASED ON SMALL RESIDUAL AND ESTIMATED CORRECTION
+
+  NUMBER OF EQUATIONS =     30480     NUMBER OF RHS =    1
+  NUMBER OF FLOATING PT. OPERATIONS =  1.02E+11
+
+  USING THE DIRECT SOLVER WITH   6 PROCESSORS
+
+     CHECK POINT   START OF SOLVER    
+
+     CHECK POINT  END OF SOLVER       
+
+       ELAPSED USER TIME (SEC)      =   11.800    
+       ELAPSED SYSTEM TIME (SEC)    =  0.10000    
+       ELAPSED TOTAL CPU TIME (SEC) =   11.900    
+       ELAPSED WALLCLOCK TIME (SEC) =          2
+ 
+
+ ***WARNING: SOLVER PROBLEM. NUMERICAL SINGULARITY WHEN PROCESSING NODE 
+             ASSEMBLY.1 D.O.F. 6 RATIO = 849.410E+09  .
+  
+     ASYNCHRONOUS TRACKING ELEMENT LOOP STARTED
+  
+
+                    1 SEVERE DISCONTINUITIES OCCURRED DURING THIS ITERATION.
+                    1 POINTS CHANGED FROM OPEN TO CLOSED
+
+               CONVERGENCE CHECKS FOR SEVERE DISCONTINUITY ITERATION     2
+
+   MAX. PENETRATION ERROR 51.4925E-09  AT NODE BATTERY-1.1132 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATBOT,ASSEMBLY_CF-1_CFTOP)
+   MAX. CONTACT FORCE ERROR 58.1055E-06  AT NODE BATTERY-1.1132 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATBOT,ASSEMBLY_CF-1_CFTOP)
+          THE CONTACT CONSTRAINT ERRORS ARE WITHIN THE TOLERANCES.
+
+ AVERAGE FORCE                      0.107       TIME AVG. FORCE       7.948E-02
+ LARGEST RESIDUAL FORCE             8.748E-06   AT NODE          1   DOF  3
+   INSTANCE:                                                                                 
+ LARGEST INCREMENT OF DISP.         1.024E-02   AT NODE          7   DOF  1
+   INSTANCE: CF-1                                                                            
+ LARGEST CORRECTION TO DISP.        1.426E-02   AT NODE          7   DOF  1
+   INSTANCE: CF-2                                                                            
+          DISP.    CORRECTION TOO LARGE COMPARED TO DISP.    INCREMENT
+
+ AVERAGE MOMENT                     3.665E-02   TIME AVG. MOMENT      3.584E-02
+ LARGEST RESIDUAL MOMENT           -2.158E-05   AT NODE          1   DOF  5
+   INSTANCE:                                                                                 
+ LARGEST INCREMENT OF ROTATION      9.389E-05   AT NODE        173   DOF  6
+   INSTANCE: CF-1                                                                            
+ LARGEST CORRECTION TO ROTATION     1.297E-04   AT NODE        751   DOF  6
+   INSTANCE: CF-2                                                                            
+          ROTATION CORRECTION TOO LARGE COMPARED TO ROTATION INCREMENT
+
+  NUMBER OF EQUATIONS =     30480     NUMBER OF RHS =    1
+  NUMBER OF FLOATING PT. OPERATIONS =  1.02E+11
+
+  USING THE DIRECT SOLVER WITH   6 PROCESSORS
+
+     CHECK POINT   START OF SOLVER    
+
+     CHECK POINT  END OF SOLVER       
+
+       ELAPSED USER TIME (SEC)      =   12.100    
+       ELAPSED SYSTEM TIME (SEC)    =   0.0000    
+       ELAPSED TOTAL CPU TIME (SEC) =   12.100    
+       ELAPSED WALLCLOCK TIME (SEC) =          2
+ 
+
+ ***WARNING: SOLVER PROBLEM. NUMERICAL SINGULARITY WHEN PROCESSING NODE 
+             ASSEMBLY.1 D.O.F. 6 RATIO = 856.317E+09  .
+  
+     ASYNCHRONOUS TRACKING ELEMENT LOOP STARTED
+  
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+   MAX. PENETRATION ERROR 2.63342E-12 AT NODE BATTERY-1.250 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATBOT,ASSEMBLY_CF-1_CFTOP)
+   MAX. CONTACT FORCE ERROR 3.58139E-09 AT NODE BATTERY-1.3418 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATTOP,ASSEMBLY_CF-2_CFBOT)
+          THE CONTACT CONSTRAINTS HAVE CONVERGED.
+
+ AVERAGE FORCE                      0.107       TIME AVG. FORCE       7.948E-02
+ LARGEST RESIDUAL FORCE             6.570E-06   AT NODE        268   DOF  2
+   INSTANCE: BATTERY-1                                                                       
+ LARGEST INCREMENT OF DISP.        -3.125E-02   AT NODE          4   DOF  1
+   INSTANCE: CF-1                                                                            
+ LARGEST CORRECTION TO DISP.       -4.136E-02   AT NODE          1   DOF  1
+   INSTANCE: CF-2                                                                            
+          DISP.    CORRECTION TOO LARGE COMPARED TO DISP.    INCREMENT
+
+ AVERAGE MOMENT                     3.665E-02   TIME AVG. MOMENT      3.584E-02
+ LARGEST RESIDUAL MOMENT            1.395E-05   AT NODE          1   DOF  6
+   INSTANCE:                                                                                 
+ LARGEST INCREMENT OF ROTATION     -2.857E-04   AT NODE        173   DOF  6
+   INSTANCE: CF-2                                                                            
+ LARGEST CORRECTION TO ROTATION    -3.760E-04   AT NODE       1357   DOF  6
+   INSTANCE: CF-1                                                                            
+          ROTATION CORRECTION TOO LARGE COMPARED TO ROTATION INCREMENT
+
+  NUMBER OF EQUATIONS =     30480     NUMBER OF RHS =    1
+  NUMBER OF FLOATING PT. OPERATIONS =  1.02E+11
+
+  USING THE DIRECT SOLVER WITH   6 PROCESSORS
+
+     CHECK POINT   START OF SOLVER    
+
+     CHECK POINT  END OF SOLVER       
+
+       ELAPSED USER TIME (SEC)      =   11.900    
+       ELAPSED SYSTEM TIME (SEC)    =   0.0000    
+       ELAPSED TOTAL CPU TIME (SEC) =   11.900    
+       ELAPSED WALLCLOCK TIME (SEC) =          2
+ 
+
+ ***WARNING: SOLVER PROBLEM. NUMERICAL SINGULARITY WHEN PROCESSING NODE 
+             ASSEMBLY.1 D.O.F. 6 RATIO = 848.971E+09  .
+  
+     ASYNCHRONOUS TRACKING ELEMENT LOOP STARTED
+  
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+   MAX. PENETRATION ERROR -14.7220E-12  AT NODE BATTERY-1.252 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATBOT,ASSEMBLY_CF-1_CFTOP)
+   MAX. CONTACT FORCE ERROR -18.4634E-09  AT NODE BATTERY-1.219 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATBOT,ASSEMBLY_CF-1_CFTOP)
+          THE CONTACT CONSTRAINTS HAVE CONVERGED.
+
+ AVERAGE FORCE                      0.107       TIME AVG. FORCE       7.948E-02
+ LARGEST RESIDUAL FORCE            -1.895E-05   AT NODE        268   DOF  2
+   INSTANCE: BATTERY-1                                                                       
+ LARGEST INCREMENT OF DISP.         8.818E-02   AT NODE          7   DOF  1
+   INSTANCE: CF-1                                                                            
+ LARGEST CORRECTION TO DISP.        0.119       AT NODE          1   DOF  1
+   INSTANCE: CF-2                                                                            
+          DISP.    CORRECTION TOO LARGE COMPARED TO DISP.    INCREMENT
+
+ AVERAGE MOMENT                     3.665E-02   TIME AVG. MOMENT      3.584E-02
+ LARGEST RESIDUAL MOMENT           -4.020E-05   AT NODE          1   DOF  6
+   INSTANCE:                                                                                 
+ LARGEST INCREMENT OF ROTATION      8.024E-04   AT NODE        173   DOF  6
+   INSTANCE: CF-1                                                                            
+ LARGEST CORRECTION TO ROTATION     1.085E-03   AT NODE       1357   DOF  6
+   INSTANCE: CF-1                                                                            
+          ROTATION CORRECTION TOO LARGE COMPARED TO ROTATION INCREMENT
+
+  NUMBER OF EQUATIONS =     30480     NUMBER OF RHS =    1
+  NUMBER OF FLOATING PT. OPERATIONS =  1.02E+11
+
+  USING THE DIRECT SOLVER WITH   6 PROCESSORS
+
+     CHECK POINT   START OF SOLVER    
+
+     CHECK POINT  END OF SOLVER       
+
+       ELAPSED USER TIME (SEC)      =   11.700    
+       ELAPSED SYSTEM TIME (SEC)    =   0.0000    
+       ELAPSED TOTAL CPU TIME (SEC) =   11.700    
+       ELAPSED WALLCLOCK TIME (SEC) =          2
+ 
+
+ ***WARNING: SOLVER PROBLEM. NUMERICAL SINGULARITY WHEN PROCESSING NODE 
+             ASSEMBLY.1 D.O.F. 6 RATIO = 840.732E+09  .
+  
+     ASYNCHRONOUS TRACKING ELEMENT LOOP STARTED
+  
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     3
+
+   MAX. PENETRATION ERROR -62.2827E-12  AT NODE BATTERY-1.347 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATBOT,ASSEMBLY_CF-1_CFTOP)
+   MAX. CONTACT FORCE ERROR -96.6078E-09  AT NODE BATTERY-1.380 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATBOT,ASSEMBLY_CF-1_CFTOP)
+          THE CONTACT CONSTRAINTS HAVE CONVERGED.
+
+ AVERAGE FORCE                      0.107       TIME AVG. FORCE       7.948E-02
+ LARGEST RESIDUAL FORCE             5.396E-05   AT NODE        268   DOF  2
+   INSTANCE: BATTERY-1                                                                       
+ LARGEST INCREMENT OF DISP.        -0.252       AT NODE          4   DOF  1
+   INSTANCE: CF-1                                                                            
+ LARGEST CORRECTION TO DISP.       -0.340       AT NODE          1   DOF  1
+   INSTANCE: CF-2                                                                            
+          DISP.    CORRECTION TOO LARGE COMPARED TO DISP.    INCREMENT
+
+ AVERAGE MOMENT                     3.665E-02   TIME AVG. MOMENT      3.584E-02
+ LARGEST RESIDUAL MOMENT            1.148E-04   AT NODE          1   DOF  6
+   INSTANCE:                                                                                 
+ LARGEST INCREMENT OF ROTATION     -2.290E-03   AT NODE        173   DOF  6
+   INSTANCE: CF-2                                                                            
+ LARGEST CORRECTION TO ROTATION    -3.089E-03   AT NODE       1357   DOF  6
+   INSTANCE: CF-1                                                                            
+          ROTATION CORRECTION TOO LARGE COMPARED TO ROTATION INCREMENT
+
+  NUMBER OF EQUATIONS =     30480     NUMBER OF RHS =    1
+  NUMBER OF FLOATING PT. OPERATIONS =  1.02E+11
+
+  USING THE DIRECT SOLVER WITH   6 PROCESSORS
+
+     CHECK POINT   START OF SOLVER    
+
+     CHECK POINT  END OF SOLVER       
+
+       ELAPSED USER TIME (SEC)      =   12.500    
+       ELAPSED SYSTEM TIME (SEC)    =   0.0000    
+       ELAPSED TOTAL CPU TIME (SEC) =   12.500    
+       ELAPSED WALLCLOCK TIME (SEC) =          2
+ 
+
+ ***WARNING: SOLVER PROBLEM. NUMERICAL SINGULARITY WHEN PROCESSING NODE 
+             ASSEMBLY.1 D.O.F. 6 RATIO = 843.619E+09  .
+  
+     ASYNCHRONOUS TRACKING ELEMENT LOOP STARTED
+  
+
+                    1 SEVERE DISCONTINUITIES OCCURRED DURING THIS ITERATION.
+                    1 POINTS CHANGED FROM OPEN TO CLOSED
+
+               CONVERGENCE CHECKS FOR SEVERE DISCONTINUITY ITERATION     3
+
+   MAX. PENETRATION ERROR 10.1531E-09  AT NODE BATTERY-1.284 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATBOT,ASSEMBLY_CF-1_CFTOP)
+   MAX. CONTACT FORCE ERROR 13.2984E-06  AT NODE BATTERY-1.284 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATBOT,ASSEMBLY_CF-1_CFTOP)
+          THE CONTACT CONSTRAINT ERRORS ARE WITHIN THE TOLERANCES.
+
+ AVERAGE FORCE                      0.107       TIME AVG. FORCE       7.948E-02
+ LARGEST RESIDUAL FORCE            -1.537E-04   AT NODE        268   DOF  2
+   INSTANCE: BATTERY-1                                                                       
+ LARGEST INCREMENT OF DISP.         0.716       AT NODE          7   DOF  1
+   INSTANCE: CF-1                                                                            
+ LARGEST CORRECTION TO DISP.        0.968       AT NODE          1   DOF  1
+   INSTANCE: CF-2                                                                            
+          DISP.    CORRECTION TOO LARGE COMPARED TO DISP.    INCREMENT
+
+ AVERAGE MOMENT                     3.665E-02   TIME AVG. MOMENT      3.584E-02
+ LARGEST RESIDUAL MOMENT           -3.243E-04   AT NODE          1   DOF  6
+   INSTANCE:                                                                                 
+ LARGEST INCREMENT OF ROTATION      6.509E-03   AT NODE        173   DOF  6
+   INSTANCE: CF-1                                                                            
+ LARGEST CORRECTION TO ROTATION     8.795E-03   AT NODE       1357   DOF  6
+   INSTANCE: CF-1                                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+  NUMBER OF EQUATIONS =     30480     NUMBER OF RHS =    1
+  NUMBER OF FLOATING PT. OPERATIONS =  1.02E+11
+
+  USING THE DIRECT SOLVER WITH   6 PROCESSORS
+
+     CHECK POINT   START OF SOLVER    
+
+     CHECK POINT  END OF SOLVER       
+
+       ELAPSED USER TIME (SEC)      =   12.700    
+       ELAPSED SYSTEM TIME (SEC)    =   0.0000    
+       ELAPSED TOTAL CPU TIME (SEC) =   12.700    
+       ELAPSED WALLCLOCK TIME (SEC) =          2
+ 
+
+ ***WARNING: SOLVER PROBLEM. NUMERICAL SINGULARITY WHEN PROCESSING NODE 
+             ASSEMBLY.1 D.O.F. 6 RATIO = 853.509E+09  .
+  
+     ASYNCHRONOUS TRACKING ELEMENT LOOP STARTED
+  
+
+                    1 SEVERE DISCONTINUITIES OCCURRED DURING THIS ITERATION.
+                    1 POINTS CHANGED FROM CLOSED TO OPEN
+
+               CONVERGENCE CHECKS FOR SEVERE DISCONTINUITY ITERATION     4
+
+   MAX. PENETRATION ERROR -4.32702E-09 AT NODE BATTERY-1.347 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATBOT,ASSEMBLY_CF-1_CFTOP)
+   MAX. CONTACT FORCE ERROR -48.9176E-06  AT NODE BATTERY-1.284 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATBOT,ASSEMBLY_CF-1_CFTOP)
+          THE CONTACT CONSTRAINT ERRORS ARE WITHIN THE TOLERANCES.
+
+ AVERAGE FORCE                      0.107       TIME AVG. FORCE       7.948E-02
+ LARGEST RESIDUAL FORCE             1.047E-03   AT NODE          1   DOF  3
+   INSTANCE:                                                                                 
+ LARGEST INCREMENT OF DISP.         -2.07       AT NODE          4   DOF  1
+   INSTANCE: CF-1                                                                            
+ LARGEST CORRECTION TO DISP.        -2.79       AT NODE          1   DOF  1
+   INSTANCE: CF-2                                                                            
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     3.666E-02   TIME AVG. MOMENT      3.584E-02
+ LARGEST RESIDUAL MOMENT            3.148E-03   AT NODE          1   DOF  4
+   INSTANCE:                                                                                 
+ LARGEST INCREMENT OF ROTATION     -1.886E-02   AT NODE        173   DOF  6
+   INSTANCE: CF-2                                                                            
+ LARGEST CORRECTION TO ROTATION    -2.537E-02   AT NODE       1357   DOF  6
+   INSTANCE: CF-1                                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+
+ ***NOTE: THE SOLUTION APPEARS TO BE DIVERGING. CONVERGENCE IS JUDGED UNLIKELY.
+
+
+  INCREMENT     2 STARTS. ATTEMPT NUMBER  5, TIME INCREMENT  9.766E-04
+  
+     ASYNCHRONOUS TRACKING ELEMENT LOOP STARTED
+  
+
+  NUMBER OF EQUATIONS =     30480     NUMBER OF RHS =    1
+  NUMBER OF FLOATING PT. OPERATIONS =  1.02E+11
+
+  USING THE DIRECT SOLVER WITH   6 PROCESSORS
+
+     CHECK POINT   START OF SOLVER    
+
+     CHECK POINT  END OF SOLVER       
+
+       ELAPSED USER TIME (SEC)      =   12.400    
+       ELAPSED SYSTEM TIME (SEC)    =  0.10000    
+       ELAPSED TOTAL CPU TIME (SEC) =   12.500    
+       ELAPSED WALLCLOCK TIME (SEC) =          2
+ 
+
+ ***WARNING: SOLVER PROBLEM. NUMERICAL SINGULARITY WHEN PROCESSING NODE 
+             ASSEMBLY.1 D.O.F. 6 RATIO = 893.047E+09  .
+  
+     ASYNCHRONOUS TRACKING ELEMENT LOOP STARTED
+  
+
+                    5 SEVERE DISCONTINUITIES OCCURRED DURING THIS ITERATION.
+                    2 POINTS CHANGED FROM OPEN TO CLOSED
+                    3 POINTS CHANGED FROM CLOSED TO OPEN
+
+               CONVERGENCE CHECKS FOR SEVERE DISCONTINUITY ITERATION     1
+
+   MAX. PENETRATION ERROR 1.03639E-06 AT NODE BATTERY-1.3507 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATTOP,ASSEMBLY_CF-2_CFBOT)
+   MAX. CONTACT FORCE ERROR -1.79747E-03 AT NODE BATTERY-1.3588 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATTOP,ASSEMBLY_CF-2_CFBOT)
+          THE CONTACT CONSTRAINT ERRORS ARE WITHIN THE TOLERANCES.
+
+ AVERAGE FORCE                      0.105       TIME AVG. FORCE       7.874E-02
+ LARGEST RESIDUAL FORCE            -1.016E-03   AT NODE       3588   DOF  3
+   INSTANCE: BATTERY-1                                                                       
+ LARGEST INCREMENT OF DISP.        -5.519E-03   AT NODE          4   DOF  1
+   INSTANCE: CF-1                                                                            
+ LARGEST CORRECTION TO DISP.       -5.519E-03   AT NODE          4   DOF  1
+   INSTANCE: CF-1                                                                            
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     3.623E-02   TIME AVG. MOMENT      3.563E-02
+ LARGEST RESIDUAL MOMENT            4.708E-05   AT NODE          1   DOF  4
+   INSTANCE:                                                                                 
+ LARGEST INCREMENT OF ROTATION     -5.060E-05   AT NODE        173   DOF  6
+   INSTANCE: CF-2                                                                            
+ LARGEST CORRECTION TO ROTATION    -5.060E-05   AT NODE        173   DOF  6
+   INSTANCE: CF-2                                                                            
+ ESTIMATE OF ROTATION CORRECTION    3.968E-07
+ MOMENT    EQUILIB. ACCEPTED BASED ON SMALL RESIDUAL AND ESTIMATED CORRECTION
+
+  NUMBER OF EQUATIONS =     30480     NUMBER OF RHS =    1
+  NUMBER OF FLOATING PT. OPERATIONS =  1.02E+11
+
+  USING THE DIRECT SOLVER WITH   6 PROCESSORS
+
+     CHECK POINT   START OF SOLVER    
+
+     CHECK POINT  END OF SOLVER       
+
+       ELAPSED USER TIME (SEC)      =   12.000    
+       ELAPSED SYSTEM TIME (SEC)    =   0.0000    
+       ELAPSED TOTAL CPU TIME (SEC) =   12.000    
+       ELAPSED WALLCLOCK TIME (SEC) =          2
+ 
+
+ ***WARNING: SOLVER PROBLEM. NUMERICAL SINGULARITY WHEN PROCESSING NODE 
+             ASSEMBLY.1 D.O.F. 6 RATIO = 876.732E+09  .
+  
+     ASYNCHRONOUS TRACKING ELEMENT LOOP STARTED
+  
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+   MAX. PENETRATION ERROR -1.44258E-12 AT NODE BATTERY-1.252 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATBOT,ASSEMBLY_CF-1_CFTOP)
+   MAX. CONTACT FORCE ERROR -1.79494E-09 AT NODE BATTERY-1.252 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATBOT,ASSEMBLY_CF-1_CFTOP)
+          THE CONTACT CONSTRAINTS HAVE CONVERGED.
+
+ AVERAGE FORCE                      0.105       TIME AVG. FORCE       7.874E-02
+ LARGEST RESIDUAL FORCE             4.215E-06   AT NODE          1   DOF  3
+   INSTANCE:                                                                                 
+ LARGEST INCREMENT OF DISP.         1.146E-02   AT NODE          7   DOF  1
+   INSTANCE: CF-1                                                                            
+ LARGEST CORRECTION TO DISP.        1.695E-02   AT NODE       1663   DOF  1
+   INSTANCE: POLYMER-1                                                                       
+ ESTIMATE OF DISP.    CORRECTION   -3.974E-05
+ FORCE     EQUILIB. ACCEPTED BASED ON SMALL RESIDUAL AND ESTIMATED CORRECTION
+
+ AVERAGE MOMENT                     3.623E-02   TIME AVG. MOMENT      3.563E-02
+ LARGEST RESIDUAL MOMENT            2.993E-05   AT NODE          1   DOF  4
+   INSTANCE:                                                                                 
+ LARGEST INCREMENT OF ROTATION      1.044E-04   AT NODE        173   DOF  6
+   INSTANCE: CF-1                                                                            
+ LARGEST CORRECTION TO ROTATION     1.541E-04   AT NODE        887   DOF  6
+   INSTANCE: CF-2                                                                            
+          ROTATION CORRECTION TOO LARGE COMPARED TO ROTATION INCREMENT
+
+  NUMBER OF EQUATIONS =     30480     NUMBER OF RHS =    1
+  NUMBER OF FLOATING PT. OPERATIONS =  1.02E+11
+
+  USING THE DIRECT SOLVER WITH   6 PROCESSORS
+
+     CHECK POINT   START OF SOLVER    
+
+     CHECK POINT  END OF SOLVER       
+
+       ELAPSED USER TIME (SEC)      =   12.100    
+       ELAPSED SYSTEM TIME (SEC)    =  0.10000    
+       ELAPSED TOTAL CPU TIME (SEC) =   12.200    
+       ELAPSED WALLCLOCK TIME (SEC) =          2
+ 
+
+ ***WARNING: SOLVER PROBLEM. NUMERICAL SINGULARITY WHEN PROCESSING NODE 
+             ASSEMBLY.1 D.O.F. 6 RATIO = 872.398E+09  .
+  
+     ASYNCHRONOUS TRACKING ELEMENT LOOP STARTED
+  
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+   MAX. PENETRATION ERROR 2.95743E-12 AT NODE BATTERY-1.250 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATBOT,ASSEMBLY_CF-1_CFTOP)
+   MAX. CONTACT FORCE ERROR 4.13218E-09 AT NODE BATTERY-1.3418 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATTOP,ASSEMBLY_CF-2_CFBOT)
+          THE CONTACT CONSTRAINTS HAVE CONVERGED.
+
+ AVERAGE FORCE                      0.105       TIME AVG. FORCE       7.874E-02
+ LARGEST RESIDUAL FORCE             7.629E-06   AT NODE        268   DOF  2
+   INSTANCE: BATTERY-1                                                                       
+ LARGEST INCREMENT OF DISP.        -3.729E-02   AT NODE          4   DOF  1
+   INSTANCE: CF-1                                                                            
+ LARGEST CORRECTION TO DISP.       -4.872E-02   AT NODE          1   DOF  1
+   INSTANCE: CF-2                                                                            
+          DISP.    CORRECTION TOO LARGE COMPARED TO DISP.    INCREMENT
+
+ AVERAGE MOMENT                     3.623E-02   TIME AVG. MOMENT      3.563E-02
+ LARGEST RESIDUAL MOMENT            1.617E-05   AT NODE          1   DOF  6
+   INSTANCE:                                                                                 
+ LARGEST INCREMENT OF ROTATION     -3.395E-04   AT NODE        173   DOF  6
+   INSTANCE: CF-2                                                                            
+ LARGEST CORRECTION TO ROTATION    -4.429E-04   AT NODE       1357   DOF  6
+   INSTANCE: CF-1                                                                            
+          ROTATION CORRECTION TOO LARGE COMPARED TO ROTATION INCREMENT
+
+  NUMBER OF EQUATIONS =     30480     NUMBER OF RHS =    1
+  NUMBER OF FLOATING PT. OPERATIONS =  1.02E+11
+
+  USING THE DIRECT SOLVER WITH   6 PROCESSORS
+
+     CHECK POINT   START OF SOLVER    
+
+     CHECK POINT  END OF SOLVER       
+
+       ELAPSED USER TIME (SEC)      =   12.200    
+       ELAPSED SYSTEM TIME (SEC)    =   0.0000    
+       ELAPSED TOTAL CPU TIME (SEC) =   12.200    
+       ELAPSED WALLCLOCK TIME (SEC) =          2
+ 
+
+ ***WARNING: SOLVER PROBLEM. NUMERICAL SINGULARITY WHEN PROCESSING NODE 
+             ASSEMBLY.1 D.O.F. 6 RATIO = 872.118E+09  .
+  
+     ASYNCHRONOUS TRACKING ELEMENT LOOP STARTED
+  
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     3
+
+   MAX. PENETRATION ERROR -18.1155E-12  AT NODE BATTERY-1.252 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATBOT,ASSEMBLY_CF-1_CFTOP)
+   MAX. CONTACT FORCE ERROR -23.0503E-09  AT NODE BATTERY-1.219 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATBOT,ASSEMBLY_CF-1_CFTOP)
+          THE CONTACT CONSTRAINTS HAVE CONVERGED.
+
+ AVERAGE FORCE                      0.105       TIME AVG. FORCE       7.874E-02
+ LARGEST RESIDUAL FORCE            -2.190E-05   AT NODE        268   DOF  2
+   INSTANCE: BATTERY-1                                                                       
+ LARGEST INCREMENT OF DISP.         0.103       AT NODE          7   DOF  1
+   INSTANCE: CF-1                                                                            
+ LARGEST CORRECTION TO DISP.        0.140       AT NODE          1   DOF  1
+   INSTANCE: CF-2                                                                            
+          DISP.    CORRECTION TOO LARGE COMPARED TO DISP.    INCREMENT
+
+ AVERAGE MOMENT                     3.623E-02   TIME AVG. MOMENT      3.563E-02
+ LARGEST RESIDUAL MOMENT           -4.635E-05   AT NODE          1   DOF  6
+   INSTANCE:                                                                                 
+ LARGEST INCREMENT OF ROTATION      9.326E-04   AT NODE        173   DOF  6
+   INSTANCE: CF-1                                                                            
+ LARGEST CORRECTION TO ROTATION     1.271E-03   AT NODE       1357   DOF  6
+   INSTANCE: CF-1                                                                            
+          ROTATION CORRECTION TOO LARGE COMPARED TO ROTATION INCREMENT
+
+  NUMBER OF EQUATIONS =     30480     NUMBER OF RHS =    1
+  NUMBER OF FLOATING PT. OPERATIONS =  1.02E+11
+
+  USING THE DIRECT SOLVER WITH   6 PROCESSORS
+
+     CHECK POINT   START OF SOLVER    
+
+     CHECK POINT  END OF SOLVER       
+
+       ELAPSED USER TIME (SEC)      =   11.800    
+       ELAPSED SYSTEM TIME (SEC)    =   0.0000    
+       ELAPSED TOTAL CPU TIME (SEC) =   11.800    
+       ELAPSED WALLCLOCK TIME (SEC) =          2
+ 
+
+ ***WARNING: SOLVER PROBLEM. NUMERICAL SINGULARITY WHEN PROCESSING NODE 
+             ASSEMBLY.1 D.O.F. 6 RATIO = 881.651E+09  .
+  
+     ASYNCHRONOUS TRACKING ELEMENT LOOP STARTED
+  
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     4
+
+   MAX. PENETRATION ERROR -87.2133E-12  AT NODE BATTERY-1.347 OF CONTACT PAIR 
+   (ASSEMBLY_BATTERY-1_BATBOT,ASSEMBLY_CF-1_CFTOP)
+   MAX. CONTACT FORCE ERROR -133.982E-09   AT NODE BATTERY-1.380 OF CONTACT 
+   PAIR (ASSEMBLY_BATTERY-1_BATBOT,ASSEMBLY_CF-1_CFTOP)
+          THE CONTACT CONSTRAINTS HAVE CONVERGED.
+
+ AVERAGE FORCE                      0.105       TIME AVG. FORCE       7.874E-02
+ LARGEST RESIDUAL FORCE             6.351E-05   AT NODE        268   DOF  2
+   INSTANCE: BATTERY-1                                                                       
+ LARGEST INCREMENT OF DISP.        -0.303       AT NODE          4   DOF  1
+   INSTANCE: CF-1                                                                            
+ LARGEST CORRECTION TO DISP.       -0.406       AT NODE          1   DOF  1
+   INSTANCE: CF-2                                                                            
+          DISP.    CORRECTION TOO LARGE COMPARED TO DISP.    INCREMENT
+
+ AVERAGE MOMENT                     3.623E-02   TIME AVG. MOMENT      3.563E-02
+ LARGEST RESIDUAL MOMENT            1.349E-04   AT NODE          1   DOF  6
+   INSTANCE:                                                                                 
+ LARGEST INCREMENT OF ROTATION     -2.756E-03   AT NODE        173   DOF  6
+   INSTANCE: CF-2                                                                            
+ LARGEST CORRECTION TO ROTATION    -3.687E-03   AT NODE       1357   DOF  6
+   INSTANCE: CF-1                                                                            
+          ROTATION CORRECTION TOO LARGE COMPARED TO ROTATION INCREMENT
+ 
+
+ ***NOTE: THE SOLUTION APPEARS TO BE DIVERGING. CONVERGENCE IS JUDGED UNLIKELY.
+ 
+
+ ***ERROR: TOO MANY ATTEMPTS MADE FOR THIS INCREMENT
+  
+     ASYNCHRONOUS TRACKING ELEMENT LOOP STARTED
+  
+ 
+
+ ***WARNING: SOLVER PROBLEM. NUMERICAL SINGULARITY WHEN PROCESSING NODE 
+             ASSEMBLY.1 D.O.F. 6 RATIO = 110.696E+09  .
+
+ ***ERROR: THE ANALYSIS HAS BEEN TERMINATED DUE TO PREVIOUS ERRORS. ALL OUTPUT 
+           REQUESTS HAVE BEEN WRITTEN FOR THE LAST CONVERGED INCREMENT.
+
+
+
+     ANALYSIS SUMMARY:
+     TOTAL OF          2  INCREMENTS
+                       6  CUTBACKS IN AUTOMATIC INCREMENTATION
+                      81  ITERATIONS INCLUDING CONTACT ITERATIONS IF PRESENT
+                      81  PASSES THROUGH THE EQUATION SOLVER OF WHICH 
+                      81  INVOLVE MATRIX DECOMPOSITION, INCLUDING
+                       0  DECOMPOSITION(S) OF THE MASS MATRIX
+                       1  REORDERING OF EQUATIONS TO MINIMIZE WAVEFRONT
+                       0  ADDITIONAL RESIDUAL EVALUATIONS FOR LINE SEARCHES
+                       0  ADDITIONAL OPERATOR EVALUATIONS FOR LINE SEARCHES
+                       0  WARNING MESSAGES DURING USER INPUT PROCESSING
+                      81  WARNING MESSAGES DURING ANALYSIS
+                      81  ANALYSIS WARNINGS ARE NUMERICAL PROBLEM MESSAGES
+                       0  ANALYSIS WARNINGS ARE NEGATIVE EIGENVALUE MESSAGES
+                       2  ERROR MESSAGES
+
+
+
+     JOB TIME SUMMARY
+       USER TIME (SEC)      =   1232.1    
+       SYSTEM TIME (SEC)    =   16.500    
+       TOTAL CPU TIME (SEC) =   1248.6    
+       WALLCLOCK TIME (SEC) =        242

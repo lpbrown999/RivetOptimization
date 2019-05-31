@@ -274,7 +274,7 @@ def define_contact(num_rivets):
     m = mdb.models['Model-1']
     a = m.rootAssembly
     tol = 1.0
-    #Define contact property
+    # Define contact property
     contact_prop = m.ContactProperty('NormCont')
     contact_prop.NormalBehavior( allowSeparation=ON, constraintEnforcementMethod=DEFAULT, 
         pressureOverclosure=HARD)
@@ -419,7 +419,11 @@ def create_job(name='Job-1', description='',variables=('U','UT','UR')):
         memoryUnits=PERCENTAGE, getMemoryFromAnalysis=True, 
         explicitPrecision=SINGLE, nodalOutputPrecision=SINGLE, echoPrint=OFF, 
         modelPrint=OFF, contactPrint=OFF, historyPrint=OFF, userSubroutine='', 
-        scratch='', resultsFormat=ODB)
+        scratch='', resultsFormat=ODB,
+        parallelizationMethodExplicit=DOMAIN, 
+        numDomains=6, activateLoadBalancing=False, multiprocessingMode=DEFAULT, 
+        numCpus=6, numGPUs=0)
+    
     mdb.models['Model-1'].fieldOutputRequests['F-Output-1'].setValues(variables=variables)
     return True
 
@@ -430,6 +434,10 @@ def write_inp(name='Job-1'):
 def run_model(name='Job-1',description=''):
     mdb.jobs[name].submit(consistencyChecking=OFF)
     mdb.jobs[name].waitForCompletion()
+    return True
+
+def save_cae(name='Job-1'):
+    mdb.saveAs(pathName=name)
     return True
 
 ## Helper functions

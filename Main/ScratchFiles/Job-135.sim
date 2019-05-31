@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2009 -->
+<manifest>
+    <focusFile fileBinary="Job-135.simdir\Job-135.1.SMAFocus"/>
+    <bulkFile bulkid="0" fileBinary="Job-135.2.SMABulk"/>
+    <bulkFile bulkid="1" fileBinary="Job-135.1.SMABulk"/>
+</manifest>

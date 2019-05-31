@@ -87,30 +87,9 @@ def optimize(f,num_rivets,neval, nrestarts):
 
     return best
 
-def quad_penalty(cs):
+def quad_penalty(cs,p):
     #cs: vector of constraints s.t. c <= 0
     penalty = 0
     for c in cs:
         penalty += max(0,c)**2
-    return penalty
-
-def compute_separation(xs,ys,rs):
-    m = int(len(xs))
-    num_pairs = int(m*(m-1)/2)
-
-    pairwise_distances = np.zeros(num_pairs)
-    separation = np.zeros(num_pairs)
-
-    idx = 0
-    for i in range(0,m):
-        for j in range(i,m):
-            if i == j:
-                continue
-                # pairwise_distances[idx] = np.inf
-                # gap_size[idx] = tol+rs[i]+rs[j]-pairwise_distances[idx]
-                # idx += 1
-            else:
-                pairwise_distances[idx] = np.sqrt( (xs[j]-xs[i])**2 + (ys[j]-ys[i])**2 )
-                separation[idx] = pairwise_distances[idx]-rs[i]-rs[j]
-                idx += 1
-    return separation
+    return p*penalty

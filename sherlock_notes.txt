@@ -1,0 +1,28 @@
+##Notes on how to use sherlock
+
+1) In windows powershell, start a ubuntu terminal "ubuntu"
+2) Login to Sherlock: ssh lpbrown@login.sherlock.stanford.edu
+
+
+## Data transfer
+
+1) CD into target folder ex"/mnt/c/users/lpbro/gitrepos/RivetOptimization/JobFiles" 
+2) scp <source_file_path> <username>@<remote_host>:<destination_path>'
+3) To transfer file, add -r after scp
+4) To fix windows files, do dos2unix filename. 
+
+# ~ indicates user directory. so /home/users/lpbrown/JobFiles is ~/JobFiles
+# to copy "scp /path/to/my/file lpbrown@login.sherlock.stanford.edu:~/folder/filename"
+# to retrieve "scp lpbrown@login.sherlock.stanford.edu:~/folder/filename /path/to/local/filename"
+
+## Job submission for abaqus
+1) MUST run with interactive flag or else job does nothing.
+2) This works when running on the login node
+3) If i run on a batch job, I get an errror.
+
+## Thoughts
+# Think about how maybe I should have my python script create a bash job rather than a subprocess.
+
+#Could be like "bash script -> abaqus cae nogui=script.py", generates inp
+#Then next bash script -> abaqus job=Job-1, runs job
+#Then next bash script -> abaqus cae=script.py, loads from odb

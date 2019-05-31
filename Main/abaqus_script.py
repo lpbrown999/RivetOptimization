@@ -60,7 +60,8 @@ def abaqus_run_job(jobname,xs,ys,rs):
     create_job(name=jobname, variables=('U','UT','UR','EVOL'))
     write_inp(name=jobname)
     run_model(name=jobname)
-
+    save_cae(name=jobname)
+    
     #Sleep to let abaqus finish cleaning up the model that just ran before we query it
     time.sleep(5)
 
@@ -70,20 +71,20 @@ def abaqus_run_job(jobname,xs,ys,rs):
     G = simple_sandwich_theory_G(delta, cellW=cellW, cellL=cellL, layup=face_layup, t_ply=t_ply, t_bat=t_bat, load=load)
     battery_volume = get_part_volume('Battery')
 
-    return [battery_volume, G]
+    return [jobname, battery_volume, G]
 
 if __name__ == "__main__":
 
     vec = np.genfromtxt(os.getcwd()+'/InpFiles/input_vec.csv', delimiter=',')[-1]
-    os.chdir('ScratchFiles')
-    total_length = len(vec)
-    n = int(total_length/3)
-    
-    xs = vec[0*n:1*n]
-    ys = vec[1*n:2*n]
-    rs = vec[2*n:3*n]
+    jobname = vec[0]
+    inpvec = vec[1:]
 
-    jobname = sys.argv[-1]
+    n = int(len(inpvec)/3)    
+    xs = inpvec[0*n:1*n]
+    ys = inpvec[1*n:2*n]
+    rs = inpvec[2*n:3*n]
+
+    os.chdir('ScratchFiles')
     output_vec = abaqus_run_job(jobname,xs,ys,rs)
     os.chdir('..')
 
