@@ -1,14 +1,16 @@
 import re
+import os
 import numpy as np
+import csv
 
-def get_jobname()
+def get_jobname():
     mylist = [item for item in os.listdir(os.getcwd()+'/InpFiles/') if item.endswith(".inp")] 
     myints = [int(re.findall(r'\b\d+\b',item)[0]) for item in mylist]
     if not myints:
         myints.append(0)
     jobname = "Job-"+str(max(myints)+1)
     return jobname
-    
+
 def compute_separation(xs,ys,rs):
     m = int(len(xs))
     num_pairs = int(m*(m-1)/2)
@@ -29,3 +31,12 @@ def compute_separation(xs,ys,rs):
                 separation[idx] = pairwise_distances[idx]-rs[i]-rs[j]
                 idx += 1
     return separation
+
+def read_full_csv(file):
+    with open(file) as f:
+        reader = csv.reader(f,delimiter=',')
+        data = []
+        for row in reader:
+            if row:
+              data.append(row)
+    return data
